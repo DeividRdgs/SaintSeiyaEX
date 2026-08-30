@@ -262,13 +262,7 @@ function showHeroDetail(id) {
           ${dmg.name ? `<span class="hero-tag" style="border-color: ${dmg.color}; color: ${dmg.color}">${dmg.icon} ${ui('hero.damage')} ${t(dmg,'name')}</span>` : ''}
           ${(h.tags||[]).map(tg => `<span class="hero-tag">${tg}</span>`).join('')}
         </div>
-        <div class="hero-bio">${bioH||''}</div>
-        <div class="stats-grid">
-          <div class="stat-box"><div class="stat-label">${ui('stat.atk')}</div><div class="stat-value">${h.stats.atk.toLocaleString()}</div></div>
-          <div class="stat-box"><div class="stat-label">${ui('stat.def')}</div><div class="stat-value">${h.stats.def.toLocaleString()}</div></div>
-          <div class="stat-box"><div class="stat-label">${ui('stat.hp')}</div><div class="stat-value">${h.stats.hp.toLocaleString()}</div></div>
-          <div class="stat-box"><div class="stat-label">${ui('stat.spd')}</div><div class="stat-value">${h.stats.vel}</div></div>
-        </div>
+        ${bioH && !bioH.includes('Ajuste esta descrição') ? `<div class="hero-bio">${bioH}</div>` : ''}
       </div>
     </div>
     <h2 class="codex-section-title">${ui('hero.abilities')}</h2>
