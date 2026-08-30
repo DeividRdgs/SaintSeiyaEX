@@ -330,10 +330,10 @@ function enviarCodigo(params, ctx) {
       name: 'Legião TRIADE'
     });
 
-    logEvent('code_sent', {nick: params.nick, email: email, detalhes: 'Código de verificação enviado'});
+    logEvent('code_sent', {nick: params.nick, email: email, detalhes: 'Código de verificação enviado'}, ss);
     return jsonResponse({ok: true, message: 'Código enviado para ' + maskEmail(email), expiraEm: 15});
   } catch(emailErr) {
-    logEvent('code_send_fail', {nick: params.nick, email: email, detalhes: emailErr.toString().substring(0, 200)});
+    logEvent('code_send_fail', {nick: params.nick, email: email, detalhes: emailErr.toString().substring(0, 200)}, ss);
     return jsonResponse({ok: false, error: 'Erro ao enviar email. Limite diário pode ter sido atingido (100/dia).'});
   }
 }
@@ -460,7 +460,7 @@ function atualizarPoder(params, ctx) {
   if (senha) {
     var rateLimitErr = checkSenhaRateLimit();
     if (rateLimitErr) {
-      logEvent('rate_limit', {nick: nick, detalhes: 'Bloqueio ativo durante tentativa de atualização' + (usuarioLogadoCtx ? ' | usuário logado: ' + usuarioLogadoCtx : '')});
+      logEvent('rate_limit', {nick: nick, detalhes: 'Bloqueio ativo durante tentativa de atualização' + (usuarioLogadoCtx ? ' | usuário logado: ' + usuarioLogadoCtx : '')}, ss);
       return jsonResponse(rateLimitErr);
     }
   }
@@ -470,7 +470,7 @@ function atualizarPoder(params, ctx) {
 
   if (senha && !isMaster && !isAdmin) {
     registrarTentativaFalha(senha, usuarioLogadoCtx);
-    logEvent('login_fail', {nick: nick, detalhes: 'Senha incorreta' + (usuarioLogadoCtx ? ' | usuário logado: ' + usuarioLogadoCtx : '')});
+    logEvent('login_fail', {nick: nick, detalhes: 'Senha incorreta' + (usuarioLogadoCtx ? ' | usuário logado: ' + usuarioLogadoCtx : '')}, ss);
   }
 
   // ═══ Senha admin agora exige usuário logado E que ele seja líder ═══
@@ -479,7 +479,7 @@ function atualizarPoder(params, ctx) {
   if (isAdmin && !isMaster) {
     if (!authToken) {
       registrarTentativaFalha(senha, '(sem login) senha-admin tentada para nick ' + nick);
-      logEvent('security', {nick: nick, detalhes: 'Senha admin usada sem login'});
+      logEvent('security', {nick: nick, detalhes: 'Senha admin usada sem login'}, ss);
       return jsonResponse({ok: false, error: 'Faça login como líder para usar a senha de líder.'});
     }
     var authCheck = getEmailFromAuthToken(ss, authToken);
@@ -492,7 +492,7 @@ function atualizarPoder(params, ctx) {
       logEvent('security', {
         nick: nick, email: maskEmail(authCheck.email),
         detalhes: 'Usuário não-líder tentou usar senha de líder: ' + (usuarioLogadoCtx || '(sem ctx)')
-      });
+      }, ss);
       return jsonResponse({ok: false, error: 'Apenas líderes podem usar a senha de líder.'});
     }
     liderValidado = true;
@@ -509,12 +509,12 @@ function atualizarPoder(params, ctx) {
   } else if (token && email) {
     var tokenValido = validarToken(ss, email, nick, token);
     if (!tokenValido) {
-      logEvent('session_expired', {nick: nick, email: email, detalhes: 'Token inválido/expirado'});
+      logEvent('session_expired', {nick: nick, email: email, detalhes: 'Token inválido/expirado'}, ss);
       return jsonResponse({ok: false, error: 'Sessão expirou. Solicite um novo código.', sessionExpired: true});
     }
 
     if (emailVinculado && email !== emailVinculado) {
-      logEvent('update_fail', {nick: nick, email: email, detalhes: 'Tentou usar email diferente do vinculado'});
+      logEvent('update_fail', {nick: nick, email: email, detalhes: 'Tentou usar email diferente do vinculado'}, ss);
       return jsonResponse({ok: false, error: 'Email não corresponde.', locked: true});
     }
 
@@ -522,12 +522,12 @@ function atualizarPoder(params, ctx) {
   } else if (codigo && email) {
     var validacao = validarCodigo(ss, email, nick, codigo);
     if (!validacao.ok) {
-      logEvent('code_invalid', {nick: nick, email: email, detalhes: validacao.error});
+      logEvent('code_invalid', {nick: nick, email: email, detalhes: validacao.error}, ss);
       return jsonResponse({ok: false, error: validacao.error});
     }
 
     if (emailVinculado && email !== emailVinculado) {
-      logEvent('update_fail', {nick: nick, email: email, detalhes: 'Email diferente do vinculado (via código)'});
+      logEvent('update_fail', {nick: nick, email: email, detalhes: 'Email diferente do vinculado (via código)'}, ss);
       return jsonResponse({ok: false, error: 'Email não corresponde.', locked: true});
     }
 
@@ -550,7 +550,7 @@ function atualizarPoder(params, ctx) {
   var origemFinal = origem + (emailVinculadoAgora ? ' [VINCULOU EMAIL]' : '');
   histSheet.appendRow([now, nick, oldPower, newPower, origemFinal, email || '']);
 
-  logEvent('update_ok', {nick: nick, email: email, detalhes: oldPower + ' → ' + newPower + ' (' + origemFinal + ')'});
+  logEvent('update_ok', {nick: nick, email: email, detalhes: oldPower + ' → ' + newPower + ' (' + origemFinal + ')'}, ss);
 
   var posicao = 1;
   var totalPlayers = 0;
@@ -1303,9 +1303,9 @@ function statusRateLimit() {
 //  LOGS
 // ========================================================
 
-function logEvent(tipo, dados) {
+function logEvent(tipo, dados, ssArg) {
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = ssArg || SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ss.getSheetByName('Logs');
     if (!sheet) {
       sheet = ss.insertSheet('Logs');
@@ -1539,7 +1539,7 @@ function validarSenhaComLider(ss, senha, authToken) {
     logEvent('security', {
       email: maskEmail(auth.email),
       detalhes: 'Usuário não-líder tentou usar senha de líder: ' + (ctxUsuario || '(sem ctx)')
-    });
+    }, ss);
     return {ok: false, error: 'Apenas líderes podem usar a senha de líder.', ctxUsuario: ctxUsuario};
   }
 
@@ -1576,7 +1576,7 @@ function abrirVotacao(params, ctx) {
   var msg = 'Cavaleiro: ' + heroName + ' (id ' + heroId + ')';
   if (duracaoMin > 0) msg += ' · auto-fecha em ' + duracaoMin + 'min';
   if (ctxUsuario) msg += ' | por: ' + ctxUsuario;
-  logEvent('votacao_aberta', {detalhes: msg});
+  logEvent('votacao_aberta', {detalhes: msg}, ss);
 
   return jsonResponse({ok: true, heroId: heroId, heroName: heroName, abertaEm: now, duracao: duracaoMin, fechaEmTs: fechaEmTs});
 }
@@ -1618,7 +1618,7 @@ function fecharVotacao(params, ctx) {
 
   var detalhes = heroName + ' → ' + vencedora + ' (' + total + ' votos)';
   if (ctxUsuario) detalhes += ' | por: ' + ctxUsuario;
-  logEvent('votacao_fechada', {detalhes: detalhes});
+  logEvent('votacao_fechada', {detalhes: detalhes}, ss);
 
   return jsonResponse({ok: true, heroId: heroId, heroName: heroName, total: total, vencedora: vencedora, resultados: contagem});
 }
@@ -1730,7 +1730,7 @@ function fecharVotacaoAuto(ss) {
     contagem.S, contagem.A, contagem.B, contagem.C, contagem.D]);
   sheets.ativa.deleteRows(2, sheets.ativa.getLastRow() - 1);
   if (sheets.votos.getLastRow() > 1) sheets.votos.deleteRows(2, sheets.votos.getLastRow() - 1);
-  logEvent('votacao_auto_fechada', {detalhes: heroName + ' → ' + vencedora + ' (' + total + ' votos, timer expirou)'});
+  logEvent('votacao_auto_fechada', {detalhes: heroName + ' → ' + vencedora + ' (' + total + ' votos, timer expirou)'}, ss);
   return {heroId: heroId, heroName: heroName, total: total, vencedora: vencedora, resultados: contagem};
 }
 
@@ -1771,7 +1771,7 @@ function cancelarVotacao(params, ctx) {
 
   var detalhes = heroName + ' (sem salvar no histórico)';
   if (ctxUsuario) detalhes += ' | por: ' + ctxUsuario;
-  logEvent('votacao_cancelada', {detalhes: detalhes});
+  logEvent('votacao_cancelada', {detalhes: detalhes}, ss);
 
   return jsonResponse({ok: true, heroName: heroName, canceled: true});
 }
@@ -1920,12 +1920,12 @@ function authRegister(params, ctx) {
 
   var blockEmail = checkActionRateLimit('register_email:' + email, AUTH_RATE_REGISTER_MIN * 60 * 1000);
   if (blockEmail) {
-    logEvent('rate_limit', {email: maskEmail(email), detalhes: 'Cadastro: muitas tentativas'});
+    logEvent('rate_limit', {email: maskEmail(email), detalhes: 'Cadastro: muitas tentativas'}, ctx.ss);
     return jsonResponse(blockEmail);
   }
   var blockGlobal = checkGlobalRateLimit('register_global', 10, 5 * 60 * 1000);
   if (blockGlobal) {
-    logEvent('rate_limit', {detalhes: 'Cadastro: limite global atingido'});
+    logEvent('rate_limit', {detalhes: 'Cadastro: limite global atingido'}, ctx.ss);
     return jsonResponse(blockGlobal);
   }
 
@@ -1979,7 +1979,7 @@ function authRegister(params, ctx) {
   var now = Utilities.formatDate(new Date(), TZ, 'dd/MM/yyyy HH:mm:ss');
   sheets.users.appendRow([email, senhaHash, salt, nick, '', 'pendente', now, '', '', '']);
   markActionRateLimit('register_email:' + email);
-  logEvent('auth_register', {email: maskEmail(email), detalhes: 'Nick: ' + nick});
+  logEvent('auth_register', {email: maskEmail(email), detalhes: 'Nick: ' + nick}, ss);
 
   try { notificarDiscordNovoCadastro(email, nick, now, ss); }
   catch(e) { Logger.log('Falha Discord: ' + e.toString()); }
@@ -1990,7 +1990,7 @@ function authRegister(params, ctx) {
 function authGetNicksDisponiveis(params, ctx) {
   var block = checkGlobalRateLimit('getnicks_global', 30, 60 * 1000);
   if (block) {
-    logEvent('rate_limit', {detalhes: 'getNicks: scraping detectado'});
+    logEvent('rate_limit', {detalhes: 'getNicks: scraping detectado'}, ctx.ss);
     return jsonResponse({ok: false, error: 'Muitas requisições. Tente novamente em instantes.'});
   }
   var ss = ctx.ss;
@@ -2065,7 +2065,7 @@ function authLogin(params) {
     // Já sei o nick do dono do email (apesar de não ser "logado", é alguém tentando logar como ele)
     var nickAlvo = user.data[3] ? String(user.data[3]) : '(sem nick)';
     registrarTentativaFalha(senha, 'login: ' + nickAlvo + ' (' + maskEmail(email) + ')');
-    logEvent('auth_login_fail', {email: maskEmail(email)});
+    logEvent('auth_login_fail', {email: maskEmail(email)}, ss);
     return jsonResponse({ok: false, error: 'Email ou senha inválidos'});
   }
   limparTentativasFalha();
@@ -2078,7 +2078,7 @@ function authLogin(params) {
   var expiraStr = Utilities.formatDate(expira, TZ, 'dd/MM/yyyy HH:mm:ss');
   sheets.sessions.appendRow([token, email, nowStr, expiraStr, '']);
   sheets.users.getRange(user.row, 10).setValue(nowStr);
-  logEvent('auth_login_ok', {email: maskEmail(email)});
+  logEvent('auth_login_ok', {email: maskEmail(email)}, ss);
 
   var isLeader = false;
   var liderVal = user.data[10];
@@ -2190,7 +2190,7 @@ function authForgotPassword(params) {
   } catch(e) {
     return jsonResponse({ok: false, error: 'Falha ao enviar email: ' + e.toString()});
   }
-  logEvent('auth_forgot_sent', {email: maskEmail(email)});
+  logEvent('auth_forgot_sent', {email: maskEmail(email)}, ss);
   markActionRateLimit('forgot_email:' + email);
   return jsonResponse({ok: true, message: 'Código enviado por email. Verifique sua caixa de entrada.'});
 }
@@ -2230,7 +2230,7 @@ function authResetPassword(params) {
   for (var i = sessionsData.length - 1; i >= 1; i--) {
     if (String(sessionsData[i][1]).toLowerCase() === email) sheets.sessions.deleteRow(i + 1);
   }
-  logEvent('auth_password_reset', {email: maskEmail(email)});
+  logEvent('auth_password_reset', {email: maskEmail(email)}, ss);
   return jsonResponse({ok: true, message: 'Senha redefinida! Faça login com a nova senha.'});
 }
 
@@ -2309,7 +2309,7 @@ function authApproveUser(params, ctx) {
   sheets.users.getRange(user.row, 6).setValue('aprovado');
   sheets.users.getRange(user.row, 8).setValue(now);
   sheets.users.getRange(user.row, 9).setValue(aprovadoPor);
-  logEvent('auth_approved', {email: maskEmail(email), detalhes: 'Guilda: ' + guilda + ' | por: ' + aprovadoPor});
+  logEvent('auth_approved', {email: maskEmail(email), detalhes: 'Guilda: ' + guilda + ' | por: ' + aprovadoPor}, ss);
 
   try {
     MailApp.sendEmail({
@@ -2358,7 +2358,7 @@ function authDenyUser(params, ctx) {
   sheets.users.getRange(user.row, 6).setValue('negado');
   sheets.users.getRange(user.row, 8).setValue(now);
   sheets.users.getRange(user.row, 9).setValue(negadoPor);
-  logEvent('auth_denied', {email: maskEmail(email), detalhes: 'por: ' + negadoPor});
+  logEvent('auth_denied', {email: maskEmail(email), detalhes: 'por: ' + negadoPor}, ss);
   return jsonResponse({ok: true, message: 'Cadastro negado'});
 }
 
@@ -2460,8 +2460,8 @@ function escapeHtml(str) {
 
 var RELATORIO_JANELA_DIAS = 14;
 
-function montarRelatorioAtualizacoes() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+function montarRelatorioAtualizacoes(ssArg) {
+  var ss = ssArg || SpreadsheetApp.getActiveSpreadsheet();
   var TZ = 'America/Sao_Paulo';
   var agora = new Date();
   var limiteMs = agora.getTime() - (RELATORIO_JANELA_DIAS * 24 * 60 * 60 * 1000);
@@ -2529,8 +2529,8 @@ function montarRelatorioAtualizacoes() {
   };
 }
 
-function enviarRelatorioAtualizacoesDiscord() {
-  var rel = montarRelatorioAtualizacoes();
+function enviarRelatorioAtualizacoesDiscord(ssArg) {
+  var rel = montarRelatorioAtualizacoes(ssArg);
   var totalAtualizados = rel.atualizados.length;
   var totalPendentes = rel.pendentes.length;
   var totalNunca = rel.nuncaAtualizaram.length;
@@ -2563,8 +2563,8 @@ function enviarRelatorioAtualizacoesDiscord() {
       footer: { text: 'TRIADE · 🛡 Cavaleiros, mantenham o poder em dia!' },
       timestamp: new Date().toISOString()
     }]
-  });
-  logEvent('relatorio_disparado', {detalhes: 'Total: ' + rel.total + ' | Atualizados: ' + totalAtualizados + ' | Pendentes: ' + totalPendentes + ' | Nunca: ' + totalNunca});
+  }, ssArg);
+  logEvent('relatorio_disparado', {detalhes: 'Total: ' + rel.total + ' | Atualizados: ' + totalAtualizados + ' | Pendentes: ' + totalPendentes + ' | Nunca: ' + totalNunca}, ssArg);
   return rel;
 }
 
@@ -2591,7 +2591,7 @@ function relatorioDispararAgora(params, ctx) {
   var sheets = ensureAuthSheets(ss);
   if (!isUserLeader(sheets.users, auth.email)) return jsonResponse({ok: false, error: 'Apenas líderes podem disparar relatório.'});
   try {
-    var rel = enviarRelatorioAtualizacoesDiscord();
+    var rel = enviarRelatorioAtualizacoesDiscord(ss);
     return jsonResponse({
       ok: true, message: 'Relatório enviado pro Discord!',
       stats: {total: rel.total, atualizados: rel.atualizados.length, pendentes: rel.pendentes.length, nuncaAtualizaram: rel.nuncaAtualizaram.length}
