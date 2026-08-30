@@ -6659,6 +6659,27 @@
     max-width: 15ch;
   }
   .bnx-name-soon { color: #b6ad93; font-style: italic; letter-spacing: .06em; }
+  /* selo PENDENTE — heróis que ainda não chegaram no servidor global */
+  .bnx-pending {
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(16, 8, 20, .82);
+    border: 1px solid #f0c95c;
+    color: #f7d872;
+    font-size: clamp(.4rem, .78vw, .62rem);
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0,0,0,.5);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .bnx-is-pending .bnx-art { filter: saturate(.6) brightness(.72); }
   .bnx-tkt {
     position: relative;
     max-width: 1080px;

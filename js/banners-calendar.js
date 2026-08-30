@@ -15,6 +15,8 @@ const BANNER_CALENDAR = {
     1029, 1094, 1055, 1083, 1042, 1030, 1089, 1003, 1086, 1071, 1095, 1046, 1051, 1001,
     1021, 1014, 1092, 1085, 1048, 1032, 1043, 1061, 1084, 1064, 1019, 1073, 1078, 1066,
   ],
+  // heróis que ainda não chegaram no servidor global (mostram o selo PENDENTE)
+  pending: [1064, 1019, 1073, 1078, 1066],
   emptySlots: 14,
 };
 
@@ -61,19 +63,23 @@ function renderBannersCalendar() {
   var grid = document.getElementById('bnxGrid');
   if (!grid || typeof CODEX_HEROES === 'undefined') return;
 
+  var pendingList = BANNER_CALENDAR.pending || [];
+  var pendLabel = _bnxEsc(_bnxUi('banners.pending', 'Pendente'));
   var html = '';
   (BANNER_CALENDAR.heroIds || []).forEach(function (id) {
     var h = CODEX_HEROES.find(function (x) { return x.id === id; });
     if (!h) return;
     var nome = _bnxEsc(_bnxName(h));
     var badge = h.rarity === 'ur' ? 'badge-ur' : 'badge-ssr';
+    var isPending = pendingList.indexOf(id) !== -1;
     html +=
-      '<div class="bnx-cell" role="button" tabindex="0" ' +
+      '<div class="bnx-cell' + (isPending ? ' bnx-is-pending' : '') + '" role="button" tabindex="0" ' +
         'onclick="navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')" ' +
         'onkeydown="if(event.key===\'Enter\'){navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')}">' +
         '<div class="bnx-frame">' +
           '<img class="bnx-art" src="img/banners/framed/' + h.id + '.webp" alt="" decoding="async" ' +
             'onerror="bnxArtFallback(this,' + h.id + ')">' +
+          (isPending ? '<span class="bnx-pending">' + pendLabel + '</span>' : '') +
         '</div>' +
         '<div class="bnx-name">' + nome + '</div>' +
       '</div>';
