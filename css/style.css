@@ -1949,9 +1949,11 @@
   .codex-card-framed .hero-portrait .rays,
   .codex-card-framed .hero-rarity-badge{ display: none !important; }
   .codex-card-framed:hover .hero-portrait{ filter: drop-shadow(0 8px 16px rgba(0,0,0,.55)); }
-  /* cards de cavaleiro (moldura heroskin dssz): proporção da moldura + selo de facção visível */
+  /* cards de cavaleiro (moldura heroskin dssz): proporção da moldura;
+     esconde os selos antigos (facção e raridade) — a moldura já indica a raridade */
   .codex-card-knight .hero-portrait{ aspect-ratio: 336 / 576; }
-  .codex-card-knight .hero-faction-badge{ display: block; z-index: 3; }
+  .codex-card-knight .hero-faction-badge,
+  .codex-card-knight .hero-rarity-badge{ display: none !important; }
   .hero-portrait img{
     position:absolute;
     inset:0;
