@@ -87,8 +87,9 @@ function heroCardHTML(h, onClickAttr = `onclick="showHeroDetail(${h.id})"`) {
   const fac = CODEX_FACTIONS[h.faction] || { color: '#888', icon: '?' };
   const portraitClass = h.image ? 'hero-portrait has-image' : 'hero-portrait';
   const nomeIdioma = t(h, 'name');
+  // usa a arte de corpo inteiro do jogo (img/banners/hd); cai no retrato se faltar
   const portraitInner = h.image
-    ? `<img src="${h.image}" alt="${nomeIdioma}" loading="lazy" decoding="async" />`
+    ? `<img src="img/banners/hd/${h.id}.webp" alt="${nomeIdioma}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${h.image}';" />`
     : `<span class="glyph">${h.glyph || '⚔️'}</span>`;
   return `
     <div class="hero-card codex-card r-${h.rarity}" ${onClickAttr} style="cursor:pointer;">
