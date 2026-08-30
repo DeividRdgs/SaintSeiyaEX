@@ -6214,3 +6214,79 @@ async function elencoRemove(nick, vinculado) {
     else elencoShowMsg(data.error || 'Erro', 'error');
   } catch (err) { elencoShowMsg(ui('auth.connectionError'), 'error'); }
 }
+
+// ════════════ SUB-ABA GUILDAS (aprovação pelo admin do site) ════════════
+function guildasShowMsg(msg, type) {
+  const el = document.getElementById('guildasMsg');
+  if (el) { el.textContent = msg || ''; el.className = 'auth-msg ' + (type || ''); }
+}
+
+async function initGuildasTab() {
+  const lista = document.getElementById('guildasLista');
+  if (!lista) return;
+  if (!isLoggedIn() || !_authState.user.siteAdmin) {
+    lista.innerHTML = `<div class="pending-hint">${ui('guildas.adminOnly')}</div>`;
+    return;
+  }
+  lista.innerHTML = `<div class="pending-hint">${ui('generic.loading')}</div>`;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'guildListPending', authToken: _authState.token })
+    });
+    const data = await res.json();
+    if (!data.ok) { lista.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
+    let html = `<h3 style="margin-top:8px;">${ui('guildas.pendingTitle')}</h3>`;
+    if (!data.pendentes.length) {
+      html += `<div class="pending-hint">${ui('guildas.noPending')}</div>`;
+    } else {
+      html += data.pendentes.map(p => {
+        const slug = String(p.slug).replace(/"/g, '&quot;');
+        const nome = String(p.nome).replace(/</g, '&lt;');
+        const nick = String(p.nickLider).replace(/</g, '&lt;');
+        const email = String(p.email).replace(/</g, '&lt;');
+        return `<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,.08);">` +
+          `<span><strong>${nome}</strong><br><small>${ui('guildas.leader')}: ${nick} · ${email} · ${p.criadaEm}</small></span>` +
+          `<span style="display:flex;gap:6px;">` +
+            `<button class="auth-btn primary" onclick="guildasApprove('${slug}')">✓ ${ui('guildas.approveBtn')}</button>` +
+            `<button class="auth-btn" onclick="guildasDeny('${slug}')">✕ ${ui('guildas.denyBtn')}</button>` +
+          `</span></div>`;
+      }).join('');
+    }
+    html += `<h3 style="margin-top:20px;">${ui('guildas.activeTitle')} (${data.ativas.length})</h3>` +
+      data.ativas.map(a => `<div style="padding:6px 4px;">🏰 ${String(a.nome).replace(/</g, '&lt;')} <small style="opacity:.6">/${String(a.slug).replace(/</g, '&lt;')}</small></div>`).join('');
+    lista.innerHTML = html;
+  } catch (err) {
+    lista.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
+  }
+}
+
+async function guildasApprove(slug) {
+  if (!confirm(ui('guildas.confirmApprove'))) return;
+  guildasShowMsg(ui('guildas.working'), '');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'guildApprove', authToken: _authState.token, slug })
+    });
+    const data = await res.json();
+    guildasShowMsg(data.ok ? data.message : (data.error || 'Erro'), data.ok ? 'success' : 'error');
+    if (data.ok) initGuildasTab();
+  } catch (err) { guildasShowMsg(ui('auth.connectionError'), 'error'); }
+}
+
+async function guildasDeny(slug) {
+  if (!confirm(ui('guildas.confirmDeny'))) return;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'guildDeny', authToken: _authState.token, slug })
+    });
+    const data = await res.json();
+    guildasShowMsg(data.ok ? data.message : (data.error || 'Erro'), data.ok ? 'success' : 'error');
+    if (data.ok) initGuildasTab();
+  } catch (err) { guildasShowMsg(ui('auth.connectionError'), 'error'); }
+}
