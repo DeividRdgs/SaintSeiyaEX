@@ -6592,7 +6592,7 @@
   .bnx-frame {
     position: relative;
     width: 100%;
-    aspect-ratio: 448 / 692;
+    aspect-ratio: 316 / 880;
     transition: transform .18s ease, filter .18s ease;
     filter: drop-shadow(0 3px 6px rgba(0,0,0,.5));
   }
