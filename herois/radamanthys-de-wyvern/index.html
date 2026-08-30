@@ -1059,24 +1059,42 @@ Avança na direção do inimigo mais próximo por uma certa distância; durante 
         <div class="sub" data-i18n="banners.subtitle">Previsão da ordem de banners no servidor global</div>
       </div>
 
-      <div class="banners-intro">
-        <p data-i18n="banners.note">📌 <strong>Nota importante:</strong> O servidor global segue como referência a ordem de lançamentos do <strong>servidor de Taiwan</strong>, não da China.</p>
-        <p data-i18n="banners.clickHint">Clique na imagem para ampliar.</p>
-      </div>
+      <!-- poster do calendário (cards em img/banners/, lista em js/banners-calendar.js) -->
+      <div class="bnx-poster">
+        <div class="bnx-rays" aria-hidden="true"></div>
+        <img class="bnx-orn bnx-orn-tl" src="img/banners/orn-tl.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="bnx-orn bnx-orn-tr" src="img/banners/orn-tr.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <h3 class="bnx-title"><span class="bnx-gold" data-i18n="banners.title">Calendário de Banners</span><span class="bnx-x">×</span><span class="bnx-hollow" data-i18n="banners.posterSub">Previsão Servidor Global</span></h3>
 
-      <div class="banners-imagem-wrapper" id="bannersImgWrapper">
-        <img src="calendario-banners.png" alt="Calendário de Banners - Previsão Servidor Global" id="bannersImg" loading="lazy" />
-        <div class="banners-zoom-hint" data-i18n="banners.zoomHint">Clique para ampliar</div>
+        <div class="bnx-grid" id="bnxGrid"><!-- preenchido por js/banners-calendar.js --></div>
+
+        <section class="bnx-tkt">
+          <div class="bnx-tkt-grid">
+            <div>
+              <table>
+                <thead><tr><th data-i18n="banners.tkStars">N. de estrelas</th><th data-i18n="banners.tkCopies">Cópias</th><th>Tickets</th><th data-i18n="banners.tkSum">Soma tickets</th></tr></thead>
+                <tbody>
+                  <tr><td class="bnx-st">★★</td><td>0</td><td>40</td><td>40</td></tr>
+                  <tr><td class="bnx-st">★★★</td><td>1</td><td>40</td><td>80</td></tr>
+                  <tr><td class="bnx-st">★★★★</td><td>2</td><td>80</td><td>160</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <table>
+                <thead><tr><th data-i18n="banners.tkStars">N. de estrelas</th><th data-i18n="banners.tkCopies">Cópias</th><th>Tickets</th><th data-i18n="banners.tkSum">Soma tickets</th></tr></thead>
+                <tbody>
+                  <tr><td class="bnx-st">★★★★★</td><td>3</td><td>120</td><td>280</td></tr>
+                  <tr><td class="bnx-st">★★★★★★</td><td>4</td><td>160</td><td>440</td></tr>
+                  <tr><td class="bnx-st">★★★★★★★</td><td>5</td><td>200</td><td>640</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="bnx-tkt-total" data-i18n="banners.tkTotal">total — 640 tickets para 7 estrelas</div>
+        </section>
       </div>
     </section>
-  </div>
-
-  <!-- Modal de zoom (tela cheia) -->
-  <div class="banners-modal" id="bannersModal" style="display:none;" onclick="fecharBannersModal(event)">
-    <button class="banners-modal-close" onclick="fecharBannersModal(event)" aria-label="Fechar">✕</button>
-    <div class="banners-modal-content" onclick="event.stopPropagation()">
-      <img src="calendario-banners.png" alt="Calendário de Banners ampliado" id="bannersModalImg" />
-    </div>
   </div>
 
   <!-- ============ ABA: TEAM BUILDER ============ -->
@@ -1461,5 +1479,6 @@ Avança na direção do inimigo mais próximo por uma certa distância; durante 
 <script defer src="js/data/heroes.js"></script>
 <script defer src="js/app.js"></script>
 <script defer src="js/redesign.js"></script>
+<script defer src="js/banners-calendar.js"></script>
 </body>
 </html>
