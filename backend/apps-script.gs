@@ -17,6 +17,113 @@
 // ═══════════ AVATAR DO BOT NO DISCORD ═══════════
 var TRIADE_BOT_AVATAR = 'https://cdn-icons-png.flaticon.com/512/2317/2317988.png';
 
+// ════════════════════════════════════════════════════════════
+//  MULTI-GUILDA — planilha master (registro de guildas + índice)
+//  A planilha ativa (TRIADE) é a master; cada guilda tem a sua,
+//  aberta por ID via resolveGuild(slug).
+// ════════════════════════════════════════════════════════════
+
+function ensureMasterSheets() {
+  var master = SpreadsheetApp.getActiveSpreadsheet();
+  var g = master.getSheetByName('Guildas');
+  if (!g) {
+    g = master.insertSheet('Guildas');
+    g.appendRow(['slug', 'nome', 'spreadsheet_id', 'status', 'email_lider', 'nick_lider', 'senha_hash', 'salt', 'criada_em', 'aprovada_em']);
+    g.setFrozenRows(1);
+    g.appendRow(['triade', 'TRIADE', master.getId(), 'ativa', '', '', '', '', '', '']);
+  }
+  var idx = master.getSheetByName('Usuarios_Index');
+  if (!idx) {
+    idx = master.insertSheet('Usuarios_Index');
+    idx.appendRow(['email', 'guild', 'status', 'atualizado_em']);
+    idx.setFrozenRows(1);
+  }
+  return { master: master, guildas: g, index: idx };
+}
+
+function slugifyGuildName(nome) {
+  return String(nome || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+function findGuildRow(slug) {
+  var m = ensureMasterSheets();
+  var data = m.guildas.getDataRange().getValues();
+  var alvo = String(slug || '').trim().toLowerCase();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toLowerCase() === alvo) {
+      return {
+        row: i + 1,
+        slug: alvo,
+        nome: String(data[i][1] || ''),
+        spreadsheetId: String(data[i][2] || '').trim(),
+        status: String(data[i][3] || '').trim().toLowerCase(),
+        emailLider: String(data[i][4] || '').trim().toLowerCase(),
+        nickLider: String(data[i][5] || '').trim(),
+        senhaHash: String(data[i][6] || ''),
+        salt: String(data[i][7] || '')
+      };
+    }
+  }
+  return null;
+}
+
+// Resolve o slug para {slug, nome, ss}. Cache de 5 min no CacheService
+// (invalidado no guildApprove). Slug vazio → 'triade' (fallback p/ JS antigo).
+function resolveGuild(slugRaw) {
+  var slug = String(slugRaw || 'triade').trim().toLowerCase() || 'triade';
+  var info = null;
+  var cache = null;
+  try {
+    cache = CacheService.getScriptCache();
+    var cached = cache.get('guild_' + slug);
+    if (cached) info = JSON.parse(cached);
+  } catch (e) { info = null; }
+  if (!info) {
+    var row = findGuildRow(slug);
+    if (!row || row.status !== 'ativa' || !row.spreadsheetId) return null;
+    info = { slug: slug, nome: row.nome, spreadsheetId: row.spreadsheetId };
+    try { if (cache) cache.put('guild_' + slug, JSON.stringify(info), 300); } catch (e2) {}
+  }
+  var master = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = (info.spreadsheetId === master.getId()) ? master : SpreadsheetApp.openById(info.spreadsheetId);
+  return { slug: info.slug, nome: info.nome, ss: ss };
+}
+
+// ─── Índice email → guilda (um email pertence a UMA guilda) ───
+function indexFindGuildByEmail(email) {
+  var m = ensureMasterSheets();
+  var data = m.index.getDataRange().getValues();
+  var alvo = String(email || '').trim().toLowerCase();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toLowerCase() === alvo) return String(data[i][1] || '').trim().toLowerCase() || null;
+  }
+  return null;
+}
+
+function indexSetUser(email, guildSlug, status) {
+  var m = ensureMasterSheets();
+  var data = m.index.getDataRange().getValues();
+  var alvo = String(email || '').trim().toLowerCase();
+  var now = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][0]).trim().toLowerCase() === alvo) {
+      m.index.getRange(i + 1, 2, 1, 3).setValues([[guildSlug, status, now]]);
+      return;
+    }
+  }
+  m.index.appendRow([alvo, guildSlug, status, now]);
+}
+
+function indexRemoveUser(email) {
+  var m = ensureMasterSheets();
+  var data = m.index.getDataRange().getValues();
+  var alvo = String(email || '').trim().toLowerCase();
+  for (var i = data.length - 1; i >= 1; i--) {
+    if (String(data[i][0]).trim().toLowerCase() === alvo) { m.index.deleteRow(i + 1); return; }
+  }
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
