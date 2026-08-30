@@ -69,6 +69,7 @@ for (const h of HEROES) {
     <h1>${esc(h.name)}</h1>
     <p class="prerender-meta">${rar} · ${esc(fac)} · ${esc(cls)}${h.name_en ? ` · ${esc(h.name_en)}` : ''}</p>
     <img src="/img/heroes/${h.id}.webp" alt="${esc(h.name)}" width="220" loading="eager">
+    ${h.bio && !/Ajuste esta/.test(h.bio) ? `<p>${esc(h.bio)}</p>` : ''}
     <h2>Skills</h2>
     ${skillsHtml}
   </section>`;

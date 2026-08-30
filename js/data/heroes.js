@@ -3,7 +3,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1001.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Afrodite de Peixes Sapuri é um suporte SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Rosa Adaga, Rosa Escarlate, Rosas Diabólicas Reais. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e aplicar dano contínuo.', bio_en: 'Specter Aphrodite is a SSR support of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Dagger Rose, Scarlet Rose, Royal Demon Rose. In battle, they stand out for sustaining the team with healing, controlling enemies and applying damage over time.', bio_es: 'Afrodita de Sobrepelliz es un soporte SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Rosa de Daga, Rosa Escarlata, Rosa Demoníaca Real. En combate destaca por sostener al equipo con curación, controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -37,7 +37,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1002.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Afrodite de Peixes é um mago SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Rosa Diabólica, Rosa Escarlate, Rosas Diabólicas Reais. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Pisces Aphrodite is a SSR mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Demon Rose, Scarlet Rose, Royal Demon Rose. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Afrodita de Piscis es un mago SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Rosa Demoníaca, Rosa Escarlata, Rosa Demoníaca Real. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -70,7 +70,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1003.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Aiolia de Leão é um lutador SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco de Relâmpago, Relâmpago de Plasma, Cápsula do Poder. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e fortalecer aliados.', bio_en: 'Leo Aiolia is a SSR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Lightning Punch, Lightning Plasma, Lightning Atomic Thunderbolt. In battle, they stand out for sustaining the team with healing, protecting allies with shields and empowering allies.', bio_es: 'Aioria de Leo es un luchador SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño Relámpago, Plasma Relámpago, Rayo de Relámpago. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -105,7 +105,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1004.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Aiolos de Sagitário é um arqueiro SSR do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Tiro Carregado, Flecha Dourada, Trovão Atômico. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e enfraquecer os adversários.', bio_en: 'Sagittarius Aiolos is a SSR archer of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Charged Shot, Golden Arrow, Atomic Thunder Bolt. In battle, they stand out for sustaining the team with healing, controlling enemies and weakening opponents.', bio_es: 'Aioros de Sagitario es un arquero SSR del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Disparo Cargado, Flecha Dorada, Rayo Atómico. En combate destaca por sostener al equipo con curación, controlar a los enemigos y debilitar a los rivales.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -140,7 +140,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1005.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Alberich de Megrez, a Estrela Delta é um mago SSR de Asgard, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Ataque de Ametista, Harmonia do Cosmos e do Homem, Poder da Natureza. Em combate, destaca-se por controlar inimigos, aplicar dano contínuo e invocar criaturas.', bio_en: 'Delta Megrez Alberich is a SSR mage of Asgard, fighting on the middle line with a focus on psychic damage. Their arsenal includes Amethyst Attack, Natural Fusion, Power of Nature. In battle, they stand out for controlling enemies, applying damage over time and summoning creatures.', bio_es: 'Alberich de Delta Megrez es un mago SSR de Asgard, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Ataque de Amatista, Armonía del Cosmos y Ma, Poder de la Naturaleza. En combate destaca por controlar a los enemigos, aplicar daño continuo y invocar criaturas.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -173,7 +173,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1006.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Aldebaran de Touro é um tanque SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe Brutal, Grande Chifre, Defesa de Iaido. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e fortalecer aliados.', bio_en: 'Taurus Aldebaran is a SSR tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Brutal Strike, Great Horn, Iaido Defense. In battle, they stand out for protecting allies with shields, controlling enemies and empowering allies.', bio_es: 'Taurus Aldebaran es un tanque SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe Brutal, Gran Cuerno, Defensa Iaido. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -206,7 +206,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1007.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Andrômeda Negro é um mago R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Corrente Negra, Nebulosa da Presa Negra, Fratura Negra. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Black Andromeda is a R mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Dark Clasp, Dark Fang Nebula, Dark Fracture. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Andrómeda Negra es un mago R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Agarre Oscuro, Nebulosa de Colmillo Oscuro, Golpe Fractura Oscura. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -236,7 +236,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1008.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Ptolemy de Flecha é um arqueiro SR do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Flecha Fantasma, Flecha Dourada Fantasma, Sopro Oculto. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e fortalecer aliados.', bio_en: 'Sagitta Ptolemy is a SR archer of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Phantom Arrow, Phantom Golden Arrow, Concealed Breath. In battle, they stand out for sustaining the team with healing, protecting allies with shields and empowering allies.', bio_es: 'Ptolomeo de Sagitta es un arquero SR del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Flecha Espectral, Flecha Dorada Espectral, Aliento Oculto. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -268,7 +268,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1009.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Aiacos de Garuda é um arqueiro SSR do Submundo, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Lâmina de Vento Garuda, Grande Ilusão Cósmica, Medo Galáctico. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e invocar criaturas.', bio_en: 'Garuda Aiacos is a SSR archer of the Underworld, fighting on the back line with a focus on physical damage. Their arsenal includes Garuda Wind Blade, Cosmic Marionnette, Galaxian Intimidation. In battle, they stand out for protecting allies with shields, controlling enemies and summoning creatures.', bio_es: 'Aiacos de Garuda es un arquero SSR del Inframundo, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Aleteo de Ala, Máxima Precaución, Intimidación de Ojo de Maldad. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -301,7 +301,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'lutador',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1010.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Bado de Alcor, a Estrela Zeta é um lutador SSR de Asgard, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Garra do Tigre, Garras do Tigre das Sombras, Guerreiro das Sombras. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Alcor Zeta Bud is a SSR fighter of Asgard, fighting on the middle line with a focus on physical damage. Their arsenal includes Tiger\'s Claw, Dark Viking Tiger Claw, Shadow Warrior. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Bud de Alcor Zeta es un luchador SSR de Asgard, actuando en la línea media con foco en daño físico. Su arsenal incluye Garra del Tigre, Garra del Tigre Vikingo Oscuro, Guerrero de las Sombras. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -333,7 +333,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1011.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Sylphid de Basilisco é um suporte SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Lâmina de Vento, Asas da Extinção, Vento Venenoso. Em combate, destaca-se por controlar inimigos e aplicar dano contínuo.', bio_en: 'Tenshōsei·Silphid is a SSR support of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Wind Blade, Extinction Wings, Toxic Wind. In battle, they stand out for controlling enemies and applying damage over time.', bio_es: 'Tenshōsei·Silphid es un soporte SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Cuchilla de Viento, Alas de Extinción, Viento Tóxico. En combate destaca por controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -360,7 +360,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1012.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Bian de Cavalo Marinho é um tanque SSR de Atlântida, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho do Tsunami, Ondas Gigantes Crescentes, Sopro de Deus. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Sea Horse Baian is a SSR tank of Atlantis, fighting on the front line with a focus on physical damage. Their arsenal includes Tsunami Fist, Surging Giant Waves, God\'s Breath. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Baian de Caballito de Mar es un tanque SSR de la Atlántida, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo de Tsunami, Olas Gigantes Crecientes, Aliento de Dios. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -391,7 +391,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1013.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Camus de Aquário é um suporte SSR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Impacto de Ar Frio, Execução Aurora, Círculo de Gelo Congelante. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Aquarius Camus is a SSR support of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Cryoshock, Aurora Execution, Koltso. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Camus de Acuario es un soporte SSR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Impacto de Aire Frío, Ejecución Aurora, Koltso de Congelación. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -426,7 +426,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1014.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Camus de Aquário Sapuri é um suporte SSR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Soco Congelante, Execução Aurora, Círculo de Gelo Congelante. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e enfraquecer os adversários.', bio_en: 'Specter Camus is a SSR support of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Freezing Fist, Aurora Execution, Koltso. In battle, they stand out for sustaining the team with healing, controlling enemies and weakening opponents.', bio_es: 'Specter Camus es un soporte SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Puño Helado, Ejecución Aurora, Koltso de Congelación. En combate destaca por sostener al equipo con curación, controlar a los enemigos y debilitar a los rivales.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -457,7 +457,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1015.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Caronte da Estrela Celeste é um tanque SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe de Remo de Ferro, Redemoinho Esmagador, Remo Giratório. Em combate, destaca-se por controlar inimigos e invocar criaturas.', bio_en: 'Divine Tranquillity Star Charon is a SSR tank of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Iron Oar Strike, Eddying Current Crasher, Spinning Oar. In battle, they stand out for controlling enemies and summoning creatures.', bio_es: 'Estrella Celestial Caronte es un tanque SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe de Remo de Hierro, Triturador de Torre Giratoria, Remo Giratorio. En combate destaca por controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -486,7 +486,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1016.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Cassios é um tanque R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho Colossal, Arremesso Cruel, Destruição. Em combate, destaca-se por fortalecer aliados.', bio_en: 'Cassios is a R tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Colossal Fist, Cruel Hurl, Bulldoze. In battle, they stand out for empowering allies.', bio_es: 'Cassios es un tanque R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo Colosal, Lanzamiento Cruel, Embiste. En combate destaca por fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -518,7 +518,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1017.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Cisne Negro é um arqueiro R do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Neve Negra, Nevasca das Trevas, Punho Congelado Negro. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Black Swan is a R archer of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Black Snow, Black Blizzard, Black Frozen Fist. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Cisne Negro es un arquero R del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Nieve Negra, Ventisca Negra, Puñetazo Congelado Negro. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -550,7 +550,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1018.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Docrates é um lutador SR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho Esmagador, Punho de Redemoinho, Soco de Meteoro. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Docrates is a SR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Crushing Fist, Whirlwind Fist, Meteor Punch. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Docrates es un luchador SR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo Aplastante, Puñetazo Torbellino, Puño Meteoro. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -581,7 +581,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1019.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Dohko de Libra é um lutador SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho do Tigre, Cólera dos Cem Dragões de Rozan, Cem Técnicas Marciais. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Libra·Dohko is a SSR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Tiger Fist, Rozan Kouryuha, Various Martial Arts. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Dohko de Libra es un luchador SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo de Tigre, Rozan Kouryuha, Varias Artes Marciales. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -612,7 +612,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1020.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Dragão Negro é um tanque R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco do Dragão Negro, Cólera do Dragão Negro, Punho do Dragão Negro. Em combate, destaca-se por sustentar a equipe com cura e fortalecer aliados.', bio_en: 'Black Dragon is a R tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Black Dragon Punch, Black Dragon Shoryuha, Black Draco Fist. In battle, they stand out for sustaining the team with healing and empowering allies.', bio_es: 'Dragón Negro es un tanque R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Dragón Negro, Dragón Negro Shoryuha, Puñetazo de Dragón Negro. En combate destaca por sostener al equipo con curación y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -644,7 +644,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'mago',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1021.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Saga de Gêmeos Sapuri é um mago SSR do Submundo, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Energia da Explosão Estelar, Explosão Galáctica, Bombardeio Galáctico. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Specter Saga is a SSR mage of the Underworld, fighting on the back line with a focus on physical damage. Their arsenal includes Starburst Energy, Galaxian Explosion, Galaxian bombardment. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Saga de Sobrepelliz es un mago SSR del Inframundo, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Energía de estallido estelar., Explosión Galáctica, Bombardeo galáctico. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -679,7 +679,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'lutador',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1022.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Fênix Negro é um lutador SR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Punho do Fênix Negro, Golpe Fantasma de Fênix Negro, Pena Voadora Negra. Em combate, destaca-se por fortalecer aliados, enfraquecer os adversários e aplicar dano contínuo.', bio_en: 'Black Phoenix is a SR fighter of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Black Phoenix Fist, Dark Phoenix Illusion Demon Fist, Black Flying Feather. In battle, they stand out for empowering allies, weakening opponents and applying damage over time.', bio_es: 'Fénix Negro es un luchador SR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Puñetazo de Fénix Negro, Puño de Demonio de Ilusión Fénix Negro, Pluma Voladora Negra. En combate destaca por fortalecer a los aliados, debilitar a los rivales y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -712,7 +712,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1023.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Freya é um suporte SSR de Asgard, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Bênção da Terra, Prece de Odin, Proteção Floral. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Freya is a SSR support of Asgard, fighting on the back line with a focus on psychic damage. Their arsenal includes Blessing of the Earth, Prayer of Odin, Floral Protection. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Freya es un soporte SSR de Asgard, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Bendición de la Tierra, Oración de Odín, Protección Floral. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -745,7 +745,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1024.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Geki de Urso é um tanque R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho do Grande Urso, Enforcamento do Urso, Mega Choque Selvagem. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Ursa Major Geki is a R tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Great Bear Fist, Hanging Bear, Savage Mega Clash. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Geki de Oso es un tanque R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo de Osa Mayor, Oso Colgante, Mega Choque Feroz. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -777,7 +777,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1025.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Giganto da Estrela Terrestre Violenta é um lutador SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe Gigante, Agarrada Gigante, Golpe Giratório. Em combate, destaca-se por sustentar a equipe com cura.', bio_en: 'Giant Gigas is a SSR fighter of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Giant Strike, Giant Grasp, Giant Hurricane. In battle, they stand out for sustaining the team with healing.', bio_es: 'Estrella Violenta de Tierra Gigant es un luchador SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe Gigante, Fortaleza Gigante, Golpe Rotatorio. En combate destaca por sostener al equipo con curación.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -808,7 +808,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1026.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Guilty é um lutador SR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho da Fúria, Chamas da Vingança, Golpe de Ódio. Em combate, destaca-se por sustentar a equipe com cura e aplicar dano contínuo.', bio_en: 'Guilty is a SR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Fist of Rage, Flames of Revenge, Strike of Hatred. In battle, they stand out for sustaining the team with healing and applying damage over time.', bio_es: 'Guilty es un luchador SR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo de Ira, Llamas de la Venganza, Golpe de Odio. En combate destaca por sostener al equipo con curación y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -840,7 +840,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'submundo', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1027.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hades, Rei do Submundo é um lutador lendário UR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Espada de Hades, Grande Eclipse, Dança da Espada Pecaminosa. Em combate, destaca-se por sustentar a equipe com cura, enfraquecer os adversários e aplicar dano contínuo.', bio_en: 'Hades, King of the Underworld is a legendary UR fighter of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Hades\' Sword, Great Eclipse, Sinful Sword Dance. In battle, they stand out for sustaining the team with healing, weakening opponents and applying damage over time.', bio_es: 'Hades, Rey del Inframundo es un luchador legendario UR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Espada de Hades, Gran Eclipse, Baile de Espada Pecaminosa. En combate destaca por sostener al equipo con curación, debilitar a los rivales y aplicar daño continuo.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -871,7 +871,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1028.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hagen de Merak, a Estrela Beta é um mago SSR de Asgard, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Punho de Gelo e Fogo, Grande Pressão Ardente, Congelamento Universal. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e aplicar dano contínuo.', bio_en: 'Merak Beta Hägen is a SSR mage of Asgard, fighting on the back line with a focus on psychic damage. Their arsenal includes Ice-Fire Fist, Heat Press, Cosmic Freeze. In battle, they stand out for sustaining the team with healing, controlling enemies and applying damage over time.', bio_es: 'Hägen de Merak Beta es un mago SSR de Asgard, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Punho de Gelo e Fogo, Presión Caliente, Congelación Cósmica. En combate destaca por sostener al equipo con curación, controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -904,7 +904,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1029.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hilda de Polaris é um suporte SSR de Asgard, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Bala do Anel Mágico, O Anel de Nibelungo, Ilusão de Poder. Em combate, destaca-se por controlar inimigos.', bio_en: 'Polaris Hilda is a SSR support of Asgard, fighting on the middle line with a focus on psychic damage. Their arsenal includes Magic Ring Bullet, The Nibelungen Ring, Illusion of Power. In battle, they stand out for controlling enemies.', bio_es: 'Hilda de Polaris es un soporte SSR de Asgard, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Bala de Anillo Mágico, El Anillo de Nibelungo, Ilusión de Poder. En combate destaca por controlar a los enemigos.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -940,7 +940,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1030.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hyoga de Aquário é um mago SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Punho Congelado, Execução Aurora, Punho do Pó de Diamante. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e fortalecer aliados.', bio_en: 'Aquarius Hyoga is a SSR mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Frozen Fist, Aurora Execution, Diamond Dust. In battle, they stand out for protecting allies with shields, controlling enemies and empowering allies.', bio_es: 'Hyoga de Acuario es un mago SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Puñetazo Congelado, Ejecución Aurora, Puño de Polvo de Diamante. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -973,7 +973,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1031.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hyoga de Cisne é um suporte R do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Punho Congelado, Punho do Pó de Diamante, Fragmento de Gelo. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e fortalecer aliados.', bio_en: 'Cygnus Hyoga is a R support of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Frozen Fist, Diamond Dust, Ice Shard. In battle, they stand out for protecting allies with shields, controlling enemies and empowering allies.', bio_es: 'Hyoga de Cisne es un soporte R del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puñetazo Congelado, Puño de Polvo de Diamante, Fragmento de Hielo. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1005,7 +1005,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1032.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Hypnos, o Deus do Sono é um suporte lendário UR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Energia do Sonho, Descanso Eterno, Regra do Sonho. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Hypnos, God of Sleep is a legendary UR support of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Dream Energy, Eternal Sleep, Dream Rule. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Hypnos, Dios del Sueño es un soporte legendario UR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Energía de Sueño, Reposo Eterno, Regla de los Sueños. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -1037,7 +1037,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1033.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Ichi de Hidra é um lutador R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco Ágil, Presas da Hidra, Devoração Venenosa. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Hydra Ichi is a R fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Agile Punch, Hydra\'s Fangs, Venomous Devour. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Ichi de Hidra es un luchador R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño Ágil, Colmillos de Hidra, Devoración Venenosa. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1069,7 +1069,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1034.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Ikki de Leão é um mago SSR do Santuário, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Punho de Fênix, Ave Fênix, Golpe Fantasma de Fênix. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e aplicar dano contínuo.', bio_en: 'Leo·Ikki is a SSR mage of the Sanctuary, fighting on the front line with a focus on psychic damage. Their arsenal includes Phoenix Fist, Phoenix\'s Wings Rise, Phoenix Illusion Demon Fist. In battle, they stand out for sustaining the team with healing, controlling enemies and applying damage over time.', bio_es: 'Ikki de Leo es un mago SSR del Santuario, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Puñetazo de Fénix, Ascenso de las Alas del Fénix, Puño de Demonio de Ilusión Fénix. En combate destaca por sostener al equipo con curación, controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1101,7 +1101,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1035.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Ikki de Fênix Divino é um mago lendário UR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Pluma da Fênix, Ave Fênix, Golpe Fantasma de Fênix. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Divine Phoenix Ikki is a legendary UR mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Phoenix Feather, Phoenix\'s Wings Rise, Phoenix Illusion Demon Fist. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Divine Phoenix Ikki es un mago legendario UR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Pluma de Fénix, Ascenso de las Alas del Fénix, Puño de Demonio de Ilusión Fénix. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -1132,7 +1132,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'arqueiro',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1036.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Ikki de Fênix é um arqueiro SR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Punho de Fênix, Ave Fênix, Golpe Fantasma de Fênix. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Phoenix Ikki is a SR archer of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Phoenix Fist, Phoenix\'s Wings Rise, Phoenix Illusion Demon Fist. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Ikki de Fénix es un arquero SR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puñetazo de Fénix, Ascenso de las Alas del Fénix, Puño de Demonio de Ilusión Fénix. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1165,7 +1165,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1037.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Isaak de Kraken é um suporte SSR de Atlântida, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Onda Fria, Aurora Boreal, Espinho do Kraken. Em combate, destaca-se por controlar inimigos e invocar criaturas.', bio_en: 'Kraken Isaac is a SSR support of Atlantis, fighting on the back line with a focus on psychic damage. Their arsenal includes Cold Wave Fist, Northern Aurora, Kraken Thorn. In battle, they stand out for controlling enemies and summoning creatures.', bio_es: 'Isaac de Kraken es un soporte SSR de la Atlántida, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Puñetazo de Ola Fría, Aurora del Norte, Espina de Kraken. En combate destaca por controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1197,7 +1197,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1038.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Jabu de Unicórnio é um lutador R do Santuário, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Golpe Sônico, Galope do Unicórnio, Chute do Unicórnio. Em combate, destaca-se por fortalecer aliados.', bio_en: 'Unicorn Jabu is a R fighter of the Sanctuary, fighting on the front line with a focus on psychic damage. Their arsenal includes Sonic Strike, Unicorn Gallop, Unicorn Kick. In battle, they stand out for empowering allies.', bio_es: 'Jabu de Unicornio es un luchador R del Santuario, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Golpe Sónico, Galope de Unicornio, Patada de Unicornio. En combate destaca por fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1229,7 +1229,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1039.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Jamian de Corvo é um mago SR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Ataque do Corvo, Tempestade de Corvos, Chamado Corvídeo. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Crow Jamian is a SR mage of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Crow Raid, Carrion Storm, Corvid Call. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Jamian de Cuervo es un mago SR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Incursión del Cuervo, Tormenta de Cuervo, Llamado del Cuervo. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1261,7 +1261,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1040.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Julian Solo é um suporte SSR de Atlântida, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Pilar de Água de Poseidon, Fúria de Poseidon, Trovão de Poseidon. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e fortalecer aliados.', bio_en: 'Julian Solo is a SSR support of Atlantis, fighting on the middle line with a focus on physical damage. Their arsenal includes Poseidon\'s Water Pillar, Poseidon\'s Fury, Thunder of Poseidon. In battle, they stand out for sustaining the team with healing, protecting allies with shields and empowering allies.', bio_es: 'Julian Solo es un soporte SSR de la Atlántida, actuando en la línea media con foco en daño físico. Su arsenal incluye Pilar de Agua de Poseidón, Furia de Poseidón, Trueno de Poseidón. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1296,7 +1296,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1041.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'June de Camaleão é um suporte SR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Flagelação, Inspiração Valorosa, Dança do Chicote Selvagem. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e fortalecer aliados.', bio_en: 'Chameleon June is a SR support of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Flagellation, Valorous Inspiration, Wild Whip Dance. In battle, they stand out for sustaining the team with healing, protecting allies with shields and empowering allies.', bio_es: 'June de Camaleón es un soporte SR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Flagelación, Inspiración Valiente, Baile de Látigo Salvaje. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1327,7 +1327,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1042.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Kanon de Dragão Marinho é um lutador SSR de Atlântida, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho Explosivo Galáctico, Triângulo de Ouro, Satã Imperial. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Sea Dragon Kanon is a SSR fighter of Atlantis, fighting on the front line with a focus on physical damage. Their arsenal includes Galactic Explosive Fist, Golden Triangle Dimension, Imperial Phantasm Punch. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Kanon del Dragón Marino es un luchador SSR de la Atlántida, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo Explosivo Galáctico, Dimensión del Triángulo de Oro, Puño Fantasma Imperial. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1363,7 +1363,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1043.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Kanon de Gêmeos é um arqueiro SSR do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Punho Estelar, Explosão Galáctica, Golpe Fantasmagórico. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Gemini Kanon is a SSR archer of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Star Energy Punch, Galaxian Explosion, Phantasm Punch. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Kanon de Géminis es un arquero SSR del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Puño de Energía de Estrella, Explosión Galáctica, Puño Fantasma. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1398,7 +1398,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1044.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Kasa de Líumnades é um suporte SSR de Atlântida, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Ataque de Relâmpago, Ilusão Demoníaca da Água, Choque da Salamandra. Em combate, destaca-se por controlar inimigos, fortalecer aliados e invocar criaturas.', bio_en: 'Lyumnades Caça is a SSR support of Atlantis, fighting on the middle line with a focus on psychic damage. Their arsenal includes Lightning Attack, Water Demon Illusion, Salamander Shock. In battle, they stand out for controlling enemies, empowering allies and summoning creatures.', bio_es: 'Casa de Lyumnades es un soporte SSR de la Atlántida, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Ataque Relámpago, Ilusão Demoníaca da Água, Impacto de Salamandra. En combate destaca por controlar a los enemigos, fortalecer a los aliados y invocar criaturas.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1427,7 +1427,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1045.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Kiki é um suporte R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Telecinese, Choque Mental, Choque Mental. Em combate, destaca-se por proteger aliados com escudos, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Kiki is a R support of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Telekinesis, All-Seeing Eye, Mental Shock. In battle, they stand out for protecting allies with shields, empowering allies and weakening opponents.', bio_es: 'Kiki es un soporte R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Telequinesis, Impacto Mental, Impacto Mental. En combate destaca por proteger a los aliados con escudos, fortalecer a los aliados y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1458,7 +1458,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1046.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Krishna de Chrysaor é um tanque SSR de Atlântida, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Corte de Lança Sagrada, Maha Roshini, Punhalada do Clarão. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e fortalecer aliados.', bio_en: 'Chrysaor Krishna is a SSR tank of Atlantis, fighting on the front line with a focus on physical damage. Their arsenal includes Chrysaor Spear Slash, Maha Roshni, Flashing Thrust. In battle, they stand out for protecting allies with shields, controlling enemies and empowering allies.', bio_es: 'Krishna de Crisaor es un tanque SSR de la Atlántida, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Corte de Lanza Sagrada, Pica Destellante, Puñalada de Destello. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1491,7 +1491,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'submundo', class: 'arqueiro',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1047.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Kiew de Dullahan é um arqueiro SR do Submundo, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Projétil Mágico, Corte das Trevas, Estratégia de Sobrevivência. Em combate, destaca-se por conceder imunidades.', bio_en: 'Dullahan Cube is a SR archer of the Underworld, fighting on the front line with a focus on psychic damage. Their arsenal includes Magic Bullet, Dark Slash, Survival Strategy. In battle, they stand out for granting immunities.', bio_es: 'Cubo de Estrella Yin es un arquero SR del Inframundo, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Proyectil Mágico, Corte Oscuro, Estrategia de Supervivencia. En combate destaca por conceder inmunidades.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1523,7 +1523,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1048.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Lune de Balron é um suporte SSR do Submundo, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Chicotada, Reencarnação, Chicote de Fogo. Em combate, destaca-se por sustentar a equipe com cura.', bio_en: 'Balron Lune is a SSR support of the Underworld, fighting on the middle line with a focus on physical damage. Their arsenal includes Whiplash, Reincarnation Cycle, Fire Whip. In battle, they stand out for sustaining the team with healing.', bio_es: 'Lune de Balron es un soporte SSR del Inframundo, actuando en la línea media con foco en daño físico. Su arsenal incluye Latigazo, Reencarnación, Flagelación de Llama. En combate destaca por sostener al equipo con curación.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1555,7 +1555,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1049.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Flégias de Lycaon é um lutador SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Garra de Lobo, Grito Infernal, Golpe da Garra Selvagem. Em combate, destaca-se por sustentar a equipe com cura e enfraquecer os adversários.', bio_en: 'Tenzosei·Phlegyas is a SSR fighter of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Wolf Claw, Hellscream, Savage Claw Strike. In battle, they stand out for sustaining the team with healing and weakening opponents.', bio_es: 'Lycaon ·Flegyas es un luchador SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Garra de Lobo, Grito infernal, Golpe de Garra Salvaje. En combate destaca por sostener al equipo con curación y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1586,7 +1586,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1050.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Marin de Águia é um lutador SR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe Rápido, Clarão do Dedo de Águia, Soco de Meteoro. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Eagle Marin is a SR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Rapid Strike, Eagle Toe Flash, Meteor Punch. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Marin de Águila es un luchador SR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe Rápido, Destello de Garra de Águila, Puño Meteoro. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1618,7 +1618,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'mago',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1051.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Máscara da Morte de Câncer Sapuri é um mago SSR do Submundo, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Onda Fantasma, Ondas do Inferno!, Ondas do Inferno. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Specter Deathmask is a SSR mage of the Underworld, fighting on the front line with a focus on psychic damage. Their arsenal includes Ghost Wave, Sekishiki Meikai Ha!, Sekishiki Shock. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Máscara Mortal de Sobrepelliz es un mago SSR del Inframundo, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Ola Fantasma, Sekishiki Meikaiha, Impacto de Sekishiki. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1649,7 +1649,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1052.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Máscara da Morte de Câncer é um mago SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Onda Fantasma, Ondas do Inferno!, Fantasma do Submundo. Em combate, destaca-se por controlar inimigos e invocar criaturas.', bio_en: 'Cancer Deathmask is a SSR mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Ghost Wave, Sekishiki Meikai Ha!, Underworld Ghost. In battle, they stand out for controlling enemies and summoning creatures.', bio_es: 'Máscara Mortal de Cáncer es un mago SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Ola Fantasma, Sekishiki Meikaiha, Fantasma del Inframundo. En combate destaca por controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1683,7 +1683,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1053.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Cavaleiro de Cristal é um mago SR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Punho Congelado, Punho do Pó de Diamante, Vento Congelado. Em combate, destaca-se por proteger aliados com escudos e controlar inimigos.', bio_en: 'Crystal Saint is a SR mage of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Frozen Fist, Diamond Dust, Frozen Wind Fist. In battle, they stand out for protecting allies with shields and controlling enemies.', bio_es: 'Caballero de Cristal es un mago SR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puñetazo Congelado, Puño de Polvo de Diamante, Puñetazo de Viento Congelado. En combate destaca por proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1714,7 +1714,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'arqueiro',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1054.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Milo de Escorpião é um arqueiro SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Agulha Escarlate, Ferrão Carmesim: Agulha Escarlate, Cicatriz Vermelha. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e enfraquecer os adversários.', bio_en: 'Scorpio Milo is a SSR archer of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Scarlet Needle, Crimson Stinger: Scarlet Needle, Red Scar. In battle, they stand out for sustaining the team with healing, controlling enemies and weakening opponents.', bio_es: 'Milo de Escorpio es un arquero SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Aguja Escarlata, Aguijón Carmesí: Aguja Escarlata, Cicatriz Roja. En combate destaca por sostener al equipo con curación, controlar a los enemigos y debilitar a los rivales.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1749,7 +1749,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'suporte',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1055.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Mime de Benetnasch, a Estrela Eta é um suporte SSR de Asgard, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Trovão Atômico de Harpa, Réquiem de Cordas, Réquiem da Ilusão. Em combate, destaca-se por sustentar a equipe com cura e aplicar dano contínuo.', bio_en: 'Benetnasch Eta Mime is a SSR support of Asgard, fighting on the back line with a focus on physical damage. Their arsenal includes Lightspeed Attack, Stringer Requiem, Illusion Requiem. In battle, they stand out for sustaining the team with healing and applying damage over time.', bio_es: 'Mime de Benetnasch Eta es un soporte SSR de Asgard, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Puño Relámpago de Arpa, Réquiem de Cuerdas, Réquiem de Ilusión. En combate destaca por sostener al equipo con curación y aplicar daño continuo.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1781,7 +1781,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1056.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Minos de Griffon é um suporte SSR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Soco Mental do Griffon, Marionete Cósmica, Invocação Geral do Submundo. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e aplicar dano contínuo.', bio_en: 'Griffon Minos of Heavenly Noble Star is a SSR support of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Griffin Mental Punch, Cosmic Puppet, Underworld General Summon. In battle, they stand out for sustaining the team with healing, controlling enemies and applying damage over time.', bio_es: 'Minos de Grifo de la Estrella Noble Celestial es un soporte SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Puño Mental de Grifo, Marioneta Cósmica, Invocación General del Inframundo. En combate destaca por sostener al equipo con curación, controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -1812,7 +1812,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1057.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Gordon de Minotauro é um lutador SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Corte de Machado Gigante, Dança do Machado Gigante, Golpe Poderoso. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e enfraquecer os adversários.', bio_en: 'Tenrōsei·Coton is a SSR fighter of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Giant Axe Slash, Whirling Greataxe, Determined Strike. In battle, they stand out for sustaining the team with healing, controlling enemies and weakening opponents.', bio_es: 'Tenrōsei Coton es un luchador SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Corte de Hacha Gigante, Gran Hacha Giratoria, Golpe Determinado. En combate destaca por sostener al equipo con curación, controlar a los enemigos y debilitar a los rivales.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1839,7 +1839,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1058.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Misty de Lagarto é um suporte SR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Palmeira de Ar, Muralha de Defesa Aérea, Transmigrador de Mármore. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e enfraquecer os adversários.', bio_en: 'Lizard Misty is a SR support of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Air Palm, Air Defense Wall, Marble Tripper. In battle, they stand out for sustaining the team with healing, protecting allies with shields and weakening opponents.', bio_es: 'Misty de Lagarto es un soporte SR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Palma de Aire, Muro de Defensa Aérea, Caída de Mármol. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y debilitar a los rivales.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1871,7 +1871,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1059.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Mu de Áries é um suporte SSR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Soco de Relâmpago, Extinção Estelar, Muralha de Cristal. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e fortalecer aliados.', bio_en: 'Aries Mu is a SSR support of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Lightning Punch, Starlight Extinction, Crystal Wall. In battle, they stand out for sustaining the team with healing, protecting allies with shields and empowering allies.', bio_es: 'Mu de Aries es un soporte SSR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puño Relámpago, Extinción de Luz Estelar, Muro de Cristal. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1904,7 +1904,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1060.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Moses de Baleia é um tanque SR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco de Baleia, Jato Explosivo da Baleia, Spray de Baleia. Em combate, destaca-se por proteger aliados com escudos.', bio_en: 'Cetus Moses is a SR tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Cetus Punch, Cetus Spouting Bomber, Cetus Spray. In battle, they stand out for protecting allies with shields.', bio_es: 'Moses de Cetus es un tanque SR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Cetus, Bombardeo del Cetus, Rociador de Cetus. En combate destaca por proteger a los aliados con escudos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1936,7 +1936,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1061.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Niobe de Deep é um mago SSR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Fragrância de Veneno, Fragrância Profunda, Poça de Veneno. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Deep Niobe is a SSR mage of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Poison Fragrance, Dead Perfume, Poison Pool. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Niobe de Profundidad Monstruosa es un mago SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Fragancia de Veneno, Perfume de Muerte, Pozo de Veneno. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -1967,7 +1967,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1062.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Órion Zeta é um lutador SSR do Submundo, atuando na linha de frente com foco em dano físico.', bio_en: 'Abel is a SSR fighter of the Underworld, fighting on the front line with a focus on physical damage.', bio_es: 'Zeta de Orión es un luchador SSR del Inframundo, actuando en la línea frontal con foco en daño físico.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -1994,7 +1994,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1063.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Orfeu de Lira é um suporte SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Sonata Magnífica, Peça Final de Cordas, Primeiro Movimento: Noturno de Cordas. Em combate, destaca-se por controlar inimigos, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Lyra·Orpheus is a SSR support of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Sonata, Stringer Finale, First Movement: String Nocturne. In battle, they stand out for controlling enemies, empowering allies and weakening opponents.', bio_es: 'Orfeo de Lyra es un soporte SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Sonata, Final de Cuerdas, Primer Movimiento: Nocturno de Cuerdas. En combate destaca por controlar a los enemigos, fortalecer a los aliados y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2025,7 +2025,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1064.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Pandora, a Comandante do Submundo é um suporte SSR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Lança Longa de Pandora, Caixa de Pandora, Luz do Inferno. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Underworld Commander·Pandora is a SSR support of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Pandora\'s Long Spear, Pandora\'s Box, Hell\'s Light. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Comandante del Inframundo·Pandora es un soporte SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Lanza Larga de Pandora, Caja de Pandora, Luz del Infierno. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2057,7 +2057,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1065.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Papa Ares é um suporte SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Golpe Dimensional, Ilusão de Gêmeos, Satã Imperial. Em combate, destaca-se por controlar inimigos e invocar criaturas.', bio_en: 'Pope Ares is a SSR support of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Dimensional Strike, Gemini Illusion, Imperial Phantasm Punch. In battle, they stand out for controlling enemies and summoning creatures.', bio_es: 'Gran patriarca Ares es un soporte SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Golpe Dimensional, Ilusión de Géminis, Puño Fantasma Imperial. En combate destaca por controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2090,7 +2090,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1066.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Myu de Papillon é um suporte SSR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Golpe do Inseto, Evolução da Vida, Sobrevivência do Mais Apto. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Terrestrial Bewitching Star·Myu is a SSR support of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Insect Blast, Life Evolution, Survival of the Fittest. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Myu de Estrella Hechizante Terrestre es un soporte SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye LC_SKILL_skill_name_10591, Evolución de la Vida, Supervivencia del Más Apto. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2117,7 +2117,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1067.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Pégaso Negro é um mago R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Golpe Sônico do Umbral, Soco do Meteoro Negro, Punho Negro. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Black Pegasus is a R mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Umbral Sonic Strike, Black Meteor Punch, Black Fist. In battle, they stand out for sustaining the team with healing, empowering allies and weakening opponents.', bio_es: 'Pegaso Negro es un mago R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Golpe Sónico Umbral, Puño Meteoro Negro, Puñetazo Negro. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2149,7 +2149,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1068.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Algol de Perseu é um tanque SR do Santuário, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Golpe da Serpente Fantasma, Ra\'s Al Ghul Gorgonio, Olho de Medusa. Em combate, destaca-se por proteger aliados com escudos, controlar inimigos e fortalecer aliados.', bio_en: 'Perseus Algol is a SR tank of the Sanctuary, fighting on the front line with a focus on psychic damage. Their arsenal includes Phantom Snake Strike, Ra\'s Al Ghul Gorgonio, Eye of Medusa. In battle, they stand out for protecting allies with shields, controlling enemies and empowering allies.', bio_es: 'Algol de Perseo es un tanque SR del Santuario, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Golpe de Serpiente Espectral, Ra\'s Al Ghul Gorgonio, Ojo de Medusa. En combate destaca por proteger a los aliados con escudos, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2180,7 +2180,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'arqueiro',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1069.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Asterion de Cães de Caça é um arqueiro SR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Golpe Fantasma, Soco de Um Milhão de Fantasmas, Sósia Fantasma. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Hound Asterion is a SR archer of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Ghost Fist, Million Ghost Attack, Phantom Doppelganger. In battle, they stand out for sustaining the team with healing, empowering allies and weakening opponents.', bio_es: 'Asterión de Sabueso es un arquero SR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puñetazo Fantasma, Puño de un Millón Fantasmas, Doppelganger Espectral. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2212,7 +2212,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1070.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Faraó de Esfinge, a Estrela Besta Celestial é um suporte SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Onda Sonora, Balança da Maldição, Beijo Negro. Em combate, destaca-se por sustentar a equipe com cura e enfraquecer os adversários.', bio_en: 'Tenjusei·Pharaoh is a SSR support of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Sound Wave, Balanced Curse, Black Kiss. In battle, they stand out for sustaining the team with healing and weakening opponents.', bio_es: 'Estrella de Bestia Celestial Faraón es un soporte SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Onda de Sonido, Maldición Equilibrada, Beso Negro. En combate destaca por sostener al equipo con curación y debilitar a los rivales.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2239,7 +2239,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'atlantida', class: 'mago',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1071.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Poseidon é um mago lendário UR de Atlântida, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Quebra do Trovão Celestial, Tsunami Apocalíptico, Poder Divino de Poseidon. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'King Poseidon is a legendary UR mage of Atlantis, fighting on the middle line with a focus on physical damage. Their arsenal includes Heavenly Thunder Break, Apocalyptic Tsunami, Poseidon\'s Divine Power. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Poseidón es un mago legendario UR de la Atlántida, actuando en la línea media con foco en daño físico. Su arsenal incluye Ruptura de Trueno Celestial, Tsunami Apocalíptico, Poder Divino de Poseidón. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -2274,7 +2274,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1072.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Queen da Estrela Celeste Demoníaca é um suporte SSR do Submundo, atuando na linha de trás com foco em dano psíquico.', bio_en: 'Demon Suppressor Cune is a SSR support of the Underworld, fighting on the back line with a focus on psychic damage.', bio_es: 'Kuhn-Estrella Demonio Celestial es un soporte SSR del Inframundo, actuando en la línea trasera con foco en daño psíquico.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [],
@@ -2294,7 +2294,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1073.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Radamanthys de Wyvern é um tanque SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Garra do Wyvern, Destruição Máxima, Intimidação do Wyvern. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Wyvern Rhadamanthys is a SSR tank of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Pterosaur Claw Strike, Greatest Caution Shockwave, Pterosaur Roar. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Radamanthys de Wyvern es un tanque SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe de Garra de Pterosaurio, Onda de Impacto de Máxima Precaución, Rugido de Pterosaurio. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2325,7 +2325,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1074.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Saga de Gêmeos é um lutador SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho Explosivo, Explosão Galáctica, Invasão Dimensional. Em combate, destaca-se por sustentar a equipe com cura e aplicar dano contínuo.', bio_en: 'Gemini Saga is a SSR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Explosive Fist, Galaxian Explosion, Dimension Raid. In battle, they stand out for sustaining the team with healing and applying damage over time.', bio_es: 'Saga de Géminis es un luchador SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo Explosivo, Explosión Galáctica, Incursión de Dimensión. En combate destaca por sostener al equipo con curación y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2358,7 +2358,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1075.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Saga, a Encarnação do Mal é um mago SSR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Força Galáctica, Explosão Galáctica, Outra Dimensão. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Evil Saga is a SSR mage of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Galaxian Force, Galaxian Explosion, Another Dimension. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Encarnación de Saga Maligno es un mago SSR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Fuerza Galáctica, Explosión Galáctica, Otra Dimensión. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2391,7 +2391,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1076.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Saori Kido é um suporte SSR do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Cajado da Vitória, Oração de Atena, Bênção de Excalibur. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Saori Kido is a SSR support of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Staff of Victory, Athena\'s Prayer, Excalibur\'s Blessing. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Saori Kido es un soporte SSR del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Cetro de Victoria, Oración de Atenea, Bendición de Excálibur. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2423,7 +2423,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1077.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Seiya de Sagitário é um lutador SSR do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Soco de Relâmpago, Flecha Dourada, Meteoro de Pégaso. Em combate, destaca-se por sustentar a equipe com cura e invocar criaturas.', bio_en: 'Mizar Zeta Syd is a SSR fighter of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Soco de Relâmpago, Flecha Dourada, Meteoro de Pégaso. In battle, they stand out for sustaining the team with healing and summoning creatures.', bio_es: 'Seiya de Sagitario es un luchador SSR del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Soco de Relâmpago, Flecha Dourada, Meteoro de Pégaso. En combate destaca por sostener al equipo con curación y invocar criaturas.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2459,7 +2459,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1078.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Seiya de Pégaso Divino é um lutador lendário UR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco de Relâmpago, Punho Cometa de Pégaso, Meteoro de Pégaso. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Divine Pegasus Seiya is a legendary UR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Lightning Punch, Pegasus Meteor Punch, Pegasus Meteor Punch. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Seiya de Pegaso Divino es un luchador legendario UR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño Relámpago, Puño Cometa de Pegaso, Puño Meteoro de Pegaso. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -2488,7 +2488,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1079.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Seiya de Odin é um lutador SSR de Asgard, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Corte Estelar Heroico, Poder de Odin, Dissuasão do Trovão. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Odin Seiya is a SSR fighter of Asgard, fighting on the front line with a focus on physical damage. Their arsenal includes Heroic Star Slash, Power of Odin, Thunder Deterrence. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Seiya de Odín es un luchador SSR de Asgard, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Corte Estelar Heroico, Poder de Odín, Disuasión del Trueno. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -2522,7 +2522,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1080.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Seiya de Pégaso é um lutador R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe Sônico, Meteoro de Pégaso, Turbilhão de Pégaso. Em combate, destaca-se por fortalecer aliados.', bio_en: 'Pegasus Seiya is a R fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Sonic Strike, Pegasus Meteor Punch, Pegasus Roundhouse. In battle, they stand out for empowering allies.', bio_es: 'Seiya de Pegaso es un luchador R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe Sónico, Puño Meteoro de Pegaso, Casa Redonda de Pegaso. En combate destaca por fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2556,7 +2556,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'santuario', class: 'lutador',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1081.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shaina de Ofiúco é um lutador SR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Garra Elétrica, Garras de Trovão, Clarão da Serpente do Trovão. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Ophiuchus Shaina is a SR fighter of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Electric Claw, Thunder Claw, Thundersnake Flash. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Shaina de Ofiuco es un luchador SR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Garra Eléctrica, Garra de Trueno, Destello de Serpiente de Trueno. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2589,7 +2589,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1082.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shaka de Virgem é um mago SSR do Santuário, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Luz Divina, Tesouro do Céu, Rendição Divina. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Virgo Shaka is a SSR mage of the Sanctuary, fighting on the middle line with a focus on psychic damage. Their arsenal includes Divine Light, Celestial Treasure, Demon Suppressor. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Shaka de Virgo es un mago SSR del Santuario, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Luz Divina, Tesoro Celestial, Supresor de Demonios. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2622,7 +2622,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1083.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shido de Mizar, a Estrela Zeta é um suporte SSR de Asgard, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Garra do Tigre, Impulso Azul, Garras do Tigre Negro. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Mizar Zeta Syd is a SSR support of Asgard, fighting on the middle line with a focus on psychic damage. Their arsenal includes Tiger\'s Claw, Blue Impulse, Viking Tiger Claw. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Syd de Mizar Zeta es un soporte SSR de Asgard, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Garra del Tigre, Impulso Azul, Garra del Tigre Vikingo. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2654,7 +2654,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'mental',
     image: 'img/heroes/1084.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shion de Áries é um tanque SSR do Santuário, atuando na linha de frente com foco em dano psíquico. Seu arsenal inclui Esfera Psíquica, Revolução Estelar, Fragmentação Estelar. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Aries·Shion is a SSR tank of the Sanctuary, fighting on the front line with a focus on psychic damage. Their arsenal includes Psychokinesis Ball, Stardust Revolution, Shattered Star. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Shion de Aries es un tanque SSR del Santuario, actuando en la línea frontal con foco en daño psíquico. Su arsenal incluye Puño Relámpago Mental, Revolución de Polvo de Estrellas, Estrella Destrozada. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -2686,7 +2686,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'tanque',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1085.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shion de Áries Sapuri é um tanque SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Punho Psíquico à Velocidade da Luz, Revolução Estelar, Fragmentação Estelar. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Specter Shion is a SSR tank of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Psychokinetic Lightning Punch, Stardust Revolution, Shattered Star. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Shion de Sobrepelliz es un tanque SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puño Relámpago Psicoquinético, Revolución de Polvo de Estrellas, Estrella Destrozada. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2716,7 +2716,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1086.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shiryu de Libra é um tanque SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco do Dragão, Cólera dos Cem Dragões de Rozan, Escudo do Dragão. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e aplicar dano contínuo.', bio_en: 'Libra Shiryu is a SSR tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Dragon Punch, Rozan Kouryuha, Draco Shield. In battle, they stand out for sustaining the team with healing, protecting allies with shields and applying damage over time.', bio_es: 'Shiryu de Libra es un tanque SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Dragón, Rozan Kouryuha, Escudo de Dragón. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2750,7 +2750,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1087.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shiryu Despertado é um lutador SSR do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco do Dragão, Rugido da Excalibur, Cólera do Dragão. Em combate, destaca-se por sustentar a equipe com cura, invocar criaturas e conceder imunidades.', bio_en: 'Awaken Shiryu is a SSR fighter of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Dragon Punch, Excalibur Roar, Rozan Shoryuha. In battle, they stand out for sustaining the team with healing, summoning creatures and granting immunities.', bio_es: 'Shiryu Despertado es un luchador SSR del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Dragón, Rugido de Excálibur, Rozan Shoryuha. En combate destaca por sostener al equipo con curación, invocar criaturas y conceder inmunidades.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2786,7 +2786,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1088.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shiryu de Dragão é um tanque R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco do Dragão, Cólera do Dragão, Escudo do Dragão. Em combate, destaca-se por proteger aliados com escudos, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Dragon Shiryu is a R tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Dragon Punch, Rozan Shoryuha, Draco Shield. In battle, they stand out for protecting allies with shields, empowering allies and weakening opponents.', bio_es: 'Shiryu de Dragón es un tanque R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Dragón, Rozan Shoryuha, Escudo de Dragón. En combate destaca por proteger a los aliados con escudos, fortalecer a los aliados y debilitar a los rivales.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2819,7 +2819,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1089.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shun de Virgem é um suporte SSR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Choque da Tempestade, Tempestade Nebulosa, Formação Nebulosa. Em combate, destaca-se por sustentar a equipe com cura e aplicar dano contínuo.', bio_en: 'Virgo Shun is a SSR support of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Storm Shock, Nebula Storm, Nebula Formation. In battle, they stand out for sustaining the team with healing and applying damage over time.', bio_es: 'Shun de Virgo es un soporte SSR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Impacto de Tormenta, Tormenta Nebulosa, Formación de Nebulosa. En combate destaca por sostener al equipo con curación y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2853,7 +2853,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1090.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shun possuído por Hades é um mago SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Projétil de Alma, Corrosão da Alma, Raio Mortal do Submundo. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Hades·Shun is a SSR mage of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Soul Bullet, Spirit Corruption, Light of Death. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Shun·Hades es un mago SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Projétil de Alma, Corrosão da Alma, Raio Mortal do Submundo. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -2881,7 +2881,7 @@ const CODEX_HEROES = [
     rarity: 'r', faction: 'santuario', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1091.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shun de Andrômeda é um suporte R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Corrente de Andrômeda, Defesa Circular, Círculo de Cura. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Andromeda Shun is a R support of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Nebula Chain, Nebula Defense Array, Healing Circle. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Shun de Andrómeda es un soporte R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Cadena de Nebulosa, Defensa Rotatoria, Círculo de Curación. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -2913,7 +2913,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'arqueiro',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1092.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shura de Capricórnio Sapuri é um arqueiro SSR do Submundo, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Golpe de Excalibur, Estocada de Excalibur, Corte de Excalibur. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Specter Shura is a SSR archer of the Underworld, fighting on the middle line with a focus on physical damage. Their arsenal includes Excalibur Slash, Excalibur Thrust, Excalibur Slice. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Shura de Sobrepelliz es un arquero SSR del Inframundo, actuando en la línea media con foco en daño físico. Su arsenal incluye Corte de Excálibur, Estocada de Excálibur, Corte de Excálibur. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -2946,7 +2946,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'santuario', class: 'lutador',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1093.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Shura de Capricórnio é um lutador SSR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Golpe de Excalibur, Estocada de Excalibur, Corte de Excalibur. Em combate, destaca-se por sustentar a equipe com cura, proteger aliados com escudos e controlar inimigos.', bio_en: 'Capricorn Shura is a SSR fighter of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Excalibur Slash, Excalibur Thrust, Excalibur Slice. In battle, they stand out for sustaining the team with healing, protecting allies with shields and controlling enemies.', bio_es: 'Shura de Capricornio es un luchador SSR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Corte de Excálibur, Estocada de Excálibur, Corte de Excálibur. En combate destaca por sostener al equipo con curación, proteger a los aliados con escudos y controlar a los enemigos.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -2981,7 +2981,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1094.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Siegfried de Dubhe, a Estrela Alfa é um tanque SSR de Asgard, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Punho da Nevasca, Vendaval do Dragão, Espada de Odin. Em combate, destaca-se por sustentar a equipe com cura e aplicar dano contínuo.', bio_en: 'Dubhe Alpha Siegfried is a SSR tank of Asgard, fighting on the front line with a focus on physical damage. Their arsenal includes Blizzard Fist, Dragon Breeze Blizzard, Sword of Odin. In battle, they stand out for sustaining the team with healing and applying damage over time.', bio_es: 'Siegfried de Dubhe Alfa es un tanque SSR de Asgard, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puñetazo de Ventisca, Ventisca de Brisa de Dragón, Espada de Odín. En combate destaca por sostener al equipo con curación y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -3016,7 +3016,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1095.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Sorento de Sirene é um suporte SSR de Atlântida, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Voz da Sirene, Clímax Final da Morte, Ilusão Espiritual. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e invocar criaturas.', bio_en: 'Siren Sorrento is a SSR support of Atlantis, fighting on the back line with a focus on psychic damage. Their arsenal includes Siren\'s Voice, Dead End Climax, Spiritual Illusion. In battle, they stand out for sustaining the team with healing, controlling enemies and summoning creatures.', bio_es: 'Sorrento de Sirena es un soporte SSR de la Atlántida, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Voz de Sirena, Clímax de Callejón Sin Salida, Ilusión Espiritual. En combate destaca por sostener al equipo con curación, controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 9500, def: 5500, hp: 30000, vel: 200 },
     skills: [
@@ -3049,7 +3049,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1096.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Fenrir de Alioth, a Estrela Épsilon é um lutador SSR de Asgard, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Garra Rasgante, Alcateia do Norte, Garra de Lobo Cruel. Em combate, destaca-se por controlar inimigos, fortalecer aliados e invocar criaturas.', bio_en: 'Alioth Epsilon Fenrir is a SSR fighter of Asgard, fighting on the front line with a focus on physical damage. Their arsenal includes Ripping Claw, Northern Wolf Pack Fist, Wolf Cruelty Claw. In battle, they stand out for controlling enemies, empowering allies and summoning creatures.', bio_es: 'Fenrir de Alioth Epsilon es un luchador SSR de Asgard, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Garra Desgarradora, Puñetazo de Manada de Lobos del Norte, Garra de Lobo Cruel. En combate destaca por controlar a los enemigos, fortalecer a los aliados y invocar criaturas.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -3081,7 +3081,7 @@ const CODEX_HEROES = [
     rarity: 'sr', faction: 'atlantida', class: 'suporte',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1097.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Thetis de Sereia é um suporte SR de Atlântida, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Bolha Explosiva, Recife de Coral da Morte, Raio da Morte. Em combate, destaca-se por fortalecer aliados, enfraquecer os adversários e invocar criaturas.', bio_en: 'Mermaid Thetis is a SR support of Atlantis, fighting on the back line with a focus on psychic damage. Their arsenal includes Explosive Bubble, Death Coral Reef, Death Ray. In battle, they stand out for empowering allies, weakening opponents and summoning creatures.', bio_es: 'Ninfa Marina Tetis es un soporte SR de la Atlántida, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Burbuja Explosiva, Arrecife de Coral de Muerte, Rayo de la Muerte. En combate destaca por fortalecer a los aliados, debilitar a los rivales y invocar criaturas.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -3113,7 +3113,7 @@ const CODEX_HEROES = [
     rarity: 'ur', faction: 'submundo', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1098.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Thanatos, o Deus da Morte é um mago lendário UR do Submundo, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Energia Infernal, Terrível Providência, Poder Celestial Supremo. Em combate, destaca-se por controlar inimigos, aplicar dano contínuo e conceder imunidades.', bio_en: 'Thanatos, God of Death is a legendary UR mage of the Underworld, fighting on the back line with a focus on psychic damage. Their arsenal includes Infernal Energy, Terrible Providence, Ultimate Celestial Might. In battle, they stand out for controlling enemies, applying damage over time and granting immunities.', bio_es: 'Thanatos, Dios de la Muerte es un mago legendario UR del Inframundo, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Energía Infernal, Providencia Impía, Poder Celestial Definitivo. En combate destaca por controlar a los enemigos, aplicar daño continuo y conceder inmunidades.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
@@ -3145,7 +3145,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'asgard', class: 'lutador',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1099.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Thor de Phecda, a Estrela Gamma é um lutador SSR de Asgard, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Corte de Machado Gigante, Furacão Titânico, Redemoinho do Machado Voador. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Phecda Gamma Thor is a SSR fighter of Asgard, fighting on the front line with a focus on physical damage. Their arsenal includes Giant Axe Slash, Titan Hurricane Fist, Flying Axe Whirlwind. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Thor de Phecda Gamma es un luchador SSR de Asgard, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Corte de Hacha Gigante, Puñetazo Huracán del Titán, Torbellino de Hacha Voladora. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -3177,7 +3177,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1100.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Valentine de Harpia, a Estrela Chorante Celestial é um suporte SSR do Submundo, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Golpe da Garra da Harpia, O Desejo de Viver, Vento Frio Infernal. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e invocar criaturas.', bio_en: 'Harpy Valentine is a SSR support of the Underworld, fighting on the middle line with a focus on psychic damage. Their arsenal includes Harpy Claw Strike, Desire to Survive, Hellish Cold Wind. In battle, they stand out for sustaining the team with healing, controlling enemies and summoning creatures.', bio_es: 'Estrella de Llanto Celestial Paredain es un soporte SSR del Inframundo, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Golpe de Garra de Arpía, La Voluntad de Vivir, Viento Frío Infernal. En combate destaca por sostener al equipo con curación, controlar a los enemigos y invocar criaturas.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -3208,7 +3208,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'suporte',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1101.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Laimi de Verme é um suporte SSR do Submundo, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Ataque dos Tentáculos do Verme, Restrição dos Tentáculos do Verme, Perfuração dos Tentáculos do Verme. Em combate, destaca-se por controlar inimigos, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Worm Raimi is a SSR support of the Underworld, fighting on the middle line with a focus on physical damage. Their arsenal includes Worm\'s Bind Attack, Worm Bind, Worm\'s Bind Piercing. In battle, they stand out for controlling enemies, empowering allies and applying damage over time.', bio_es: 'Raimi de Estrella Agazapada de Tierra es un soporte SSR del Inframundo, actuando en la línea media con foco en daño físico. Su arsenal incluye Ataque de Atadura del Gusano, Atadura del Gusano, Perforación de Atadura del Gusano. En combate destaca por controlar a los enemigos, fortalecer a los aliados y aplicar daño continuo.',
     tags: [],
     stats: { atk: 8000, def: 4500, hp: 25000, vel: 180 },
     skills: [
@@ -3240,7 +3240,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'atlantida', class: 'mago',
     position: 'meio', damage: 'mental',
     image: 'img/heroes/1102.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Io de Scylla é um mago SSR de Atlântida, atuando na linha do meio com foco em dano psíquico. Seu arsenal inclui Punho da Besta, Tornado Violento, Alma de Scylla: Lobo e Águia. Em combate, destaca-se por sustentar a equipe com cura, controlar inimigos e fortalecer aliados.', bio_en: 'Scylla Io is a SSR mage of Atlantis, fighting on the middle line with a focus on psychic damage. Their arsenal includes Beast Fist, Big Tornado, Soul of Scylla: Wolf and Eagle. In battle, they stand out for sustaining the team with healing, controlling enemies and empowering allies.', bio_es: 'Io de Escila es un mago SSR de la Atlántida, actuando en la línea media con foco en daño psíquico. Su arsenal incluye Puñetazo de Bestia, Gran Tornado, Alma de Escila: Lobo y Águila. En combate destaca por sostener al equipo con curación, controlar a los enemigos y fortalecer a los aliados.',
     tags: [],
     stats: { atk: 6500, def: 3500, hp: 20000, vel: 170 },
     skills: [
@@ -3271,7 +3271,7 @@ const CODEX_HEROES = [
     rarity: 'ssr', faction: 'submundo', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1103.webp',
-    bio: 'Cavaleiro lendário cujos feitos ecoam pelas estrelas. Ajuste esta descrição depois.',
+    bio: 'Zelos de Sapo é um tanque SSR do Submundo, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Golpe do Sapo, Esmagamento Saltante, Provocação. Em combate, destaca-se por controlar inimigos e aplicar dano contínuo.', bio_en: 'Terrestrial Strange Star·Zelos is a SSR tank of the Underworld, fighting on the front line with a focus on physical damage. Their arsenal includes Frog Strike, Jumping Smash, Taunt. In battle, they stand out for controlling enemies and applying damage over time.', bio_es: 'Terrestrial Strange Star·Zelos es un tanque SSR del Inframundo, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Golpe de Rana, Aplastamiento de Salto, Provocación de Rana. En combate destaca por controlar a los enemigos y aplicar daño continuo.',
     tags: [],
     stats: { atk: 11000, def: 6500, hp: 36000, vel: 220 },
     skills: [
