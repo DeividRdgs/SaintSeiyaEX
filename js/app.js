@@ -2185,7 +2185,9 @@ function showRoletaPageResult(hero) {
   // Scroll suave pro resultado com offset (respiro de 80px no topo)
   setTimeout(() => {
     const rect = wrap.getBoundingClientRect();
-    const scrollTarget = window.pageYOffset + rect.top - 80;
+    const topbar = document.getElementById('topbar');
+    const tbH = topbar ? topbar.getBoundingClientRect().height : 0;
+    const scrollTarget = window.pageYOffset + rect.top - tbH - 24;
     window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
   }, 200);
   // Atualizar texto do botão

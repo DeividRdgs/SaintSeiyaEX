@@ -355,7 +355,9 @@ function applyTabUI(tabId, doScroll) {
   }
 
   if (doScroll) {
-    window.scrollTo({top: btn.offsetTop - 20, behavior: 'smooth'});
+    // Topo da página: o topbar fixo fica no lugar e o conteúdo aparece
+    // logo abaixo (rolar até o botão o esconderia sob a barra fixa)
+    window.scrollTo({top: 0, behavior: 'smooth'});
   }
   updatePageMeta(tabId);
   return true;

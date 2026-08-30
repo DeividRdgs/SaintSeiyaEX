@@ -534,3 +534,9 @@ body.gsearch-open { overflow: hidden; }
   font-size: 1.1rem;
   transition: transform .2s, color .2s;
 }
+
+/* Âncoras e alvos de scroll nunca ficam sob o topbar fixo */
+.tab-content, .hero-detail, #hero-detail-view, #artifact-detail-view,
+#card-detail-view, .roleta-result, .home-section {
+  scroll-margin-top: calc(var(--tb-h, 122px) + 16px);
+}
