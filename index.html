@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       SEO — é ISTO que corrige o "Netlify" no lugar do título.
+       O Google monta o resultado da busca a partir de:
+       1) <title>  2) meta description  3) og:site_name  4) JSON-LD WebSite
+       ============================================================ -->
+  <title>Tríade — Legião de Saint Seiya EX</title>
+  <meta name="description" content="Site oficial da Tríade, legião de Saint Seiya EX. Conheça a legião, nossos eventos e conquistas, e saiba como fazer parte do time.">
+  <link rel="canonical" href="https://triade-ssex.netlify.app/">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Tríade">
+  <meta name="theme-color" content="#070a14">
+
+  <!-- Verificação do Google Search Console:
+       quando criar a propriedade lá, cole a meta tag deles aqui (veja GUIA-SEO.md)
+  <meta name="google-site-verification" content="COLE_SEU_CODIGO_AQUI"> -->
+
+  <!-- Open Graph (WhatsApp, Discord, Facebook) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tríade SSEX">
+  <meta property="og:title" content="Tríade — Legião de Saint Seiya EX">
+  <meta property="og:description" content="Conheça a Tríade, legião de Saint Seiya EX: eventos, conquistas e recrutamento aberto.">
+  <meta property="og:url" content="https://triade-ssex.netlify.app/">
+  <meta property="og:image" content="https://triade-ssex.netlify.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tríade — Legião de Saint Seiya EX">
+  <meta name="twitter:description" content="Conheça a Tríade, legião de Saint Seiya EX: eventos, conquistas e recrutamento aberto.">
+  <meta name="twitter:image" content="https://triade-ssex.netlify.app/assets/og-image.png">
+
+  <!-- Dados estruturados: dizem ao Google o NOME do site (substitui "Netlify") -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Tríade SSEX",
+    "alternateName": ["Tríade", "Tríade Saint Seiya EX"],
+    "url": "https://triade-ssex.netlify.app/",
+    "inLanguage": "pt-BR"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tríade",
+    "url": "https://triade-ssex.netlify.app/",
+    "logo": "https://triade-ssex.netlify.app/assets/apple-touch-icon.png",
+    "description": "Legião de Saint Seiya EX."
+  }
+  </script>
+
+  <!-- Ícones -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sobre">Pular para o conteúdo</a>
+
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <!-- ===================== NAVEGAÇÃO ===================== -->
+  <header class="nav" id="topo">
+    <div class="nav__inner container">
+      <a class="nav__brand" href="#topo" aria-label="Tríade — início">
+        <svg class="nav__logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo-triade"></use></svg>
+        <span>Tríade</span>
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#recrutamento">Recrutamento</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="container hero__content">
+        <p class="hero__kicker">Legião de Saint Seiya EX</p>
+        <h1 class="hero__title">TRÍADE</h1>
+        <p class="hero__tagline">
+          <!-- EDITE: frase de apresentação da legião -->
+          União, estratégia e cosmo elevado. Uma legião feita de jogadores
+          que lutam juntos dentro e fora da arena.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--gold" href="#recrutamento">Quero entrar</a>
+          <a class="btn btn--ghost" href="#contato">Falar com a gente</a>
+        </div>
+      </div>
+      <div class="hero__glow" aria-hidden="true"></div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <h2 class="section__title reveal">Sobre a Tríade</h2>
+        <p class="section__lead reveal">
+          <!-- EDITE: história / descrição da legião -->
+          A Tríade é uma legião de Saint Seiya EX formada por jogadores dedicados.
+          Aqui você encontra quem somos, o que fazemos e como participar.
+        </p>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">⚔️</div>
+            <h3>Guerras &amp; PVP</h3>
+            <p><!-- EDITE -->Participação constante em guerras de legião e disputas PVP, com foco em estratégia e trabalho em equipe.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🛡️</div>
+            <h3>União</h3>
+            <p><!-- EDITE -->Comunidade ativa e organizada: ajudamos membros novos a evoluir e crescer junto com a legião.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">🏆</div>
+            <h3>Conquistas</h3>
+            <p><!-- EDITE -->Nossa trajetória de vitórias e rankings dentro do servidor. Liste aqui os títulos da legião.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EVENTOS ===================== -->
+    <section class="section section--alt" id="eventos">
+      <div class="container">
+        <h2 class="section__title reveal">Eventos</h2>
+        <p class="section__lead reveal">
+          <!-- EDITE: descreva os eventos fixos da legião (dias/horários) -->
+          Agenda de atividades da legião. Edite esta lista com os eventos reais.
+        </p>
+        <ul class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__badge">SEG</span>
+            <div><h3>Evento 1</h3><p><!-- EDITE -->Descrição e horário do evento.</p></div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__badge">QUA</span>
+            <div><h3>Evento 2</h3><p><!-- EDITE -->Descrição e horário do evento.</p></div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__badge">SÁB</span>
+            <div><h3>Guerra de Legião</h3><p><!-- EDITE -->Descrição e horário do evento.</p></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== RECRUTAMENTO ===================== -->
+    <section class="section" id="recrutamento">
+      <div class="container">
+        <h2 class="section__title reveal">Recrutamento</h2>
+        <p class="section__lead reveal">
+          <!-- EDITE: requisitos reais para entrar -->
+          Quer vestir a armadura da Tríade? Confira os requisitos e chame a gente.
+        </p>
+        <div class="recruit reveal">
+          <ul class="recruit__list">
+            <li><!-- EDITE -->Nível mínimo: defina aqui</li>
+            <li><!-- EDITE -->Participação nos eventos da legião</li>
+            <li><!-- EDITE -->Respeito e espírito de equipe</li>
+            <li><!-- EDITE -->Discord ativo</li>
+          </ul>
+          <a class="btn btn--gold" href="#contato">Candidatar-se</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="section section--alt" id="contato">
+      <div class="container">
+        <h2 class="section__title reveal">Contato</h2>
+        <p class="section__lead reveal">Fale com a liderança da legião:</p>
+        <div class="contact reveal">
+          <!-- EDITE: troque # pelo link real do seu servidor no Discord -->
+          <a class="btn btn--gold btn--lg" href="#" rel="noopener" target="_blank">💬 Entrar no Discord</a>
+          <p class="contact__hint"><!-- EDITE -->Ou procure os líderes no jogo: <strong>Nick1</strong> e <strong>Nick2</strong>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="ano">2026</span> Tríade — Saint Seiya EX.</p>
+      <p class="footer__disclaimer">Site de fãs, sem afiliação oficial com os detentores da marca Saint Seiya.</p>
+    </div>
+  </footer>
+
+  <!-- Logo (símbolo da Tríade) reutilizado pela navegação -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f5d77a"/><stop offset="1" stop-color="#c9971c"/>
+      </linearGradient>
+      <g id="logo-triade">
+        <path d="M32 6 58 52 6 52 Z" fill="none" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
+        <circle cx="32" cy="38" r="5" fill="url(#gold)"/>
+      </g>
+    </defs>
+  </svg>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
