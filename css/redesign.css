@@ -515,3 +515,7 @@ body.gsearch-open { overflow: hidden; }
   .home-hub-stats { gap: 14px; }
   .home-featured-actions { flex-direction: column; }
 }
+
+/* Rodapé: gap entre os links e hover neutro do link oficial */
+.footer-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+.footer-official:hover { color: var(--gold-bright); border-color: var(--line-gold); }
