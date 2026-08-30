@@ -48,7 +48,10 @@ for (const h of HEROES) {
 
   let page = template;
   // base para resolver caminhos relativos a partir de /herois/<slug>/
-  page = page.replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" />\n<base href="/">');
+  // + marca de JS ativo: esconde o conteúdo pré-renderizado antes do primeiro
+  //   paint (sem flash); crawlers sem JS continuam vendo o conteúdo
+  page = page.replace('<meta charset="UTF-8" />',
+    '<meta charset="UTF-8" />\n<base href="/">\n<script>document.documentElement.classList.add(\'rd-js\');</script>');
   // head específico
   page = page.replace(/<title id="pageTitle">[^<]*<\/title>/, `<title id="pageTitle">${esc(title)}</title>`);
   page = page.replace(/(<meta name="description" id="pageDescription" content=")[^"]*(")/, `$1${esc(desc)}$2`);
