@@ -97,6 +97,73 @@ function renderBannersCalendar() {
   grid.innerHTML = html;
 }
 
+// ─────────── compartilhar o calendário como imagem ───────────
+function _bnxLoadHtml2canvas(cb) {
+  if (window.html2canvas) return cb(window.html2canvas);
+  var s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+  s.onload = function () { cb(window.html2canvas || null); };
+  s.onerror = function () { cb(null); };
+  document.head.appendChild(s);
+}
+
+function bnxShareFallback(url) {
+  url = url || location.href;
+  if (document.getElementById('bnxShareMenu')) return;
+  var text = encodeURIComponent(_bnxUi('banners.shareText', 'Calendário de Banners — Saint Seiya EX'));
+  var u = encodeURIComponent(url);
+  var menu = document.createElement('div');
+  menu.className = 'bnx-share-menu';
+  menu.id = 'bnxShareMenu';
+  menu.innerHTML =
+    '<a href="https://wa.me/?text=' + text + '%20' + u + '" target="_blank" rel="noopener">WhatsApp</a>' +
+    '<a href="https://twitter.com/intent/tweet?text=' + text + '&url=' + u + '" target="_blank" rel="noopener">X / Twitter</a>' +
+    '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">Facebook</a>' +
+    '<a href="https://t.me/share/url?url=' + u + '&text=' + text + '" target="_blank" rel="noopener">Telegram</a>';
+  var bar = document.querySelector('.bnx-share-bar');
+  if (bar && bar.parentNode) bar.parentNode.insertBefore(menu, bar.nextSibling);
+}
+
+function bnxShareCalendar() {
+  var btn = document.getElementById('bnxShareBtn');
+  var poster = document.querySelector('.bnx-poster');
+  if (!poster) return;
+  var label = btn ? btn.querySelector('span:last-child') : null;
+  var oldTxt = label ? label.textContent : '';
+  if (btn) { btn.disabled = true; if (label) label.textContent = _bnxUi('banners.sharePrep', 'Gerando imagem...'); }
+  function restore() { if (btn) { btn.disabled = false; if (label) label.textContent = oldTxt || _bnxUi('banners.share', 'Compartilhar imagem'); } }
+
+  _bnxLoadHtml2canvas(function (h2c) {
+    if (!h2c) { restore(); bnxShareFallback(location.href); return; }
+    h2c(poster, {
+      backgroundColor: '#0b0703',
+      scale: Math.min(2, window.devicePixelRatio || 1),
+      useCORS: true, logging: false
+    }).then(function (canvas) {
+      canvas.toBlob(function (blob) {
+        restore();
+        if (!blob) { bnxShareFallback(location.href); return; }
+        var file = new File([blob], 'calendario-banners.png', { type: 'image/png' });
+        // Web Share API com arquivo (celular): abre o menu nativo de compartilhar
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({
+            files: [file],
+            title: _bnxUi('banners.shareText', 'Calendário de Banners — Saint Seiya EX')
+          }).catch(function () {});
+          return;
+        }
+        // desktop: baixa a imagem e mostra os links das redes
+        var dl = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = dl; a.download = 'calendario-banners.png';
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(dl); }, 5000);
+        bnxShareFallback(location.href);
+      }, 'image/png');
+    }).catch(function () { restore(); bnxShareFallback(location.href); });
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   renderBannersCalendar();
   // re-renderiza quando o idioma muda (nomes traduzidos)
