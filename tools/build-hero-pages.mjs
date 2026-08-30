@@ -7,7 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const SITE = 'https://triade-ssex.netlify.app';
+const SITE = 'https://saintseiyaex.netlify.app';
 
 function loadConst(file, name) {
   const src = fs.readFileSync(path.join(ROOT, file), 'utf8');

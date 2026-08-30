@@ -13,7 +13,7 @@ vem de sinais que a própria página fornece:
 3. A tag `<title>`
 
 Quando a página não fornece esses sinais, o Google recorre ao domínio — e como o
-site está em `triade-ssex.netlify.app` (subdomínio do netlify.app), ele mostra o nome
+site está em `saintseiyaex.netlify.app` (subdomínio do netlify.app), ele mostra o nome
 do domínio principal: **Netlify**.
 
 ## O que já está feito neste projeto ✅
@@ -44,11 +44,11 @@ Tudo abaixo já existe no `index.html` publicado:
 ### 2. Google Search Console (grátis, essencial)
 
 1. Acesse <https://search.google.com/search-console>
-2. *Adicionar propriedade* → tipo **Prefixo do URL** → `https://triade-ssex.netlify.app/`
+2. *Adicionar propriedade* → tipo **Prefixo do URL** → `https://saintseiyaex.netlify.app/`
 3. Verificação: escolha **Tag HTML** — a meta tag `google-site-verification` **já está
    no `index.html`** com o código correto; basta clicar em *Verificar*
 4. Menu **Sitemaps** → envie `sitemap.xml`
-5. Barra de cima → **Inspeção de URL** → cole `https://triade-ssex.netlify.app/` →
+5. Barra de cima → **Inspeção de URL** → cole `https://saintseiyaex.netlify.app/` →
    **Solicitar indexação** (repita para as rotas principais: `/herois`, `/tier-list`,
    `/team-builder`, `/artefatos`, `/cartas`, `/banners`, `/roleta`)
 

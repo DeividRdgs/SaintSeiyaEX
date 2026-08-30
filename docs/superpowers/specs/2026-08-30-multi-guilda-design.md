@@ -4,7 +4,7 @@ Data: 2026-08-30 · Status: aprovado em conversa, aguardando revisão da spec
 
 ## Contexto
 
-O site TRIADE (https://triade-ssex.netlify.app) é hoje de guilda única: a área
+O site TRIADE (https://saintseiyaex.netlify.app) é hoje de guilda única: a área
 `/guilda` (ranking, bosses, GVG, eventos, votação, aprovação de membros) fala com
 um único backend Google Apps Script (`API_URL` fixa em `js/app-part1.js:5`) preso
 à planilha da TRIADE via `getActiveSpreadsheet()`. O código do backend está salvo

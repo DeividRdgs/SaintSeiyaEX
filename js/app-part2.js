@@ -437,7 +437,7 @@ function updatePageMeta(tabId, subtabId) {
   upsertMeta('meta[property="og:description"]', 'property', 'og:description', descStr);
 
   // og:url e canonical (URL atual)
-  const currentUrl = 'https://triade-ssex.netlify.app' + location.pathname;
+  const currentUrl = 'https://saintseiyaex.netlify.app' + location.pathname;
   upsertMeta('meta[property="og:url"]', 'property', 'og:url', currentUrl);
   // Canonical link
   let canonical = document.querySelector('link[rel="canonical"]');

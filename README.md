@@ -4,7 +4,7 @@ Guia completo de **Saint Seiya EX** (Rebirth 2 / Awakening EX): codex de 103 cav
 34 artefatos e 165 cartas com skills traduzidas (pt/en/es), team builder, tier list,
 roleta e área de gestão da guilda TRIADE.
 
-**Site:** https://triade-ssex.netlify.app · **Discord:** https://discord.gg/JdjaESRjxF
+**Site:** https://saintseiyaex.netlify.app · **Discord:** https://discord.gg/JdjaESRjxF
 
 ## Rodar localmente
 
