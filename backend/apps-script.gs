@@ -37,6 +37,19 @@ function ensureMasterSheets() {
     idx = master.insertSheet('Usuarios_Index');
     idx.appendRow(['email', 'guild', 'status', 'atualizado_em']);
     idx.setFrozenRows(1);
+    // Backfill: contas já existentes da TRIADE (master) entram no índice
+    var usersSheetBf = master.getSheetByName('Usuarios');
+    if (usersSheetBf) {
+      var udBf = usersSheetBf.getDataRange().getValues();
+      var nowBf = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
+      for (var bf = 1; bf < udBf.length; bf++) {
+        var stBf = String(udBf[bf][5] || '').trim().toLowerCase();
+        var emBf = String(udBf[bf][0] || '').trim().toLowerCase();
+        if (emBf && (stBf === 'aprovado' || stBf === 'pendente')) {
+          idx.appendRow([emBf, 'triade', stBf, nowBf]);
+        }
+      }
+    }
   }
   return { master: master, guildas: g, index: idx };
 }
@@ -146,30 +159,38 @@ function guildRegister(params) {
   if (blockGlobal) return jsonResponse(blockGlobal);
 
   var m = ensureMasterSheets();
-  var existente = findGuildRow(slug);
-  if (existente && existente.status !== 'recusada') {
-    return jsonResponse({ok: false, error: 'Já existe uma guilda com este nome'});
-  }
-  if (indexFindGuildByEmail(email)) {
-    return jsonResponse({ok: false, error: 'Este email já está cadastrado em uma guilda'});
-  }
-  var gd = m.guildas.getDataRange().getValues();
-  for (var i = 1; i < gd.length; i++) {
-    if (String(gd[i][4] || '').trim().toLowerCase() === email &&
-        String(gd[i][3] || '').trim().toLowerCase() === 'pendente') {
-      return jsonResponse({ok: false, error: 'Este email já tem um pedido de guilda pendente'});
-    }
-  }
 
-  var salt = gerarSalt();
-  var hash = hashSenha(senha, salt);
-  var now = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
-  if (existente) {
-    m.guildas.getRange(existente.row, 1, 1, 10).setValues([[slug, nome, '', 'pendente', email, nick, hash, salt, now, '']]);
-  } else {
-    m.guildas.appendRow([slug, nome, '', 'pendente', email, nick, hash, salt, now, '']);
+  var lockG = LockService.getScriptLock();
+  try { lockG.waitLock(5000); }
+  catch (eLock) { return jsonResponse({ok: false, error: 'Muitos pedidos agora. Tente novamente em instantes.'}); }
+  try {
+    var existente = findGuildRow(slug);
+    if (existente && existente.status !== 'recusada') {
+      return jsonResponse({ok: false, error: 'Já existe uma guilda com este nome'});
+    }
+    if (indexFindGuildByEmail(email)) {
+      return jsonResponse({ok: false, error: 'Este email já está cadastrado em uma guilda'});
+    }
+    var gd = m.guildas.getDataRange().getValues();
+    for (var i = 1; i < gd.length; i++) {
+      if (String(gd[i][4] || '').trim().toLowerCase() === email &&
+          String(gd[i][3] || '').trim().toLowerCase() === 'pendente') {
+        return jsonResponse({ok: false, error: 'Este email já tem um pedido de guilda pendente'});
+      }
+    }
+
+    var salt = gerarSalt();
+    var hash = hashSenha(senha, salt);
+    var now = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
+    if (existente) {
+      m.guildas.getRange(existente.row, 1, 1, 10).setValues([[slug, nome, '', 'pendente', email, nick, hash, salt, now, '']]);
+    } else {
+      m.guildas.appendRow([slug, nome, '', 'pendente', email, nick, hash, salt, now, '']);
+    }
+    markActionRateLimit('guildreg_email:' + email);
+  } finally {
+    try { lockG.releaseLock(); } catch (eRel) {}
   }
-  markActionRateLimit('guildreg_email:' + email);
   logEvent('guild_register', {email: maskEmail(email), detalhes: 'Guilda: ' + nome});
   try {
     enviarDiscord({
@@ -2283,6 +2304,13 @@ function authRegister(params, ctx) {
 
   var existing = authFindUser(sheets.users, email);
   if (existing) {
+    if (String(existing.data[5] || '').trim().toLowerCase() === 'removido') {
+      // Conta desativada pelo líder: apaga a linha antiga e deixa o fluxo recadastrar
+      sheets.users.deleteRow(existing.row);
+      existing = null;
+    }
+  }
+  if (existing) {
     var status = String(existing.data[5] || '');
     if (status === 'pendente') return jsonResponse({ok: false, error: 'Este email já tem um cadastro pendente.'});
     if (status === 'aprovado') return jsonResponse({ok: false, error: 'Este email já está cadastrado. Use "Esqueci minha senha".'});
@@ -2292,6 +2320,18 @@ function authRegister(params, ctx) {
   var guildaDoEmail = indexFindGuildByEmail(email);
   if (guildaDoEmail && guildaDoEmail !== ctx.slug) {
     return jsonResponse({ok: false, error: 'Este email já está cadastrado em outra guilda.'});
+  }
+
+  // Cinto e suspensório: email com conta na master (TRIADE) fora do índice
+  if (!guildaDoEmail && ctx.slug !== 'triade') {
+    var masterSheetsReg = ensureAuthSheets(SpreadsheetApp.getActiveSpreadsheet());
+    var masterUserReg = authFindUser(masterSheetsReg.users, email);
+    if (masterUserReg) {
+      var stMReg = String(masterUserReg.data[5] || '').trim().toLowerCase();
+      if (stMReg === 'aprovado' || stMReg === 'pendente') {
+        return jsonResponse({ok: false, error: 'Este email já está cadastrado em outra guilda.'});
+      }
+    }
   }
 
   var salt = gerarSalt();

@@ -5410,6 +5410,7 @@ if (document.readyState === 'loading') {
 
 // Nome da guilda logada nos pontos da área da guilda
 function applyGuildBranding() {
+  if (typeof guildDisplayName !== 'function') return;
   var h = document.getElementById('guildHeroName');
   if (h) h.textContent = guildDisplayName();
   // Descrições de rota (usadas no meta description da área da guilda)
@@ -5869,7 +5870,7 @@ function renderAuthAdminPanel(pendentes, senhaLegacy) {
       </div>
       <div class="auth-admin-controls">
         <select class="auth-admin-guilda" id="adminGuilda_${idx}">
-          <option value="Triade" selected>Triade</option>
+          <option value="${escapeHtml(guildDisplayName())}" selected>${escapeHtml(guildDisplayName())}</option>
           <option value="__other__">Outra…</option>
         </select>
         <input type="text" class="auth-admin-guilda-other" id="adminGuildaOther_${idx}"

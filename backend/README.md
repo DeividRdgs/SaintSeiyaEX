@@ -8,7 +8,9 @@ no editor do Apps Script da planilha da TRIADE (Extensões → Apps Script).
 1. Copie todo o conteúdo de `apps-script.gs` por cima do código no editor. Salve.
 2. Rode a função `ensureMasterSheets` uma vez (cria as abas `Guildas` e
    `Usuarios_Index`; a primeira execução pede autorização — inclui o escopo do
-   Drive usado para criar planilhas de guildas novas).
+   Drive usado para criar planilhas de guildas novas). Essa mesma execução já
+   popula o `Usuarios_Index` com as contas existentes da TRIADE (backfill
+   automático, só roda na criação da aba).
 3. Rode `testeMultiGuilda` e confira no log `✅ TESTE COMPLETO PASSOU`; depois
    rode `testeMultiGuildaLimpar`.
 4. Na aba `Usuarios` da planilha da TRIADE, escreva `sim` na coluna
