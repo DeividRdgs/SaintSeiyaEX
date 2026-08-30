@@ -1,60 +1,45 @@
-# TRIADE — Saint Seiya EX / Rebirth 2
+# Saint Seiya EX / Rebirth 2 — Guia
 
-Guia interativo de **Saint Seiya EX** (Awakening EX / Rebirth 2) mantido pela
-Legião TRIADE, publicado em [triade-ssex.netlify.app](https://triade-ssex.netlify.app/).
+Guia completo de **Saint Seiya EX** (Rebirth 2 / Awakening EX): codex de 103 cavaleiros,
+34 artefatos e 165 cartas com skills traduzidas (pt/en/es), team builder, tier list,
+roleta e área de gestão da guilda TRIADE.
 
-Site estático (HTML/CSS/JS puro, sem build) em formato SPA com History API —
-as rotas são URLs reais servidas via fallback do Netlify. Interface em
-português, inglês e espanhol.
-
-## O que o site oferece
-
-| Rota | Conteúdo |
-|---|---|
-| `/` | Início — distribuição tática da legião |
-| `/herois` | Codex dos 103 cavaleiros |
-| `/artefatos` | Codex dos 34 artefatos |
-| `/cartas` | Codex de Ultimate Power Cards |
-| `/tier-list` | Tier list interativa |
-| `/team-builder` | Montador de equipes (9 cavaleiros + 2 suportes + equipamentos) |
-| `/roleta` | Roleta de cavaleiros para vídeos/lives |
-| `/banners` | Calendário/previsão de banners do servidor global |
-| `/guilda` | Área privada dos membros (bosses, ranking, GVG, eventos, estatísticas, votação) |
-
-## Estrutura de arquivos
-
-```
-index.html              → SPA inteira (markup + SEO no <head>)
-css/style.css           → estilos
-js/app.js               → lógica principal
-js/app-part1.js         → lógica (parte 1)
-js/app-part2.js         → roteamento (TAB_ROUTES) e abas
-js/data/                → dados do jogo (~3 MB): heroes, artifacts, cards, i18n
-circlehead/             → retratos dos cavaleiros (PNG)
-skillicons/             → ícones de habilidades (PNG)
-calendario-banners.png  → imagem do calendário (também usada como og:image)
-_redirects              → fallback SPA do Netlify (toda rota → index.html)
-netlify.toml            → headers de segurança e cache
-robots.txt, sitemap.xml → SEO
-GUIA-SEO.md             → guia do Google Search Console
-tools/extract.py        → script auxiliar de extração de dados
-```
+**Site:** https://triade-ssex.netlify.app · **Discord:** https://discord.gg/JdjaESRjxF
 
 ## Rodar localmente
 
-Como é SPA com rotas reais, sirva por HTTP (abrir o arquivo direto quebra as rotas):
-
 ```
-python -m http.server 8000
+python tools/serve.py
 ```
 
-Depois acesse <http://localhost:8000/>. Rotas internas (ex. `/herois`) só
-funcionam com fallback de servidor — localmente, navegue a partir da home.
+Abre em http://localhost:8123/ com fallback de SPA (rotas internas funcionam) e sem
+cache (F5 sempre atualiza).
 
-## Deploy no Netlify
+## Estrutura
 
-- **Por git (recomendado):** conecte este repositório no painel do Netlify;
-  cada push publica automaticamente. `publish = "."` já está no `netlify.toml`.
-- **Manual:** arraste a pasta do projeto em <https://app.netlify.com/drop>.
+| Caminho | O que é |
+|---|---|
+| `index.html` | Shell da SPA (roteamento por History API) |
+| `css/` | `style.css` (base) + camadas: `polish`, `redesign*`, `icons`, `refine*`, `skeleton` |
+| `js/app-part1/2.js`, `js/app.js` | Lógica do app (i18n, rotas, abas, codex, ferramentas) |
+| `js/redesign.js` | Home hub, busca global (Ctrl+K), URLs por herói, aba Pendentes |
+| `js/data/` | Dados do codex: `heroes`, `artifacts`, `cards`, `i18n` |
+| `img/{heroes,artifacts,cards,bosses}/` | Imagens em WebP nomeadas pelo id interno (ex.: `heroes/1027.webp`) |
+| `herois/<slug>/` | Páginas pré-renderizadas por herói (SEO) — **geradas, não editar à mão** |
+| `circlehead/`, `skillicons/` | Retratos circulares e ícones de skill |
+| `tools/` | `serve.py` (dev), `build-hero-pages.mjs` (gerador SEO), `og-card.html` (card social) |
 
-O arquivo `_redirects` garante que qualquer rota sirva o `index.html` (status 200).
+## Fluxos comuns
+
+- **Editar um herói/carta/artefato:** edite `js/data/*.js` e rode
+  `node tools/build-hero-pages.mjs` para regenerar as páginas de SEO e o sitemap.
+- **Trocar a arte de um herói:** substitua `img/heroes/<id>.webp` (mesmo nome).
+- **Trocar os banners em destaque da home:** edite `HOME_FEATURED` no topo de
+  `js/redesign.js` (ids + data de término opcional para countdown).
+- **Calendário de banners:** substitua `calendario-banners.png`.
+
+## Deploy
+
+Push neste repositório (se conectado ao Netlify) ou arraste a pasta em
+https://app.netlify.com/drop. O `netlify.toml` cuida de segurança e cache;
+o `_redirects` faz o fallback da SPA.
