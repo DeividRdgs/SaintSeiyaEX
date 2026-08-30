@@ -598,3 +598,94 @@
   .spin-skip-btn { width: 100%; }
   .roleta-manual-btn { min-height: 46px; }
 }
+
+/* ═══════════════ FORMAÇÃO E EQUIPAMENTO — MODERNIZAÇÃO DO MIOLO ═══════════════
+   O núcleo do team builder mantinha o visual antigo: painel roxo hardcoded,
+   slots tracejados grossos e títulos gritantes. Tokens + densidade nova. */
+
+.team-formation-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--gold-bright);
+  margin-bottom: 8px;
+}
+.team-slot {
+  border: 1px dashed color-mix(in srgb, var(--gold) 30%, transparent);
+  border-radius: 12px;
+  background: var(--bg-2);
+}
+.team-slot:hover {
+  border-color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 8%, var(--bg-2));
+}
+.team-slot .slot-tag {
+  font-family: 'Sora', sans-serif;
+  font-size: .5rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  border-radius: 5px;
+}
+.team-grid-headers .col-label {
+  font-family: 'Sora', sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--ink-dim);
+}
+
+/* Painel de equipamento: sai o roxo, entra o padrão de cards */
+.hero-equipment-wrapper {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.hero-equipment-title {
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+  text-align: left;
+  margin-bottom: 12px;
+}
+.hero-eq-row {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--bg-2);
+  margin-bottom: 8px;
+}
+.hero-eq-row:hover { border-color: var(--line-gold); }
+.hero-eq-name {
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+}
+.artifact-slot {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+}
+.artifact-slot:hover { border-color: var(--line-gold); }
+.artifact-slot .empty-text, .artifact-slot .empty-mark {
+  font-family: 'Sora', sans-serif;
+  font-size: .5rem;
+  letter-spacing: .08em;
+  color: var(--ink-dim);
+}
+
+/* Combos: mesmo padrão de painel */
+.team-combos-wrapper {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.team-combos-title {
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold-bright);
+}

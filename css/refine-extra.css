@@ -262,3 +262,11 @@ body footer [data-i18n="footer.motto"] {
   .hero-portrait-large { max-width: 220px; margin: 0 auto; }
   .skill-icon-wrap { width: 48px; height: 48px; }
 }
+
+/* Detalhe do herói: mais uma redução (pedido do usuário) */
+.hero-detail { grid-template-columns: minmax(140px, 175px) 1fr; gap: 16px; padding: 16px; margin-bottom: 14px; }
+.hero-detail-name { font-size: clamp(18px, 1.9vw, 24px); }
+.hero-detail-title { font-size: 13px; margin-bottom: 8px; }
+.hero-tags { margin-bottom: 10px; gap: 6px; }
+.hero-tag { padding: 3px 8px; }
+.hero-bio { font-size: .8rem; padding: 8px 12px; margin-bottom: 0; }
