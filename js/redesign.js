@@ -213,6 +213,52 @@ document.addEventListener('keydown', function (e) {
   }
 }, true);
 
+/* ---------- páginas por herói (/herois/<slug>) ---------- */
+function rdSlugify(name) {
+  return String(name || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+function rdHeroBySlug(slug) {
+  if (typeof CODEX_HEROES === 'undefined') return null;
+  return CODEX_HEROES.find(function (h) { return rdSlugify(h.name) === slug; }) || null;
+}
+function openHeroBySlug(slug) {
+  var h = rdHeroBySlug(slug);
+  if (h && typeof showHeroDetail === 'function') {
+    showHeroDetail(h.id);
+  } else if (slug) {
+    history.replaceState({ tab: 'heroes' }, '', '/herois');
+  }
+}
+/* URL profunda + título ao abrir/fechar o detalhe pela interface */
+if (typeof showHeroDetail === 'function') {
+  var _rdOrigShowHero = showHeroDetail;
+  showHeroDetail = function (id) {
+    _rdOrigShowHero(id);
+    var h = (typeof CODEX_HEROES !== 'undefined') && CODEX_HEROES.find(function (x) { return x.id === id; });
+    if (h) {
+      var slug = rdSlugify(h.name);
+      var url = '/herois/' + slug;
+      if (location.pathname !== url) history.pushState({ tab: 'heroes', hero: slug }, '', url);
+      document.title = _rdName(h) + ' — Saint Seiya EX / Rebirth 2';
+    }
+  };
+}
+if (typeof hideHeroDetail === 'function') {
+  var _rdOrigHideHero = hideHeroDetail;
+  hideHeroDetail = function () {
+    _rdOrigHideHero();
+    if (location.pathname.indexOf('/herois/') === 0) {
+      history.replaceState({ tab: 'heroes' }, '', '/herois');
+    }
+  };
+}
+/* Remove o conteúdo pré-renderizado (SEO) quando o app assume */
+(function () {
+  var pre = document.getElementById('prerender-hero');
+  if (pre) pre.remove();
+})();
+
 /* ---------- sub-aba Pendentes (lista de solicitações no painel da guilda) ---------- */
 function rdInitPendingTab() {
   var body = document.getElementById('authAdminBody');

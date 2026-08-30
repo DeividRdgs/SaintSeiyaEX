@@ -572,6 +572,14 @@ function resolveRouteFromURL() {
     return;
   }
 
+  // /herois/<slug> → detalhe de herói (páginas pré-renderizadas p/ SEO)
+  if (path.indexOf('herois/') === 0) {
+    applyTabUI('heroes', false);
+    const heroSlug = path.split('/')[1] || '';
+    if (typeof openHeroBySlug === 'function') openHeroBySlug(heroSlug);
+    return;
+  }
+
   // Outras rotas: aba principal pelo slug
   const tabId = SLUG_TO_TAB[path];
   if (tabId) {

@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="pt-BR" id="rootHtml">
+<head>
+<meta charset="UTF-8" />
+<base href="/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0e0e12" id="themeColorMeta">
+
+<!-- Google Search Console — verificação de propriedade -->
+<meta name="google-site-verification" content="TAwujKAvR27oM-55KZveTUmHZg7uT9GL_EHGa5b_RXo" />
+
+<!-- ════════════════ SEO BÁSICO ════════════════ -->
+<title id="pageTitle">Hyoga de Cisne — Skills e Guia | Saint Seiya EX</title>
+<meta name="description" id="pageDescription" content="Hyoga de Cisne em Saint Seiya EX (Rebirth 2): cavaleiro R do Santuário, classe Suporte. Skills traduzidas (Punho Congelado, Punho do Pó de Diamante, Fragmento de Gelo), team builder e tier list.">
+<meta name="keywords" content="Saint Seiya EX, Saint Seiya Awakening EX, Saint Seiya Rebirth 2, SSEX, Cavaleiros do Zodíaco, Knights of the Zodiac, codex, tier list, team builder, build, roleta, guia, guild, triade, caballeros del zodiaco, saint seiya ex tier list, saint seiya ex guide, saint seiya ex team builder, saint seiya ex codex, saint seiya rebirth 2 guide">
+<meta name="author" content="TRIADE Guild">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+<link rel="canonical" href="https://triade-ssex.netlify.app/herois/hyoga-de-cisne" id="canonicalLink">
+
+<!-- ════════════════ OPEN GRAPH (Discord, Twitter, Facebook, WhatsApp) ════════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Saint Seiya EX / Rebirth 2">
+<meta property="og:title" id="ogTitle" content="Hyoga de Cisne — Saint Seiya EX">
+<meta property="og:description" id="ogDescription" content="Hyoga de Cisne em Saint Seiya EX (Rebirth 2): cavaleiro R do Santuário, classe Suporte. Skills traduzidas (Punho Congelado, Punho do Pó de Diamante, Fragmento de Gelo), team builder e tier list.">
+<meta property="og:url" id="ogUrl" content="https://triade-ssex.netlify.app/herois/hyoga-de-cisne">
+<meta property="og:image" content="https://triade-ssex.netlify.app/img/heroes/1031.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Saint Seiya EX / Rebirth 2 — Codex, Team Builder e Tier List">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:locale:alternate" content="es_ES">
+
+<!-- ════════════════ TWITTER CARD ════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" id="twitterTitle" content="Saint Seiya EX / Rebirth 2 — Guia">
+<meta name="twitter:description" id="twitterDescription" content="Codex, Team Builder, Tier List e Roleta de Cavaleiros — guia completo de Saint Seiya EX (Awakening EX / Rebirth 2).">
+<meta name="twitter:image" content="https://triade-ssex.netlify.app/img/heroes/1031.webp">
+
+<!-- ════════════════ STRUCTURED DATA (Schema.org JSON-LD) ════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Saint Seiya EX / Rebirth 2",
+  "alternateName": ["Saint Seiya EX Guide", "Saint Seiya Awakening EX Guide", "Saint Seiya Rebirth 2 Guide", "SSEX Guide"],
+  "url": "https://triade-ssex.netlify.app/",
+  "description": "Guia completo de Saint Seiya EX (Awakening EX / Rebirth 2) com codex, team builder, tier list e roleta de cavaleiros.",
+  "inLanguage": ["pt-BR", "en-US", "es-ES"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "TRIADE Guild",
+    "url": "https://triade-ssex.netlify.app/",
+    "sameAs": ["https://discord.gg/JdjaESRjxF"]
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://triade-ssex.netlify.app/herois?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGame",
+  "name": "Saint Seiya EX",
+  "alternateName": ["Saint Seiya Awakening EX", "Saint Seiya: Rebirth 2", "SSEX", "聖鬥士星矢：重生2", "Cavaleiros do Zodíaco: Awakening EX"],
+  "url": "https://seiya.efunsea.com/pt.html",
+  "sameAs": ["https://seiya.efunsea.com/pt.html"],
+  "genre": ["RPG", "Strategy", "Gacha"],
+  "gamePlatform": ["Android", "iOS"],
+  "applicationCategory": "Game",
+  "description": "Jogo mobile baseado em Saint Seiya (Cavaleiros do Zodíaco) com sistema de gacha, cavaleiros de bronze, prata e ouro, batalhas estratégicas e PvP. Conhecido como Saint Seiya EX no ocidente e Saint Seiya: Rebirth 2 na Ásia."
+}
+</script>
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<script>
+  // Aplica tema ANTES de qualquer render (evita flash)
+  (function() {
+    try {
+      var saved = localStorage.getItem('triadeTheme');
+      if (saved === 'light' || saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', saved);
+      }
+    } catch(e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/polish.css">
+<link rel="stylesheet" href="css/redesign.css">
+<link rel="stylesheet" href="css/redesign-codex.css">
+<link rel="stylesheet" href="css/redesign-tools.css">
+<link rel="stylesheet" href="css/redesign-guild.css">
+<link rel="stylesheet" href="css/icons.css">
+<link rel="stylesheet" href="css/refine-type.css">
+<link rel="stylesheet" href="css/refine-extra.css">
+<link rel="stylesheet" href="css/skeleton.css">
+
+<!-- ═══════════════════════════════════════════════════════════
+     Cloudflare Web Analytics
+     Painel: https://dash.cloudflare.com/?to=/:account/web-analytics
+     ═══════════════════════════════════════════════════════════ -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b7e403462b0d4c1e94e5990bce7679cc"}'></script>
+
+</head>
+<body>
+<!-- Container global de toasts -->
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+<div class="wrap">
+
+  <!-- ============ TOPBAR (marca + navegação + busca + autenticação) ============ -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-brand" onclick="navigateToTab('inicio')" role="button" tabindex="0" aria-label="Início">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2 L21 20 L3 20 Z"></path><path d="M12 8 L16.5 17 L7.5 17 Z"></path></svg>
+      <span class="topbar-logo">SAINT SEIYA EX</span>
+      <span class="topbar-badge">Rebirth 2</span>
+    </div>
+
+    <button class="global-search-btn" id="globalSearchBtn" onclick="openGlobalSearch()" aria-label="Buscar no site" data-i18n-title="search.button">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21 L16.5 16.5"></path></svg>
+      <span class="global-search-label" data-i18n="search.placeholderShort">Buscar…</span>
+      <span class="global-search-kbd">Ctrl K</span>
+    </button>
+
+  <div class="auth-topbar">
+    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar tema (claro/escuro)" aria-label="Alternar tema" data-i18n-title="theme.toggle">
+      <span class="theme-icon-dark">🌙</span>
+      <span class="theme-icon-light">☀️</span>
+    </button>
+    <!-- Seletor de idioma -->
+    <div class="lang-switcher" role="group" aria-label="Selecionar idioma">
+      <button class="lang-btn" data-lang="pt" onclick="setLang('pt')" title="Português" aria-label="Português">
+        <svg viewBox="0 0 30 21" width="22" height="16" aria-hidden="true">
+          <rect width="30" height="21" fill="#009b3a"/>
+          <polygon points="15,2 28,10.5 15,19 2,10.5" fill="#fedf00"/>
+          <circle cx="15" cy="10.5" r="4.2" fill="#002776"/>
+          <path d="M11,10 Q15,8.5 19,10.5" stroke="#fff" stroke-width="0.5" fill="none"/>
+        </svg>
+      </button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')" title="English" aria-label="English">
+        <svg viewBox="0 0 30 21" width="22" height="16" aria-hidden="true">
+          <rect width="30" height="21" fill="#b22234"/>
+          <rect y="1.6" width="30" height="1.6" fill="#fff"/>
+          <rect y="4.8" width="30" height="1.6" fill="#fff"/>
+          <rect y="8" width="30" height="1.6" fill="#fff"/>
+          <rect y="11.2" width="30" height="1.6" fill="#fff"/>
+          <rect y="14.4" width="30" height="1.6" fill="#fff"/>
+          <rect y="17.6" width="30" height="1.6" fill="#fff"/>
+          <rect width="12" height="11.2" fill="#3c3b6e"/>
+        </svg>
+      </button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')" title="Español" aria-label="Español">
+        <svg viewBox="0 0 30 21" width="22" height="16" aria-hidden="true">
+          <rect width="30" height="21" fill="#aa151b"/>
+          <rect y="5.25" width="30" height="10.5" fill="#f1bf00"/>
+        </svg>
+      </button>
+    </div>
+    <button class="auth-login-btn" id="authLoginBtn" onclick="openAuthModal('login')" data-i18n="auth.login">Entrar</button>
+    <div class="auth-user-info" id="authUserInfo">
+      <span>👤 <span class="auth-user-nick"></span></span>
+      <button class="auth-logout-btn" onclick="authLogout()" data-i18n="auth.logout">Sair</button>
+    </div>
+  </div>
+
+  <!-- ============ ABAS DE NAVEGAÇÃO ============ -->
+  <nav class="tabs-nav"><!-- dentro do .topbar -->
+    <button class="tab-btn active" data-tab="inicio" data-i18n="menu.inicio">Início</button>
+    <button class="tab-btn" data-tab="guilda" data-i18n="menu.guilda">Guilda</button>
+    <button class="tab-btn" data-tab="heroes" data-i18n="menu.heroes">Heróis</button>
+    <button class="tab-btn" data-tab="artifacts" data-i18n="menu.artifacts">Artefatos</button>
+    <button class="tab-btn" data-tab="cards" data-i18n="menu.cards">Cartas</button>
+    <button class="tab-btn" data-tab="tier" data-i18n="menu.tier">Tier List</button>
+    <button class="tab-btn" data-tab="roleta" data-i18n="menu.roleta">Roleta</button>
+    <button class="tab-btn" data-tab="banners" data-i18n="menu.banners">Banners</button>
+    <button class="tab-btn" data-tab="team" data-i18n="menu.team">Team Builder</button>
+  </nav>
+  </div><!-- /topbar -->
+
+  <!-- ============ HEADER DA GUILDA (aparece em todas as sub-abas) ============ -->
+  <header class="hero guild-hero" id="guildHeader" style="display:none;">
+    <div class="kicker" data-i18n="guild.kicker">⚔ Legião · Distribuição Tática ⚔</div>
+    <h1>TRIADE</h1>
+    <div class="subtitle" data-i18n="guild.subtitle">Cavaleiros do Zodíaco — Distribuição de Bosses</div>
+    <div class="meta-row" id="meta-row">
+      <span data-i18n="generic.loading">Carregando...</span>
+    </div>
+  </header>
+
+  <!-- Sub-tabs da Guilda (aparece só quando entra na área da guilda) -->
+  <nav class="guild-subnav" id="guildSubnav" style="display:none;">
+    <button class="guild-subtab active" data-subtab="update" data-i18n="guild.subUpdate">Atualizar Poder</button>
+    <button class="guild-subtab" data-subtab="bosses" data-i18n="guild.subBosses">Bosses</button>
+    <button class="guild-subtab" data-subtab="ranking" data-i18n="guild.subRanking">Ranking</button>
+    <button class="guild-subtab" data-subtab="gvg" data-i18n="guild.subGvg">GVG</button>
+    <button class="guild-subtab" data-subtab="eventos" data-i18n="guild.subEvents">Eventos</button>
+    <button class="guild-subtab" data-subtab="stats" data-i18n="guild.subStats">Estatísticas</button>
+    <button class="guild-subtab" data-subtab="vote" data-i18n="guild.subVote">Votação</button>
+    <button class="guild-subtab" data-subtab="pendentes" data-i18n="guild.subPendentes">Pendentes</button>
+  </nav>
+
+  <!-- ============ ABA: INÍCIO (HOME) ============ -->
+  
+  <section id="prerender-hero" class="prerender-hero">
+    <nav><a href="/">Início</a> › <a href="/herois">Codex de Heróis</a> › <span>Hyoga de Cisne</span></nav>
+    <h1>Hyoga de Cisne</h1>
+    <p class="prerender-meta">R · Santuário · Suporte · Cygnus Hyoga</p>
+    <img src="/img/heroes/1031.webp" alt="Hyoga de Cisne" width="220" loading="eager">
+    <h2>Skills</h2>
+    <article><h3>Punho Congelado <small>(Ativa)</small></h3><p>Hyoga reúne energia de gelo, então lança em direção do inimigo mais próximo, causando 45% de Dano Psíquico.
+1. Causa 45% de Dano Psíquico.</p></article>
+<article><h3>Punho do Pó de Diamante <small>(Ultimate)</small></h3><p>Hyoga lança Punho do Pó de Diamante em até 3 inimigos na fila da frente, causa um total de 88% de Dano Psíquico a eles 8 vezes e os inflige Congelando por 2.5 segundos.
+1. Causa um total de 88% de Dano Psíquico e Congela o alvo por 2.5 segundo(s) (0 Estrelas)
+2. Aumenta o Dano Psíquico para 104%. Aumenta o tempo de Congelamento para 3 segundo(s). (4 Estrelas)
+3. Aumenta o Dano Psíquico para 120%. Aumenta o tempo de Congelamento para 3.5 segundo(s). (7 Estrelas)</p></article>
+<article><h3>Fragmento de Gelo <small>(Ativa)</small></h3><p>Lança 6 fragmentos de gelo, cada um causando 30% de Dano Psíquico a um inimigo aleatório. Quando os fragmentos de gelo causam Dano aos inimigos, tem 35% de chance de infligir Congelamento neles por 1 segundo.
+1. Cada fragmento de gelo causa 30% de Dano Psíquico com 35% de chance de infligir Congelamento aos inimigos por 1 segundo. (0 Estrelas)
+2. Aumenta o Dano Psíquico para 35%. Aumenta a taxa de Congelamento para 40%. (2 Estrelas)
+3. Aumenta o Dano Psíquico para 40%. Aumenta a taxa de Congelamento para 45%. (5 Estrelas)</p></article>
+<article><h3>Parede de Gelo <small>(Ativa)</small></h3><p>Concede ao aliado com a menor porcentagem de PV um Escudo que resiste Dano Psíquico igual a 100% do ATQ de Hyoga. Esse Escudo é permanente.
+1. Concede um Escudo Psíquico com um valor de 100% (1 Estrela)
+2. Valor do Escudo Psíquico aumenta para 125% do ATQ (3 Estrelas)
+3. Valor do Escudo Psíquico aumenta para 150% do ATQ (6 Estrelas)</p></article>
+<article><h3>Círculo de Gelo Congelante <small>(Ativa)</small></h3><p>Causa 96% de Dano Psíquico ao inimigo mais próximo e tem 50% de chance de o infligir Restrição, o imobilizando por 4 segundos.
+1. Causa 96% de Dano Psíquico. (2 Estrelas)
+2. Aumenta o Dano Psíquico para 108%. (4 Estrelas)
+3. Aumenta o Dano Psíquico para 120%. (6 Estrelas)</p></article>
+<article><h3>Alma Congelada <small>(Passiva)</small></h3><p>Hyoga é protegido pela energia de gelo, aumentando sua Defesa Psíquica em 24%.
+1. DEF Psíquica aumentada em 24%. (3 Estrelas)
+2. DEF Psíquica aumenta para 30%. (5 Estrelas)
+3. DEF Psíquica aumenta para 36%. (7 Estrelas)</p></article>
+  </section>
+  <div class="tab-content active" id="tab-inicio">
+
+    <!-- ════════ HUB: manchete + destaque ════════ -->
+    <section class="home-hub">
+      <div class="home-hub-main">
+        <div class="home-hub-kicker" data-i18n="home.hub.kicker">Guia completo · Rebirth 2 / Awakening EX</div>
+        <h1 class="home-hub-title" data-i18n="home.hub.title">Domine o cosmos.<br>Monte o time perfeito.</h1>
+        <p class="home-hub-sub" data-i18n="home.hub.sub">Codex completo, tier list e team builder interativo — em português, inglês e espanhol.</p>
+        <div class="home-hub-ctas">
+          <button class="home-hub-btn primary" onclick="navigateToTab('team')" data-i18n="home.hub.cta1">Montar meu time</button>
+          <button class="home-hub-btn" onclick="navigateToTab('heroes')" data-i18n="home.hub.cta2">Explorar o codex</button>
+          <a class="home-hub-btn discord" href="https://discord.gg/JdjaESRjxF" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.8 13.8 0 0 0-.64 1.28 18.3 18.3 0 0 0-5.5 0 13.8 13.8 0 0 0-.64-1.28c-1.71.29-3.37.8-4.93 1.51A20.3 20.3 0 0 0 .1 18.06a19.9 19.9 0 0 0 6.07 3.03c.49-.66.93-1.37 1.3-2.1a12.9 12.9 0 0 1-2.05-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.16 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.81 1.44 1.3 2.1a19.9 19.9 0 0 0 6.07-3.03 20.3 20.3 0 0 0-3.58-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Zm7.96 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Z"></path></svg>
+            Discord
+          </a>
+        </div>
+        <div class="home-hub-stats">
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statHeroes">103</div><div class="home-hub-stat-label" data-i18n="home.hub.stHeroes">Cavaleiros</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statArtifacts">34</div><div class="home-hub-stat-label" data-i18n="home.hub.stArtifacts">Artefatos</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statCards">165</div><div class="home-hub-stat-label" data-i18n="home.hub.stCards">Cartas</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num">3</div><div class="home-hub-stat-label" data-i18n="home.hub.stLangs">Idiomas</div></div>
+        </div>
+      </div>
+      <div class="home-hub-featured" id="homeFeatured"><!-- preenchido por js/redesign.js --></div>
+    </section>
+
+    <!-- ════════ LENDÁRIOS UR ════════ -->
+    <section class="home-section home-top-section">
+      <div class="home-top-header">
+        <div class="home-section-title" data-i18n="home.top.title">Lendários do Codex</div>
+        <span class="home-top-sub" data-i18n="home.top.sub">os heróis UR do jogo</span>
+        <button class="home-top-link" onclick="navigateToTab('tier')" data-i18n="home.top.viewAll">ver tier list completa →</button>
+      </div>
+      <div class="home-top-grid" id="homeTopTier"><!-- preenchido por js/redesign.js --></div>
+    </section>
+
+    <!-- ════════ FEATURES PRINCIPAIS ════════ -->
+    <section class="home-section">
+      <div class="home-section-title" data-i18n="home.featuresTitle">O que oferecemos</div>
+      <div class="home-features-grid">
+        <div class="home-feature-card">
+          <div class="home-feature-icon">📋</div>
+          <div class="home-feature-name" data-i18n="home.f1.name">Codex Completo</div>
+          <div class="home-feature-desc" data-i18n="home.f1.desc">103 Cavaleiros, 34 Artefatos e 33 Cartas catalogados, com raridade, facção, classe e posição.</div>
+          <button class="home-feature-link" onclick="navigateToTab('heroes')" data-i18n="home.f1.btn">Ver Heróis →</button>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="home-feature-icon">⚒</div>
+          <div class="home-feature-name" data-i18n="home.f2.name">Team Builder</div>
+          <div class="home-feature-desc" data-i18n="home.f2.desc">Monte equipes com 5 cavaleiros + 2 suportes, equipe artefatos e até 5 cartas em cada main.</div>
+          <button class="home-feature-link" onclick="navigateToTab('team')" data-i18n="home.f2.btn">Montar Time →</button>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="home-feature-icon">🎖</div>
+          <div class="home-feature-name" data-i18n="home.f3.name">Tier List Interativa</div>
+          <div class="home-feature-desc" data-i18n="home.f3.desc">Arraste cavaleiros entre os tiers S/A/B/C/D e compartilhe sua build com a guilda.</div>
+          <button class="home-feature-link" onclick="navigateToTab('tier')" data-i18n="home.f3.btn">Ver Tier List →</button>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="home-feature-icon">🛡</div>
+          <div class="home-feature-name" data-i18n="home.f4.name">Gestão de Guilda</div>
+          <div class="home-feature-desc" data-i18n="home.f4.desc">Bosses, GVG, Ranking de poder, eventos e estatísticas — tudo num só lugar para sua guilda.</div>
+          <button class="home-feature-link" onclick="navigateToTab('guilda')" data-i18n="home.f4.btn">Área da Guilda →</button>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="home-feature-icon">🗳</div>
+          <div class="home-feature-name" data-i18n="home.f5.name">Votação ao Vivo</div>
+          <div class="home-feature-desc" data-i18n="home.f5.desc">Líderes abrem votação cronometrada e os membros classificam cavaleiros em tempo real (com modo OBS para streamers).</div>
+          <button class="home-feature-link" onclick="navigateToTab('guilda')" data-i18n="home.f5.btn">Ver Votações →</button>
+        </div>
+
+        <div class="home-feature-card">
+          <div class="home-feature-icon">📊</div>
+          <div class="home-feature-name" data-i18n="home.f6.name">Histórico Completo</div>
+          <div class="home-feature-desc" data-i18n="home.f6.desc">Evolução de poder por jogador, gráficos de crescimento e registro de todas as atualizações.</div>
+          <button class="home-feature-link" onclick="navigateToTab('guilda')" data-i18n="home.f6.btn">Ver Estatísticas →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ PRA LÍDERES ════════ -->
+    <section class="home-section home-section-highlight">
+      <div class="home-section-title" data-i18n="home.leaderTitle">Privilégios de Líder de Guilda</div>
+      <div class="home-section-subtitle" data-i18n="home.leaderSubtitle">Ferramentas exclusivas para quem comanda a Legião</div>
+
+      <div class="home-leader-grid">
+        <div class="home-leader-item">
+          <span class="home-leader-icon">✅</span>
+          <div>
+            <strong data-i18n="home.l1.name">Aprovação de Membros</strong>
+            <p data-i18n="home.l1.desc">Você aprova quem entra na guilda. Notificação automática no Discord a cada novo cadastro.</p>
+          </div>
+        </div>
+
+        <div class="home-leader-item">
+          <span class="home-leader-icon">🔐</span>
+          <div>
+            <strong data-i18n="home.l2.name">Painel Admin</strong>
+            <p data-i18n="home.l2.desc">Gerencie membros pendentes, libere ou negue acessos direto pelo site sem precisar abrir a planilha.</p>
+          </div>
+        </div>
+
+        <div class="home-leader-item">
+          <span class="home-leader-icon">⚔</span>
+          <div>
+            <strong data-i18n="home.l3.name">Atualizar qualquer membro</strong>
+            <p data-i18n="home.l3.desc">Com a senha de líder, atualize o poder de qualquer jogador. Útil quando alguém esquece.</p>
+          </div>
+        </div>
+
+        <div class="home-leader-item">
+          <span class="home-leader-icon">🗳</span>
+          <div>
+            <strong data-i18n="home.l4.name">Controlar Votações</strong>
+            <p data-i18n="home.l4.desc">Abrir, fechar ou cancelar votações de tier. Definir tempo limite com countdown ao vivo.</p>
+          </div>
+        </div>
+
+        <div class="home-leader-item">
+          <span class="home-leader-icon">🛡</span>
+          <div>
+            <strong data-i18n="home.l5.name">Distribuição de Bosses e GVG</strong>
+            <p data-i18n="home.l5.desc">Atribua bosses semanais a cada membro, organize papéis (Ataque/Defesa) na Guerra de Guildas.</p>
+          </div>
+        </div>
+
+        <div class="home-leader-item">
+          <span class="home-leader-icon">📅</span>
+          <div>
+            <strong data-i18n="home.l6.name">Calendário de Eventos</strong>
+            <p data-i18n="home.l6.desc">Cadastre eventos da guilda com data, descrição e status. Avisos automáticos no Discord.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ INTEGRAÇÕES ════════ -->
+    <section class="home-section">
+      <div class="home-section-title" data-i18n="home.integrationsTitle">Integrações Nativas</div>
+      <div class="home-section-subtitle" data-i18n="home.integrationsSubtitle">Tudo se conecta. Você não precisa duplicar trabalho.</div>
+
+      <div class="home-integrations">
+        <div class="home-integration-card">
+          <div class="home-integration-icon">📊</div>
+          <div class="home-integration-name">Google Sheets</div>
+          <div class="home-integration-desc">
+            <span data-i18n="home.gsDesc">Todos os dados ficam numa planilha do Google que <strong>você controla</strong>. Sem servidor pago, sem banco de dados complicado.</span>
+            <ul class="home-int-list">
+              <li data-i18n="home.gs1">Edite jogadores direto na planilha</li>
+              <li data-i18n="home.gs2">Backup automático no Google Drive</li>
+              <li data-i18n="home.gs3">Histórico completo e auditável</li>
+              <li data-i18n="home.gs4">Logs estruturados de cada ação</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="home-integration-arrow">⟷</div>
+
+        <div class="home-integration-card">
+          <div class="home-integration-icon">🤖</div>
+          <div class="home-integration-name">Discord Bot</div>
+          <div class="home-integration-desc">
+            <span data-i18n="home.dcDesc">Avisos automáticos no canal da sua guilda — mantém todo mundo informado sem você precisar lembrar.</span>
+            <ul class="home-int-list">
+              <li data-i18n="home.dc1">Atualizações de poder em tempo real</li>
+              <li data-i18n="home.dc2">Notificação de novos cadastros</li>
+              <li data-i18n="home.dc3">Lembretes de eventos próximos</li>
+              <li data-i18n="home.dc4">Resumo semanal aos sábados</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════ CTA FINAL ════════ -->
+    <section class="home-cta">
+      <div class="home-cta-title" data-i18n="home.ctaTitle">Pronto para começar?</div>
+      <div class="home-cta-text" data-i18n="home.ctaText">
+        Se você é membro da Tríade, faça login para acessar a área da guilda.<br>
+        Se ainda não tem conta, solicite acesso ao líder.
+      </div>
+      <div class="home-cta-actions">
+        <button class="home-cta-btn primary" onclick="openAuthModal('login')" data-i18n="home.ctaLogin">Entrar</button>
+        <button class="home-cta-btn" onclick="openAuthModal('register')" data-i18n="home.ctaRegister">Solicitar Acesso</button>
+      </div>
+
+      <!-- Destaque pra líderes de outras guildas -->
+      <div class="home-cta-divider"></div>
+      <div class="home-cta-other">
+        <div class="home-cta-other-title" data-i18n="home.otherTitle">É líder de outra guilda?</div>
+        <div class="home-cta-other-text" data-i18n="home.otherText">Quer um sistema parecido pra sua guilda? Entra em contato — vamos conversar.</div>
+        <button class="home-cta-btn primary" onclick="openContactModal()" data-i18n="home.otherBtn">Quero pra Minha Guilda</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: ATUALIZAR PODER (dentro da Guilda) ============ -->
+  <div class="tab-content" id="tab-update">
+    <div class="section-title" data-i18n="update.title">Atualizar Poder</div>
+
+    <div class="updater">
+      <div class="updater-row">
+        <div class="field">
+          <label data-i18n="update.nick">Nick</label>
+          <select id="sel-nick">
+            <option value="" data-i18n="update.loadingPlayers">— Carregando jogadores —</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="update.newPower">Novo poder</label>
+          <input type="number" id="inp-power" placeholder="ex: 175000" min="0" data-i18n-placeholder="update.powerPh">
+        </div>
+      </div>
+
+      <button class="btn-update" id="btn-update-logado" data-i18n="update.btnUpdateMine">Atualizar Meu Poder</button>
+
+      <div class="hint" id="logado-hint" data-i18n="update.loggedHint">Você está logado como <strong id="update-user-nick">—</strong>. A atualização será feita em seu nome.</div>
+
+      <details class="updater-advanced" id="modo-lider-block" style="display:none;">
+        <summary data-i18n="update.leaderMode">Modo Líder (atualizar outros jogadores)</summary>
+        <div class="auth-row">
+          <div class="field">
+            <label data-i18n="update.leaderPassword">Senha de líder</label>
+            <input type="password" id="inp-senha" placeholder="••••••••">
+          </div>
+          <button class="btn-update" id="btn-update-senha" data-i18n="update.btnUpdatePass">Atualizar com Senha</button>
+        </div>
+        <div class="hint" data-i18n="update.leaderHint">Use sua senha de líder pra atualizar o poder de qualquer membro da guilda.</div>
+      </details>
+
+      <div class="nick-status" id="nick-status"></div>
+      <div class="feedback" id="feedback"></div>
+    </div>
+  </div>
+
+  <!-- ============ ABA: BOSSES ============ -->
+  <div class="tab-content" id="tab-bosses">
+    <div id="bosses-container">
+      <div class="skel skel-boss"></div>
+      <div class="skel skel-boss"></div>
+      <div class="skel skel-boss"></div>
+      <div class="skel skel-boss"></div>
+    </div>
+  </div>
+
+  <!-- ============ ABA: RANKING ============ -->
+  <div class="tab-content" id="tab-ranking">
+    <section class="ranking-section">
+      <div class="section-title">
+        <h2 data-i18n="ranking.title">Ranking de Poder</h2>
+        <div class="sub" data-i18n="ranking.subtitle">⚔ Os mais fortes da Legião ⚔</div>
+      </div>
+      <div id="podium-container"></div>
+      <div class="ranking-table" id="ranking-table"></div>
+      <button class="show-more-btn" id="show-more-btn" data-i18n="ranking.showMore" style="display:none;">▼ Ver todos os cavaleiros ▼</button>
+    </section>
+  </div>
+
+  <!-- ============ ABA: GVG ============ -->
+  <div class="tab-content" id="tab-gvg">
+    <section class="gvg-section">
+      <div class="section-title">
+        <h2 data-i18n="gvg.title">Guerra de Guildas</h2>
+        <div class="sub" data-i18n="gvg.subtitle">⚔ Distribuição tática ⚔</div>
+      </div>
+      <div class="gvg-grid" id="gvg-grid">
+        <div class="skel skel-gvg-col"></div>
+        <div class="skel skel-gvg-col"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: EVENTOS ============ -->
+  <div class="tab-content" id="tab-eventos">
+    <section class="events-section">
+      <div class="section-title">
+        <h2 data-i18n="events.title">Eventos da Legião</h2>
+        <div class="sub" data-i18n="events.subtitle">⚔ Atividades semanais ⚔</div>
+      </div>
+      <div class="week-grid" id="week-grid">
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+        <div class="skel skel-event-col"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: SOLICITAÇÕES PENDENTES (dentro da Guilda) ============ -->
+  <div class="tab-content" id="tab-pendentes">
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="admin.pendingTitle">Solicitações Pendentes</h2>
+        <div class="sub" data-i18n="admin.pendingSubtitle">Aprove ou negue novos membros da guilda</div>
+      </div>
+      <div class="pending-panel">
+        <div id="authAdminBody"><div class="pending-hint" data-i18n="admin.loginToSee">Faça login como líder para ver as solicitações.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: HEROES ============ -->
+  <div class="tab-content" id="tab-heroes">
+    <section>
+      <div class="section-title">
+        <h2 data-i18n="heroes.title">Codex de Heróis</h2>
+        <div class="sub" data-i18n="heroes.subtitle">⚔ Cavaleiros sagrados de todos os reinos ⚔</div>
+      </div>
+      <div id="heroes-view">
+        <div class="team-pool-toolbar">
+          <div class="team-pool-filters">
+            <div class="team-filter-item">
+              <label data-i18n="filter.rarity">Raridade</label>
+              <select id="codexFilterRarity"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.faction">Facção</label>
+              <select id="codexFilterFaction"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.class">Classe</label>
+              <select id="codexFilterClass"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.position">Posição</label>
+              <select id="codexFilterPosition"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.damage">Dano</label>
+              <select id="codexFilterDamage"></select>
+            </div>
+            <div class="team-filter-item team-filter-search">
+              <label data-i18n="filter.search">Buscar</label>
+              <input type="text" id="heroSearch" placeholder="Nome do cavaleiro..." data-i18n-placeholder="filter.searchPlaceholder">
+            </div>
+            <button class="team-filter-clear" id="codexFiltersClear" title="Limpar filtros" data-i18n="filter.clear" data-i18n-title="filter.clearTitle">Limpar</button>
+          </div>
+        </div>
+        <div class="codex-count" id="heroCount"></div>
+        <div class="heroes-grid" id="heroesGrid">
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div id="hero-detail-view" style="display:none;"></div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: ARTEFATOS ============ -->
+  <div class="tab-content" id="tab-artifacts">
+    <div id="artifacts-view">
+      <section>
+        <div class="section-title">
+          <h2 data-i18n="artifacts.title">Artefatos Lendários</h2>
+          <div class="sub" data-i18n="artifacts.subtitle">⚔ Relíquias forjadas pelos deuses ⚔</div>
+        </div>
+        <div class="team-pool-toolbar">
+          <div class="team-pool-filters">
+            <div class="team-filter-item">
+              <label data-i18n="filter.rarity">Raridade</label>
+              <select id="artifactFilterRarity"></select>
+            </div>
+            <div class="team-filter-item team-filter-search">
+              <label data-i18n="filter.search">Buscar</label>
+              <input type="text" id="artifactSearch" placeholder="Nome do artefato..." data-i18n-placeholder="artifacts.searchPlaceholder">
+            </div>
+            <button class="team-filter-clear" id="artifactFiltersClear" title="Limpar filtros" data-i18n="filter.clear" data-i18n-title="filter.clearTitle">Limpar</button>
+          </div>
+        </div>
+        <div class="codex-count" id="artifactCount"></div>
+        <div class="artifacts-grid" id="artifactsGrid">
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+    <div id="artifact-detail-view" style="display:none;"></div>
+  </div>
+
+  <!-- ============ ABA: CARTAS ============ -->
+  <div class="tab-content" id="tab-cards">
+    <div id="cards-view">
+      <section>
+        <div class="section-title">
+          <h2 data-i18n="cards.title">Ultimate Power Cards</h2>
+          <div class="sub" data-i18n="cards.subtitle">⚔ Cartas de poder supremo ⚔</div>
+        </div>
+        <div class="team-pool-toolbar">
+          <div class="team-pool-filters">
+            <div class="team-filter-item">
+              <label data-i18n="filter.rarity">Raridade</label>
+              <select id="cardFilterRarity"></select>
+            </div>
+            <div class="team-filter-item team-filter-search">
+              <label data-i18n="filter.search">Buscar</label>
+              <input type="text" id="cardSearch" data-i18n-placeholder="filter.cardName" placeholder="Nome da carta...">
+            </div>
+            <button class="team-filter-clear" id="cardFiltersClear" data-i18n-title="filter.clearTitle" title="Limpar filtros" data-i18n="filter.clear">Limpar</button>
+          </div>
+        </div>
+        <div class="codex-count" id="cardCount"></div>
+        <div class="artifacts-grid" id="cardsGrid">
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+          <div class="sk-card" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+    <div id="card-detail-view" style="display:none;"></div>
+  </div>
+
+  <!-- ============ ABA: ESTATÍSTICAS ============ -->
+  <div class="tab-content" id="tab-stats">
+    <section>
+      <div class="section-title">
+        <h2 data-i18n="stats.title">Histórico de Poder</h2>
+        <div class="sub" data-i18n="stats.subtitle">⚔ Evolução dos últimos 30 dias ⚔</div>
+      </div>
+
+      <div class="stats-toolbar">
+        <div class="stats-filter">
+          <label data-i18n="stats.player">Jogador</label>
+          <select id="statsPlayerSelect">
+            <option value="__top10__" data-i18n="stats.top10">Top 10 (média comparativa)</option>
+          </select>
+        </div>
+        <div class="stats-filter">
+          <label data-i18n="stats.period">Período</label>
+          <select id="statsRangeSelect">
+            <option value="7" data-i18n="stats.last7">Últimos 7 dias</option>
+            <option value="14" data-i18n="stats.last14">Últimos 14 dias</option>
+            <option value="30" selected data-i18n="stats.last30">Últimos 30 dias</option>
+          </select>
+        </div>
+        <button class="stats-refresh-btn" id="statsRefreshBtn" title="Atualizar dados" data-i18n-title="stats.refresh">🔄</button>
+      </div>
+
+      <div class="stats-summary" id="statsSummary"></div>
+
+      <div class="stats-chart-wrap">
+        <canvas id="statsChart"></canvas>
+        <div class="stats-empty" id="statsEmpty" style="display:none;">
+          <div style="font-size:3em;opacity:.3;">📈</div>
+          <div data-i18n="stats.noData">Nenhum dado no período selecionado.</div>
+          <div style="font-size:.85em;opacity:.7;margin-top:4px;" data-i18n="stats.noDataHint">Atualizações de poder aparecem aqui automaticamente.</div>
+        </div>
+      </div>
+
+      <div class="stats-leaderboard" id="statsLeaderboard"></div>
+
+      <!-- Bloco de relatório (só pra líderes) -->
+      <div class="stats-report-block" id="statsReportBlock" style="display:none;">
+        <div class="stats-report-title" data-i18n="stats.reportTitle">Relatório de Atualizações</div>
+        <div class="stats-report-desc" data-i18n="stats.reportDesc">
+          Envia pro Discord a lista de quem atualizou recente, quem está atrasado (>14 dias)
+          e quem nunca atualizou pelo site. <strong>Automático todo domingo às 12h.</strong>
+        </div>
+        <button class="stats-report-btn" id="statsReportBtn" onclick="enviarRelatorioAgora()" data-i18n="stats.reportBtn">
+          Enviar Agora
+        </button>
+        <div class="stats-report-feedback" id="statsReportFeedback"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: TIER LIST ============ -->
+  <div class="tab-content" id="tab-tier">
+    <section>
+      <div class="section-title">
+        <h2 data-i18n="tier.title">Tier List dos Cavaleiros</h2>
+        <div class="sub" data-i18n="tier.subtitle">⚔ Arraste cavaleiros entre as tiers ⚔</div>
+      </div>
+
+      <div class="tier-toolbar">
+        <div class="tier-toolbar-info">
+          <span id="tierStatusInfo" data-i18n="generic.loading">Carregando...</span>
+        </div>
+        <button class="tier-btn tier-btn-spin" id="tierSpinBtn" data-i18n="tier.spin">Sortear</button>
+        <button class="tier-btn tier-btn-share" id="tierShareBtn" data-i18n="tier.share">Compartilhar</button>
+        <button class="tier-btn tier-btn-import" id="tierImportBtn" data-i18n="tier.import">Importar</button>
+        <button class="tier-btn tier-btn-reset" id="tierResetBtn" data-i18n="tier.reset">Resetar</button>
+      </div>
+
+      <div class="tier-pool-wrap">
+        <div class="team-pool-toolbar" style="margin-bottom:10px;">
+          <div class="team-pool-filters">
+            <div class="team-filter-item">
+              <label data-i18n="filter.rarity">Raridade</label>
+              <select id="tierFilterRarity"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.faction">Facção</label>
+              <select id="tierFilterFaction"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.class">Classe</label>
+              <select id="tierFilterClass"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.position">Posição</label>
+              <select id="tierFilterPosition"></select>
+            </div>
+            <div class="team-filter-item">
+              <label data-i18n="filter.damage">Dano</label>
+              <select id="tierFilterDamage"></select>
+            </div>
+            <div class="team-filter-item team-filter-search">
+              <label data-i18n="filter.search">Buscar</label>
+              <input type="text" id="tierSearch" placeholder="Nome do cavaleiro..." data-i18n-placeholder="filter.searchPlaceholder">
+            </div>
+            <button class="team-filter-clear" id="tierFiltersClear" title="Limpar filtros" data-i18n="filter.clear" data-i18n-title="filter.clearTitle">Limpar</button>
+          </div>
+        </div>
+        <div class="tier-pool-header" style="padding:0 4px;">
+          <span class="tier-pool-title" data-i18n="tier.poolTitle">CAVALEIROS DISPONÍVEIS</span>
+          <span id="tierPoolCount" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--ink-dim);"></span>
+        </div>
+        <div class="tier-pool" id="tierPool"></div>
+      </div>
+
+      <div class="tier-grid" id="tierGrid">
+        <div class="tier-row" data-tier="S">
+          <div class="tier-label tier-S">S</div>
+          <div class="tier-slot" data-tier="S"></div>
+        </div>
+        <div class="tier-row" data-tier="A">
+          <div class="tier-label tier-A">A</div>
+          <div class="tier-slot" data-tier="A"></div>
+        </div>
+        <div class="tier-row" data-tier="B">
+          <div class="tier-label tier-B">B</div>
+          <div class="tier-slot" data-tier="B"></div>
+        </div>
+        <div class="tier-row" data-tier="C">
+          <div class="tier-label tier-C">C</div>
+          <div class="tier-slot" data-tier="C"></div>
+        </div>
+        <div class="tier-row" data-tier="D">
+          <div class="tier-label tier-D">D</div>
+          <div class="tier-slot" data-tier="D"></div>
+        </div>
+      </div>
+
+      <div class="tier-hint">
+        Arraste cavaleiros da lista acima pra cada tier. Sua tier list é salva automaticamente neste navegador e pode ser compartilhada.
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: ROLETA (página dedicada) ============ -->
+  <div class="tab-content" id="tab-roleta">
+    <section class="roleta-section">
+      <div class="section-title">
+        <h2 data-i18n="spin.title">Roleta de Cavaleiros</h2>
+        <div class="sub" data-i18n="spin.pageSubtitle">⚔ Sorteie e crie 3 builds diferentes ao vivo ⚔</div>
+      </div>
+
+      <!-- Barra de progresso e ações -->
+      <div class="roleta-topbar">
+        <div class="roleta-progress">
+          <span id="rolPageProgressText" data-i18n="spin.progressText">0 sorteados de 0</span>
+          <span class="spin-progress-bar"><span class="spin-progress-fill" id="rolPageProgressFill"></span></span>
+        </div>
+        <div class="roleta-topbar-actions">
+          <button class="roleta-tb-btn" id="rolPageResetBtn" data-i18n="spin.resetPool">Restaurar todos</button>
+        </div>
+      </div>
+
+      <!-- Filtros: definir quais cavaleiros entram no sorteio -->
+      <div class="team-pool-toolbar roleta-filters-toolbar">
+        <div class="roleta-filters-label" data-i18n="spin.filterTitle">Filtrar cavaleiros do sorteio:</div>
+        <div class="team-pool-filters">
+          <div class="team-filter-item">
+            <label data-i18n="filter.rarity">Raridade</label>
+            <select id="rolPageFilterRarity"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.faction">Facção</label>
+            <select id="rolPageFilterFaction"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.class">Classe</label>
+            <select id="rolPageFilterClass"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.position">Posição</label>
+            <select id="rolPageFilterPosition"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.damage">Dano</label>
+            <select id="rolPageFilterDamage"></select>
+          </div>
+          <button class="team-filter-clear" id="rolPageFilterClear" title="Limpar filtros" data-i18n="filter.clear" data-i18n-title="filter.clearTitle">Limpar</button>
+        </div>
+      </div>
+
+      <!-- Pista da roleta -->
+      <div class="roleta-track-area">
+        <div class="spin-track-wrap" id="rolPageTrackWrap">
+          <div class="spin-track-pointer">▼</div>
+          <div class="spin-track" id="rolPageTrack"></div>
+          <div class="spin-track-pointer spin-track-pointer-bottom">▲</div>
+        </div>
+      </div>
+
+      <!-- Botão gigante de girar -->
+      <div class="roleta-spin-action">
+        <button class="roleta-big-spin-btn" id="rolPageSpinBtn" data-i18n="spin.spinButton">Girar Roleta</button>
+        <button class="roleta-manual-btn" id="rolPageManualBtn" data-i18n="spin.manualButton">Escolher Manualmente</button>
+      </div>
+
+      <!-- Resultado em destaque + 3 Builds -->
+      <div class="roleta-result" id="rolPageResult" style="display:none;">
+        <div class="roleta-result-header">
+          <div class="roleta-result-portrait" id="rolPageResultPortrait"></div>
+          <div class="roleta-result-info">
+            <div class="roleta-result-name" id="rolPageResultName"></div>
+            <div class="roleta-result-title" id="rolPageResultTitle"></div>
+            <div class="roleta-result-badges" id="rolPageResultBadges"></div>
+          </div>
+        </div>
+
+        <!-- 3 BUILDS DIFERENTES -->
+        <div class="roleta-builds">
+          <div class="roleta-builds-title" data-i18n="spin.buildsTitle">Crie 3 builds diferentes</div>
+
+          <div class="roleta-build" data-build-idx="0">
+            <div class="roleta-build-label"><span class="roleta-build-num">1</span> <span data-i18n="spin.buildLabel1">Build 1</span></div>
+            <div class="roleta-build-equipment"></div>
+          </div>
+
+          <div class="roleta-build" data-build-idx="1">
+            <div class="roleta-build-label"><span class="roleta-build-num">2</span> <span data-i18n="spin.buildLabel2">Build 2</span></div>
+            <div class="roleta-build-equipment"></div>
+          </div>
+
+          <div class="roleta-build" data-build-idx="2">
+            <div class="roleta-build-label"><span class="roleta-build-num">3</span> <span data-i18n="spin.buildLabel3">Build 3</span></div>
+            <div class="roleta-build-equipment"></div>
+          </div>
+        </div>
+
+        <div class="roleta-next-actions">
+          <button class="roleta-next-btn" id="rolPageNextBtn" data-i18n="spin.nextKnight">Próximo Cavaleiro</button>
+          <button class="spin-skip-btn" id="rolPageSkipBtn" data-i18n="spin.skip">Pular (sortear de novo)</button>
+        </div>
+      </div>
+
+      <div class="roleta-hint" data-i18n="spin.pageHint">Sorteie um cavaleiro e monte 3 builds diferentes pra ele (ex: PVE, PVP, Boss). Quando terminar, clique em "Próximo Cavaleiro".</div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: VOTAÇÃO ============ -->
+  <div class="tab-content" id="tab-vote">
+    <section>
+      <div class="section-title">
+        <h2 data-i18n="vote.title">Votação Comunitária</h2>
+        <div class="sub" data-i18n="vote.subtitle">⚔ Vote no tier dos cavaleiros ao vivo ⚔</div>
+      </div>
+
+      <!-- Botão admin sempre visível no topo -->
+      <div class="vote-top-actions">
+        <button class="vote-admin-toggle" id="voteAdminToggle" data-i18n="vote.adminPanel">Painel Admin</button>
+      </div>
+
+      <!-- Vista de SPECTATOR (quem vai votar) -->
+      <div id="voteSpectatorView">
+
+        <!-- Sem votação ativa -->
+        <div class="vote-idle" id="voteIdle">
+          <div style="font-size:3em;opacity:.3;">🗳</div>
+          <h3 data-i18n="vote.noneActive">Nenhuma votação ativa no momento</h3>
+          <p data-i18n="vote.waitAdmin">Aguarde o admin abrir uma votação ou fique de olho na live!</p>
+        </div>
+
+        <!-- Votação ativa -->
+        <div class="vote-active" id="voteActive" style="display:none;">
+          <!-- Coluna esquerda: vídeo do YouTube -->
+          <div class="vote-video-col" id="voteVideoCol"></div>
+
+          <!-- Coluna direita: cavaleiro + botões -->
+          <div class="vote-panel">
+            <div class="vote-hero-card" id="voteHeroCard"></div>
+
+            <div class="vote-countdown" id="voteCountdown" style="display:none;"></div>
+
+            <div class="vote-tier-buttons" id="voteTierButtons">
+              <button class="vote-tier-btn tier-S" data-tier="S">S</button>
+              <button class="vote-tier-btn tier-A" data-tier="A">A</button>
+              <button class="vote-tier-btn tier-B" data-tier="B">B</button>
+              <button class="vote-tier-btn tier-C" data-tier="C">C</button>
+              <button class="vote-tier-btn tier-D" data-tier="D">D</button>
+            </div>
+
+            <div class="vote-status" id="voteStatus"></div>
+
+            <div class="vote-results" id="voteResults"></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Painel ADMIN (escondido por padrão) -->
+      <div class="vote-admin-panel" id="voteAdminPanel" style="display:none;">
+        <div class="vote-admin-header">
+          <h3 data-i18n="voteAdmin.title">Painel Admin — Votação</h3>
+          <button class="vote-admin-close" id="voteAdminClose">×</button>
+        </div>
+
+        <div class="vote-admin-section">
+          <label data-i18n="voteAdmin.leaderPassword">Senha de líder</label>
+          <input type="password" id="voteAdminSenha" placeholder="••••••••">
+        </div>
+
+        <div class="vote-admin-section">
+          <label data-i18n="voteAdmin.ytLabel">URL do canal/live do YouTube (opcional)</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" id="voteYoutubeUrl" placeholder="https://www.youtube.com/watch?v=... ou ID do vídeo" style="flex:1;" data-i18n-placeholder="voteAdmin.ytPh">
+            <button class="vote-admin-btn" id="voteSaveYoutube" data-i18n="voteAdmin.save">Salvar</button>
+          </div>
+          <div class="vote-admin-hint" data-i18n="voteAdmin.ytHint">Cole a URL ou ID do vídeo. Aparece embedado pros espectadores.</div>
+        </div>
+
+        <div class="vote-admin-section" id="voteAdminOpenSection">
+          <label data-i18n="voteAdmin.openLabel">Abrir votação de um cavaleiro</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:stretch;">
+            <button class="vote-hero-picker" id="voteHeroPickerBtn" type="button">
+              <span class="vote-hero-picker-icon">⚜</span>
+              <span class="vote-hero-picker-label" id="voteHeroPickerLabel" data-i18n="voteAdmin.chooseHero">Escolher cavaleiro...</span>
+              <span class="vote-hero-picker-arrow">▾</span>
+            </button>
+            <div class="vote-duration-wrap">
+              <input type="number" id="voteDuration" placeholder="Min" min="0" max="120" step="1" title="Duração em minutos (vazio = sem timer)" data-i18n-placeholder="voteAdmin.durPh" data-i18n-title="voteAdmin.durTitle">
+              <span class="vote-duration-suffix" data-i18n="voteAdmin.minSuffix">min</span>
+            </div>
+            <button class="vote-admin-btn vote-admin-btn-open" id="voteOpenBtn" data-i18n="voteAdmin.openBtn">Abrir Votação</button>
+          </div>
+          <div class="vote-admin-hint" style="margin-top:8px;" data-i18n="voteAdmin.openHint">
+            <strong>Duração</strong>: deixe vazio ou 0 pra fechar manualmente. Ex: 5 = encerra automaticamente em 5 minutos salvando o resultado.
+          </div>
+        </div>
+
+        <div class="vote-admin-section" id="voteAdminCloseSection" style="display:none;">
+          <label data-i18n="voteAdmin.activeLabel">Votação ativa</label>
+          <div id="voteAdminActiveInfo" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold-bright);margin-bottom:8px;"></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="vote-admin-btn vote-admin-btn-close" id="voteCloseBtn" data-i18n="voteAdmin.closeBtn">Fechar (Salvar Resultado)</button>
+            <button class="vote-admin-btn vote-admin-btn-cancel" id="voteCancelBtn" data-i18n="voteAdmin.cancelBtn">Cancelar (Descartar)</button>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:.85rem;color:var(--ink-dim);margin-top:8px;font-style:italic;line-height:1.5;" data-i18n="voteAdmin.closeHint">
+            <strong>Fechar</strong>: salva o resultado no histórico.<br>
+            <strong>Cancelar</strong>: apaga a votação sem registrar (votos descartados).
+          </div>
+        </div>
+
+        <div class="vote-admin-hint" data-i18n="voteAdmin.obsHint">
+          <strong>Modo OBS/Stream</strong>: adicione <code>?modo=stream</code> ao final da URL do site no OBS pra mostrar só o painel de votação com fundo transparente.
+        </div>
+      </div>
+
+    </section>
+  </div>
+
+  <!-- ============ ABA: CALENDÁRIO DE BANNERS ============ -->
+  <div class="tab-content" id="tab-banners">
+    <section class="banners-section">
+      <div class="section-title">
+        <h2 data-i18n="banners.title">Calendário de Banners</h2>
+        <div class="sub" data-i18n="banners.subtitle">Previsão da ordem de banners no servidor global</div>
+      </div>
+
+      <div class="banners-intro">
+        <p data-i18n="banners.note">📌 <strong>Nota importante:</strong> O servidor global segue como referência a ordem de lançamentos do <strong>servidor de Taiwan</strong>, não da China.</p>
+        <p data-i18n="banners.clickHint">Clique na imagem para ampliar.</p>
+      </div>
+
+      <div class="banners-imagem-wrapper" id="bannersImgWrapper">
+        <img src="calendario-banners.png" alt="Calendário de Banners - Previsão Servidor Global" id="bannersImg" loading="lazy" />
+        <div class="banners-zoom-hint" data-i18n="banners.zoomHint">Clique para ampliar</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal de zoom (tela cheia) -->
+  <div class="banners-modal" id="bannersModal" style="display:none;" onclick="fecharBannersModal(event)">
+    <button class="banners-modal-close" onclick="fecharBannersModal(event)" aria-label="Fechar">✕</button>
+    <div class="banners-modal-content" onclick="event.stopPropagation()">
+      <img src="calendario-banners.png" alt="Calendário de Banners ampliado" id="bannersModalImg" />
+    </div>
+  </div>
+
+  <!-- ============ ABA: TEAM BUILDER ============ -->
+  <div class="tab-content" id="tab-team">
+    <section>
+      <div class="section-title">
+        <h2 data-i18n="team.title">Team Builder</h2>
+        <div class="sub" data-i18n="team.subtitle">⚔ Forje a equipe perfeita ⚔</div>
+      </div>
+
+      <!-- Filtros + pool de heróis (acima da formação) -->
+      <div class="team-pool-toolbar">
+        <div class="team-pool-filters">
+          <div class="team-filter-item">
+            <label data-i18n="filter.rarity">Raridade</label>
+            <select id="teamFilterRarity"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.faction">Facção</label>
+            <select id="teamFilterFaction"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.class">Classe</label>
+            <select id="teamFilterClass"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.position">Posição</label>
+            <select id="teamFilterPosition"></select>
+          </div>
+          <div class="team-filter-item">
+            <label data-i18n="filter.damage">Dano</label>
+            <select id="teamFilterDamage"></select>
+          </div>
+          <div class="team-filter-item team-filter-search">
+            <label data-i18n="filter.search">Buscar</label>
+            <input type="text" id="teamSearch" placeholder="Nome do cavaleiro..." data-i18n-placeholder="filter.searchPlaceholder">
+          </div>
+          <button class="team-filter-clear" id="teamFiltersClear" title="Limpar filtros" data-i18n="filter.clear" data-i18n-title="filter.clearTitle">Limpar</button>
+        </div>
+      </div>
+      <div class="team-pool-info">
+        <span class="team-pool-count" id="teamPoolCount"></span>
+        <span class="team-pool-hint" data-i18n="team.poolHint">← arrasta ou clica · scroll horizontal →</span>
+      </div>
+      <div class="team-pool-scroll">
+        <div class="team-pool-row" id="teamPoolGrid"></div>
+      </div>
+
+      <!-- Formação (abaixo dos filtros/pool) -->
+      <div class="team-slots-wrapper" style="margin-top: 24px;">
+        <!-- Abas de múltiplos times (até 3) — renderizado dinamicamente por renderTeamTabs() -->
+        <div class="team-tabs-wrapper" id="teamTabsWrapper"></div>
+        <div class="team-formation-title" data-i18n="team.formationTitle">Team Formation</div>
+        <div class="team-counter" id="teamCounter"></div>
+        <div class="team-warning" id="teamWarning"></div>
+        <div class="team-formation-with-equipment">
+          <div class="team-formation">
+            <div class="team-supports-col" id="teamSupportSlots"></div>
+            <div>
+              <div class="team-grid-headers">
+                <div class="col-label" data-i18n="team.backLine">Linha de trás</div>
+                <div class="col-label" data-i18n="team.middleLine">Linha do meio</div>
+                <div class="col-label" data-i18n="team.frontLine">Linha de frente</div>
+              </div>
+              <div class="team-grid" id="teamSlots"></div>
+            </div>
+          </div>
+          <!-- Combinations Skills — ativadas pelos cavaleiros do time -->
+          <div class="team-combos-wrapper">
+            <div class="team-combos-title" data-i18n="team.combosTitle">Combinations Skills</div>
+            <div id="teamCombosList"></div>
+          </div>
+          <!-- Equipamento (artefato + cartas) -->
+          <div class="hero-equipment-wrapper">
+            <div class="hero-equipment-title" data-i18n="team.equipmentTitle">Equipamento</div>
+            <div id="heroEquipmentList"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-bottom:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button class="team-share-btn" id="teamShareBtn" data-i18n="team.share">Compartilhar Time</button>
+        <button class="team-import-btn" id="teamImportBtn" data-i18n="team.import">Importar Time</button>
+        <button class="team-clear-btn" id="teamClearBtn" data-i18n="team.clear">Limpar Equipe</button>
+      </div>
+
+      <!-- Toast de feedback -->
+      <div class="team-share-toast" id="teamShareToast"></div>
+    </section>
+  </div>
+
+  <!-- ════════════════ MODAL: ROLETA DE CAVALEIROS ════════════════ -->
+  <div class="spin-modal" id="spinModal">
+    <div class="spin-modal-inner">
+      <button class="spin-modal-close" id="spinModalClose" aria-label="Fechar">✕</button>
+
+      <div class="spin-header">
+        <h2 class="spin-title" data-i18n="spin.title">Roleta de Cavaleiros</h2>
+        <div class="spin-subtitle" data-i18n="spin.subtitle">Sorteie um cavaleiro e coloque-o em um tier</div>
+      </div>
+
+      <!-- Contador de progresso -->
+      <div class="spin-progress">
+        <span id="spinProgressText" data-i18n="spin.progressText">0 sorteados de 0</span>
+        <span class="spin-progress-bar"><span class="spin-progress-fill" id="spinProgressFill"></span></span>
+      </div>
+
+      <!-- Pista da roleta (slot machine) -->
+      <div class="spin-track-wrap">
+        <div class="spin-track-pointer">▼</div>
+        <div class="spin-track" id="spinTrack"></div>
+        <div class="spin-track-pointer spin-track-pointer-bottom">▲</div>
+      </div>
+
+      <!-- Card do resultado (aparece após o sorteio) -->
+      <div class="spin-result" id="spinResult" style="display:none;">
+        <div class="spin-result-card" id="spinResultCard"></div>
+        <div class="spin-result-actions">
+          <div class="spin-result-label" data-i18n="spin.placeIn">Colocar em qual tier?</div>
+          <div class="spin-tier-buttons">
+            <button class="spin-tier-btn tier-S" data-tier="S">S</button>
+            <button class="spin-tier-btn tier-A" data-tier="A">A</button>
+            <button class="spin-tier-btn tier-B" data-tier="B">B</button>
+            <button class="spin-tier-btn tier-C" data-tier="C">C</button>
+            <button class="spin-tier-btn tier-D" data-tier="D">D</button>
+          </div>
+          <button class="spin-skip-btn" id="spinSkipBtn" data-i18n="spin.skip">Pular (sortear de novo)</button>
+        </div>
+      </div>
+
+      <!-- Botões de ação -->
+      <div class="spin-actions">
+        <button class="spin-action-btn spin-action-btn-primary" id="spinStartBtn" data-i18n="spin.spinButton">Girar Roleta</button>
+        <button class="spin-action-btn spin-action-btn-secondary" id="spinResetPoolBtn" data-i18n="spin.resetPool">Restaurar todos</button>
+      </div>
+
+      <div class="spin-hint" data-i18n="spin.hint">Os cavaleiros sorteados não voltam à roleta. Use "Restaurar todos" pra começar de novo.</div>
+    </div>
+  </div>
+
+  <!-- Modal de Compartilhar Time -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-modal-inner">
+      <div class="share-modal-title" data-i18n="share.title">Compartilhar Time</div>
+      <div class="share-modal-subtitle" data-i18n="share.subtitle">Exporte um código pra compartilhar seu time, ou cole um código pra importar um time pronto.</div>
+
+      <div class="share-tabs">
+        <button class="share-tab active" data-stab="export" data-i18n="share.tabExport">Exportar</button>
+        <button class="share-tab" data-stab="import" data-i18n="share.tabImport">Importar</button>
+      </div>
+
+      <div class="share-pane active" id="share-pane-export">
+        <label class="share-label" data-i18n="share.teamCode">Código do time</label>
+        <div class="share-link-box">
+          <input type="text" class="share-link-input" id="shareLinkInput" readonly>
+          <button class="share-copy-btn" id="shareCopyBtn" data-i18n="share.copy">Copiar</button>
+        </div>
+        <div class="share-summary" id="shareSummary"></div>
+      </div>
+
+      <div class="share-pane" id="share-pane-import">
+        <label class="share-label" data-i18n="share.pasteHere">Cole o código do time aqui</label>
+        <div class="share-link-box">
+          <input type="text" class="share-link-input" id="shareImportInput" placeholder="Cole o código OU a URL aqui..." data-i18n-placeholder="share.pastePh">
+          <button class="share-copy-btn" id="shareLoadBtn" data-i18n="share.load">Carregar</button>
+        </div>
+        <div class="share-summary" style="font-style:italic;" data-i18n="share.hint">
+          Cole o código que alguém te enviou e clique em "Carregar" para montar o time exatamente como compartilhado.
+        </div>
+      </div>
+
+      <button class="share-modal-close" onclick="closeShareModal()" data-i18n="share.close">Fechar</button>
+    </div>
+  </div>
+
+  <!-- Modal do Codex -->
+  <div class="codex-modal" id="codexModal">
+    <div class="codex-modal-inner">
+      <div class="codex-modal-header">
+        <div class="codex-modal-title" id="codexModalTitle" data-i18n="modal.pickHero">Selecione um Herói</div>
+        <button class="codex-modal-close" onclick="closeCodexModal()">×</button>
+      </div>
+      <div id="codexModalBody"></div>
+    </div>
+  </div>
+
+  <!-- ════════ MODAL DE AUTENTICAÇÃO ════════ -->
+  <div class="auth-modal" id="authModal">
+    <div class="auth-modal-inner">
+      <button class="auth-modal-close" onclick="closeAuthModal()">×</button>
+
+      <!-- LOGIN -->
+      <div class="auth-view active" id="authView-login">
+        <h2 class="auth-title" data-i18n="auth.titleLogin">Entrar</h2>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.email">Email</label>
+          <input type="email" id="authLoginEmail" placeholder="seu@email.com" autocomplete="email" data-i18n-placeholder="auth.emailPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.password">Senha</label>
+          <input type="password" id="authLoginPassword" placeholder="••••••••" autocomplete="current-password" onkeydown="if(event.key==='Enter') authSubmitLogin(event)">
+        </div>
+        <button class="auth-btn primary" id="authLoginSubmitBtn" onclick="authSubmitLogin(event)" data-i18n="auth.loginBtn">Entrar</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('forgot')" data-i18n="auth.forgotLink">Esqueci minha senha</a>
+          <span class="auth-sep">·</span>
+          <a href="javascript:void(0)" onclick="switchAuthView('register')" data-i18n="auth.createAccount">Criar conta</a>
+        </div>
+      </div>
+
+      <!-- CADASTRO -->
+      <div class="auth-view" id="authView-register">
+        <h2 class="auth-title" data-i18n="auth.titleRegister">Solicitar Acesso</h2>
+        <div class="auth-subtitle" data-i18n="auth.regSubtitle">Selecione seu nick da guilda. O líder vai aprovar.</div>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.regNickLabel">Seu nick na guilda</label>
+          <select id="authRegNick">
+            <option value="" data-i18n="auth.regNickLoading">— Carregando nicks disponíveis... —</option>
+          </select>
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.email">Email</label>
+          <input type="email" id="authRegEmail" placeholder="seu@email.com" autocomplete="email" data-i18n-placeholder="auth.emailPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword">Senha (mín 6 caracteres)</label>
+          <input type="password" id="authRegPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword2">Confirme a senha</label>
+          <input type="password" id="authRegPassword2" placeholder="••••••••" autocomplete="new-password" onkeydown="if(event.key==='Enter') authSubmitRegister(event)">
+        </div>
+        <button class="auth-btn primary" id="authRegSubmitBtn" onclick="authSubmitRegister(event)" data-i18n="auth.regBtn">✓ Solicitar Acesso</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('login')" data-i18n="auth.backToLogin">← Voltar pra Entrar</a>
+        </div>
+      </div>
+
+      <!-- AGUARDANDO APROVAÇÃO -->
+      <div class="auth-view" id="authView-pending">
+        <div class="auth-pending-icon">⏳</div>
+        <h2 class="auth-title" data-i18n="auth.regDoneTitle">Cadastro Realizado!</h2>
+        <p class="auth-pending-text" data-i18n="auth.regDoneText">
+          Sua solicitação foi enviada ao líder da guilda.<br>
+          Você vai receber um <strong>email</strong> assim que for aprovado.
+        </p>
+        <button class="auth-btn primary" onclick="closeAuthModal()" data-i18n="auth.gotIt">Entendi</button>
+      </div>
+
+      <!-- ESQUECI A SENHA -->
+      <div class="auth-view" id="authView-forgot">
+        <h2 class="auth-title" data-i18n="auth.titleForgot">Esqueci minha senha</h2>
+        <div class="auth-subtitle" data-i18n="auth.forgotSubtitle">Vamos enviar um código por email pra você redefinir.</div>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.registeredEmail">Email cadastrado</label>
+          <input type="email" id="authForgotEmail" placeholder="seu@email.com" data-i18n-placeholder="auth.emailPh" onkeydown="if(event.key==='Enter') authSubmitForgot(event)">
+        </div>
+        <button class="auth-btn primary" id="authForgotSubmitBtn" onclick="authSubmitForgot(event)" data-i18n="auth.sendCode">Enviar código</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('login')" data-i18n="auth.backToLogin">← Voltar pra Entrar</a>
+        </div>
+      </div>
+
+      <!-- REDEFINIR COM CÓDIGO -->
+      <div class="auth-view" id="authView-reset">
+        <h2 class="auth-title" data-i18n="auth.titleReset">Redefinir Senha</h2>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.email">Email</label>
+          <input type="email" id="authResetEmail" readonly>
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.codeLabel">Código recebido por email</label>
+          <input type="text" id="authResetCode" placeholder="6 dígitos" maxlength="6" data-i18n-placeholder="auth.codePh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.newPassword">Nova senha</label>
+          <input type="password" id="authResetPassword" placeholder="••••••••" onkeydown="if(event.key==='Enter') authSubmitReset(event)">
+        </div>
+        <button class="auth-btn primary" id="authResetSubmitBtn" onclick="authSubmitReset(event)" data-i18n="auth.saveNewPassword">✓ Salvar nova senha</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('login')" data-i18n="auth.backToLogin">← Voltar pra Entrar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ MODAL DE CONTATO (outras guildas) ════════ -->
+  <div class="auth-modal" id="contactModal">
+    <div class="auth-modal-inner">
+      <button class="auth-modal-close" onclick="closeContactModal()">×</button>
+      <h2 class="auth-title" data-i18n="contact.title">Entre em Contato</h2>
+      <div class="auth-subtitle" data-i18n="contact.subtitle">Conta um pouco sobre sua guilda e o que você precisa.</div>
+
+      <!-- Formulário -->
+      <div class="auth-view active" id="contactView-form">
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="contact.yourName">Seu nome</label>
+          <input type="text" id="contactNome" maxlength="80" placeholder="Como te chamamos?" data-i18n-placeholder="contact.namePh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="contact.yourEmail">Seu email</label>
+          <input type="email" id="contactEmail" maxlength="100" placeholder="seu@email.com" autocomplete="email" data-i18n-placeholder="auth.emailPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="contact.guildName">Nome da sua guilda <span style="color:var(--ink-dim);font-weight:normal;">(opcional)</span></label>
+          <input type="text" id="contactGuilda" maxlength="80" placeholder="Ex: Cavaleiros de Ouro" data-i18n-placeholder="contact.guildPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="contact.message">Mensagem</label>
+          <textarea id="contactMensagem" maxlength="2000" rows="5" placeholder="Quantos membros? O que sua guilda precisa? Vamos conversar..." data-i18n-placeholder="contact.msgPh"></textarea>
+        </div>
+        <button class="auth-btn primary" id="contactSubmitBtn" onclick="contactSubmit(event)" data-i18n="contact.send">Enviar Mensagem</button>
+        <div class="auth-links" style="text-align:center;font-size:.85rem;margin-top:14px;" data-i18n="contact.privacy">
+          Seus dados ficam protegidos. Vou responder no seu email.
+        </div>
+      </div>
+
+      <!-- Sucesso -->
+      <div class="auth-view" id="contactView-success" style="text-align:center;">
+        <div style="font-size:3rem;margin-bottom:12px;">✅</div>
+        <h3 style="color:var(--gold-bright);font-family:'Cinzel',serif;letter-spacing:.15em;" data-i18n="contact.successTitle">Mensagem enviada!</h3>
+        <p style="color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1.05rem;line-height:1.6;margin:16px 0 24px;" data-i18n="contact.successText">
+          Recebi sua mensagem e vou responder no seu email em breve. Obrigado pelo interesse! ⚔
+        </p>
+        <button class="auth-btn primary" onclick="closeContactModal()" data-i18n="contact.close">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ PAINEL ADMIN DE APROVAÇÃO ════════
+       A lista agora vive na sub-aba Guilda → Pendentes (#tab-pendentes).
+       O shell do modal fica para compatibilidade, sem corpo. -->
+  <div class="auth-modal" id="authAdminModal">
+    <div class="auth-modal-inner auth-admin-inner">
+      <button class="auth-modal-close" onclick="closeAuthAdminModal()">×</button>
+    </div>
+  </div>
+
+  <footer>
+    <span class="star">✦</span> <span data-i18n="footer.motto">Que a luz do Cosmo guie a Legião à vitória</span> <span class="star">✦</span>
+    <div class="footer-links">
+      <a class="footer-discord" href="https://discord.gg/JdjaESRjxF" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.8 13.8 0 0 0-.64 1.28 18.3 18.3 0 0 0-5.5 0 13.8 13.8 0 0 0-.64-1.28c-1.71.29-3.37.8-4.93 1.51A20.3 20.3 0 0 0 .1 18.06a19.9 19.9 0 0 0 6.07 3.03c.49-.66.93-1.37 1.3-2.1a12.9 12.9 0 0 1-2.05-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.16 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.81 1.44 1.3 2.1a19.9 19.9 0 0 0 6.07-3.03 20.3 20.3 0 0 0-3.58-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Zm7.96 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Z"></path></svg>
+        <span data-i18n="footer.discord">Entre no nosso Discord</span>
+      </a>
+      <a class="footer-discord footer-official" href="https://seiya.efunsea.com/pt.html" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M3 12 L21 12 M12 3 C15 6.5 15 17.5 12 21 C9 17.5 9 6.5 12 3 Z"></path></svg>
+        <span data-i18n="footer.official">Site oficial do jogo</span>
+      </a>
+    </div>
+    <div class="last-update" id="last-update"></div>
+    <div class="app-version" id="app-version"></div>
+  </footer>
+
+  <!-- ════════ BUSCA GLOBAL (Ctrl+K) ════════ -->
+  <div class="gsearch-overlay" id="gsearchOverlay" style="display:none;" onclick="if(event.target===this)closeGlobalSearch()">
+    <div class="gsearch-box" role="dialog" aria-modal="true" aria-label="Busca global">
+      <div class="gsearch-input-row">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21 L16.5 16.5"></path></svg>
+        <input type="text" id="gsearchInput" autocomplete="off" spellcheck="false" placeholder="Buscar herói, artefato, carta…" data-i18n-placeholder="search.placeholder">
+        <button class="gsearch-esc" onclick="closeGlobalSearch()" aria-label="Fechar">Esc</button>
+      </div>
+      <div class="gsearch-results" id="gsearchResults"></div>
+    </div>
+  </div>
+
+</div>
+
+<script defer src="js/app-part1.js"></script>
+<script defer src="js/data/i18n.js"></script>
+<script defer src="js/app-part2.js"></script>
+<script defer src="js/data/heroes.js"></script>
+<script defer src="js/data/artifacts.js"></script>
+<script defer src="js/data/cards.js"></script>
+<script defer src="js/app.js"></script>
+<script defer src="js/redesign.js"></script>
+</body>
+</html>
