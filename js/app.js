@@ -5826,8 +5826,8 @@ function buildAuthAdminPayload() {
 }
 
 async function authApprovePending(email, idx) {
-  // Resolve guilda
-  let guilda = 'Triade';
+  // Resolve guilda (default: a guilda da sessão do líder logado)
+  let guilda = guildDisplayName();
   const sel = document.getElementById('adminGuilda_' + idx);
   if (sel) {
     if (sel.value === '__other__') {
@@ -5840,7 +5840,7 @@ async function authApprovePending(email, idx) {
       }
       guilda = val;
     } else {
-      guilda = sel.value || 'Triade';
+      guilda = sel.value || guildDisplayName();
     }
   }
 
