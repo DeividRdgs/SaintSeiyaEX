@@ -240,7 +240,7 @@ function showHeroDetail(id) {
   detail.innerHTML = `
     <button class="hero-back" onclick="hideHeroDetail()">← ${ui('hero.backList')}</button>
     <div class="hero-detail">
-      <div class="hero-card codex-card r-${h.rarity}" style="max-width:200px;min-width:160px;cursor:default;">
+      <div class="hero-card codex-card r-${h.rarity}" style="cursor:default;">
         <div class="hero-portrait${h.image ? ' has-image' : ''}">
           <div class="rays"></div>
           ${h.image ? `<img src="${h.image}" alt="${nomeH}" />` : `<span class="glyph">${h.glyph||'⚔️'}</span>`}
@@ -499,7 +499,7 @@ function showArtifactDetail(id) {
   detail.innerHTML = `
     <button class="hero-back" onclick="hideArtifactDetail()">← ${ui('artifacts.backTop')}</button>
     <div class="hero-detail">
-      <div class="hero-card codex-card r-${rarity}" style="max-width:200px;min-width:160px;cursor:default;">
+      <div class="hero-card codex-card r-${rarity}" style="cursor:default;">
         <div class="hero-portrait${a.image ? ' has-image' : ''}">
           <div class="rays"></div>
           ${a.image ? `<img src="${a.image}" alt="${safeName}" />` : `<span class="glyph">${a.icon||'💎'}</span>`}
@@ -662,7 +662,7 @@ function showCardDetail(id) {
   detail.innerHTML = `
     <button class="hero-back" onclick="hideCardDetail()">${backTopLabel}</button>
     <div class="hero-detail">
-      <div class="hero-card codex-card r-${rarity}" style="max-width:200px;min-width:160px;cursor:default;">
+      <div class="hero-card codex-card r-${rarity}" style="cursor:default;">
         <div class="hero-portrait${c.image ? ' has-image' : ''}">
           <div class="rays"></div>
           ${c.image ? `<img src="${c.image}" alt="${safeName}" />` : `<span class="glyph">🃏</span>`}

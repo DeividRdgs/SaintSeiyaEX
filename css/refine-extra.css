@@ -264,7 +264,16 @@ body footer [data-i18n="footer.motto"] {
 }
 
 /* Detalhe do herói: mais uma redução (pedido do usuário) */
-.hero-detail { grid-template-columns: minmax(140px, 175px) 1fr; gap: 16px; padding: 16px; margin-bottom: 14px; }
+.hero-detail { grid-template-columns: minmax(100px, 122px) 1fr; gap: 16px; padding: 16px; margin-bottom: 14px; align-items: center; }
+.hero-portrait-large { border-width: 1px; box-shadow: 0 0 20px color-mix(in srgb, var(--gold) 15%, transparent); }
+/* O card do retrato tem contain-intrinsic-size de 170px no CSS base e estoura
+   a coluna de 122px — contém o card dentro do track do grid */
+.hero-detail > .hero-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  contain-intrinsic-size: auto;
+}
 .hero-detail-name { font-size: clamp(18px, 1.9vw, 24px); }
 .hero-detail-title { font-size: 13px; margin-bottom: 8px; }
 .hero-tags { margin-bottom: 10px; gap: 6px; }
