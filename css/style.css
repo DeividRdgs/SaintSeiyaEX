@@ -1913,6 +1913,21 @@
     display:flex;align-items:center;justify-content:center;
     position:relative;overflow:hidden;
   }
+  /* artefatos: fundo do astrolábio do jogo atrás do item (item é transparente) */
+  .codex-card-artifact .hero-portrait{
+    background: #14121c url('../img/artifacts/bg-astro.webp') center/cover no-repeat;
+  }
+  .codex-card-artifact .hero-portrait img{
+    object-fit: contain;
+    padding: 11%;
+    object-position: center;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,.55));
+  }
+  .codex-card-artifact:hover .hero-portrait img{
+    transform: scale(1.06);
+    filter: drop-shadow(0 5px 12px rgba(0,0,0,.6)) brightness(1.08);
+  }
+
   /* cartas com a moldura do jogo já embutida: sem borda/badge/vinheta do wrapper */
   .codex-card-framed{
     border-color: transparent !important;

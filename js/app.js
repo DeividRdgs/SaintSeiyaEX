@@ -767,7 +767,7 @@ function renderCodexArtifacts() {
         ? `<img src="${a.image}" alt="${safeName}" loading="lazy" decoding="async" />`
         : `<span class="glyph">${a.icon || '💎'}</span>`;
       return `
-        <div class="hero-card codex-card r-${rarity}" onclick="showArtifactDetail('${a.id}')" style="cursor:pointer;" title="${ui('hero.clickDetails')}">
+        <div class="hero-card codex-card codex-card-artifact r-${rarity}" onclick="showArtifactDetail('${a.id}')" style="cursor:pointer;" title="${ui('hero.clickDetails')}">
           <div class="${portraitClass}">
             <div class="rays"></div>
             ${portraitInner}
