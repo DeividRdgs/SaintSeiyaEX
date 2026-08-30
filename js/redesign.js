@@ -213,6 +213,32 @@ document.addEventListener('keydown', function (e) {
   }
 }, true);
 
+/* ---------- carregamento sob demanda dos dados pesados ----------
+   artifacts.js e cards.js saem da cadeia de boot (preload no head) e são
+   injetados aqui em paralelo; as abas que dependem deles aguardam a promessa. */
+function _rdLoadScript(src) {
+  return new Promise(function (resolve, reject) {
+    var s = document.createElement('script');
+    s.src = src;
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+}
+var rdArtifactsReady = (typeof CODEX_ARTIFACTS !== 'undefined')
+  ? Promise.resolve() : _rdLoadScript('js/data/artifacts.js');
+var rdCardsReady = (typeof CODEX_CARDS !== 'undefined')
+  ? Promise.resolve() : _rdLoadScript('js/data/cards.js');
+var rdAllDataReady = Promise.all([rdArtifactsReady, rdCardsReady]);
+rdAllDataReady.then(function () {
+  // atualiza contadores da home e invalida o índice da busca global
+  if (typeof renderHomeStats === 'function') renderHomeStats();
+  _gsIndex = null;
+  var inp = document.getElementById('gsearchInput');
+  var ov = document.getElementById('gsearchOverlay');
+  if (inp && ov && ov.style.display !== 'none') _gsRender(inp.value);
+});
+
 /* ---------- páginas por herói (/herois/<slug>) ---------- */
 function rdSlugify(name) {
   return String(name || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
@@ -282,6 +308,14 @@ if (typeof renderAuthAdminPanel === 'function') {
 if (typeof runTabInitHook === 'function') {
   var _rdOrigTabHook = runTabInitHook;
   runTabInitHook = function (tabId) {
+    // abas que dependem de cards/artifacts aguardam o carregamento assíncrono
+    // (os skeletons estáticos das grades cobrem a espera)
+    var needsData = (tabId === 'cards' || tabId === 'artifacts' || tabId === 'team') &&
+      (typeof CODEX_CARDS === 'undefined' || typeof CODEX_ARTIFACTS === 'undefined');
+    if (needsData) {
+      rdAllDataReady.then(function () { _rdOrigTabHook(tabId); });
+      return;
+    }
     _rdOrigTabHook(tabId);
     if (tabId === 'pendentes') rdInitPendingTab();
   };
