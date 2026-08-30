@@ -1955,8 +1955,16 @@
   .codex-card-knight .hero-faction-badge,
   .codex-card-knight .hero-rarity-badge{ display: none !important; }
   /* tamanho estimado correto (o antigo 170px era do card baixo) e nome compacto
-     sem caixa, pra a arte ocupar todo o espaço como no banner */
-  .codex-card-knight{ contain-intrinsic-size: auto 300px; background: transparent !important; }
+     sem caixa, pra a arte ocupar todo o espaço como no banner.
+     Especificidade alta (:root + 3 classes) pra vencer o fundo branco do tema
+     claro (:root[data-theme=light] .codex-card { background:#fff !important }). */
+  :root .hero-card.codex-card.codex-card-knight{
+    background: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    contain-intrinsic-size: auto 300px;
+  }
+  :root .hero-card.codex-card.codex-card-knight:hover{ box-shadow: none !important; }
   .codex-card-knight .hero-info{
     background: transparent !important;
     border-top: none !important;
