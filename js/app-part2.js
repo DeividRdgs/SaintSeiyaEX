@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Mapeamento de bosses (ordem fixa)
 // Imagens dos bosses em base64
 const BOSS_IMGS = {
-  saga: "https://i.imgur.com/5bm4lNl.jpg",
-  mascara: "https://i.imgur.com/1gFiS2m.jpg",
-  aiolia: "https://i.imgur.com/EKjm0RB.jpg",
-  milo: "https://i.imgur.com/HvCc0QF.jpg"
+  saga: "img/codex/5bm4lNl.webp",
+  mascara: "img/codex/1gFiS2m.webp",
+  aiolia: "img/codex/EKjm0RB.webp",
+  milo: "img/codex/HvCc0QF.webp"
 };
 
 const BOSSES = [

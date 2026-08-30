@@ -19,6 +19,12 @@
 # O splat (*) só vale no fim do caminho, então /*.png não funciona — a única
 # imagem na raiz (calendario-banners.png) tem regra explícita.
 
+# Imagens do codex (heróis/artefatos/cartas em WebP) → 30 dias
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
 # Ícones PNG (mudam raramente) → 30 dias
 [[headers]]
   for = "/circlehead/*"
