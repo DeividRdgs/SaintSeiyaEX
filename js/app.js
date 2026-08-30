@@ -5492,6 +5492,33 @@ function switchAuthView(view) {
   }, 100);
   // Carrega lista de nicks ao abrir cadastro
   if (view === 'register') {
+    authLoadGuildsSelect();
+  }
+}
+
+// Carrega guildas ativas no select do cadastro; depois carrega os nicks da escolhida
+async function authLoadGuildsSelect() {
+  const sel = document.getElementById('authRegGuild');
+  if (!sel) { authLoadNicksDisponiveis(); return; }
+  sel.innerHTML = `<option value="">${ui('auth.regGuildLoading')}</option>`;
+  sel.disabled = true;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'guildList' })
+    });
+    const data = await res.json();
+    if (data.ok && Array.isArray(data.guilds) && data.guilds.length > 0) {
+      sel.innerHTML = data.guilds.map(g =>
+        `<option value="${g.slug.replace(/"/g, '&quot;')}">${g.nome.replace(/</g, '&lt;')}</option>`).join('');
+    } else {
+      sel.innerHTML = `<option value="triade">TRIADE</option>`;
+    }
+  } catch (err) {
+    sel.innerHTML = `<option value="triade">TRIADE</option>`;
+  } finally {
+    sel.disabled = false;
     authLoadNicksDisponiveis();
   }
 }
@@ -5506,7 +5533,7 @@ async function authLoadNicksDisponiveis() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authGetNicks', guild: guildSlug() })
+      body: JSON.stringify({ action: 'authGetNicks', guild: (document.getElementById('authRegGuild') || {}).value || 'triade' })
     });
     const data = await res.json();
     if (data.ok && Array.isArray(data.nicks)) {
@@ -5575,6 +5602,8 @@ async function authSubmitRegister(e) {
   const nick = document.getElementById('authRegNick').value.trim();
   const senha = document.getElementById('authRegPassword').value;
   const senha2 = document.getElementById('authRegPassword2').value;
+  const regGuild = (document.getElementById('authRegGuild') || {}).value;
+  if (!regGuild) { authShowMsg('register', ui('auth.regGuildRequired'), 'error'); return; }
 
   if (!email || !nick || !senha) { authShowMsg('register', 'Preencha todos os campos', 'error'); return; }
   if (senha !== senha2) { authShowMsg('register', 'As senhas não coincidem', 'error'); return; }
@@ -5586,7 +5615,7 @@ async function authSubmitRegister(e) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authRegister', guild: guildSlug(), email, senha, nick })
+      body: JSON.stringify({ action: 'authRegister', guild: (document.getElementById('authRegGuild') || {}).value || 'triade', email, senha, nick })
     });
     const data = await res.json();
     if (data.ok) {

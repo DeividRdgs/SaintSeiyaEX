@@ -1270,6 +1270,12 @@
         <div class="auth-subtitle" data-i18n="auth.regSubtitle">Selecione seu nick da guilda. O líder vai aprovar.</div>
         <div class="auth-msg"></div>
         <div class="auth-field">
+          <label data-i18n="auth.regGuildLabel">Sua guilda</label>
+          <select id="authRegGuild" onchange="authLoadNicksDisponiveis()">
+            <option value="" data-i18n="auth.regGuildLoading">— Carregando guildas... —</option>
+          </select>
+        </div>
+        <div class="auth-field">
           <label data-i18n="auth.regNickLabel">Seu nick na guilda</label>
           <select id="authRegNick">
             <option value="" data-i18n="auth.regNickLoading">— Carregando nicks disponíveis... —</option>
