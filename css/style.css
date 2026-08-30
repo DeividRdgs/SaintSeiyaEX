@@ -6622,6 +6622,13 @@
     z-index: 2;
   }
   .bnx-baked .bnx-badge { display: none; }
+  /* recortes do pôster (fallback) têm margem lateral e o personagem parece
+     menor que as artes HD que preenchem a largura — um leve zoom iguala o
+     enquadramento até essas artes HD chegarem */
+  .bnx-baked .bnx-art {
+    transform: scale(1.18);
+    transform-origin: center 22%;
+  }
   .bnx-name {
     margin-top: 8px;
     text-align: center;
