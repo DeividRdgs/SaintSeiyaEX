@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<!-- Sitemap TRIADE — rotas públicas reais da SPA (definidas em js/app-part2.js, TAB_ROUTES).
+     A área /guilda é privada e fica fora do sitemap (bloqueada no robots.txt). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Página inicial -->
   <url>
     <loc>https://triade-ssex.netlify.app/</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Codex de Heróis -->
+  <!-- Codex de Heróis (103 cavaleiros) -->
   <url>
     <loc>https://triade-ssex.netlify.app/herois</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -19,6 +22,7 @@
   <!-- Codex de Artefatos -->
   <url>
     <loc>https://triade-ssex.netlify.app/artefatos</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -26,6 +30,7 @@
   <!-- Codex de Cartas -->
   <url>
     <loc>https://triade-ssex.netlify.app/cartas</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -33,6 +38,15 @@
   <!-- Tier List -->
   <url>
     <loc>https://triade-ssex.netlify.app/tier-list</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Team Builder -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/team-builder</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -40,22 +54,17 @@
   <!-- Roleta de Cavaleiros -->
   <url>
     <loc>https://triade-ssex.netlify.app/roleta</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 
   <!-- Calendário de Banners -->
   <url>
     <loc>https://triade-ssex.netlify.app/banners</loc>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-
-  <!-- Team Builder -->
-  <url>
-    <loc>https://triade-ssex.netlify.app/team-builder</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
   </url>
 
 </urlset>

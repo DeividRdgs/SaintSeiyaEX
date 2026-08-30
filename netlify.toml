@@ -1,9 +1,10 @@
-# Configuração do Netlify — publica a raiz do repositório como site estático
+# Configuração do Netlify — publica a raiz do repositório como site estático.
+# Os redirects (fallback SPA) ficam SÓ no arquivo _redirects — não duplicar aqui.
 
 [build]
   publish = "."
 
-# Cabeçalhos de segurança básicos
+# ── Cabeçalhos de segurança básicos ──────────────────────────────
 [[headers]]
   for = "/*"
   [headers.values]
@@ -11,19 +12,53 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
-# Cache longo para imagens/ícones (mudam raramente)
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800"
+# ── Cache ────────────────────────────────────────────────────────
+# Nota: regras de header no Netlify se ACUMULAM quando mais de uma casa o
+# mesmo caminho (o header sairia duplicado). Por isso os três JS do app são
+# listados um a um, deixando /js/data/* com regra própria.
+# O splat (*) só vale no fim do caminho, então /*.png não funciona — a única
+# imagem na raiz (calendario-banners.png) tem regra explícita.
 
-# CSS/JS: cache moderado (1 hora) para atualizações aparecerem rápido
+# Ícones PNG (mudam raramente) → 30 dias
+[[headers]]
+  for = "/circlehead/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/skillicons/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/calendario-banners.png"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+# CSS → 1 hora (atualizações aparecem rápido)
 [[headers]]
   for = "/css/*"
   [headers.values]
     Cache-Control = "public, max-age=3600"
 
+# JS do app → 1 hora
 [[headers]]
-  for = "/js/*"
+  for = "/js/app.js"
   [headers.values]
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/app-part1.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/app-part2.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Dados do codex (~3 MB, mudam pouco) → 1 dia
+[[headers]]
+  for = "/js/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════════════════════
+   TRIADE — polish.css
+   Camada ADITIVA de refinamento visual premium.
+   Carregada DEPOIS de css/style.css. Não redefine layout nem
+   comportamento — apenas profundidade, ritmo, micro-interações,
+   foco acessível e ajustes de toque mobile, nos dois temas.
+   Tokens novos usam o prefixo --px- .
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════ 1. TOKENS ═══════════════ */
+:root{
+  --px-ease: cubic-bezier(.22,.61,.36,1);
+  --px-speed: .25s;
+
+  /* véus dourados (seguem o tema via override abaixo) */
+  --px-gold-06: rgba(212,175,55,.06);
+  --px-gold-12: rgba(212,175,55,.12);
+  --px-gold-25: rgba(212,175,55,.25);
+  --px-gold-40: rgba(212,175,55,.40);
+
+  /* sombras em camadas (usam --shadow-color do tema) */
+  --px-shadow-card:
+    0 1px 2px var(--shadow-color),
+    0 6px 18px -6px var(--shadow-color),
+    0 18px 44px -20px var(--shadow-color);
+  --px-shadow-card-hover:
+    0 2px 4px var(--shadow-color),
+    0 14px 32px -10px var(--shadow-color),
+    0 0 28px -6px var(--px-gold-25);
+  --px-shadow-modal:
+    0 4px 10px var(--shadow-color),
+    0 24px 64px -16px var(--shadow-color),
+    0 0 0 1px var(--line-gold);
+
+  /* fio de luz na aresta superior dos painéis */
+  --px-edge-top: inset 0 1px 0 rgba(255,255,255,.045);
+
+  /* scrollbar / seleção / foco */
+  --px-scroll-thumb: var(--gold-deep);
+  --px-scroll-thumb-hover: var(--gold);
+  --px-scroll-track: var(--bg-0);
+  --px-selection-bg: rgba(212,175,55,.85);
+  --px-selection-ink: #14100a;
+  --px-focus: var(--gold-bright);
+}
+
+:root[data-theme="light"]{
+  --px-gold-06: rgba(166,124,0,.05);
+  --px-gold-12: rgba(166,124,0,.10);
+  --px-gold-25: rgba(166,124,0,.20);
+  --px-gold-40: rgba(166,124,0,.32);
+  --px-edge-top: inset 0 1px 0 rgba(255,255,255,.85);
+  --px-selection-bg: rgba(166,124,0,.90);
+  --px-selection-ink: #ffffff;
+  --px-focus: var(--gold);
+}
+
+/* ═══════════════ 2. FUNDAÇÃO GLOBAL ═══════════════ */
+/* Seleção de texto dourada */
+::selection{
+  background: var(--px-selection-bg);
+  color: var(--px-selection-ink);
+  text-shadow: none;
+}
+
+/* Scrollbar da página (elementos com scrollbar própria no style.css
+   têm seletores mais específicos e permanecem intactos) */
+html{
+  scrollbar-color: var(--px-scroll-thumb) var(--px-scroll-track);
+}
+::-webkit-scrollbar{ width: 12px; height: 12px; }
+::-webkit-scrollbar-track{ background: var(--px-scroll-track); }
+::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, var(--px-scroll-thumb), var(--px-gold-40));
+  border: 3px solid var(--px-scroll-track);
+}
+::-webkit-scrollbar-thumb:hover{ background: var(--px-scroll-thumb-hover); }
+::-webkit-scrollbar-corner{ background: var(--px-scroll-track); }
+
+/* Evita vazamento horizontal acidental sem quebrar sticky/fixed */
+body{ overflow-x: clip; }
+
+/* Toque mais responsivo em botões (remove delay de double-tap zoom) */
+button{ touch-action: manipulation; }
+
+/* Scroll horizontal interno mais limpo nos carrosséis existentes */
+.team-pool-scroll,
+.tier-pool{
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ═══════════════ 3. TIPOGRAFIA ═══════════════ */
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+h1{
+  letter-spacing: .07em;
+  text-wrap: balance;
+}
+.subtitle{ line-height: 1.5; }
+.section-title h2{
+  line-height: 1.18;
+  text-wrap: balance;
+}
+.home-section-title{ text-wrap: balance; }
+.home-feature-desc{ line-height: 1.65; }
+.home-leader-item p{ line-height: 1.55; }
+.home-integration-desc{ line-height: 1.6; }
+.home-cta-text{ line-height: 1.7; }
+.hint,
+.tier-hint,
+.roleta-hint{ line-height: 1.6; }
+.kicker{ letter-spacing: .42em; }
+
+/* ═══════════════ 4. RITMO VERTICAL ═══════════════ */
+.home-intro{ margin: 24px auto 56px; }
+.home-section{ margin: 64px auto; }
+.home-section-subtitle{ margin-bottom: 36px; }
+.section-title{ margin-bottom: 44px; }
+.codex-count{ margin: 4px 0 20px; }
+.team-pool-info{ margin-bottom: 10px; }
+footer{
+  margin-top: 64px;
+  padding: 48px 20px 44px;
+}
+
+/* ═══════════════ 5. CARDS E PAINÉIS — PROFUNDIDADE ═══════════════ */
+/* Cards do home: sombra em camadas no repouso + brilho no hover */
+.home-feature-card,
+.home-integration-card{
+  box-shadow: var(--px-shadow-card), var(--px-edge-top);
+}
+.home-feature-card:hover{
+  box-shadow: var(--px-shadow-card-hover), var(--px-edge-top);
+}
+.home-integration-card:hover{
+  border-color: var(--gold);
+  box-shadow: var(--px-shadow-card-hover), var(--px-edge-top);
+}
+.home-leader-item{
+  box-shadow: 0 1px 2px var(--shadow-color), 0 8px 20px -12px var(--shadow-color);
+}
+.home-cta{
+  box-shadow: var(--px-shadow-card);
+}
+
+/* Painéis funcionais: aresta dourada discreta + sombra suave */
+.updater,
+.team-pool-toolbar,
+.stats-toolbar,
+.stats-leaderboard,
+.stats-report-block,
+.stats-chart-wrap,
+.ranking-table,
+.gvg-block,
+.tier-pool-wrap,
+.vote-panel,
+.vote-admin-panel,
+.roleta-build,
+.banners-imagem-wrapper{
+  box-shadow: var(--px-shadow-card), var(--px-edge-top);
+}
+.team-pool-toolbar,
+.ranking-table{
+  border-color: var(--line-gold);
+}
+.podium-place{
+  box-shadow: var(--px-shadow-card);
+}
+.podium-place:hover{
+  box-shadow: var(--px-shadow-card-hover);
+}
+
+/* Toast com mais presença */
+.toast{
+  box-shadow: 0 2px 6px var(--shadow-color), 0 14px 36px -10px var(--shadow-color);
+}
+
+/* Modais: conteúdo com sombra profunda e aro dourado sutil */
+.auth-modal-inner,
+.share-modal-inner,
+.spin-modal-inner,
+.codex-modal-inner{
+  box-shadow: var(--px-shadow-modal);
+}
+
+/* Glassmorphism leve nos overlays — só onde há suporte (fallback:
+   o overlay-bg semi-opaco original do style.css continua valendo) */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  .auth-modal,
+  .share-modal,
+  .spin-modal,
+  .codex-modal,
+  .banners-modal{
+    -webkit-backdrop-filter: blur(7px) saturate(1.15);
+    backdrop-filter: blur(7px) saturate(1.15);
+  }
+}
+
+/* ═══════════════ 6. FOCO VISÍVEL E HOVERS POLIDOS ═══════════════ */
+/* Anel dourado consistente para navegação por teclado */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline: 2px solid var(--px-focus);
+  outline-offset: 2px;
+}
+/* Elementos grandes de mídia: anel por dentro pra não vazar do grid */
+.hero-card:focus-visible,
+.artifact-card:focus-visible{
+  outline-offset: -2px;
+}
+/* Clique de mouse não ganha anel (só teclado) */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible){
+  outline: none;
+}
+
+/* Hovers refinados em botões utilitários que hoje só trocam cor */
+.team-filter-clear:hover,
+.stats-refresh-btn:hover{
+  background: var(--px-gold-06);
+}
+.show-more-btn:hover{
+  letter-spacing: .45em;
+}
+.tab-btn:hover{
+  background: var(--px-gold-06);
+}
+.auth-login-btn:hover,
+.auth-logout-btn:hover{
+  box-shadow: 0 0 14px -4px var(--px-gold-40);
+}
+.share-copy-btn:hover,
+.vote-admin-btn:hover{
+  box-shadow: 0 2px 12px -4px var(--px-gold-40);
+}
+
+/* ═══════════════ 7. MICRO-ANIMAÇÕES ═══════════════ */
+@media (prefers-reduced-motion: no-preference){
+  html{ scroll-behavior: smooth; }
+
+  @keyframes px-rise{
+    from{ opacity: 0; transform: translateY(14px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes px-pop{
+    from{ opacity: 0; transform: translateY(10px) scale(.97); }
+    to{ opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Entrada em cascata dos cards do home (aba inicial) */
+  .tab-content.active .home-feature-card{
+    animation: px-rise .55s var(--px-ease) both;
+  }
+  .tab-content.active .home-feature-card:nth-child(2){ animation-delay: .06s; }
+  .tab-content.active .home-feature-card:nth-child(3){ animation-delay: .12s; }
+  .tab-content.active .home-feature-card:nth-child(4){ animation-delay: .18s; }
+  .tab-content.active .home-feature-card:nth-child(5){ animation-delay: .24s; }
+  .tab-content.active .home-feature-card:nth-child(6){ animation-delay: .30s; }
+
+  /* Entrada suave do conteúdo dos modais */
+  .auth-modal.active .auth-modal-inner,
+  .share-modal.active .share-modal-inner,
+  .spin-modal.active .spin-modal-inner,
+  .codex-modal.active .codex-modal-inner{
+    animation: px-pop .28s var(--px-ease);
+  }
+
+  /* Transições mais sedosas onde já existe transition no style.css */
+  .home-feature-card,
+  .home-integration-card,
+  .podium-place{
+    transition-timing-function: var(--px-ease);
+  }
+
+  /* Feedback tátil de clique (afunda 1px) */
+  .tab-btn:active,
+  .guild-subtab:active,
+  .home-cta-btn:active,
+  .home-feature-link:active,
+  .auth-btn:active,
+  .btn-update:active,
+  .tier-btn:active,
+  .team-share-btn:active,
+  .team-import-btn:active,
+  .team-clear-btn:active,
+  .team-filter-clear:active,
+  .show-more-btn:active,
+  .roleta-tb-btn:active,
+  .roleta-next-btn:active,
+  .roleta-manual-btn:active,
+  .spin-action-btn:active,
+  .spin-skip-btn:active,
+  .vote-admin-btn:active,
+  .vote-admin-toggle:active,
+  .stats-report-btn:active,
+  .share-copy-btn:active,
+  .share-tab:active{
+    transform: translateY(1px);
+  }
+
+  /* Ícones dos cards do home ganham vida no hover */
+  .home-feature-card:hover .home-feature-icon{
+    transform: translateY(-2px) scale(1.06);
+  }
+  .home-feature-icon{
+    transition: transform .3s var(--px-ease);
+  }
+
+  /* Botão gigante da roleta: pulso dourado discreto */
+  @keyframes px-glow-pulse{
+    0%, 100%{ box-shadow: 0 0 18px -6px var(--px-gold-40); }
+    50%{ box-shadow: 0 0 30px -4px var(--px-gold-40); }
+  }
+  .roleta-big-spin-btn{
+    animation: px-glow-pulse 2.6s ease-in-out infinite;
+  }
+}
+
+/* ═══════════════ 8. MOBILE — TOQUE E ESPAÇAMENTO ═══════════════ */
+@media (max-width: 720px){
+  .wrap{ padding: 36px 18px 64px; }
+
+  header.hero{ padding: 28px 12px 44px; }
+  .section-title{ margin-bottom: 30px; }
+  .home-section{ margin: 44px auto; }
+  .home-intro{ margin: 16px auto 40px; }
+  footer{ margin-top: 44px; padding: 36px 16px 32px; }
+
+  /* Alvos de toque ≥ 44px nas abas e botões principais */
+  .tab-btn,
+  .guild-subtab,
+  .home-cta-btn,
+  .home-feature-link,
+  .auth-btn,
+  .btn-update,
+  .tier-btn,
+  .team-share-btn,
+  .team-import-btn,
+  .team-clear-btn,
+  .team-filter-clear,
+  .show-more-btn,
+  .roleta-tb-btn,
+  .roleta-next-btn,
+  .roleta-big-spin-btn,
+  .roleta-manual-btn,
+  .spin-action-btn,
+  .spin-skip-btn,
+  .vote-admin-btn,
+  .vote-admin-toggle,
+  .vote-tier-btn,
+  .stats-report-btn,
+  .share-copy-btn,
+  .share-tab{
+    min-height: 44px;
+  }
+  .theme-toggle-btn{
+    width: 44px;
+    height: 44px;
+  }
+  .stats-refresh-btn{
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .lang-btn{
+    min-width: 34px;
+    min-height: 30px;
+  }
+
+  /* Inputs confortáveis pro polegar */
+  .field input,
+  .field select,
+  .auth-field input,
+  .auth-field select,
+  .team-filter-item select,
+  .team-filter-item input{
+    min-height: 42px;
+  }
+
+  /* Navegação: respiro entre as abas */
+  .tabs-nav{ gap: 6px; padding: 14px 0; }
+
+  /* Scroll horizontal limpo nos pools */
+  .team-pool-scroll,
+  .tier-pool{
+    scrollbar-width: thin;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 480px){
+  .wrap{ padding: 28px 14px 56px; }
+  .home-cta-actions{ gap: 10px; }
+  .section-title{ margin-bottom: 24px; }
+}
+
+/* ═══════════════ 9. TEMA CLARO — AJUSTES FINOS ═══════════════ */
+/* O bloco light do style.css usa seletores :root[data-theme="light"]
+   com !important em alguns cards; replicamos a especificidade aqui
+   pra manter as sombras em camadas coerentes no claro. */
+:root[data-theme="light"] .home-feature-card,
+:root[data-theme="light"] .home-integration-card,
+:root[data-theme="light"] .stats-toolbar,
+:root[data-theme="light"] .stats-leaderboard,
+:root[data-theme="light"] .stats-report-block{
+  box-shadow: var(--px-shadow-card), var(--px-edge-top);
+}
+:root[data-theme="light"] .home-feature-card:hover,
+:root[data-theme="light"] .home-integration-card:hover{
+  box-shadow: var(--px-shadow-card-hover), var(--px-edge-top);
+}
+:root[data-theme="light"] .updater,
+:root[data-theme="light"] .team-pool-toolbar,
+:root[data-theme="light"] .ranking-table,
+:root[data-theme="light"] .gvg-block,
+:root[data-theme="light"] .tier-pool-wrap,
+:root[data-theme="light"] .vote-panel,
+:root[data-theme="light"] .roleta-build,
+:root[data-theme="light"] .banners-imagem-wrapper{
+  box-shadow: 0 1px 3px rgba(0,0,0,.05), 0 10px 28px -14px rgba(0,0,0,.14);
+}
+/* Overlays claros: vidro mais leitoso */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+  :root[data-theme="light"] .auth-modal,
+  :root[data-theme="light"] .share-modal,
+  :root[data-theme="light"] .spin-modal,
+  :root[data-theme="light"] .codex-modal{
+    -webkit-backdrop-filter: blur(9px) saturate(1.05);
+    backdrop-filter: blur(9px) saturate(1.05);
+  }
+}
+/* Anel de foco no claro: dourado profundo (mais contraste no branco) */
+:root[data-theme="light"] button:focus-visible,
+:root[data-theme="light"] a:focus-visible,
+:root[data-theme="light"] input:focus-visible,
+:root[data-theme="light"] select:focus-visible,
+:root[data-theme="light"] textarea:focus-visible{
+  outline-color: var(--gold-deep);
+}
