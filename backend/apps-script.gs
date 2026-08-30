@@ -204,6 +204,141 @@ function guildList(params) {
   return jsonResponse({ok: true, guilds: out});
 }
 
+// ─── Admin do site (marcado na coluna site_admin da aba Usuarios da MASTER) ───
+function isSiteAdmin(ss, email) {
+  var sheets = ensureAuthSheets(ss);
+  var user = authFindUser(sheets.users, email);
+  if (!user) return false;
+  var v = user.data[11];
+  if (v === true) return true;
+  var s = String(v || '').trim().toLowerCase();
+  return (s === 'true' || s === 'sim' || s === 'yes' || s === '1' || s === 'x');
+}
+
+function requireSiteAdmin(params) {
+  var master = SpreadsheetApp.getActiveSpreadsheet();
+  var auth = getEmailFromAuthToken(master, String(params.authToken || ''));
+  if (!auth.ok) return {ok: false, resp: jsonResponse({ok: false, error: auth.error, sessionExpired: auth.sessionExpired})};
+  if (!isSiteAdmin(master, auth.email)) {
+    return {ok: false, resp: jsonResponse({ok: false, error: 'Apenas o administrador do site pode fazer isso.'})};
+  }
+  return {ok: true, email: auth.email};
+}
+
+function guildListPending(params) {
+  var adm = requireSiteAdmin(params);
+  if (!adm.ok) return adm.resp;
+  var m = ensureMasterSheets();
+  var data = m.guildas.getDataRange().getValues();
+  var pendentes = [];
+  var ativas = [];
+  for (var i = 1; i < data.length; i++) {
+    var st = String(data[i][3] || '').trim().toLowerCase();
+    if (st === 'pendente') {
+      pendentes.push({
+        slug: String(data[i][0]), nome: String(data[i][1]),
+        nickLider: String(data[i][5]), email: String(data[i][4]),
+        criadaEm: formatarData(data[i][8])
+      });
+    } else if (st === 'ativa') {
+      ativas.push({slug: String(data[i][0]), nome: String(data[i][1])});
+    }
+  }
+  return jsonResponse({ok: true, pendentes: pendentes, ativas: ativas});
+}
+
+// Cria a planilha de uma guilda nova com as abas base.
+// (Logs, Codigos, Sessoes, Usuarios, Sessoes_Auth e Votacao_* já são criadas
+// sob demanda pelo código existente.)
+function criarPlanilhaGuilda(nome) {
+  var novo = SpreadsheetApp.create('SSEX Guilda — ' + nome);
+  var jog = novo.getSheets()[0];
+  jog.setName('Jogadores');
+  jog.appendRow(['Nick', 'Poder', 'Atualizado', 'Email']);
+  jog.setFrozenRows(1);
+  var cfg = novo.insertSheet('Config');
+  cfg.appendRow(['chave', 'valor']);
+  cfg.appendRow(['senha_admin', '']);
+  cfg.appendRow(['webhook_discord', '']);
+  cfg.setFrozenRows(1);
+  var hist = novo.insertSheet('Historico');
+  hist.appendRow(['Data', 'Nick', 'PoderAntigo', 'PoderNovo', 'Origem', 'Email']);
+  hist.setFrozenRows(1);
+  var ev = novo.insertSheet('Eventos');
+  ev.appendRow(['Dia', 'Nome', 'Horario', 'Descricao', 'Status', 'Recompensa']);
+  ev.setFrozenRows(1);
+  var gvg = novo.insertSheet('GVG');
+  gvg.appendRow(['Papel', 'Nick', 'Observacao']);
+  gvg.setFrozenRows(1);
+  ensureAuthSheets(novo);
+  return novo.getId();
+}
+
+function guildApprove(params) {
+  var adm = requireSiteAdmin(params);
+  if (!adm.ok) return adm.resp;
+  var slug = String(params.slug || '').trim().toLowerCase();
+  var g = findGuildRow(slug);
+  if (!g) return jsonResponse({ok: false, error: 'Pedido não encontrado'});
+  if (g.status === 'ativa') return jsonResponse({ok: false, error: 'Guilda já está ativa'});
+  if (!g.emailLider || !g.senhaHash || !g.salt) return jsonResponse({ok: false, error: 'Pedido incompleto — peça um novo cadastro'});
+  var m = ensureMasterSheets();
+  var now = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
+
+  // Idempotente: se falhou no meio antes, reusa a planilha já criada
+  var novoId = g.spreadsheetId;
+  if (!novoId) {
+    novoId = criarPlanilhaGuilda(g.nome);
+    m.guildas.getRange(g.row, 3).setValue(novoId);
+  }
+  var novoSs = SpreadsheetApp.openById(novoId);
+
+  var jog = novoSs.getSheetByName('Jogadores');
+  var jd = jog.getDataRange().getValues();
+  var temNick = false;
+  for (var i = 1; i < jd.length; i++) {
+    if (String(jd[i][0] || '').trim().toLowerCase() === g.nickLider.toLowerCase()) { temNick = true; break; }
+  }
+  if (!temNick) jog.appendRow([g.nickLider, '', '', '']);
+
+  var sheets = ensureAuthSheets(novoSs);
+  if (!authFindUser(sheets.users, g.emailLider)) {
+    sheets.users.appendRow([g.emailLider, g.senhaHash, g.salt, g.nickLider, g.nome, 'aprovado', now, now, adm.email, '', 'sim', '']);
+  }
+
+  m.guildas.getRange(g.row, 4).setValue('ativa');
+  m.guildas.getRange(g.row, 7, 1, 2).setValues([['', '']]); // higiene: hash/salt saem da master
+  m.guildas.getRange(g.row, 10).setValue(now);
+  indexSetUser(g.emailLider, slug, 'aprovado');
+  try { CacheService.getScriptCache().remove('guild_' + slug); } catch (e) {}
+  logEvent('guild_approved', {email: maskEmail(g.emailLider), detalhes: 'Guilda: ' + g.nome + ' | por: ' + adm.email});
+  try {
+    MailApp.sendEmail({
+      to: g.emailLider, subject: '✅ Sua guilda foi aprovada!',
+      htmlBody: '<div style="font-family:Georgia,serif;color:#333;max-width:500px;margin:0 auto;padding:20px;">' +
+        '<h2 style="color:#d4af37;">⚔ ' + g.nome + ' está no ar!</h2>' +
+        '<p>Sua guilda foi aprovada. Faça login com seu email e senha — você já entra como líder.</p>' +
+        '<p>No site, use a sub-aba <strong>Elenco</strong> para cadastrar os nicks dos seus jogadores; depois cada um cria a própria conta escolhendo o nick.</p>' +
+        '</div>'
+    });
+  } catch (e2) { Logger.log('Falha email aprovação de guilda: ' + e2.toString()); }
+  return jsonResponse({ok: true, message: 'Guilda ' + g.nome + ' aprovada e criada!'});
+}
+
+function guildDeny(params) {
+  var adm = requireSiteAdmin(params);
+  if (!adm.ok) return adm.resp;
+  var slug = String(params.slug || '').trim().toLowerCase();
+  var g = findGuildRow(slug);
+  if (!g) return jsonResponse({ok: false, error: 'Pedido não encontrado'});
+  if (g.status === 'ativa') return jsonResponse({ok: false, error: 'Guilda já está ativa — não dá pra recusar'});
+  var m = ensureMasterSheets();
+  m.guildas.getRange(g.row, 4).setValue('recusada');
+  m.guildas.getRange(g.row, 7, 1, 2).setValues([['', '']]);
+  logEvent('guild_denied', {email: maskEmail(g.emailLider), detalhes: 'Guilda: ' + g.nome + ' | por: ' + adm.email});
+  return jsonResponse({ok: true, message: 'Pedido recusado'});
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
@@ -1869,10 +2004,10 @@ function ensureAuthSheets(ss) {
   var users = ss.getSheetByName('Usuarios');
   if (!users) {
     users = ss.insertSheet('Usuarios');
-    users.appendRow(['email', 'senha_hash', 'salt', 'nick', 'guilda', 'status', 'criado_em', 'aprovado_em', 'aprovado_por', 'ultimo_login', 'lider']);
+    users.appendRow(['email', 'senha_hash', 'salt', 'nick', 'guilda', 'status', 'criado_em', 'aprovado_em', 'aprovado_por', 'ultimo_login', 'lider', 'site_admin']);
     users.setFrozenRows(1);
   } else {
-    var headerRange = users.getRange(1, 1, 1, Math.max(users.getLastColumn(), 11));
+    var headerRange = users.getRange(1, 1, 1, Math.max(users.getLastColumn(), 12));
     var headers = headerRange.getValues()[0];
     var hasLider = false;
     for (var h = 0; h < headers.length; h++) {
@@ -1881,6 +2016,14 @@ function ensureAuthSheets(ss) {
     if (!hasLider) {
       users.getRange(1, 11).setValue('lider');
       Logger.log('Coluna lider adicionada');
+    }
+    var hasSiteAdmin = false;
+    for (var h2 = 0; h2 < headers.length; h2++) {
+      if (String(headers[h2]).toLowerCase().trim() === 'site_admin') { hasSiteAdmin = true; break; }
+    }
+    if (!hasSiteAdmin) {
+      users.getRange(1, 12).setValue('site_admin');
+      Logger.log('Coluna site_admin adicionada');
     }
   }
   var sessions = ss.getSheetByName('Sessoes_Auth');
