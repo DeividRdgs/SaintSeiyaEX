@@ -135,6 +135,8 @@ function applyLangToUI() {
   // 2. Traduz elementos com data-i18n
   document.querySelectorAll('[data-i18n]').forEach(function(el) {
     var traducao = ui(el.dataset.i18n);
+    // Chave sem tradução (ex.: i18n.js antigo em cache): mantém o texto do HTML
+    if (traducao === el.dataset.i18n) return;
     // Se a tradução contém tags HTML (ex: <strong>), usa innerHTML; senão textContent
     if (/<[a-z][\s\S]*>/i.test(traducao)) {
       el.innerHTML = traducao;
@@ -145,12 +147,14 @@ function applyLangToUI() {
 
   // 3. Traduz placeholders com data-i18n-placeholder
   document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
-    el.placeholder = ui(el.dataset.i18nPlaceholder);
+    var ph = ui(el.dataset.i18nPlaceholder);
+    if (ph !== el.dataset.i18nPlaceholder) el.placeholder = ph;
   });
 
   // 4. Traduz títulos (tooltip) com data-i18n-title
   document.querySelectorAll('[data-i18n-title]').forEach(function(el) {
-    el.title = ui(el.dataset.i18nTitle);
+    var tt = ui(el.dataset.i18nTitle);
+    if (tt !== el.dataset.i18nTitle) el.title = tt;
   });
 
   // 5. Re-renderiza vistas que dependem do codex
