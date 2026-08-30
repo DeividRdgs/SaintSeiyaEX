@@ -540,3 +540,24 @@ body.gsearch-open { overflow: hidden; }
 #card-detail-view, .roleta-result, .home-section {
   scroll-margin-top: calc(var(--tb-h, 122px) + 16px);
 }
+
+/* Destaque compacto: banners lado a lado em mini-cards */
+.home-hub-featured { display: grid; grid-template-columns: 1fr 1fr; }
+.home-featured-head, .home-featured-actions { grid-column: 1 / -1; }
+.home-featured-body {
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  padding: 16px 14px 14px;
+}
+.home-featured-body + .home-featured-body { border-top: none; border-left: 1px solid var(--line); }
+.home-featured-ring { width: 72px; height: 72px; }
+.home-featured-info { align-items: center; gap: 6px; }
+.home-featured-badges { justify-content: center; }
+.home-featured-name { font-size: .95rem; }
+.home-featured-go { display: none; }
+.home-featured-actions { padding-top: 4px; }
+@media (max-width: 480px) {
+  .home-hub-featured { grid-template-columns: 1fr; }
+  .home-featured-body + .home-featured-body { border-left: none; border-top: 1px solid var(--line); }
+}

@@ -284,7 +284,8 @@ const GUILD_SUBTAB_ROUTES = {
   'gvg':       { slug: 'gvg',           title: 'GVG',         title_en: 'GVG',       desc: 'Guerra de Guildas — distribuição de papéis.', desc_en: 'Guild War — role distribution.' },
   'eventos':   { slug: 'eventos',       title: 'Eventos',    title_en: 'Events',    desc: 'Calendário de eventos da Legião TRIADE.', desc_en: 'Events calendar of the TRIADE Legion.' },
   'stats':     { slug: 'estatisticas',  title: 'Estatísticas', title_en: 'Statistics', desc: 'Histórico de evolução de poder da Legião.', desc_en: 'Power evolution history of the Legion.' },
-  'vote':      { slug: 'votacao',       title: 'Votação',    title_en: 'Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' }
+  'vote':      { slug: 'votacao',       title: 'Votação',    title_en: 'Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' },
+  'pendentes': { slug: 'pendentes',     title: 'Solicitações Pendentes', title_en: 'Pending Requests', desc: 'Aprovação de novos membros da guilda.', desc_en: 'Approval of new guild members.' }
 };
 const GUILD_DEFAULT_SUBTAB = 'update'; // Sub-aba padrão ao entrar em /guilda
 

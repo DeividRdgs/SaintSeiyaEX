@@ -213,6 +213,34 @@ document.addEventListener('keydown', function (e) {
   }
 }, true);
 
+/* ---------- sub-aba Pendentes (lista de solicitações no painel da guilda) ---------- */
+function rdInitPendingTab() {
+  var body = document.getElementById('authAdminBody');
+  if (!body) return;
+  if (typeof _authState !== 'undefined' && _authState && _authState.token && typeof openAuthAdminPanel === 'function') {
+    body.innerHTML = '<div class="pending-hint">' + _rdUi('generic.loading', 'Carregando...') + '</div>';
+    openAuthAdminPanel();
+  } else {
+    body.innerHTML = '<div class="pending-hint">' + _rdUi('admin.loginToSee', 'Faça login como líder para ver as solicitações.') + '</div>';
+  }
+}
+// O renderer original abre o modal; com a lista morando na aba, o modal fica fechado
+if (typeof renderAuthAdminPanel === 'function') {
+  var _rdOrigRenderAdmin = renderAuthAdminPanel;
+  renderAuthAdminPanel = function (pendentes, senhaLegacy) {
+    _rdOrigRenderAdmin(pendentes, senhaLegacy);
+    var m = document.getElementById('authAdminModal');
+    if (m) m.classList.remove('active');
+  };
+}
+if (typeof runTabInitHook === 'function') {
+  var _rdOrigTabHook = runTabInitHook;
+  runTabInitHook = function (tabId) {
+    _rdOrigTabHook(tabId);
+    if (tabId === 'pendentes') rdInitPendingTab();
+  };
+}
+
 /* ---------- variáveis de layout do trilho da guilda ---------- */
 function _rdRailVars() {
   var wrap = document.querySelector('.wrap');

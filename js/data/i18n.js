@@ -242,6 +242,8 @@ const UI_TEXTS = {
     'guild.subEvents': 'Eventos',
     'guild.subStats': 'Estatísticas',
     'guild.subVote': 'Votação',
+    'guild.subPendentes': 'Pendentes',
+    'admin.loginToSee': 'Faça login como líder para ver as solicitações.',
     // === Atualizar Poder ===
     'update.title': 'Atualizar Poder',
     'update.nick': 'Nick',
@@ -705,6 +707,8 @@ const UI_TEXTS = {
     'guild.subEvents': 'Events',
     'guild.subStats': 'Statistics',
     'guild.subVote': 'Voting',
+    'guild.subPendentes': 'Pending',
+    'admin.loginToSee': 'Log in as a leader to see the requests.',
     // === Update Power ===
     'update.title': 'Update Power',
     'update.nick': 'Nick',
@@ -1172,6 +1176,8 @@ const UI_TEXTS = {
     'guild.subEvents': 'Eventos',
     'guild.subStats': 'Estadísticas',
     'guild.subVote': 'Votación',
+    'guild.subPendentes': 'Pendientes',
+    'admin.loginToSee': 'Inicia sesión como líder para ver las solicitudes.',
     // === Update Power ===
     'update.title': 'Actualizar Poder',
     'update.nick': 'Apodo',

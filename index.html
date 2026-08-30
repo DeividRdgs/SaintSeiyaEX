@@ -168,7 +168,7 @@
     <button class="auth-login-btn" id="authLoginBtn" onclick="openAuthModal('login')" data-i18n="auth.login">Entrar</button>
     <div class="auth-user-info" id="authUserInfo">
       <span>👤 <span class="auth-user-nick"></span></span>
-      <button class="auth-admin-link-btn" id="authAdminLinkBtn" onclick="openAuthAdminPanel()" title="Aprovar pendentes" data-i18n="auth.pending" data-i18n-title="auth.pendingTitle" style="display:none;">Pendentes</button>
+      <button class="auth-admin-link-btn" id="authAdminLinkBtn" onclick="navigateToTab('guilda');navigateToGuildSubtab('pendentes')" title="Aprovar pendentes" data-i18n="auth.pending" data-i18n-title="auth.pendingTitle" style="display:none;">Pendentes</button>
       <button class="auth-logout-btn" onclick="authLogout()" data-i18n="auth.logout">Sair</button>
     </div>
   </div>
@@ -206,6 +206,7 @@
     <button class="guild-subtab" data-subtab="eventos" data-i18n="guild.subEvents">Eventos</button>
     <button class="guild-subtab" data-subtab="stats" data-i18n="guild.subStats">Estatísticas</button>
     <button class="guild-subtab" data-subtab="vote" data-i18n="guild.subVote">Votação</button>
+    <button class="guild-subtab" data-subtab="pendentes" data-i18n="guild.subPendentes">Pendentes</button>
   </nav>
 
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
@@ -503,6 +504,19 @@
         <div class="skel skel-event-col"></div>
         <div class="skel skel-event-col"></div>
         <div class="skel skel-event-col"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ ABA: SOLICITAÇÕES PENDENTES (dentro da Guilda) ============ -->
+  <div class="tab-content" id="tab-pendentes">
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="admin.pendingTitle">Solicitações Pendentes</h2>
+        <div class="sub" data-i18n="admin.pendingSubtitle">Aprove ou negue novos membros da guilda</div>
+      </div>
+      <div class="pending-panel">
+        <div id="authAdminBody"><div class="pending-hint" data-i18n="admin.loginToSee">Faça login como líder para ver as solicitações.</div></div>
       </div>
     </section>
   </div>
@@ -1347,13 +1361,12 @@
     </div>
   </div>
 
-  <!-- ════════ PAINEL ADMIN DE APROVAÇÃO ════════ -->
+  <!-- ════════ PAINEL ADMIN DE APROVAÇÃO ════════
+       A lista agora vive na sub-aba Guilda → Pendentes (#tab-pendentes).
+       O shell do modal fica para compatibilidade, sem corpo. -->
   <div class="auth-modal" id="authAdminModal">
     <div class="auth-modal-inner auth-admin-inner">
       <button class="auth-modal-close" onclick="closeAuthAdminModal()">×</button>
-      <h2 class="auth-title" data-i18n="admin.pendingTitle">Solicitações Pendentes</h2>
-      <div class="auth-subtitle" data-i18n="admin.pendingSubtitle">Aprove ou negue novos membros da guilda</div>
-      <div id="authAdminBody"></div>
     </div>
   </div>
 
