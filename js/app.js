@@ -878,12 +878,13 @@ function renderCodexCards() {
       const cardName = pickName(c);
       const safeName = String(cardName).replace(/[<>&"]/g, ch => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[ch]));
       const portraitClass = c.image ? 'hero-portrait has-image' : 'hero-portrait';
+      // carta emoldurada (moldura do jogo por raridade); cai na imagem crua se faltar
       const portraitInner = c.image
-        ? `<img src="${c.image}" alt="${safeName}" loading="lazy" decoding="async" />`
+        ? `<img src="img/cards/framed/${c.id}.webp" alt="${safeName}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${c.image}';var hc=this.closest('.hero-card');if(hc)hc.classList.remove('codex-card-framed');" />`
         : `<span class="glyph">🃏</span>`;
       const titleLabel = useEn ? 'Click for details' : useEs ? 'Haz clic para ver detalles' : 'Clique para ver detalhes';
       return `
-        <div class="hero-card codex-card r-${rarity}" onclick="showCardDetail('${c.id}')" style="cursor:pointer;" title="${titleLabel}">
+        <div class="hero-card codex-card codex-card-framed r-${rarity}" onclick="showCardDetail('${c.id}')" style="cursor:pointer;" title="${titleLabel}">
           <div class="${portraitClass}">
             <div class="rays"></div>
             ${portraitInner}

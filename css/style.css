@@ -1913,6 +1913,27 @@
     display:flex;align-items:center;justify-content:center;
     position:relative;overflow:hidden;
   }
+  /* cartas com a moldura do jogo já embutida: sem borda/badge/vinheta do wrapper */
+  .codex-card-framed{
+    border-color: transparent !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    overflow: visible;
+  }
+  .codex-card-framed:hover{ box-shadow: none !important; }
+  .codex-card-framed .hero-portrait{
+    aspect-ratio: 448 / 692;
+    background: transparent;
+    overflow: visible;
+    filter: drop-shadow(0 3px 7px rgba(0,0,0,.5));
+  }
+  .codex-card-framed .hero-portrait img{
+    object-fit: contain;
+  }
+  .codex-card-framed .hero-portrait::before,
+  .codex-card-framed .hero-portrait .rays,
+  .codex-card-framed .hero-rarity-badge{ display: none !important; }
+  .codex-card-framed:hover .hero-portrait{ filter: drop-shadow(0 8px 16px rgba(0,0,0,.55)); }
   .hero-portrait img{
     position:absolute;
     inset:0;
