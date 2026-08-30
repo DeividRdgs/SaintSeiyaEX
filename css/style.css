@@ -1962,8 +1962,13 @@
     background: transparent !important;
     border-color: transparent !important;
     box-shadow: none !important;
+    /* o card ganha a proporção da moldura (antes era 95/152, mais largo, e a
+       moldura alta ficava com margem lateral) — agora a arte preenche tudo */
+    aspect-ratio: 316 / 880 !important;
     contain-intrinsic-size: auto 300px;
   }
+  /* a moldura preenche o card por inteiro (sem letterbox lateral) */
+  :root .hero-card.codex-card.codex-card-knight .hero-portrait img{ object-fit: cover; }
   :root .hero-card.codex-card.codex-card-knight:hover{ box-shadow: none !important; }
   .codex-card-knight .hero-info{
     background: transparent !important;
