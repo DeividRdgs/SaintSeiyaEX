@@ -34,6 +34,26 @@ function _bnxEsc(s) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+// Cadeia de fallback da arte do card:
+//  1º arte HD do jogo (img/banners/hd/<id>.webp, sem selo -> mostra selo por cima)
+//  2º recorte do pôster (img/banners/<id>.webp, selo já gravado -> esconde o selo por cima)
+//  3º retrato do codex (img/heroes/<id>.webp -> selo por cima)
+function bnxArtFallback(img, id) {
+  var cell = img.parentNode && img.parentNode.parentNode;
+  var step = img.getAttribute('data-fb') || '0';
+  if (step === '0') {
+    img.setAttribute('data-fb', '1');
+    img.src = 'img/banners/' + id + '.webp';
+    if (cell) cell.classList.add('bnx-baked'); // selo já vem no recorte
+  } else if (step === '1') {
+    img.setAttribute('data-fb', '2');
+    img.src = 'img/heroes/' + id + '.webp';
+    if (cell) cell.classList.remove('bnx-baked'); // retrato não tem selo -> mostra por cima
+  } else {
+    img.onerror = null;
+  }
+}
+
 function renderBannersCalendar() {
   var grid = document.getElementById('bnxGrid');
   if (!grid || typeof CODEX_HEROES === 'undefined') return;
@@ -49,8 +69,8 @@ function renderBannersCalendar() {
         'onclick="navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')" ' +
         'onkeydown="if(event.key===\'Enter\'){navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')}">' +
         '<div class="bnx-frame">' +
-          '<img class="bnx-art" src="img/banners/' + h.id + '.webp" alt="" loading="lazy" decoding="async" ' +
-            'onerror="this.onerror=null;this.src=\'img/heroes/' + h.id + '.webp\';this.parentNode.parentNode.classList.add(\'bnx-noart\')">' +
+          '<img class="bnx-art" src="img/banners/hd/' + h.id + '.webp" alt="" loading="lazy" decoding="async" ' +
+            'onerror="bnxArtFallback(this,' + h.id + ')">' +
           '<img class="bnx-badge" src="img/banners/' + badge + '.webp" alt="' + _bnxEsc((h.rarity || '').toUpperCase()) + '">' +
         '</div>' +
         '<div class="bnx-name">' + nome + '</div>' +

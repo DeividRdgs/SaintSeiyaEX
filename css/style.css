@@ -6606,10 +6606,11 @@
     display: block;
     clip-path: polygon(13% 0, 87% 0, 100% 4.5%, 100% 95.5%, 87% 100%, 13% 100%, 0 95.5%, 0 4.5%);
   }
-  /* selo de raridade: só quando a arte é o retrato do codex (fallback),
-     pois os recortes do poster já trazem o selo gravado */
+  /* selo de raridade sobreposto: as artes HD do jogo não trazem selo,
+     então mostramos por cima. Escondido só quando a arte é o recorte do
+     pôster (.bnx-baked), que já tem o selo gravado. */
   .bnx-badge {
-    display: none;
+    display: block;
     position: absolute;
     top: -4px;
     left: -2px;
@@ -6617,8 +6618,10 @@
     max-width: 72px;
     height: auto;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,.85));
+    pointer-events: none;
+    z-index: 2;
   }
-  .bnx-noart .bnx-badge { display: block; }
+  .bnx-baked .bnx-badge { display: none; }
   .bnx-name {
     margin-top: 8px;
     text-align: center;
