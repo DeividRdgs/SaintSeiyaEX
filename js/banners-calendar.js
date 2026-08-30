@@ -83,7 +83,7 @@ function renderBannersCalendar() {
   for (var i = 0; i < (BANNER_CALENDAR.emptySlots || 0); i++) {
     html +=
       '<div class="bnx-cell bnx-cell-empty">' +
-        '<div class="bnx-frame"><img class="bnx-art" src="img/slot-vazio.webp" alt="" loading="lazy" decoding="async"></div>' +
+        '<div class="bnx-frame"><img class="bnx-art" src="img/banners/slot-kapai.webp" alt="" loading="lazy" decoding="async"></div>' +
         '<div class="bnx-name bnx-name-soon">' + soon + '</div>' +
       '</div>';
   }
