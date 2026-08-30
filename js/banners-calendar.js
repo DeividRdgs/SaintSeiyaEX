@@ -14,10 +14,11 @@ const BANNER_CALENDAR = {
   heroIds: [
     1029, 1094, 1055, 1083, 1042, 1030, 1089, 1003, 1086, 1071, 1095, 1046, 1051, 1001,
     1021, 1014, 1092, 1085, 1048, 1032, 1043, 1061, 1084, 1064, 1019, 1073, 1078, 1066,
+    1009, 1063, 1100, 1090, 1056, 1070,
   ],
   // heróis que ainda não chegaram no servidor global (mostram o selo PENDENTE)
-  pending: [1064, 1019, 1073, 1078, 1066],
-  emptySlots: 14,
+  pending: [1064, 1019, 1073, 1078, 1066, 1009, 1063, 1100, 1090, 1056, 1070],
+  emptySlots: 8,
 };
 
 function _bnxName(h) {
