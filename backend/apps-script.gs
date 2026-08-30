@@ -2935,3 +2935,81 @@ function instalarTriggerRelatorioSemanal() {
     .onWeekDay(ScriptApp.WeekDay.SUNDAY).atHour(12).inTimezone('America/Sao_Paulo').create();
   Logger.log('✓ Trigger instalado: domingo às 12h (Brasília)');
 }
+
+// ═══ TESTE: ciclo multi-guilda completo (rodar no editor; usa guilda-teste-ex) ═══
+function testeMultiGuilda() {
+  var slug = 'guilda-teste-ex';
+  var emailLider = 'lider.teste@example.com';
+  var m = ensureMasterSheets();
+  Logger.log('1. master ok: ' + m.guildas.getName() + ' / ' + m.index.getName());
+
+  // limpa execução anterior
+  var g0 = findGuildRow(slug);
+  if (g0) {
+    if (g0.spreadsheetId) { try { DriveApp.getFileById(g0.spreadsheetId).setTrashed(true); } catch (e) {} }
+    m.guildas.deleteRow(g0.row);
+  }
+  indexRemoveUser(emailLider);
+  indexRemoveUser('membro.teste@example.com');
+  try { CacheService.getScriptCache().remove('guild_' + slug); } catch (e) {}
+
+  // pedido → aprovação (bypass do requireSiteAdmin: testa as partes internas)
+  var salt = gerarSalt();
+  m.guildas.appendRow([slug, 'Guilda Teste EX', '', 'pendente', emailLider, 'LiderTeste', hashSenha('senha123', salt), salt, '01/01/2026 00:00:00', '']);
+  var g = findGuildRow(slug);
+  var novoId = criarPlanilhaGuilda(g.nome);
+  m.guildas.getRange(g.row, 3).setValue(novoId);
+  m.guildas.getRange(g.row, 4).setValue('ativa');
+  var novoSs = SpreadsheetApp.openById(novoId);
+  var sheets = ensureAuthSheets(novoSs);
+  sheets.users.appendRow([emailLider, g.senhaHash, g.salt, 'LiderTeste', g.nome, 'aprovado', '01/01/2026 00:00:00', '01/01/2026 00:00:00', 'teste', '', 'sim', '']);
+  novoSs.getSheetByName('Jogadores').appendRow(['LiderTeste', '', '', '']);
+  indexSetUser(emailLider, slug, 'aprovado');
+  Logger.log('2. guilda criada: ' + novoId);
+
+  // resolveGuild isola as planilhas
+  var ctxT = resolveGuild(slug);
+  var ctxTriade = resolveGuild('triade');
+  if (ctxT.ss.getId() === ctxTriade.ss.getId()) throw new Error('FALHA: guilda de teste caiu na planilha da TRIADE');
+  Logger.log('3. isolamento ok');
+
+  // login do líder resolve a guilda pelo índice
+  var loginResp = JSON.parse(authLogin({email: emailLider, senha: 'senha123'}).getContent());
+  if (!loginResp.ok) throw new Error('FALHA login: ' + loginResp.error);
+  if (loginResp.guild !== slug) throw new Error('FALHA: login caiu na guilda ' + loginResp.guild);
+  if (!loginResp.user.isLeader) throw new Error('FALHA: líder sem flag isLeader');
+  Logger.log('4. login ok, guild=' + loginResp.guild);
+
+  // elenco: add + list + register de membro
+  var ctx = resolveGuild(slug);
+  var addResp = JSON.parse(rosterAdd({authToken: loginResp.token, nick: 'MembroTeste'}, ctx).getContent());
+  if (!addResp.ok) throw new Error('FALHA rosterAdd: ' + addResp.error);
+  var regResp = JSON.parse(authRegister({email: 'membro.teste@example.com', senha: 'senha123', nick: 'MembroTeste'}, ctx).getContent());
+  if (!regResp.ok) throw new Error('FALHA authRegister: ' + regResp.error);
+  if (indexFindGuildByEmail('membro.teste@example.com') !== slug) throw new Error('FALHA: índice não registrou o membro');
+  var listResp = JSON.parse(rosterList({authToken: loginResp.token}, ctx).getContent());
+  if (listResp.nicks.length !== 2) throw new Error('FALHA rosterList: esperava 2 nicks, veio ' + listResp.nicks.length);
+  Logger.log('5. elenco + cadastro de membro ok');
+
+  // TRIADE intacta: membro de teste não aparece lá
+  var jogTriade = ctxTriade.ss.getSheetByName('Jogadores').getDataRange().getValues();
+  for (var i = 1; i < jogTriade.length; i++) {
+    if (String(jogTriade[i][0]).toLowerCase() === 'membroteste') throw new Error('FALHA: vazou nick pra TRIADE');
+  }
+  Logger.log('6. TRIADE intacta — ✅ TESTE COMPLETO PASSOU');
+  Logger.log('Limpeza: rode testeMultiGuildaLimpar() para remover a guilda de teste.');
+}
+
+function testeMultiGuildaLimpar() {
+  var slug = 'guilda-teste-ex';
+  var m = ensureMasterSheets();
+  var g = findGuildRow(slug);
+  if (g) {
+    if (g.spreadsheetId) { try { DriveApp.getFileById(g.spreadsheetId).setTrashed(true); } catch (e) {} }
+    m.guildas.deleteRow(g.row);
+  }
+  indexRemoveUser('lider.teste@example.com');
+  indexRemoveUser('membro.teste@example.com');
+  try { CacheService.getScriptCache().remove('guild_' + slug); } catch (e2) {}
+  Logger.log('✅ Guilda de teste removida');
+}
