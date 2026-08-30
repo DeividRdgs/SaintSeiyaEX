@@ -5630,6 +5630,39 @@ async function authSubmitRegister(e) {
   }
 }
 
+async function authSubmitGuildRegister(e) {
+  if (e) e.preventDefault();
+  const nome = document.getElementById('authGuildName').value.trim();
+  const nick = document.getElementById('authGuildNick').value.trim();
+  const email = document.getElementById('authGuildEmail').value.trim().toLowerCase();
+  const senha = document.getElementById('authGuildPassword').value;
+  const senha2 = document.getElementById('authGuildPassword2').value;
+
+  if (!nome || !nick || !email || !senha) { authShowMsg('guild', ui('auth.fillAll'), 'error'); return; }
+  if (senha !== senha2) { authShowMsg('guild', 'As senhas não coincidem', 'error'); return; }
+  if (senha.length < 6) { authShowMsg('guild', 'A senha precisa ter pelo menos 6 caracteres', 'error'); return; }
+
+  const btn = document.getElementById('authGuildSubmitBtn');
+  setButtonLoading(btn, true, 'Enviando...');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'guildRegister', nome, nick, email, senha })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      switchAuthView('guildPending');
+    } else {
+      authShowMsg('guild', data.error || 'Erro', 'error');
+    }
+  } catch (err) {
+    authShowMsg('guild', 'Erro de conexão', 'error');
+  } finally {
+    setButtonLoading(btn, false);
+  }
+}
+
 async function authSubmitForgot(e) {
   if (e) e.preventDefault();
   const email = document.getElementById('authForgotEmail').value.trim().toLowerCase();

@@ -1295,6 +1295,8 @@
         </div>
         <button class="auth-btn primary" id="authRegSubmitBtn" onclick="authSubmitRegister(event)" data-i18n="auth.regBtn">✓ Solicitar Acesso</button>
         <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('guild')" data-i18n="auth.createGuildLink">Cadastrar minha guilda</a>
+          <span class="auth-sep">·</span>
           <a href="javascript:void(0)" onclick="switchAuthView('login')" data-i18n="auth.backToLogin">← Voltar pra Entrar</a>
         </div>
       </div>
@@ -1306,6 +1308,48 @@
         <p class="auth-pending-text" data-i18n="auth.regDoneText">
           Sua solicitação foi enviada ao líder da guilda.<br>
           Você vai receber um <strong>email</strong> assim que for aprovado.
+        </p>
+        <button class="auth-btn primary" onclick="closeAuthModal()" data-i18n="auth.gotIt">Entendi</button>
+      </div>
+
+      <!-- CADASTRO DE GUILDA -->
+      <div class="auth-view" id="authView-guild">
+        <h2 class="auth-title" data-i18n="auth.titleGuild">Cadastrar Guilda</h2>
+        <div class="auth-subtitle" data-i18n="auth.guildSubtitle">Peça a criação da sua guilda. Você será o líder quando for aprovada.</div>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.guildNameLabel">Nome da guilda</label>
+          <input type="text" id="authGuildName" maxlength="40" placeholder="Minha Legião" data-i18n-placeholder="auth.guildNamePh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.guildNickLabel">Seu nick no jogo</label>
+          <input type="text" id="authGuildNick" maxlength="30" placeholder="Nick" data-i18n-placeholder="auth.guildNickPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.email">Email</label>
+          <input type="email" id="authGuildEmail" placeholder="seu@email.com" autocomplete="email" data-i18n-placeholder="auth.emailPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword">Senha (mín 6 caracteres)</label>
+          <input type="password" id="authGuildPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword2">Confirme a senha</label>
+          <input type="password" id="authGuildPassword2" placeholder="••••••••" autocomplete="new-password" onkeydown="if(event.key==='Enter') authSubmitGuildRegister(event)">
+        </div>
+        <button class="auth-btn primary" id="authGuildSubmitBtn" onclick="authSubmitGuildRegister(event)" data-i18n="auth.guildBtn">🏰 Pedir Criação</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('register')" data-i18n="auth.backToRegister">← Voltar</a>
+        </div>
+      </div>
+
+      <!-- GUILDA AGUARDANDO APROVAÇÃO -->
+      <div class="auth-view" id="authView-guildPending">
+        <div class="auth-pending-icon">🏰</div>
+        <h2 class="auth-title" data-i18n="auth.guildDoneTitle">Pedido Enviado!</h2>
+        <p class="auth-pending-text" data-i18n="auth.guildDoneText">
+          Seu pedido de guilda foi enviado ao administrador do site.<br>
+          Você vai receber um <strong>email</strong> quando for aprovada — aí é só fazer login como líder.
         </p>
         <button class="auth-btn primary" onclick="closeAuthModal()" data-i18n="auth.gotIt">Entendi</button>
       </div>
