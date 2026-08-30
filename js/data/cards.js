@@ -1,7 +1,7 @@
 
 
 const CODEX_CARDS = [
-  { id: 'cN1', rarity: 'n', name: 'Defesa Circular', name_en: 'Circular Defense', name_es: 'Circular Defense', image: 'img/codex/tscAHRo.webp',
+  { id: 'cN1', rarity: 'n', name: 'Defesa Circular', name_en: 'Circular Defense', name_es: 'Circular Defense', image: 'img/cards/cN1.webp',
     effect: 'Aumenta a Taxa de Resistência a Crít.',
     effect_en: 'Increases Crit Resistance',
     effect_es: 'Aumenta Crítico Resistance',
@@ -27,7 +27,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Resistência a Crít. aumentada em 7%.', effect_en: 'Crit Resistance increased by 7%.', effect_es: 'Crítico Resistance aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN2', rarity: 'n', name: 'Escudo do Cosmo de Dragão', name_en: 'Dragon Cosmo Shield', name_es: 'Dragon Cosmo Escudo', image: 'img/codex/exSldZR.webp',
+  { id: 'cN2', rarity: 'n', name: 'Escudo do Cosmo de Dragão', name_en: 'Dragon Cosmo Shield', name_es: 'Dragon Cosmo Escudo', image: 'img/cards/cN2.webp',
     effect: 'DEF Fís. aumentada.',
     effect_en: 'P.DEF increased.',
     effect_es: 'P-DEF aumentado.',
@@ -53,7 +53,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'DEF Fís. aumentada em 7%.', effect_en: 'P.DEF increased by 7%.', effect_es: 'P-DEF aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN3', rarity: 'n', name: 'Corte de Chifres', name_en: 'Horn Slash', name_es: 'Horn Slash', image: 'img/codex/yWh924W.webp',
+  { id: 'cN3', rarity: 'n', name: 'Corte de Chifres', name_en: 'Horn Slash', name_es: 'Horn Slash', image: 'img/cards/cN3.webp',
     effect: 'Aumenta o ATQ.',
     effect_en: 'Increases ATK.',
     effect_es: 'Aumenta ATQ.',
@@ -79,7 +79,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta o ATQ em 4.5%.', effect_en: 'Increases ATK by 4.5%.', effect_es: 'Aumenta ATQ por 4.5%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN4', rarity: 'n', name: 'Cosmo de Batalha', name_en: 'Battle Cosmo', name_es: 'Batalla Cosmo', image: 'img/codex/bMQUYme.webp',
+  { id: 'cN4', rarity: 'n', name: 'Cosmo de Batalha', name_en: 'Battle Cosmo', name_es: 'Batalla Cosmo', image: 'img/cards/cN4.webp',
     effect: 'Quebra de Poder aumentada.',
     effect_en: 'Power Break increased.',
     effect_es: 'Power Break aumentado.',
@@ -105,7 +105,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quebra de Poder aumentada em 7%.', effect_en: 'Power Break increased by 7%.', effect_es: 'Power Break aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN5', rarity: 'n', name: 'Escudo de Aparar', name_en: 'Parry Shield', name_es: 'Parry Escudo', image: 'img/codex/D5qxju5.webp',
+  { id: 'cN5', rarity: 'n', name: 'Escudo de Aparar', name_en: 'Parry Shield', name_es: 'Parry Escudo', image: 'img/cards/cN5.webp',
     effect: 'Aumenta a Taxa de Aparar.',
     effect_en: 'Increases Parry Rate.',
     effect_es: 'Aumenta Parry Rate.',
@@ -131,7 +131,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Taxa de Aparar em 7%.', effect_en: 'Increases Parry Rate by 7%.', effect_es: 'Aumenta Parry Rate por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN6', rarity: 'n', name: 'O Guerreiro que Voltou do Inferno', name_en: 'The Warrior Who Returned from Hell', name_es: 'El Warrior Who Returned de Hell', image: 'img/codex/KLbfknO.webp',
+  { id: 'cN6', rarity: 'n', name: 'O Guerreiro que Voltou do Inferno', name_en: 'The Warrior Who Returned from Hell', name_es: 'El Warrior Who Returned de Hell', image: 'img/cards/cN6.webp',
     effect: 'Taxa de Crít. aumentada.',
     effect_en: 'Crit Rate increased.',
     effect_es: 'Tasa de Crít. aumentado.',
@@ -157,7 +157,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Crít. aumentada em 7%.', effect_en: 'Crit Rate increased by 7%.', effect_es: 'Tasa de Crít. aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN7', rarity: 'n', name: 'Olhos de Águia', name_en: 'Eagle Eyes', name_es: 'Eagle Eyes', image: 'img/codex/uF6k1Rd.webp',
+  { id: 'cN7', rarity: 'n', name: 'Olhos de Águia', name_en: 'Eagle Eyes', name_es: 'Eagle Eyes', image: 'img/cards/cN7.webp',
     effect: 'Aumenta a Taxa de Acerto.',
     effect_en: 'Increases Taxa of Hit.',
     effect_es: 'Aumenta Taxa de Hit.',
@@ -183,7 +183,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Resistência a Crít. aumentada em 7%.', effect_en: 'Crit Resistance increased by 7%.', effect_es: 'Crítico Resistance aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN8', rarity: 'n', name: 'Labirinto Fantasma', name_en: 'Phantom Labyrinth', name_es: 'Phantom Labyrinth', image: 'img/codex/mBrsDKv.webp',
+  { id: 'cN8', rarity: 'n', name: 'Labirinto Fantasma', name_en: 'Phantom Labyrinth', name_es: 'Phantom Labyrinth', image: 'img/cards/cN8.webp',
     effect: 'Taxa de Esquiva aumentada.',
     effect_en: 'Dodge Rate increased.',
     effect_es: 'Dodge Rate aumentado.',
@@ -209,7 +209,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Esquiva aumentada em 7%.', effect_en: 'Dodge Rate increased by 7%.', effect_es: 'Dodge Rate aumentado por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cN9', rarity: 'n', name: 'Proteção de Cristal', name_en: 'Crystal Protection', name_es: 'Crystal Protection', image: 'img/codex/fy17sxR.webp',
+  { id: 'cN9', rarity: 'n', name: 'Proteção de Cristal', name_en: 'Crystal Protection', name_es: 'Crystal Protection', image: 'img/cards/cN9.webp',
     effect: 'Aumenta a DEF Psíquica.',
     effect_en: 'Increases M.DEF.',
     effect_es: 'Aumenta M-DEF.',
@@ -235,7 +235,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a DEF Psíquica em 7%.', effect_en: 'Increases M.DEF by 7%.', effect_es: 'Aumenta M-DEF por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR10', rarity: 'r', name: 'Veneno da Serpente Marinha', name_en: 'Sea Serpent Venom', name_es: 'Mar Serpent Venom', image: 'img/codex/nWphcOJ.webp',
+  { id: 'cR10', rarity: 'r', name: 'Veneno da Serpente Marinha', name_en: 'Sea Serpent Venom', name_es: 'Mar Serpent Venom', image: 'img/cards/cR10.webp',
     effect: 'O Dano Prolongado aumenta.',
     effect_en: 'The Damage Prolongado increases.',
     effect_es: 'El Daño Prolongado aumenta.',
@@ -261,7 +261,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'O Dano Prolongado aumenta em 18%.', effect_en: 'The Damage Prolongado increases by 18%.', effect_es: 'El Daño Prolongado aumenta por 18%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR11', rarity: 'r', name: 'Poder da Superação', name_en: 'Power of Overcoming', name_es: 'Power de Overcoming', image: 'img/codex/nVjKQCK.webp',
+  { id: 'cR11', rarity: 'r', name: 'Poder da Superação', name_en: 'Power of Overcoming', name_es: 'Power de Overcoming', image: 'img/cards/cR11.webp',
     effect: 'Aumenta o Dano da Habilidade Suprema.',
     effect_en: 'Increases Ultimate Skill Damage.',
     effect_es: 'Aumenta Habilidad Suprema Daño.',
@@ -287,7 +287,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta o Dano da Habilidade Suprema em 18%', effect_en: 'Increases Ultimate Skill Damage by 18%', effect_es: 'Aumenta Habilidad Suprema Daño por 18%', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR12', rarity: 'r', name: 'Poder do Unicórnio', name_en: 'Unicorn\'s Power', name_es: 'Unicorn\'s Power', image: 'img/codex/aKMbqO9.webp',
+  { id: 'cR12', rarity: 'r', name: 'Poder do Unicórnio', name_en: 'Unicorn\'s Power', name_es: 'Unicorn\'s Power', image: 'img/cards/cR12.webp',
     effect: 'Aumenta a Taxa de Aparar.',
     effect_en: 'Increases Parry Rate.',
     effect_es: 'Aumenta Parry Rate.',
@@ -313,7 +313,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Taxa de Aparar em 10%.', effect_en: 'Increases Parry Rate by 10%.', effect_es: 'Aumenta Parry Rate por 10%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR13', rarity: 'r', name: 'Esquiva da Serpente Elétrica', name_en: 'Electric Serpent Dodge', name_es: 'Electric Serpent Dodge', image: 'img/codex/4oCtECE.webp',
+  { id: 'cR13', rarity: 'r', name: 'Esquiva da Serpente Elétrica', name_en: 'Electric Serpent Dodge', name_es: 'Electric Serpent Dodge', image: 'img/cards/cR13.webp',
     effect: 'Taxa de Esquiva aumentada.',
     effect_en: 'Dodge Rate increased.',
     effect_es: 'Dodge Rate aumentado.',
@@ -339,7 +339,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Esquiva aumentada em 10%.', effect_en: 'Dodge Rate increased by 10%.', effect_es: 'Dodge Rate aumentado por 10%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR14', rarity: 'r', name: 'Corrente Perfurante', name_en: 'Piercing Chain', name_es: 'Piercing Chain', image: 'img/codex/WlBxQ5s.webp',
+  { id: 'cR14', rarity: 'r', name: 'Corrente Perfurante', name_en: 'Piercing Chain', name_es: 'Piercing Chain', image: 'img/cards/cR14.webp',
     effect: 'Quebra de Poder aumentada.',
     effect_en: 'Power Break increased.',
     effect_es: 'Power Break aumentado.',
@@ -365,7 +365,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quebra de Poder aumentada em 12%.', effect_en: 'Power Break increased by 12%.', effect_es: 'Power Break aumentado por 12%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR15', rarity: 'r', name: 'Golpe Verdadeiro', name_en: 'True Strike', name_es: 'True Strike', image: 'img/codex/QJD3sW3.webp',
+  { id: 'cR15', rarity: 'r', name: 'Golpe Verdadeiro', name_en: 'True Strike', name_es: 'True Strike', image: 'img/cards/cR15.webp',
     effect: 'Após entrar no campo, o Dano Físico e o Dano Psíquico recebido pelo portador é reduzido por 10 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'After enter on the field, the Physical Damage and the Mental Damage received pelo bearer is reduced per 10 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Después de enter en el field, el Daño Físico y el Daño Mental received pelo portador es reducido per 10 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -391,7 +391,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após entrar no campo, o Dano Físico e o Dano Psíquico recebido pelo portador é reduzido em 22% por 10 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter on the field, the Physical Damage and the Mental Damage received pelo bearer is reduced by 22% per 10 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter en el field, el Daño Físico y el Daño Mental received pelo portador es reducido por 22% per 10 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR16', rarity: 'r', name: 'Primeiro Golpe', name_en: 'First Strike', name_es: 'Primer Strike', image: 'img/codex/dVqhM5L.webp',
+  { id: 'cR16', rarity: 'r', name: 'Primeiro Golpe', name_en: 'First Strike', name_es: 'Primer Strike', image: 'img/cards/cR16.webp',
     effect: 'Após entrar no campo, o Dano Físico e o Dano Psíquico causado pelo portador aumenta por 10 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'After enter on the field, the Physical Damage and the Mental Damage causado pelo bearer increases per 10 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Después de enter en el field, el Daño Físico y el Daño Mental causado pelo portador aumenta per 10 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -417,7 +417,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após entrar no campo, o Dano Físico e o Dano Psíquico causado pelo portador aumenta em 22% por 10 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter on the field, the Physical Damage and the Mental Damage causado pelo bearer increases by 22% per 10 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter en el field, el Daño Físico y el Daño Mental causado pelo portador aumenta por 22% per 10 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR17', rarity: 'r', name: 'Corrente de Andrômeda', name_en: 'Andromeda\'s Chain', name_es: 'Andromeda\'s Chain', image: 'img/codex/NOjfNH3.webp',
+  { id: 'cR17', rarity: 'r', name: 'Corrente de Andrômeda', name_en: 'Andromeda\'s Chain', name_es: 'Andromeda\'s Chain', image: 'img/cards/cR17.webp',
     effect: 'Taxa de Resistência a Crít. aumentada.',
     effect_en: 'Crit Resistance increased.',
     effect_es: 'Crítico Resistance aumentado.',
@@ -443,7 +443,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Resistência a Crít. aumentada em 14%.', effect_en: 'Crit Resistance increased by 14%.', effect_es: 'Crítico Resistance aumentado por 14%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR18', rarity: 'r', name: 'Chute de Pégaso', name_en: 'Pegasus Kick', name_es: 'Pegasus Kick', image: 'img/codex/z4VkYmC.webp',
+  { id: 'cR18', rarity: 'r', name: 'Chute de Pégaso', name_en: 'Pegasus Kick', name_es: 'Pegasus Kick', image: 'img/cards/cR18.webp',
     effect: 'Taxa de Crít. aumentada.',
     effect_en: 'Crit Rate increased.',
     effect_es: 'Tasa de Crít. aumentado.',
@@ -469,7 +469,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Crít. aumentada em 12%.', effect_en: 'Crit Rate increased by 12%.', effect_es: 'Tasa de Crít. aumentado por 12%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR19', rarity: 'r', name: 'Golpe de Contra-ataque', name_en: 'Counterattack Strike', name_es: 'Counterattack Strike', image: 'img/codex/pDyLEyp.webp',
+  { id: 'cR19', rarity: 'r', name: 'Golpe de Contra-ataque', name_en: 'Counterattack Strike', name_es: 'Counterattack Strike', image: 'img/cards/cR19.webp',
     effect: 'Quando o PV do portador estiver abaixo de 20%, causa Dano Físico igual a 40% do seu próprio ATQ ao alvo atacante, com 40% de chance de o infligir Atordoamento por 1 segundo. (Ativa apenas uma vez por batalha).',
     effect_en: 'When the HP of the bearer is below 20%, deals Physical Damage equal to 40% of the their self ATK to target atacante, with 40% of chance of the inflict Stun per 1 second. (Activates only the time per battle).',
     effect_es: 'Cuando el PV del portador es por debajo 20%, causa Daño Físico igual al 40% del su sí mismo ATQ un objetivo atacante, con 40% de probabilidad de el inflige Aturdimiento per 1 segundo. (Activa solo el tiempo per batalla).',
@@ -495,7 +495,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV do portador estiver abaixo de 20%, causa Dano Físico igual a 150% do seu próprio ATQ ao alvo atacante, com 100% de chance de o infligir Atordoamento por 1 segundo. (Ativa apenas uma vez por batalha)', effect_en: 'When the HP of the bearer is below 20%, deals Physical Damage equal to 150% of the their self ATK to target atacante, with 100% of chance of the inflict Stun per 1 second. (Activates only the time per battle)', effect_es: 'Cuando el PV del portador es por debajo 20%, causa Daño Físico igual al 150% del su sí mismo ATQ un objetivo atacante, con 100% de probabilidad de el inflige Aturdimiento per 1 segundo. (Activa solo el tiempo per batalla)', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR20', rarity: 'r', name: 'Rugido do Dragão', name_en: 'Dragon\'s Roar', name_es: 'Dragon\'s Roar', image: 'img/codex/1PsRen8.webp',
+  { id: 'cR20', rarity: 'r', name: 'Rugido do Dragão', name_en: 'Dragon\'s Roar', name_es: 'Dragon\'s Roar', image: 'img/cards/cR20.webp',
     effect: 'Dano de ATQ Básico aumenta.',
     effect_en: 'Damage of ATK Basic increases.',
     effect_es: 'Daño de ATQ Basic aumenta.',
@@ -521,7 +521,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Dano de ATQ Básico aumenta em 22.5%', effect_en: 'Damage of ATK Basic increases by 22.5%', effect_es: 'Daño de ATQ Basic aumenta por 22.5%', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR21', rarity: 'r', name: 'Uma Gota de Chuva Doce', name_en: 'A Drop of Sweet Rain', name_es: 'Un Drop de Sweet Rain', image: 'img/codex/cM4wI13.webp',
+  { id: 'cR21', rarity: 'r', name: 'Uma Gota de Chuva Doce', name_en: 'A Drop of Sweet Rain', name_es: 'Un Drop de Sweet Rain', image: 'img/cards/cR21.webp',
     effect: 'Após entrar no campo de batalha, o valor de Ira aumenta em 40.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'After enter on the field of battle, the value of Rage increases by 40.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Después de enter en el campo de batalla, el valor de Rage aumenta por 40.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -547,7 +547,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após entrar no campo de batalha, o valor de Ira aumenta em 150.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter on the field of battle, the value of Rage increases by 150.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter en el campo de batalla, el valor de Rage aumenta por 150.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR22', rarity: 'r', name: 'Lótus', name_en: 'Lotus', name_es: 'Lotus', image: 'img/codex/sNO9lCX.webp',
+  { id: 'cR22', rarity: 'r', name: 'Lótus', name_en: 'Lotus', name_es: 'Lotus', image: 'img/cards/cR22.webp',
     effect: '5 segundos após o início da batalha, o portador ganha 10 segundos de Cura, restaura PV igual a 4% do ATQ a cada segundo. (Pode ser ativada uma vez por batalha).',
     effect_en: '5 seconds after the início of the battle, the bearer gains 10 seconds of Healing, restores HP equal to 4% of the ATK the each second. (Can be activated the time per battle).',
     effect_es: '5 segundo después de el início del batalla, el portador gana 10 segundo de Curación, restaura PV igual al 4% del ATQ el cada segundo. (Puede ser activa el tiempo per batalla).',
@@ -573,7 +573,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: '5 segundos após o início da batalha, o portador ganha 10 segundos de Cura, restaura PV igual a 20% do ATQ a cada segundo. (Pode ser ativada uma vez por batalha)', effect_en: '5 seconds after the início of the battle, the bearer gains 10 seconds of Healing, restores HP equal to 20% of the ATK the each second. (Can be activated the time per battle)', effect_es: '5 segundo después de el início del batalla, el portador gana 10 segundo de Curación, restaura PV igual al 20% del ATQ el cada segundo. (Puede ser activa el tiempo per batalla)', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR23', rarity: 'r', name: 'Cachoeira Reversa', name_en: 'Reverse Waterfall', name_es: 'Reverse Waterfall', image: 'img/codex/lbv88Tq.webp',
+  { id: 'cR23', rarity: 'r', name: 'Cachoeira Reversa', name_en: 'Reverse Waterfall', name_es: 'Reverse Waterfall', image: 'img/cards/cR23.webp',
     effect: '30 segundos após o início da batalha, o portador aumenta seu ATQ da sua Defesa Física.',
     effect_en: '30 seconds after the início of the battle, the bearer increases their ATK of the their Defense Física.',
     effect_es: '30 segundo después de el início del batalla, el portador aumenta su ATQ del su Defense Física.',
@@ -599,7 +599,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: '30 segundos após o início da batalha, o portador aumenta seu ATQ em 15% da sua Defesa Física.', effect_en: '30 seconds after the início of the battle, the bearer increases their ATK by 15% of the their Defense Física.', effect_es: '30 segundo después de el início del batalla, el portador aumenta su ATQ por 15% del su Defense Física.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR24', rarity: 'r', name: 'Esmagamento Atômico', name_en: 'Atomic Crush', name_es: 'Atomic Crush', image: 'img/codex/OGizGZ7.webp',
+  { id: 'cR24', rarity: 'r', name: 'Esmagamento Atômico', name_en: 'Atomic Crush', name_es: 'Atomic Crush', image: 'img/cards/cR24.webp',
     effect: 'Dano Físico aumentado.',
     effect_en: 'Physical Damage increased.',
     effect_es: 'Daño Físico aumentado.',
@@ -625,7 +625,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Dano Físico aumentado em 8%.', effect_en: 'Physical Damage increased by 8%.', effect_es: 'Daño Físico aumentado por 8%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR25', rarity: 'r', name: 'Telecinese', name_en: 'Telekinesis', name_es: 'Telekinesis', image: 'img/codex/y04vXGD.webp',
+  { id: 'cR25', rarity: 'r', name: 'Telecinese', name_en: 'Telekinesis', name_es: 'Telekinesis', image: 'img/cards/cR25.webp',
     effect: 'Dano Psíquico aumentado.',
     effect_en: 'Mental Damage increased.',
     effect_es: 'Daño Mental aumentado.',
@@ -651,7 +651,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Dano Psíquico aumentado em 8%.', effect_en: 'Mental Damage increased by 8%.', effect_es: 'Daño Mental aumentado por 8%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR26', rarity: 'r', name: 'Guerreiro Forte', name_en: 'Strong Warrior', name_es: 'Strong Warrior', image: 'img/codex/ziOJplU.webp',
+  { id: 'cR26', rarity: 'r', name: 'Guerreiro Forte', name_en: 'Strong Warrior', name_es: 'Strong Warrior', image: 'img/cards/cR26.webp',
     effect: 'Redução de Dano Físico +1.2%.',
     effect_en: 'Reduction of Physical Damage +1.2%.',
     effect_es: 'Reduction de Daño Físico +1.2%.',
@@ -677,7 +677,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Redução de Dano Físico +8%.', effect_en: 'Reduction of Physical Damage +8%.', effect_es: 'Reduction de Daño Físico +8%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR27', rarity: 'r', name: 'Cavalo Branco Galopante', name_en: 'Galloping White Horse', name_es: 'Galloping White Horse', image: 'img/codex/Xyd7mjH.webp',
+  { id: 'cR27', rarity: 'r', name: 'Cavalo Branco Galopante', name_en: 'Galloping White Horse', name_es: 'Galloping White Horse', image: 'img/cards/cR27.webp',
     effect: 'VEL de Movimento aumentada.',
     effect_en: 'Movement SPD increased.',
     effect_es: 'Movement SPD aumentado.',
@@ -703,7 +703,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'VEL de Movimento aumentada em 30%', effect_en: 'Movement SPD increased by 30%', effect_es: 'Movement SPD aumentado por 30%', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR28', rarity: 'r', name: 'Chicote Dançante', name_en: 'Dancing Whip', name_es: 'Dancing Whip', image: 'img/codex/E7aGeN0.webp',
+  { id: 'cR28', rarity: 'r', name: 'Chicote Dançante', name_en: 'Dancing Whip', name_es: 'Dancing Whip', image: 'img/cards/cR28.webp',
     effect: 'Aumenta a Velocidade de Ataque.',
     effect_en: 'Increases Speed of Attack.',
     effect_es: 'Aumenta Speed de Ataque.',
@@ -729,7 +729,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Velocidade de Ataque em 17%.', effect_en: 'Increases Speed of Attack by 17%.', effect_es: 'Aumenta Speed de Ataque por 17%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR29', rarity: 'r', name: 'Veloz como o Vento', name_en: 'Swift as the Wind', name_es: 'Swift como el Wind', image: 'img/codex/eqRYBNo.webp',
+  { id: 'cR29', rarity: 'r', name: 'Veloz como o Vento', name_en: 'Swift as the Wind', name_es: 'Swift como el Wind', image: 'img/cards/cR29.webp',
     effect: 'VEL de Habilidade aumentada.',
     effect_en: 'VEL of Skill increased.',
     effect_es: 'VEL de Skill aumentado.',
@@ -755,7 +755,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'VEL de Habilidade aumentada em 15%.', effect_en: 'VEL of Skill increased by 15%.', effect_es: 'VEL de Skill aumentado por 15%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR30', rarity: 'r', name: 'Veia de Água Subterrânea', name_en: 'Underground Water Vein', name_es: 'Underground Water Vein', image: 'img/codex/5kLidJ0.webp',
+  { id: 'cR30', rarity: 'r', name: 'Veia de Água Subterrânea', name_en: 'Underground Water Vein', name_es: 'Underground Water Vein', image: 'img/cards/cR30.webp',
     effect: 'Cura recebida aumentada.',
     effect_en: 'Healing received increased.',
     effect_es: 'Curación received aumentado.',
@@ -781,7 +781,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Cura recebida aumentada em 30%.', effect_en: 'Healing received increased by 30%.', effect_es: 'Curación received aumentado por 30%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR31', rarity: 'r', name: 'Defesa Telecinética', name_en: 'Telekinetic Defense', name_es: 'Telekinetic Defense', image: 'img/codex/y3bKNg5.webp',
+  { id: 'cR31', rarity: 'r', name: 'Defesa Telecinética', name_en: 'Telekinetic Defense', name_es: 'Telekinetic Defense', image: 'img/cards/cR31.webp',
     effect: 'Aumenta a DEF Psíquica.',
     effect_en: 'Increases M.DEF.',
     effect_es: 'Aumenta M-DEF.',
@@ -807,7 +807,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a DEF Psíquica em 12%.', effect_en: 'Increases M.DEF by 12%.', effect_es: 'Aumenta M-DEF por 12%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR32', rarity: 'r', name: 'Armadura Inicial', name_en: 'Initial Cloth', name_es: 'Initial Cloth', image: 'img/codex/M0j8jMN.webp',
+  { id: 'cR32', rarity: 'r', name: 'Armadura Inicial', name_en: 'Initial Cloth', name_es: 'Initial Cloth', image: 'img/cards/cR32.webp',
     effect: 'DEF Fís. aumentada.',
     effect_en: 'P.DEF increased.',
     effect_es: 'P-DEF aumentado.',
@@ -833,7 +833,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'DEF Fís. aumentada em 12%.', effect_en: 'P.DEF increased by 12%.', effect_es: 'P-DEF aumentado por 12%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cR33', rarity: 'r', name: 'Tiro de Flecha Dourada', name_en: 'Golden Arrow Shot', name_es: 'Golden Arrow Shot', image: 'img/codex/HDKbP4A.webp',
+  { id: 'cR33', rarity: 'r', name: 'Tiro de Flecha Dourada', name_en: 'Golden Arrow Shot', name_es: 'Golden Arrow Shot', image: 'img/cards/cR33.webp',
     effect: 'Aumenta o ATQ do portador.',
     effect_en: 'Increases ATK of the bearer.',
     effect_es: 'Aumenta ATQ del portador.',
@@ -859,7 +859,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta o ATQ em 7%.', effect_en: 'Increases ATK by 7%.', effect_es: 'Aumenta ATQ por 7%.', copies: 6, accumulated: 43, cost: 3 }
     ]
   },
-  { id: 'cSR34', rarity: 'sr', name: 'A Deusa da Esperança', name_en: 'The Goddess of Hope', name_es: 'El Diosa de Hope', image: 'img/codex/0w77ZDv.webp',
+  { id: 'cSR34', rarity: 'sr', name: 'A Deusa da Esperança', name_en: 'The Goddess of Hope', name_es: 'El Diosa de Hope', image: 'img/cards/cSR34.webp',
     effect: 'Concede uma Aura de Redução de Dano Perito, aumentando a Redução de Dano Físico e Dano Psíquico de todos os aliados. (A aura concedida por Poder Supremo de mesmo nome não se acumula.).',
     effect_en: 'Grants the Aura of Damage Reduction Perito, aumentando the Reduction of Physical Damage and Mental Damage of all the allies. (The aura concedida per Poder Supremo of mesmo nome in the if acumula.).',
     effect_es: 'Concede el Aura de Reducción de Daño Perito, aumentando el Reduction de Daño Físico y Daño Mental de todos el aliados. (El aura concedida per Poder Supremo de mesmo nome en el si acumula.).',
@@ -885,7 +885,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Concede uma Aura de Redução de Dano Perito, aumentando a Redução de Dano Físico e Dano Psíquico de todos os aliados em 8.5%. (A aura concedida por Poder Supremo de mesmo nome não se acumula.)', effect_en: 'Grants the Aura of Damage Reduction Perito, aumentando the Reduction of Physical Damage and Mental Damage of all the allies by 8.5%. (The aura concedida per Poder Supremo of mesmo nome in the if acumula.)', effect_es: 'Concede el Aura de Reducción de Daño Perito, aumentando el Reduction de Daño Físico y Daño Mental de todos el aliados por 8.5%. (El aura concedida per Poder Supremo de mesmo nome en el si acumula.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR35', rarity: 'sr', name: 'A Oração da Garota', name_en: 'The Girl\'s Prayer', name_es: 'El Girl\'s Prayer', image: 'img/codex/zCnFM4h.webp',
+  { id: 'cSR35', rarity: 'sr', name: 'A Oração da Garota', name_en: 'The Girl\'s Prayer', name_es: 'El Girl\'s Prayer', image: 'img/cards/cSR35.webp',
     effect: 'Quando o PV cair abaixo de 30%, ganha 32% de Redução de Dano Psíquico por 5 segundos. (Ativa uma vez).',
     effect_en: 'When the HP cair below 30%, gains 32% of Reduction of Mental Damage per 5 seconds. (Activates the time).',
     effect_es: 'Cuando el PV cair por debajo 30%, gana 32% de Reduction de Daño Mental per 5 segundo. (Activa el tiempo).',
@@ -911,7 +911,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV cair abaixo de 30%, ganha 80% de Redução de Dano Psíquico por 5 segundos. (Ativa uma vez)', effect_en: 'When the HP cair below 30%, gains 80% of Reduction of Mental Damage per 5 seconds. (Activates the time)', effect_es: 'Cuando el PV cair por debajo 30%, gana 80% de Reduction de Daño Mental per 5 segundo. (Activa el tiempo)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR36', rarity: 'sr', name: 'Agir em Segredo', name_en: 'Act in Secret', name_es: 'Act en Secret', image: 'img/codex/o7a49lB.webp',
+  { id: 'cSR36', rarity: 'sr', name: 'Agir em Segredo', name_en: 'Act in Secret', name_es: 'Act en Secret', image: 'img/cards/cSR36.webp',
     effect: 'Enquanto estiver com Invisibilidade, o próprio Dano Físico e Dano Psíquico aumentam.',
     effect_en: 'Enquanto is with Invisibility, the self Physical Damage and Mental Damage aumentam.',
     effect_es: 'Enquanto es con Invisibility, el sí mismo Daño Físico y Daño Mental aumentam.',
@@ -937,7 +937,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Enquanto estiver com Invisibilidade, o próprio Dano Físico e Dano Psíquico aumentam em 23%.', effect_en: 'Enquanto is with Invisibility, the self Physical Damage and Mental Damage aumentam by 23%.', effect_es: 'Enquanto es con Invisibility, el sí mismo Daño Físico y Daño Mental aumentam por 23%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR37', rarity: 'sr', name: 'Alma do Dragão Voador', name_en: 'Soul of the Flying Dragon', name_es: 'Soul del Volando Dragon', image: 'img/codex/Zhg59eU.webp',
+  { id: 'cSR37', rarity: 'sr', name: 'Alma do Dragão Voador', name_en: 'Soul of the Flying Dragon', name_es: 'Soul del Volando Dragon', image: 'img/cards/cSR37.webp',
     effect: 'Quando o PV cair abaixo de 50%, recupera 0.32% do PV Máx. por segundo.',
     effect_en: 'When the HP cair below 50%, recupera 0.32% of the HP Max per second.',
     effect_es: 'Cuando el PV cair por debajo 50%, recupera 0.32% del PV Max per segundo.',
@@ -963,7 +963,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV cair abaixo de 50%, recupera 1.36% do PV Máx. por segundo', effect_en: 'When the HP cair below 50%, recupera 1.36% of the HP Max per second', effect_es: 'Cuando el PV cair por debajo 50%, recupera 1.36% del PV Max per segundo', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR38', rarity: 'sr', name: 'Alma do Submundo', name_en: 'Soul of the Underworld', name_es: 'Soul del Underworld', image: 'img/codex/5BlMI5l.webp',
+  { id: 'cSR38', rarity: 'sr', name: 'Alma do Submundo', name_en: 'Soul of the Underworld', name_es: 'Soul del Underworld', image: 'img/cards/cSR38.webp',
     effect: 'VEL de Habilidade aumentada.',
     effect_en: 'VEL of Skill increased.',
     effect_es: 'VEL de Skill aumentado.',
@@ -989,7 +989,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'VEL de Habilidade aumentada em 19%.', effect_en: 'VEL of Skill increased by 19%.', effect_es: 'VEL de Skill aumentado por 19%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR39', rarity: 'sr', name: 'Armadura de Ouro', name_en: 'Gold Cloth', name_es: 'Gold Cloth', image: 'img/codex/p1SxgY4.webp',
+  { id: 'cSR39', rarity: 'sr', name: 'Armadura de Ouro', name_en: 'Gold Cloth', name_es: 'Gold Cloth', image: 'img/cards/cSR39.webp',
     effect: 'Aumenta a DEF Fís. e a DEF Psíquica.',
     effect_en: 'Increases P.DEF and the M.DEF.',
     effect_es: 'Aumenta P-DEF y el M-DEF.',
@@ -1015,7 +1015,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a DEF Fís. e a DEF Psíquica em 12%', effect_en: 'Increases P.DEF and the M.DEF by 12%', effect_es: 'Aumenta P-DEF y el M-DEF por 12%', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR40', rarity: 'sr', name: 'Chama da Fênix', name_en: 'Phoenix\'s Flame', name_es: 'Phoenix\'s Flame', image: 'img/codex/CRoOnNg.webp',
+  { id: 'cSR40', rarity: 'sr', name: 'Chama da Fênix', name_en: 'Phoenix\'s Flame', name_es: 'Phoenix\'s Flame', image: 'img/cards/cSR40.webp',
     effect: 'Cada vez que inflige Queimadura no inimigo, o ATQ do portador aumenta por 8 segundos. (Até 3 acúmulo(s)).',
     effect_en: 'Each time that inflicts Queimadura in the enemies, ATK of the bearer increases per 8 seconds. (Up to 3 stacks(s)).',
     effect_es: 'Cada tiempo que inflige Queimadura en el enemigos, ATQ del portador aumenta per 8 segundo. (Hasta 3 stacks(s)).',
@@ -1041,7 +1041,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Cada vez que inflige Queimadura no inimigo, o ATQ do portador aumenta em 3.4% por 8 segundos. (Até 7 acúmulo(s))', effect_en: 'Each time that inflicts Queimadura in the enemies, ATK of the bearer increases by 3.4% per 8 seconds. (Up to 7 stacks(s))', effect_es: 'Cada tiempo que inflige Queimadura en el enemigos, ATQ del portador aumenta por 3.4% per 8 segundo. (Hasta 7 stacks(s))', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR41', rarity: 'sr', name: 'Clarão Carmesim', name_en: 'Crimson Flash', name_es: 'Crimson Flash', image: 'img/codex/pMw1Q2k.webp',
+  { id: 'cSR41', rarity: 'sr', name: 'Clarão Carmesim', name_en: 'Crimson Flash', name_es: 'Crimson Flash', image: 'img/cards/cSR41.webp',
     effect: 'Cada vez que Sangramento é aplicado a um inimigo, a VEL ATQ do portador aumenta, pode acumular até 15 vezes. (REC: 1 segundo).',
     effect_en: 'Each time that Bleed is applied the enemies, the VEL ATK of the bearer increases, can stack up to 15 times. (CD: 1 second).',
     effect_es: 'Cada tiempo que Bleed es aplicado el enemigos, el VEL ATQ del portador aumenta, puede stack hasta 15 veces. (CD: 1 segundo).',
@@ -1067,7 +1067,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Cada vez que Sangramento é aplicado a um inimigo, a VEL ATQ do portador aumenta em 3.8%, pode acumular até 15 vezes. (REC: 1 segundo)', effect_en: 'Each time that Bleed is applied the enemies, the VEL ATK of the bearer increases by 3.8%, can stack up to 15 times. (CD: 1 second)', effect_es: 'Cada tiempo que Bleed es aplicado el enemigos, el VEL ATQ del portador aumenta por 3.8%, puede stack hasta 15 veces. (CD: 1 segundo)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR42', rarity: 'sr', name: 'Defesa das Mãos Nuas', name_en: 'Bare-Handed Defense', name_es: 'Bare-Handed Defense', image: 'img/codex/oPxKiXN.webp',
+  { id: 'cSR42', rarity: 'sr', name: 'Defesa das Mãos Nuas', name_en: 'Bare-Handed Defense', name_es: 'Bare-Handed Defense', image: 'img/cards/cSR42.webp',
     effect: 'Aumenta a Redução de Dano de Ataque Básico.',
     effect_en: 'Increases Damage Reduction of Attack Basic.',
     effect_es: 'Aumenta Reducción de Daño de Ataque Basic.',
@@ -1093,7 +1093,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Redução de Dano de Ataque Básico em 42.5%', effect_en: 'Increases Damage Reduction of Attack Basic by 42.5%', effect_es: 'Aumenta Reducción de Daño de Ataque Basic por 42.5%', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR43', rarity: 'sr', name: 'Defesa de June', name_en: 'June\'s Defense', name_es: 'June\'s Defense', image: 'img/codex/Lrr8HIr.webp',
+  { id: 'cSR43', rarity: 'sr', name: 'Defesa de June', name_en: 'June\'s Defense', name_es: 'June\'s Defense', image: 'img/cards/cSR43.webp',
     effect: 'Após o 10º, 20º segundo, cura a si mesmo pelo PV igual a 20%% do seu ATQ.',
     effect_en: 'After the 10º, 20º second, healing the self pelo HP equal to 20%% of the their ATK.',
     effect_es: 'Después de el 10º, 20º segundo, curación el sí mismo pelo PV igual al 20%% del su ATQ.',
@@ -1119,7 +1119,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após o 10º, 20º segundo, cura a si mesmo pelo PV igual a 85%% do seu ATQ', effect_en: 'After the 10º, 20º second, healing the self pelo HP equal to 85%% of the their ATK', effect_es: 'Después de el 10º, 20º segundo, curación el sí mismo pelo PV igual al 85%% del su ATQ', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR44', rarity: 'sr', name: 'Defesa Ondulante', name_en: 'Wavering Defense', name_es: 'Wavering Defense', image: 'img/codex/k5cw4xl.webp',
+  { id: 'cSR44', rarity: 'sr', name: 'Defesa Ondulante', name_en: 'Wavering Defense', name_es: 'Wavering Defense', image: 'img/cards/cSR44.webp',
     effect: 'Recebe 8% menos dano de Habilidades Supremas.',
     effect_en: 'Receives 8% menos damage of Ultimate Skills.',
     effect_es: 'Receives 8% menos daño de Ultimate Skills.',
@@ -1145,7 +1145,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Recebe 34% menos dano de Habilidades Supremas.', effect_en: 'Receives 34% menos damage of Ultimate Skills.', effect_es: 'Receives 34% menos daño de Ultimate Skills.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR45', rarity: 'sr', name: 'Defesa Preparada', name_en: 'Prepared Defense', name_es: 'Prepared Defense', image: 'img/codex/WdoKKZw.webp',
+  { id: 'cSR45', rarity: 'sr', name: 'Defesa Preparada', name_en: 'Prepared Defense', name_es: 'Prepared Defense', image: 'img/cards/cSR45.webp',
     effect: 'Taxa de Resistência a Crít. aumentada.',
     effect_en: 'Crit Resistance increased.',
     effect_es: 'Crítico Resistance aumentado.',
@@ -1171,7 +1171,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Resistência a Crít. aumentada em 19%.', effect_en: 'Crit Resistance increased by 19%.', effect_es: 'Crítico Resistance aumentado por 19%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR46', rarity: 'sr', name: 'Disfarce', name_en: 'Disguise', name_es: 'Disguise', image: 'img/codex/fMAg6vM.webp',
+  { id: 'cSR46', rarity: 'sr', name: 'Disfarce', name_en: 'Disguise', name_es: 'Disguise', image: 'img/cards/cSR46.webp',
     effect: 'A própria Redução de Dano Contínuo é aumentada.',
     effect_en: 'The self Continuous Damage Reduction is increased.',
     effect_es: 'El sí mismo Continuous Reducción de Daño es aumentado.',
@@ -1197,7 +1197,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'A própria Redução de Dano Contínuo é aumentada em 40%.', effect_en: 'The self Continuous Damage Reduction is increased by 40%.', effect_es: 'El sí mismo Continuous Reducción de Daño es aumentado por 40%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR47', rarity: 'sr', name: 'Dragão Sem Proteção', name_en: 'Unprotected Dragon', name_es: 'Unprotected Dragon', image: 'img/codex/0ml59mQ.webp',
+  { id: 'cSR47', rarity: 'sr', name: 'Dragão Sem Proteção', name_en: 'Unprotected Dragon', name_es: 'Unprotected Dragon', image: 'img/cards/cSR47.webp',
     effect: 'Diminui a DEF Fís. e a DEF Psíquica do portador, mas seu ATQ aumenta.',
     effect_en: 'Decreases the P.DEF and the M.DEF of the bearer, mas their ATK increases.',
     effect_es: 'Reduce el P-DEF y el M-DEF del portador, mas su ATQ aumenta.',
@@ -1223,7 +1223,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Diminui a DEF Fís. e a DEF Psíquica do portador em 8%, mas seu ATQ aumenta em 15%.', effect_en: 'Decreases the P.DEF and the M.DEF of the bearer by 8%, mas their ATK increases by 15%.', effect_es: 'Reduce el P-DEF y el M-DEF del portador por 8%, mas su ATQ aumenta por 15%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR48', rarity: 'sr', name: 'Energia das Marés', name_en: 'Tidal Energy', name_es: 'Tidal Energy', image: 'img/codex/2LzB05X.webp',
+  { id: 'cSR48', rarity: 'sr', name: 'Energia das Marés', name_en: 'Tidal Energy', name_es: 'Tidal Energy', image: 'img/cards/cSR48.webp',
     effect: 'Ao entrar, aumenta Ira em 20 por segundo por 5 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'When entering, increases Rage by 20 per second per 5 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Cuando entering, aumenta Rage por 20 per segundo per 5 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -1249,7 +1249,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Ao entrar, aumenta Ira em 70 por segundo por 5 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'When entering, increases Rage by 70 per second per 5 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Cuando entering, aumenta Rage por 70 per segundo per 5 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR49', rarity: 'sr', name: 'Escudo da Medusa', name_en: 'Medusa\'s Shield', name_es: 'Medusa\'s Escudo', image: 'img/codex/UFbWNYK.webp',
+  { id: 'cSR49', rarity: 'sr', name: 'Escudo da Medusa', name_en: 'Medusa\'s Shield', name_es: 'Medusa\'s Escudo', image: 'img/cards/cSR49.webp',
     effect: 'Ao sofrer um ataque, há 8% de chance de lançar um raio de Petrificação contra os inimigos à frente. Se a Vida máxima do portador for superior à do inimigo, o inimigo fica Petrificado por 1 segundos. Caso seja igual ou inferior, o inimigo sofre Dano Físico equivalente a 20% do Ataque do portador. (Intervalo de ativação: 20s).',
     effect_en: 'When receiving the attack, has 8% of chance of cast the raio of Petrification contra the enemies à front. If the HP máxima of the bearer is superior à of the enemies, the enemies fica Petrified per 1 seconds. Caso seja igual or inferior, the enemies takes Physical Damage equivalente the 20% of the Attack of the bearer. (Intervalo of activation: 20s).',
     effect_es: 'Cuando receiving el ataque, tiene 8% de probabilidad de lanza el raio de Petrification contra el enemigos à front. Si el PV máxima del portador es superior à del enemigos, el enemigos fica Petrified per 1 segundo. Caso seja igual o inferior, el enemigos toma Daño Físico equivalente el 20% del Ataque del portador. (Intervalo de activación: 20s).',
@@ -1275,7 +1275,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Ao sofrer um ataque, há 34% de chance de lançar um raio de Petrificação contra os inimigos à frente. Se a Vida máxima do portador for superior à do inimigo, o inimigo fica Petrificado por 3 segundos. Caso seja igual ou inferior, o inimigo sofre Dano Físico equivalente a 85% do Ataque do portador. (Intervalo de ativação: 20s)', effect_en: 'When receiving the attack, has 34% of chance of cast the raio of Petrification contra the enemies à front. If the HP máxima of the bearer is superior à of the enemies, the enemies fica Petrified per 3 seconds. Caso seja igual or inferior, the enemies takes Physical Damage equivalente the 85% of the Attack of the bearer. (Intervalo of activation: 20s)', effect_es: 'Cuando receiving el ataque, tiene 34% de probabilidad de lanza el raio de Petrification contra el enemigos à front. Si el PV máxima del portador es superior à del enemigos, el enemigos fica Petrified per 3 segundo. Caso seja igual o inferior, el enemigos toma Daño Físico equivalente el 85% del Ataque del portador. (Intervalo de activación: 20s)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR50', rarity: 'sr', name: 'Escudo D\'Água', name_en: 'D\'Água Shield', name_es: 'D\'Água Escudo', image: 'img/codex/MCON1nK.webp',
+  { id: 'cSR50', rarity: 'sr', name: 'Escudo D\'Água', name_en: 'D\'Água Shield', name_es: 'D\'Água Escudo', image: 'img/cards/cSR50.webp',
     effect: 'Após entrar, o portador t de chance de obter Estabilidade por 20 segundos. Se a Estabilidade for aplicada com sucesso, enquanto durar, o próprio dano Físico e Psíquico causado diminui.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'After enter, the bearer t of chance of obter Estabilidade per 20 seconds. If the Estabilidade is applied successfully, enquanto durar, the self damage Físico and Psíquico causado decreases.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Después de enter, el portador t de probabilidad de obter Estabilidade per 20 segundo. Si el Estabilidade es aplicado successfully, enquanto durar, el sí mismo daño Físico y Psíquico causado reduce.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -1301,7 +1301,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após entrar, o portador tem 90% de chance de obter Estabilidade por 20 segundos. Se a Estabilidade for aplicada com sucesso, enquanto durar, o próprio dano Físico e Psíquico causado diminui em 0%.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter, the bearer has 90% of chance of obter Estabilidade per 20 seconds. If the Estabilidade is applied successfully, enquanto durar, the self damage Físico and Psíquico causado decreases by 0%.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter, el portador tiene 90% de probabilidad de obter Estabilidade per 20 segundo. Si el Estabilidade es aplicado successfully, enquanto durar, el sí mismo daño Físico y Psíquico causado reduce por 0%.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR51', rarity: 'sr', name: 'Flecha Dourada', name_en: 'Golden Arrow', name_es: 'Golden Arrow', image: 'img/codex/sbx2gfR.webp',
+  { id: 'cSR51', rarity: 'sr', name: 'Flecha Dourada', name_en: 'Golden Arrow', name_es: 'Golden Arrow', image: 'img/cards/cSR51.webp',
     effect: 'Quando o PV do alvo estiver abaixo de 20%, lança uma Flecha Dourada, causando 20% de Dano Físico igual a 20% do ATQ do portador ao inimigo e a Cura do alvo é reduzida por 6 segundo(s). (Lança uma vez por batalha).',
     effect_en: 'When the HP of the target is below 20%, casts the Flecha Dourada, dealing 20% of Physical Damage equal to 20% of the ATK of the bearer to enemies and the Healing of the target is reduced per 6 second(s). (Casts the time per battle).',
     effect_es: 'Cuando el PV del objetivo es por debajo 20%, lanza el Flecha Dourada, dealing 20% de Daño Físico igual al 20% del ATQ del portador un enemigos y el Curación del objetivo es reducido per 6 segundo(s). (Lanza el tiempo per batalla).',
@@ -1327,7 +1327,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV do alvo estiver abaixo de 20%, lança uma Flecha Dourada, causando 120% de Dano Físico igual a 120% do ATQ do portador ao inimigo e a Cura do alvo é reduzida em 80% por 18 segundo(s). (Lança uma vez por batalha)', effect_en: 'When the HP of the target is below 20%, casts the Flecha Dourada, dealing 120% of Physical Damage equal to 120% of the ATK of the bearer to enemies and the Healing of the target is reduced by 80% per 18 second(s). (Casts the time per battle)', effect_es: 'Cuando el PV del objetivo es por debajo 20%, lanza el Flecha Dourada, dealing 120% de Daño Físico igual al 120% del ATQ del portador un enemigos y el Curación del objetivo es reducido por 80% per 18 segundo(s). (Lanza el tiempo per batalla)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR52', rarity: 'sr', name: 'Força Glacial', name_en: 'Glacial Force', name_es: 'Glacial Force', image: 'img/codex/b92eIUS.webp',
+  { id: 'cSR52', rarity: 'sr', name: 'Força Glacial', name_en: 'Glacial Force', name_es: 'Glacial Force', image: 'img/cards/cSR52.webp',
     effect: 'Após 10 segundos na batalha, há 40% de chance de infligir Congelamento a 1 inimigo aleatório por 2 segundos e isso se ativa uma vez a cada 15 segundos depois disso.',
     effect_en: 'After 10 seconds in the battle, has 40% of chance of inflict Freeze the 1 enemies random per 2 seconds and this activates the time the each 15 seconds after of this.',
     effect_es: 'Después de 10 segundo en el batalla, tiene 40% de probabilidad de inflige Congelamiento el 1 enemigos random per 2 segundo y esto activa el tiempo el cada 15 segundo después de esto.',
@@ -1353,7 +1353,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após 10 segundos na batalha, há 100% de chance de infligir Congelamento a 1 inimigo aleatório por 2 segundos e isso se ativa uma vez a cada 15 segundos depois disso.', effect_en: 'After 10 seconds in the battle, has 100% of chance of inflict Freeze the 1 enemies random per 2 seconds and this activates the time the each 15 seconds after of this.', effect_es: 'Después de 10 segundo en el batalla, tiene 100% de probabilidad de inflige Congelamiento el 1 enemigos random per 2 segundo y esto activa el tiempo el cada 15 segundo después de esto.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR53', rarity: 'sr', name: 'Fúria do Fogo Selvagem', name_en: 'Wild Fire Fury', name_es: 'Wild Fire Fury', image: 'img/codex/R0jMPl9.webp',
+  { id: 'cSR53', rarity: 'sr', name: 'Fúria do Fogo Selvagem', name_en: 'Wild Fire Fury', name_es: 'Wild Fire Fury', image: 'img/cards/cSR53.webp',
     effect: '5 segundos após entrar no campo, inflige o efeito Queimadura em 2 inimigos aleatórios por 15 segundos, causando 5% de Dano Psíquico igual a 5% do ATQ do portador a cada 2,5 segundos. (Os mesmos efeitos se substituem e reiniciam a duração)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: '5 seconds after enter on the field, inflicts the effect Queimadura by 2 enemies aleatórios per 15 seconds, dealing 5% of Mental Damage equal to 5% of the ATK of the bearer the each 2.5 seconds. (The mesmos effects if substituem and reiniciam the duration)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: '5 segundo después de enter en el field, inflige el efecto Queimadura por 2 enemigos aleatórios per 15 segundo, dealing 5% de Daño Mental igual al 5% del ATQ del portador el cada 2.5 segundo. (El mesmos efecto si substituem y reiniciam el duración)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -1379,7 +1379,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: '5 segundos após entrar no campo, inflige o efeito Queimadura em 2 inimigos aleatórios por 15 segundos, causando 37.5% de Dano Psíquico igual a 37.5% do ATQ do portador a cada 2,5 segundos. (Os mesmos efeitos se substituem e reiniciam a duração)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: '5 seconds after enter on the field, inflicts the effect Queimadura by 2 enemies aleatórios per 15 seconds, dealing 37.5% of Mental Damage equal to 37.5% of the ATK of the bearer the each 2.5 seconds. (The mesmos effects if substituem and reiniciam the duration)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: '5 segundo después de enter en el field, inflige el efecto Queimadura por 2 enemigos aleatórios per 15 segundo, dealing 37.5% de Daño Mental igual al 37.5% del ATQ del portador el cada 2.5 segundo. (El mesmos efecto si substituem y reiniciam el duración)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR54', rarity: 'sr', name: 'Golpe da Serpente', name_en: 'Serpent Strike', name_es: 'Serpent Strike', image: 'img/codex/rbZxs2B.webp',
+  { id: 'cSR54', rarity: 'sr', name: 'Golpe da Serpente', name_en: 'Serpent Strike', name_es: 'Serpent Strike', image: 'img/cards/cSR54.webp',
     effect: 'O portador restaura PV igual a 3.2% do ATQ ao infligir o efeito Veneno uma vez. (REC: 3 segundos).',
     effect_en: 'The bearer restores HP equal to 3.2% of the ATK to inflict the effect Poison the time. (CD: 3 seconds).',
     effect_es: 'El portador restaura PV igual al 3.2% del ATQ un inflige el efecto Veneno el tiempo. (CD: 3 segundo).',
@@ -1405,7 +1405,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'O portador restaura PV igual a 13.6% do ATQ ao infligir o efeito Veneno uma vez. (REC: 3 segundos)', effect_en: 'The bearer restores HP equal to 13.6% of the ATK to inflict the effect Poison the time. (CD: 3 seconds)', effect_es: 'El portador restaura PV igual al 13.6% del ATQ un inflige el efecto Veneno el tiempo. (CD: 3 segundo)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR55', rarity: 'sr', name: 'Golpe do Machado Voador', name_en: 'Flying Axe Strike', name_es: 'Volando Axe Strike', image: 'img/codex/rhs5LTi.webp',
+  { id: 'cSR55', rarity: 'sr', name: 'Golpe do Machado Voador', name_en: 'Flying Axe Strike', name_es: 'Volando Axe Strike', image: 'img/cards/cSR55.webp',
     effect: 'Taxa de Crít. aumentada.',
     effect_en: 'Crit Rate increased.',
     effect_es: 'Tasa de Crít. aumentado.',
@@ -1431,7 +1431,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Crít. aumentada em 17%.', effect_en: 'Crit Rate increased by 17%.', effect_es: 'Tasa de Crít. aumentado por 17%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR56', rarity: 'sr', name: 'Guardião Desesperado', name_en: 'Desperate Guardian', name_es: 'Desperate Guardian', image: 'img/codex/EXP5mrL.webp',
+  { id: 'cSR56', rarity: 'sr', name: 'Guardião Desesperado', name_en: 'Desperate Guardian', name_es: 'Desperate Guardian', image: 'img/cards/cSR56.webp',
     effect: 'Quando o PV de um aliado estiver abaixo de 30%, o portador sofre 50% de Dano pelo aliado por 8 segundos. (Ativada uma vez por batalha).',
     effect_en: 'When the HP of the allies is below 30%, the bearer takes 50% of Damage pelo allies per 8 seconds. (Activated the time per battle).',
     effect_es: 'Cuando el PV del aliados es por debajo 30%, el portador toma 50% de Daño pelo aliados per 8 segundo. (Activa el tiempo per batalla).',
@@ -1457,7 +1457,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV de um aliado estiver abaixo de 30%, o portador sofre 80% de Dano no lugar desse aliado por 8s. (Este efeito pode ativar 1 vez por batalha.) Uma vez ativado, aumenta a cura recebida em 28% por 8s.', effect_en: 'When the HP of the allies is below 30%, the bearer takes 80% of Damage in the lugar desse allies per 8s. (Este effect can activate 1 time per battle.) The time activated, increases healing received by 28% per 8s.', effect_es: 'Cuando el PV del aliados es por debajo 30%, el portador toma 80% de Daño en el lugar desse aliados per 8s. (Este efecto puede activa 1 tiempo per batalla.) El tiempo activa, aumenta curación received por 28% per 8s.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR57', rarity: 'sr', name: 'Leão Temperamental', name_en: 'Temperamental Lion', name_es: 'Temperamental Lion', image: 'img/codex/6IN6nCH.webp',
+  { id: 'cSR57', rarity: 'sr', name: 'Leão Temperamental', name_en: 'Temperamental Lion', name_es: 'Temperamental Lion', image: 'img/cards/cSR57.webp',
     effect: 'Quando o PV estiver abaixo de 20%, obtém Estabilidade, ATQ aumenta. Dura 4 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'When the HP is below 20%, obtém Estabilidade, ATK increases. Lasts 4 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Cuando el PV es por debajo 20%, obtém Estabilidade, ATQ aumenta. Dura 4 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -1483,7 +1483,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV estiver abaixo de 20%, obtém Estabilidade, ATQ aumenta em 22%. Dura 10 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'When the HP is below 20%, obtém Estabilidade, ATK increases by 22%. Lasts 10 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Cuando el PV es por debajo 20%, obtém Estabilidade, ATQ aumenta por 22%. Dura 10 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR58', rarity: 'sr', name: 'Localização Sonora', name_en: 'Sound Location', name_es: 'Sound Location', image: 'img/codex/9WnefWG.webp',
+  { id: 'cSR58', rarity: 'sr', name: 'Localização Sonora', name_en: 'Sound Location', name_es: 'Sound Location', image: 'img/cards/cSR58.webp',
     effect: 'Ao detectar Invisibilidade do inimigo, anula o efeito Invisibilidade dele e causa Dano Psíquico de 40% a ele (ativa uma vez per batalha, não é possível se esquivar desse efeito).',
     effect_en: 'To detectar Invisibility of the enemies, anula the effect Invisibility his and deals Mental Damage of 40% the ele (activates the time per battle, in the is possível if esquivar desse effect).',
     effect_es: 'Un detectar Invisibility del enemigos, anula el efecto Invisibility su y causa Daño Mental de 40% el ele (activa el tiempo per batalla, en el es possível si esquivar desse efecto).',
@@ -1509,7 +1509,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Ao detectar Invisibilidade do inimigo, anula o efeito Invisibilidade dele e causa Dano Psíquico de 100% a ele (ativa uma vez per batalha, não é possível se esquivar desse efeito).', effect_en: 'To detectar Invisibility of the enemies, anula the effect Invisibility his and deals Mental Damage of 100% the ele (activates the time per battle, in the is possível if esquivar desse effect).', effect_es: 'Un detectar Invisibility del enemigos, anula el efecto Invisibility su y causa Daño Mental de 100% el ele (activa el tiempo per batalla, en el es possível si esquivar desse efecto).', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR59', rarity: 'sr', name: 'Mago do Gelo', name_en: 'Ice Mage', name_es: 'Ice Mage', image: 'img/codex/fTkO43l.webp',
+  { id: 'cSR59', rarity: 'sr', name: 'Mago do Gelo', name_en: 'Ice Mage', name_es: 'Ice Mage', image: 'img/cards/cSR59.webp',
     effect: 'Quando o portador inflige Congelamento ou Ar Gelado no inimigo, há 20% de chance de reduzir o valor de Ira em 100.',
     effect_en: 'When the bearer inflicts Freeze or Ar Gelado in the enemies, has 20% of chance of reduce the value of Rage by 100.',
     effect_es: 'Cuando el portador inflige Congelamiento o Ar Gelado en el enemigos, tiene 20% de probabilidad de reduce el valor de Rage por 100.',
@@ -1535,7 +1535,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o portador inflige Congelamento ou Ar Gelado no inimigo, há 85% de chance de reduzir o valor de Ira em 100.', effect_en: 'When the bearer inflicts Freeze or Ar Gelado in the enemies, has 85% of chance of reduce the value of Rage by 100.', effect_es: 'Cuando el portador inflige Congelamiento o Ar Gelado en el enemigos, tiene 85% de probabilidad de reduce el valor de Rage por 100.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR60', rarity: 'sr', name: 'Mensageiro de Excalibur', name_en: 'Messenger of Excalibur', name_es: 'Messenger de Excalibur', image: 'img/codex/q31yZD9.webp',
+  { id: 'cSR60', rarity: 'sr', name: 'Mensageiro de Excalibur', name_en: 'Messenger of Excalibur', name_es: 'Messenger de Excalibur', image: 'img/cards/cSR60.webp',
     effect: 'Quando o portador faz um inimigo recuar, o próprio ATQ aumenta. Dura 8 segundos. (Os mesmos efeitos se substituem e reiniciam a duração).',
     effect_en: 'When the bearer does the enemies recuar, the self ATK increases. Lasts 8 seconds. (The mesmos effects if substituem and reiniciam the duration).',
     effect_es: 'Cuando el portador hace el enemigos recuar, el sí mismo ATQ aumenta. Dura 8 segundo. (El mesmos efecto si substituem y reiniciam el duración).',
@@ -1561,7 +1561,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o portador faz um inimigo recuar, o próprio ATQ aumenta em 26.5%. Dura 8 segundos. (Os mesmos efeitos se substituem e reiniciam a duração)', effect_en: 'When the bearer does the enemies recuar, the self ATK increases by 26.5%. Lasts 8 seconds. (The mesmos effects if substituem and reiniciam the duration)', effect_es: 'Cuando el portador hace el enemigos recuar, el sí mismo ATQ aumenta por 26.5%. Dura 8 segundo. (El mesmos efecto si substituem y reiniciam el duración)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR61', rarity: 'sr', name: 'Mudança', name_en: 'Change', name_es: 'Change', image: 'img/codex/ofAtfCq.webp',
+  { id: 'cSR61', rarity: 'sr', name: 'Mudança', name_en: 'Change', name_es: 'Change', image: 'img/cards/cSR61.webp',
     effect: 'Taxa de Esquiva aumentada.',
     effect_en: 'Dodge Rate increased.',
     effect_es: 'Dodge Rate aumentado.',
@@ -1587,7 +1587,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Taxa de Esquiva aumentada em 13.6%.', effect_en: 'Dodge Rate increased by 13.6%.', effect_es: 'Dodge Rate aumentado por 13.6%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR62', rarity: 'sr', name: 'Muralha de Cristal', name_en: 'Crystal Wall', name_es: 'Crystal Wall', image: 'img/codex/9ncAh1U.webp',
+  { id: 'cSR62', rarity: 'sr', name: 'Muralha de Cristal', name_en: 'Crystal Wall', name_es: 'Crystal Wall', image: 'img/cards/cSR62.webp',
     effect: 'Quando o portador aplica um Escudo, o Valor do Escudo é aumentado.',
     effect_en: 'When the bearer applies the Shield, the Value of the Shield is increased.',
     effect_es: 'Cuando el portador aplica el Escudo, el Valor del Escudo es aumentado.',
@@ -1613,7 +1613,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o portador aplica um Escudo, o Valor do Escudo é aumentado em 25.5%.', effect_en: 'When the bearer applies the Shield, the Value of the Shield is increased by 25.5%.', effect_es: 'Cuando el portador aplica el Escudo, el Valor del Escudo es aumentado por 25.5%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR63', rarity: 'sr', name: 'Muralha de Defesa Aérea', name_en: 'Aerial Defense Wall', name_es: 'Aerial Defense Wall', image: 'img/codex/KG479xU.webp',
+  { id: 'cSR63', rarity: 'sr', name: 'Muralha de Defesa Aérea', name_en: 'Aerial Defense Wall', name_es: 'Aerial Defense Wall', image: 'img/cards/cSR63.webp',
     effect: 'Quando o PV estiver abaixo de 20%, o portador obtém um Escudo com 50% com base no seu ATQ. Dura 8 segundos.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.).',
     effect_en: 'When the HP is below 20%, the bearer obtém the Shield with 50% with base in the their ATK. Lasts 8 seconds.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.).',
     effect_es: 'Cuando el PV es por debajo 20%, el portador obtém el Escudo con 50% con base en el su ATQ. Dura 8 segundo.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.).',
@@ -1639,7 +1639,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV estiver abaixo de 20%, o portador obtém um Escudo com 210% com base no seu ATQ. Dura 8 segundos.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'When the HP is below 20%, the bearer obtém the Shield with 210% with base in the their ATK. Lasts 8 seconds.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Cuando el PV es por debajo 20%, el portador obtém el Escudo con 210% con base en el su ATQ. Dura 8 segundo.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR64', rarity: 'sr', name: 'Muralha Invisível', name_en: 'Invisible Wall', name_es: 'Invisible Wall', image: 'img/codex/sSbhnrk.webp',
+  { id: 'cSR64', rarity: 'sr', name: 'Muralha Invisível', name_en: 'Invisible Wall', name_es: 'Invisible Wall', image: 'img/cards/cSR64.webp',
     effect: 'Aumenta a Taxa de Aparar.',
     effect_en: 'Increases Parry Rate.',
     effect_es: 'Aumenta Parry Rate.',
@@ -1665,7 +1665,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Taxa de Aparar em 13.6%.', effect_en: 'Increases Parry Rate by 13.6%.', effect_es: 'Aumenta Parry Rate por 13.6%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR65', rarity: 'sr', name: 'O Lobo e o Menino', name_en: 'The Wolf and the Boy', name_es: 'El Wolf y el Boy', image: 'img/codex/JOt9vFP.webp',
+  { id: 'cSR65', rarity: 'sr', name: 'O Lobo e o Menino', name_en: 'The Wolf and the Boy', name_es: 'El Wolf y el Boy', image: 'img/cards/cSR65.webp',
     effect: 'O DPS Físico e Psíquico das próprias criaturas invocadas aumentam.',
     effect_en: 'The DPS Físico and Psíquico of the próprias criaturas invocadas aumentam.',
     effect_es: 'El DPS Físico y Psíquico del próprias criaturas invocadas aumentam.',
@@ -1691,7 +1691,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'O DPS Físico e Psíquico das próprias criaturas invocadas aumentam em 25.5%', effect_en: 'The DPS Físico and Psíquico of the próprias criaturas invocadas aumentam by 25.5%', effect_es: 'El DPS Físico y Psíquico del próprias criaturas invocadas aumentam por 25.5%', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR66', rarity: 'sr', name: 'Petrificação da Medusa', name_en: 'Medusa\'s Petrification', name_es: 'Medusa\'s Petrification', image: 'img/codex/9niVt6i.webp',
+  { id: 'cSR66', rarity: 'sr', name: 'Petrificação da Medusa', name_en: 'Medusa\'s Petrification', name_es: 'Medusa\'s Petrification', image: 'img/cards/cSR66.webp',
     effect: 'Durante a Petrificação própria, a redução de Dano Físico do alvo diminui, mas a redução de Dano Psíquico dele aumenta (não pode ser anulada).',
     effect_en: 'During the Petrification self, the reduction of Physical Damage of the target decreases, mas the reduction of Mental Damage his increases (in the can be anulada).',
     effect_es: 'Durante el Petrification sí mismo, el reduction de Daño Físico del objetivo reduce, mas el reduction de Daño Mental su aumenta (en el puede ser anulada).',
@@ -1717,7 +1717,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Durante a Petrificação própria, a redução de Dano Físico do alvo diminui em 51%, mas a redução de Dano Psíquico dele aumenta em 15% (não pode ser anulada).', effect_en: 'During the Petrification self, the reduction of Physical Damage of the target decreases by 51%, mas the reduction of Mental Damage his increases by 15% (in the can be anulada).', effect_es: 'Durante el Petrification sí mismo, el reduction de Daño Físico del objetivo reduce por 51%, mas el reduction de Daño Mental su aumenta por 15% (en el puede ser anulada).', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR67', rarity: 'sr', name: 'Planejar antes de Agir', name_en: 'Plan before Acting', name_es: 'Plan antes de Acting', image: 'img/codex/kQb84KT.webp',
+  { id: 'cSR67', rarity: 'sr', name: 'Planejar antes de Agir', name_en: 'Plan before Acting', name_es: 'Plan antes de Acting', image: 'img/cards/cSR67.webp',
     effect: 'Após se esquivar com sucesso, aumenta a própria Ira em 32. (Recarga: 3 segundos).',
     effect_en: 'After if esquivar successfully, increases self Rage by 32. (Cooldown: 3 seconds).',
     effect_es: 'Después de si esquivar successfully, aumenta sí mismo Rage por 32. (Tiempo de Recarga: 3 segundo).',
@@ -1743,7 +1743,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Após se esquivar com sucesso, aumenta a própria Ira em 136. (Recarga: 3 segundos)', effect_en: 'After if esquivar successfully, increases self Rage by 136. (Cooldown: 3 seconds)', effect_es: 'Después de si esquivar successfully, aumenta sí mismo Rage por 136. (Tiempo de Recarga: 3 segundo)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR68', rarity: 'sr', name: 'Poder do Cosmo', name_en: 'Cosmo Power', name_es: 'Cosmo Power', image: 'img/codex/tusPo4V.webp',
+  { id: 'cSR68', rarity: 'sr', name: 'Poder do Cosmo', name_en: 'Cosmo Power', name_es: 'Cosmo Power', image: 'img/cards/cSR68.webp',
     effect: 'Aumenta o Dano da Habilidade Suprema.',
     effect_en: 'Increases Ultimate Skill Damage.',
     effect_es: 'Aumenta Habilidad Suprema Daño.',
@@ -1769,7 +1769,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta o Dano da Habilidade Suprema em 34%', effect_en: 'Increases Ultimate Skill Damage by 34%', effect_es: 'Aumenta Habilidad Suprema Daño por 34%', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR69', rarity: 'sr', name: 'Postura Defensiva', name_en: 'Defensive Stance', name_es: 'Defensive Stance', image: 'img/codex/4y9K0N3.webp',
+  { id: 'cSR69', rarity: 'sr', name: 'Postura Defensiva', name_en: 'Defensive Stance', name_es: 'Defensive Stance', image: 'img/cards/cSR69.webp',
     effect: 'Aumenta a DEF Fís. do conjurador.',
     effect_en: 'Increases P.DEF of the caster.',
     effect_es: 'Aumenta P-DEF del lanzador.',
@@ -1795,7 +1795,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a DEF Fís. do conjurador em 17%.', effect_en: 'Increases P.DEF of the caster by 17%.', effect_es: 'Aumenta P-DEF del lanzador por 17%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR70', rarity: 'sr', name: 'Punho da Fúria', name_en: 'Fury Fist', name_es: 'Fury Fist', image: 'img/codex/2GAOnhs.webp',
+  { id: 'cSR70', rarity: 'sr', name: 'Punho da Fúria', name_en: 'Fury Fist', name_es: 'Fury Fist', image: 'img/cards/cSR70.webp',
     effect: 'Aumenta o Dano Crít.',
     effect_en: 'Increases Crit DMG',
     effect_es: 'Aumenta Crítico DMG',
@@ -1821,7 +1821,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta o Dano Crít. em 51%.', effect_en: 'Increases Crit DMG by 51%.', effect_es: 'Aumenta Crítico DMG por 51%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR71', rarity: 'sr', name: 'Restrição dos Tentáculos do Verme', name_en: 'Worm Tentacle Restraint', name_es: 'Worm Tentacle Restraint', image: 'img/codex/9vDpgAt.webp',
+  { id: 'cSR71', rarity: 'sr', name: 'Restrição dos Tentáculos do Verme', name_en: 'Worm Tentacle Restraint', name_es: 'Worm Tentacle Restraint', image: 'img/cards/cSR71.webp',
     effect: 'A duração de Restrição que o conjurador inflige é aumentada. Além disso, ao aplicar Restrição, também faz o inimigo entrar em Rendição por 3s. (O efeito Rendição pode ativar a cada 5s.).',
     effect_en: 'The duration of Restrição that the caster inflicts is increased. Além of this, to apply Restrição, também does the enemies enter in Rendição per 3s. (The effect Rendição can activate the each 5s.).',
     effect_es: 'El duración de Restrição que el lanzador inflige es aumentado. Além de esto, un apply Restrição, também hace el enemigos enter en Rendição per 3s. (El efecto Rendição puede activa el cada 5s.).',
@@ -1847,7 +1847,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'A duração de Restrição que o conjurador inflige é aumentada em 25%. Além disso, ao aplicar Restrição, também faz o inimigo entrar em Rendição por 5s. (O efeito Rendição pode ativar a cada 5s.)', effect_en: 'The duration of Restrição that the caster inflicts is increased by 25%. Além of this, to apply Restrição, também does the enemies enter in Rendição per 5s. (The effect Rendição can activate the each 5s.)', effect_es: 'El duración de Restrição que el lanzador inflige es aumentado por 25%. Além de esto, un apply Restrição, também hace el enemigos enter en Rendição per 5s. (El efecto Rendição puede activa el cada 5s.)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR72', rarity: 'sr', name: 'Rosa Espinhosa', name_en: 'Thorny Rose', name_es: 'Thorny Rose', image: 'img/codex/liLyP8t.webp',
+  { id: 'cSR72', rarity: 'sr', name: 'Rosa Espinhosa', name_en: 'Thorny Rose', name_es: 'Thorny Rose', image: 'img/cards/cSR72.webp',
     effect: 'A duração do status de Veneno infligido pelo portador é aumentado.',
     effect_en: 'The duration of the status of Poison infligido pelo bearer is increased.',
     effect_es: 'El duración del status de Veneno infligido pelo portador es aumentado.',
@@ -1873,7 +1873,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'A duração do status de Veneno infligido pelo portador é aumentado em 47.5%.', effect_en: 'The duration of the status of Poison infligido pelo bearer is increased by 47.5%.', effect_es: 'El duración del status de Veneno infligido pelo portador es aumentado por 47.5%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR73', rarity: 'sr', name: 'Rosa Sangrenta', name_en: 'Bloody Rose', name_es: 'Bloody Rose', image: 'img/codex/c9RCr0g.webp',
+  { id: 'cSR73', rarity: 'sr', name: 'Rosa Sangrenta', name_en: 'Bloody Rose', name_es: 'Bloody Rose', image: 'img/cards/cSR73.webp',
     effect: 'Efeitos de Dano Contínuo causam 10% de dano a mais.',
     effect_en: 'Effects of Damage Continuous causam 10% of damage the mais.',
     effect_es: 'Efecto de Daño Continuous causam 10% de daño el mais.',
@@ -1899,7 +1899,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Efeitos de Dano Contínuo causam 42.5% de dano a mais', effect_en: 'Effects of Damage Continuous causam 42.5% of damage the mais', effect_es: 'Efecto de Daño Continuous causam 42.5% de daño el mais', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR74', rarity: 'sr', name: 'Shido Veloz', name_en: 'Swift Shido', name_es: 'Swift Shido', image: 'img/codex/Ugl1Kl9.webp',
+  { id: 'cSR74', rarity: 'sr', name: 'Shido Veloz', name_en: 'Swift Shido', name_es: 'Swift Shido', image: 'img/cards/cSR74.webp',
     effect: 'Aumenta a Velocidade de Ataque.',
     effect_en: 'Increases Speed of Attack.',
     effect_es: 'Aumenta Speed de Ataque.',
@@ -1925,7 +1925,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Aumenta a Velocidade de Ataque em 25.5%.', effect_en: 'Increases Speed of Attack by 25.5%.', effect_es: 'Aumenta Speed de Ataque por 25.5%.', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR75', rarity: 'sr', name: 'Soco da Fúria do Leão', name_en: 'Lion\'s Fury Punch', name_es: 'Lion\'s Fury Punch', image: 'img/codex/HPgWoFF.webp',
+  { id: 'cSR75', rarity: 'sr', name: 'Soco da Fúria do Leão', name_en: 'Lion\'s Fury Punch', name_es: 'Lion\'s Fury Punch', image: 'img/cards/cSR75.webp',
     effect: 'Dano de ATQ Básico aumenta.',
     effect_en: 'Damage of ATK Basic increases.',
     effect_es: 'Daño de ATQ Basic aumenta.',
@@ -1951,7 +1951,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Dano de ATQ Básico aumenta em 34%', effect_en: 'Damage of ATK Basic increases by 34%', effect_es: 'Daño de ATQ Basic aumenta por 34%', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR76', rarity: 'sr', name: 'Tentáculos do Verme', name_en: 'Worm Tentacles', name_es: 'Worm Tentacles', image: 'img/codex/LXkfPiz.webp',
+  { id: 'cSR76', rarity: 'sr', name: 'Tentáculos do Verme', name_en: 'Worm Tentacles', name_es: 'Worm Tentacles', image: 'img/cards/cSR76.webp',
     effect: 'Quando afligido com Atordoamento, Congelamento ou Restrição, ganha 10% de Dano Psíquico e Redução de Dano Físico adicionais por 3s. (REC de Ativação: 5s).',
     effect_en: 'When afligido with Stun, Freeze or Restrição, gains 10% of Mental Damage and Reduction of Physical Damage adicionais per 3s. (Activation CD: 5s).',
     effect_es: 'Cuando afligido con Aturdimiento, Congelamiento o Restrição, gana 10% de Daño Mental y Reduction de Daño Físico adicionais per 3s. (Activación CD: 5s).',
@@ -1977,7 +1977,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando afligido com Atordoamento, Congelamento ou Restrição, ganha 34% de Dano Psíquico e Redução de Dano Físico adicionais por 3s. (REC de Ativação: 5s)', effect_en: 'When afligido with Stun, Freeze or Restrição, gains 34% of Mental Damage and Reduction of Physical Damage adicionais per 3s. (Activation CD: 5s)', effect_es: 'Cuando afligido con Aturdimiento, Congelamiento o Restrição, gana 34% de Daño Mental y Reduction de Daño Físico adicionais per 3s. (Activación CD: 5s)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSR77', rarity: 'sr', name: 'Unidos como um Só', name_en: 'United as One', name_es: 'United como Un', image: 'img/codex/xdWS9pY.webp',
+  { id: 'cSR77', rarity: 'sr', name: 'Unidos como um Só', name_en: 'United as One', name_es: 'United como Un', image: 'img/cards/cSR77.webp',
     effect: 'Quando o PV cair abaixo de 30%, ganha 32% de Redução de Dano Físico por 5 segundos. (Ativa uma vez).',
     effect_en: 'When the HP cair below 30%, gains 32% of Reduction of Physical Damage per 5 seconds. (Activates the time).',
     effect_es: 'Cuando el PV cair por debajo 30%, gana 32% de Reduction de Daño Físico per 5 segundo. (Activa el tiempo).',
@@ -2003,7 +2003,7 @@ const CODEX_CARDS = [
       { stars: 14, effect: 'Quando o PV cair abaixo de 30%, ganha 80% de Redução de Dano Físico por 5 segundos. (Ativa uma vez)', effect_en: 'When the HP cair below 30%, gains 80% of Reduction of Physical Damage per 5 seconds. (Activates the time)', effect_es: 'Cuando el PV cair por debajo 30%, gana 80% de Reduction de Daño Físico per 5 segundo. (Activa el tiempo)', copies: 6, accumulated: 43, cost: 4 }
     ]
   },
-  { id: 'cSSR78', rarity: 'ssr', name: 'Acalanatha Vidyaraja', name_en: 'Acalanatha Vidyaraja', name_es: 'Acalanatha Vidyaraja', image: 'img/codex/1DXPKAr.webp',
+  { id: 'cSSR78', rarity: 'ssr', name: 'Acalanatha Vidyaraja', name_en: 'Acalanatha Vidyaraja', name_es: 'Acalanatha Vidyaraja', image: 'img/cards/cSSR78.webp',
       effect: 'Quando o portador obtém um Escudo, a duração do Escudo é aumentada em 5 e o valor do Escudo é aumentado em 25%.',
       effect_en: 'When the bearer obtém the Shield, the duration of the Shield is increased by 5 and the value of the Shield is increased by 25%.',
       effect_es: 'Cuando el portador obtém el Escudo, el duración del Escudo es aumentado por 5 y el valor del Escudo es aumentado por 25%.',
@@ -2029,7 +2029,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o portador obtém um Escudo, a duração do Escudo é aumentada em 8 e o valor do Escudo é aumentado em 42.5%.', effect_en: 'When the bearer obtém the Shield, the duration of the Shield is increased by 8 and the value of the Shield is increased by 42.5%.', effect_es: 'Cuando el portador obtém el Escudo, el duración del Escudo es aumentado por 8 y el valor del Escudo es aumentado por 42.5%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR79', rarity: 'ssr', name: 'Ajuda dos Companheiros Discípulos', name_en: 'Disciple Companions\' Help', name_es: 'Disciple Companions\' Help', image: 'img/codex/LYL9Kex.webp',
+  { id: 'cSSR79', rarity: 'ssr', name: 'Ajuda dos Companheiros Discípulos', name_en: 'Disciple Companions\' Help', name_es: 'Disciple Companions\' Help', image: 'img/cards/cSSR79.webp',
       effect: 'Concede ao conjurador uma Aura de Redução de Dano, aumentando a Redução de Dano Físico e Redução de Dano Psíquico em 8% para todos os aliados. Auras concedidas pela Poder Supremo de mesmo nome não se acumulam. Se algum aliado estiver com menos de 50% de PV, o aliado com o menor percentual de PV recebe 10% de Redução de Dano. Dura 8s (REC de Ativação: 10s).',
       effect_en: 'Grants to caster the Aura of Damage Reduction, aumentando the Reduction of Physical Damage and Reduction of Mental Damage by 8% for all the allies. Auras concedidas pela Poder Supremo of mesmo nome in the if acumulam. If algum allies is with menos of 50% of HP, the allies with the lesser percentual of HP receives 10% of Damage Reduction. Lasts 8s (Activation CD: 10s).',
       effect_es: 'Concede un lanzador el Aura de Reducción de Daño, aumentando el Reduction de Daño Físico y Reduction de Daño Mental por 8% para todos el aliados. Auras concedidas pela Poder Supremo de mesmo nome en el si acumulam. Si algum aliados es con menos de 50% de PV, el aliados con el lesser percentual de PV receives 10% de Reducción de Daño. Dura 8s (Activación CD: 10s).',
@@ -2055,7 +2055,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Concede ao conjurador uma Aura de Redução de Dano, aumentando a Redução de Dano Físico e Redução de Dano Psíquico em 12% para todos os aliados. Auras concedidas pela Poder Supremo de mesmo nome não se acumulam. Se algum aliado estiver com menos de 50% de PV, o aliado com o menor percentual de PV recebe 17% de Redução de Dano. Dura 8s (REC de Ativação: 10s).', effect_en: 'Grants to caster the Aura of Damage Reduction, aumentando the Reduction of Physical Damage and Reduction of Mental Damage by 12% for all the allies. Auras concedidas pela Poder Supremo of mesmo nome in the if acumulam. If algum allies is with menos of 50% of HP, the allies with the lesser percentual of HP receives 17% of Damage Reduction. Lasts 8s (Activation CD: 10s).', effect_es: 'Concede un lanzador el Aura de Reducción de Daño, aumentando el Reduction de Daño Físico y Reduction de Daño Mental por 12% para todos el aliados. Auras concedidas pela Poder Supremo de mesmo nome en el si acumulam. Si algum aliados es con menos de 50% de PV, el aliados con el lesser percentual de PV receives 17% de Reducción de Daño. Dura 8s (Activación CD: 10s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR80', rarity: 'ssr', name: 'Arqueiro Dourado', name_en: 'Golden Archer', name_es: 'Golden Archer', image: 'img/codex/26VzK3G.webp',
+  { id: 'cSSR80', rarity: 'ssr', name: 'Arqueiro Dourado', name_en: 'Golden Archer', name_es: 'Golden Archer', image: 'img/cards/cSSR80.webp',
       effect: 'A redução do dano físico dano psíquico aumenta em 12%. Após lançar uma habilidade de deslocamento, a velocidade de habilidade e velocidade de ataque aumentam em 12% por 6 segundos. Ativações repetidas reiniciam a duração',
       effect_en: 'The reduction of the damage físico damage psíquico increases by 12%. After cast the skill of deslocamento, the speed of skill and speed of attack aumentam by 12% per 6 seconds. Ativações repetidas reiniciam the duration',
       effect_es: 'El reduction del daño físico daño psíquico aumenta por 12%. Después de lanza el skill de deslocamento, el speed de skill y speed de ataque aumentam por 12% per 6 segundo. Ativações repetidas reiniciam el duración',
@@ -2081,7 +2081,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A redução do dano físico dano psíquico aumenta em 19%. Após lançar uma habilidade de deslocamento, a velocidade de habilidade e velocidade de ataque aumentam em 19% por 6 segundos. Ativações repetidas reiniciam a duração', effect_en: 'The reduction of the damage físico damage psíquico increases by 19%. After cast the skill of deslocamento, the speed of skill and speed of attack aumentam by 19% per 6 seconds. Ativações repetidas reiniciam the duration', effect_es: 'El reduction del daño físico daño psíquico aumenta por 19%. Después de lanza el skill de deslocamento, el speed de skill y speed de ataque aumentam por 19% per 6 segundo. Ativações repetidas reiniciam el duración', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR81', rarity: 'ssr', name: 'Ataque Extremo', name_en: 'Extreme Attack', name_es: 'Extreme Ataque', image: 'img/codex/HqTIjiG.webp',
+  { id: 'cSSR81', rarity: 'ssr', name: 'Ataque Extremo', name_en: 'Extreme Attack', name_es: 'Extreme Ataque', image: 'img/cards/cSSR81.webp',
       effect: 'Nos primeiros 10s de batalha, Esquiva +20%. Durante esses 10s, cada esquiva bem-sucedida aumenta o próprio Dano Físico e Dano Psíquico em 3%, acumulando até 10 vezes (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'In the primeiros 10s of battle, Dodge +20%. During these 10s, each dodge bem-sucedida increases self Physical Damage and Mental Damage by 3%, stacking up to 10 times (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'En el primeiros 10s de batalla, Dodge +20%. Durante estos 10s, cada dodge bem-sucedida aumenta sí mismo Daño Físico y Daño Mental por 3%, stacking hasta 10 veces (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2107,7 +2107,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Nos primeiros 10s de batalha, Esquiva +34%. Durante esses 10s, cada esquiva bem-sucedida aumenta o próprio Dano Físico e Dano Psíquico em 5.1%, acumulando até 10 vezes (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'In the primeiros 10s of battle, Dodge +34%. During these 10s, each dodge bem-sucedida increases self Physical Damage and Mental Damage by 5.1%, stacking up to 10 times (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'En el primeiros 10s de batalla, Dodge +34%. Durante estos 10s, cada dodge bem-sucedida aumenta sí mismo Daño Físico y Daño Mental por 5.1%, stacking hasta 10 veces (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR82', rarity: 'ssr', name: 'Ataque Forte, Defesa Fraca', name_en: 'Strong Attack, Weak Defense', name_es: 'Strong Ataque, Weak Defense', image: 'img/codex/T8hFMgl.webp',
+  { id: 'cSSR82', rarity: 'ssr', name: 'Ataque Forte, Defesa Fraca', name_en: 'Strong Attack, Weak Defense', name_es: 'Strong Ataque, Weak Defense', image: 'img/cards/cSSR82.webp',
       effect: 'Dano Psíquico e Dano Físico recebidos por você aumentam em 10%, enquanto Dano Físico e Dano Psíquico causados aumentam em 25%.',
       effect_en: 'Mental Damage and Physical Damage recebidos per você aumentam by 10%, enquanto Physical Damage and Mental Damage causados aumentam by 25%.',
       effect_es: 'Daño Mental y Daño Físico recebidos per você aumentam por 10%, enquanto Daño Físico y Daño Mental causados aumentam por 25%.',
@@ -2133,7 +2133,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Dano Psíquico e Dano Físico recebidos por você aumentam em 8.5%, enquanto Dano Físico e Dano Psíquico causados aumentam em 42.5%.', effect_en: 'Mental Damage and Physical Damage recebidos per você aumentam by 8.5%, enquanto Physical Damage and Mental Damage causados aumentam by 42.5%.', effect_es: 'Daño Mental y Daño Físico recebidos per você aumentam por 8.5%, enquanto Daño Físico y Daño Mental causados aumentam por 42.5%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR83', rarity: 'ssr', name: 'Balanço do Machado Gigante', name_en: 'Giant Axe Swing', name_es: 'Giant Axe Movimiento', image: 'img/codex/cawPtgl.webp',
+  { id: 'cSSR83', rarity: 'ssr', name: 'Balanço do Machado Gigante', name_en: 'Giant Axe Swing', name_es: 'Giant Axe Movimiento', image: 'img/cards/cSSR83.webp',
       effect: 'Quando o PV estiver abaixo de 40%, o Dano Físico aumenta em 37.5%.',
       effect_en: 'When the HP is below 40%, the Physical Damage increases by 37.5%.',
       effect_es: 'Cuando el PV es por debajo 40%, el Daño Físico aumenta por 37.5%.',
@@ -2159,7 +2159,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o PV estiver abaixo de 40%, o Dano Físico aumenta em 55%.', effect_en: 'When the HP is below 40%, the Physical Damage increases by 55%.', effect_es: 'Cuando el PV es por debajo 40%, el Daño Físico aumenta por 55%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR84', rarity: 'ssr', name: 'Balsa do Estige', name_en: 'Raft of the Styx', name_es: 'Raft del Styx', image: 'img/codex/kNfhX8C.webp',
+  { id: 'cSSR84', rarity: 'ssr', name: 'Balsa do Estige', name_en: 'Raft of the Styx', name_es: 'Raft del Styx', image: 'img/cards/cSSR84.webp',
       effect: 'Após entrar no campo, a Taxa de Aparar é aumentada consideravelmente em 16% por 12s. Durante esse período, ao ativar Aparar, há 48% de chance de ativar o efeito Purificar, removendo todos os debuffs e efeitos de Dano Contínuo de si.',
       effect_en: 'After enter on the field, the Parry Rate is increased consideravelmente by 16% per 12s. During this período, to activate Parry, has 48% of chance of activate the effect Purificar, removendo all the debuffs and effects of Damage Continuous of si.',
       effect_es: 'Después de enter en el field, el Parry Rate es aumentado consideravelmente por 16% per 12s. Durante esto período, un activa Parry, tiene 48% de probabilidad de activa el efecto Purificar, removendo todos el debuffs y efecto de Daño Continuous de si.',
@@ -2185,7 +2185,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após entrar no campo, a Taxa de Aparar é aumentada consideravelmente em 23% por 12s. Durante esse período, ao ativar Aparar, há 70% de chance de ativar o efeito Purificar, removendo todos os debuffs, controle e efeitos de Dano Contínuo de si.', effect_en: 'After enter on the field, the Parry Rate is increased consideravelmente by 23% per 12s. During this período, to activate Parry, has 70% of chance of activate the effect Purificar, removendo all the debuffs, control and effects of Damage Continuous of si.', effect_es: 'Después de enter en el field, el Parry Rate es aumentado consideravelmente por 23% per 12s. Durante esto período, un activa Parry, tiene 70% de probabilidad de activa el efecto Purificar, removendo todos el debuffs, control y efecto de Daño Continuous de si.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR85', rarity: 'ssr', name: 'Bênção de Atena', name_en: 'Athena\'s Blessing', name_es: 'de Atenea Bendición', image: 'img/codex/DXRcW4e.webp',
+  { id: 'cSSR85', rarity: 'ssr', name: 'Bênção de Atena', name_en: 'Athena\'s Blessing', name_es: 'de Atenea Bendición', image: 'img/cards/cSSR85.webp',
       effect: '10 segundos após o início da batalha, purifica todos os debuffs e efeitos com dano contínuo em 2 Cavaleiros aliados, então ativa uma vez a cada 8 segundo(s).',
       effect_en: '10 seconds after the início of the battle, purifica all the debuffs and effects with damage continuous by 2 Knights allies, então activates the time the each 8 second(s).',
       effect_es: '10 segundo después de el início del batalla, purifica todos el debuffs y efecto con daño continuous por 2 Caballero aliados, então activa el tiempo el cada 8 segundo(s).',
@@ -2203,7 +2203,7 @@ const CODEX_CARDS = [
       ],
       awakening: []
     },
-  { id: 'cSSR86', rarity: 'ssr', name: 'Caça', name_en: 'Hunt', name_es: 'Hunt', image: 'img/codex/xh8TNAj.webp',
+  { id: 'cSSR86', rarity: 'ssr', name: 'Caça', name_en: 'Hunt', name_es: 'Hunt', image: 'img/cards/cSSR86.webp',
       effect: 'Marca o inimigo mais próximo a cada 10 segundos, o tornando um alvo de caça por 10 segundos. Quando uma criatura invocada causa Dano ao alvo, o próprio ganha 12% de Velocidade de Ataque e Velocidade de Habilidade por 5 segundos. (Até 5 acúmulos)',
       effect_en: 'Marca the enemies mais próximo the each 10 seconds, the tornando the target of caça per 10 seconds. When the criatura invocada deals Damage to target, the self gains 12% of Speed of Attack and Speed of Skill per 5 seconds. (Up to 5 stacks)',
       effect_es: 'Marca el enemigos mais próximo el cada 10 segundo, el tornando el objetivo de caça per 10 segundo. Cuando el criatura invocada causa Daño un objetivo, el sí mismo gana 12% de Speed de Ataque y Speed de Skill per 5 segundo. (Hasta 5 stacks)',
@@ -2229,7 +2229,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Marca o inimigo mais próximo a cada 10 segundos, o tornando um alvo de caça por 10 segundos. Quando uma criatura invocada causa Dano ao alvo, o próprio ganha 20.4% de Velocidade de Ataque e Velocidade de Habilidade por 5 segundos. (Até 5 acúmulos)', effect_en: 'Marca the enemies mais próximo the each 10 seconds, the tornando the target of caça per 10 seconds. When the criatura invocada deals Damage to target, the self gains 20.4% of Speed of Attack and Speed of Skill per 5 seconds. (Up to 5 stacks)', effect_es: 'Marca el enemigos mais próximo el cada 10 segundo, el tornando el objetivo de caça per 10 segundo. Cuando el criatura invocada causa Daño un objetivo, el sí mismo gana 20.4% de Speed de Ataque y Speed de Skill per 5 segundo. (Hasta 5 stacks)', copies: null, accumulated: 6, cost: 43 }
       ]
     },
-  { id: 'cSSR87', rarity: 'ssr', name: 'Carga de Energia Infinita', name_en: 'Infinite Energy Charge', name_es: 'Infinite Energy Charge', image: 'img/codex/qmKAkK5.webp',
+  { id: 'cSSR87', rarity: 'ssr', name: 'Carga de Energia Infinita', name_en: 'Infinite Energy Charge', name_es: 'Infinite Energy Charge', image: 'img/cards/cSSR87.webp',
       effect: 'Aumenta Dano de Fogo e Dano de Gelo em 7% a cada 5s, acumulando até 5 vezes. Se for Lançado ao Ar, derrotado ou Derrubado, o efeito é removido e os acúmulos devem ser refeitos.',
       effect_en: 'Increases Damage of Fogo and Damage of Gelo by 7% the each 5s, stacking up to 5 times. If is Lançado to Ar, derrotado or Derrubado, the effect is removido and the stacks must be refeitos.',
       effect_es: 'Aumenta Daño de Fogo y Daño de Gelo por 7% el cada 5s, stacking hasta 5 veces. Si es Lançado un Ar, derrotado o Derrubado, el efecto es removido y el stacks must ser refeitos.',
@@ -2255,7 +2255,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta Dano de Fogo e Dano de Gelo em 12% a cada 5s, acumulando até 5 vezes. Se for Lançado ao Ar, derrotado ou Derrubado, o efeito é removido e os acúmulos devem ser refeitos.', effect_en: 'Increases Damage of Fogo and Damage of Gelo by 12% the each 5s, stacking up to 5 times. If is Lançado to Ar, derrotado or Derrubado, the effect is removido and the stacks must be refeitos.', effect_es: 'Aumenta Daño de Fogo y Daño de Gelo por 12% el cada 5s, stacking hasta 5 veces. Si es Lançado un Ar, derrotado o Derrubado, el efecto es removido y el stacks must ser refeitos.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR88', rarity: 'ssr', name: 'Chamas Ardentes', name_en: 'Burning Flames', name_es: 'Ardiendo Flames', image: 'img/codex/JE5BlDk.webp',
+  { id: 'cSSR88', rarity: 'ssr', name: 'Chamas Ardentes', name_en: 'Burning Flames', name_es: 'Ardiendo Flames', image: 'img/cards/cSSR88.webp',
       effect: 'Aumenta a própria Defesa Física e Defesa Psíquica em 12% e a cada 2,5 segundos, causa Dano de Queimadura igual a 8% do próprio PV Máx. aos inimigos por perto.',
       effect_en: 'Increases self Defense Física and Defense Psíquica by 12% and the each 2.5 seconds, deals Damage of Queimadura equal to 8% of the self HP Max to enemies per perto.',
       effect_es: 'Aumenta sí mismo Defense Física y Defense Psíquica por 12% y el cada 2.5 segundo, causa Daño de Queimadura igual al 8% del sí mismo PV Max un enemigos per perto.',
@@ -2281,7 +2281,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a própria Defesa Física e Defesa Psíquica em 19% e a cada 2,5 segundos, causa Dano de Queimadura igual a 11.5% do próprio PV Máx. aos inimigos por perto.', effect_en: 'Increases self Defense Física and Defense Psíquica by 19% and the each 2.5 seconds, deals Damage of Queimadura equal to 11.5% of the self HP Max to enemies per perto.', effect_es: 'Aumenta sí mismo Defense Física y Defense Psíquica por 19% y el cada 2.5 segundo, causa Daño de Queimadura igual al 11.5% del sí mismo PV Max un enemigos per perto.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR89', rarity: 'ssr', name: 'Choque de Vontades', name_en: 'Clash of Wills', name_es: 'Clash de Wills', image: 'img/codex/cBJhCfS.webp',
+  { id: 'cSSR89', rarity: 'ssr', name: 'Choque de Vontades', name_en: 'Clash of Wills', name_es: 'Clash de Wills', image: 'img/cards/cSSR89.webp',
       effect: 'ATQ +10%. Se apenas o usuário e um inimigo permanecerem em campo (criaturas invocadas excluídas), o próprio Dano Físico e Dano Psíquico aumentam adicionalmente em 30% (indissipável).',
       effect_en: 'ATK +10%. If only the usuário and the enemies permanecerem in field (criaturas invocadas excluídas), the self Physical Damage and Mental Damage aumentam additionally by 30% (indissipável).',
       effect_es: 'ATQ +10%. Si solo el usuário y el enemigos permanecerem en field (criaturas invocadas excluídas), el sí mismo Daño Físico y Daño Mental aumentam adicional por 30% (indissipável).',
@@ -2307,7 +2307,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'ATQ +17%. Se apenas o usuário e um inimigo permanecerem em campo (criaturas invocadas excluídas), o próprio Dano Físico e Dano Psíquico aumentam adicionalmente em 51% (indissipável).', effect_en: 'ATK +17%. If only the usuário and the enemies permanecerem in field (criaturas invocadas excluídas), the self Physical Damage and Mental Damage aumentam additionally by 51% (indissipável).', effect_es: 'ATQ +17%. Si solo el usuário y el enemigos permanecerem en field (criaturas invocadas excluídas), el sí mismo Daño Físico y Daño Mental aumentam adicional por 51% (indissipável).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR90', rarity: 'ssr', name: 'Congelamento de Sangue', name_en: 'Blood Freeze', name_es: 'Blood Congelamiento', image: 'img/codex/Z6m96qj.webp',
+  { id: 'cSSR90', rarity: 'ssr', name: 'Congelamento de Sangue', name_en: 'Blood Freeze', name_es: 'Blood Congelamiento', image: 'img/cards/cSSR90.webp',
       effect: 'Quando um inimigo está Congelado, a cura recebida dele é reduzida em 30% por 3s e ele sofre permanentemente uma redução adicional de 6.5% na cura recebida (até 10 acúmulos, pode ser purificado).',
       effect_en: 'When the enemies is Frozen, the healing received his is reduced by 30% per 3s and ele takes permanentemente the reduction additional of 6.5% in the healing received (up to 10 stacks, can be purificado).',
       effect_es: 'Cuando el enemigos es Congelado, el curación received su es reducido por 30% per 3s y ele toma permanentemente el reduction adicional de 6.5% en el curación received (hasta 10 stacks, puede ser purificado).',
@@ -2333,7 +2333,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando um inimigo está Congelado, a cura recebida dele é reduzida em 30% por 3s e ele sofre permanentemente uma redução adicional de 10% na cura recebida (até 10 acúmulos, pode ser purificado).', effect_en: 'When the enemies is Frozen, the healing received his is reduced by 30% per 3s and ele takes permanentemente the reduction additional of 10% in the healing received (up to 10 stacks, can be purificado).', effect_es: 'Cuando el enemigos es Congelado, el curación received su es reducido por 30% per 3s y ele toma permanentemente el reduction adicional de 10% en el curación received (hasta 10 stacks, puede ser purificado).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR91', rarity: 'ssr', name: 'Contra-ataque Carregado', name_en: 'Charged Counterattack', name_es: 'Charged Counterattack', image: 'img/codex/z35Zv21.webp',
+  { id: 'cSSR91', rarity: 'ssr', name: 'Contra-ataque Carregado', name_en: 'Charged Counterattack', name_es: 'Charged Counterattack', image: 'img/cards/cSSR91.webp',
       effect: 'Recebe 28% menos dano de Habilidades Supremas. Após receber dano de Habilidade Suprema, repele o atacante, causando 50% Dano Psíquico a ele (REC de Ativação: 5s).',
       effect_en: 'Receives 28% menos damage of Ultimate Skills. After receber damage of Ultimate Skill, repele the atacante, dealing 50% Mental Damage the ele (Activation CD: 5s).',
       effect_es: 'Receives 28% menos daño de Ultimate Skills. Después de receber daño de Habilidad Suprema, repele el atacante, dealing 50% Daño Mental el ele (Activación CD: 5s).',
@@ -2359,7 +2359,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Recebe 49% menos dano de Habilidades Supremas. Após receber dano de Habilidade Suprema, repele o atacante, causando 85% Dano Psíquico a ele (REC de Ativação: 5s).', effect_en: 'Receives 49% menos damage of Ultimate Skills. After receber damage of Ultimate Skill, repele the atacante, dealing 85% Mental Damage the ele (Activation CD: 5s).', effect_es: 'Receives 49% menos daño de Ultimate Skills. Después de receber daño de Habilidad Suprema, repele el atacante, dealing 85% Daño Mental el ele (Activación CD: 5s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR92', rarity: 'ssr', name: 'Contra-ataque Defensivo', name_en: 'Defensive Counterattack', name_es: 'Defensive Counterattack', image: 'img/codex/IRkoziB.webp',
+  { id: 'cSSR92', rarity: 'ssr', name: 'Contra-ataque Defensivo', name_en: 'Defensive Counterattack', name_es: 'Defensive Counterattack', image: 'img/cards/cSSR92.webp',
       effect: 'Reduz o Dano de Ataque Básico recebido em 35% e cada vez que sofre um Ataque Básico, há 10% de chance de infligir Atordoamento no inimigo por 1 segundo.',
       effect_en: 'Reduces the Damage of Attack Basic received by 35% and each time that takes the Attack Basic, has 10% of chance of inflict Stun in the enemies per 1 second.',
       effect_es: 'Reduce el Daño de Ataque Basic received por 35% y cada tiempo que toma el Ataque Basic, tiene 10% de probabilidad de inflige Aturdimiento en el enemigos per 1 segundo.',
@@ -2385,7 +2385,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Reduz o Dano de Ataque Básico recebido em 56% e cada vez que sofre um Ataque Básico, há 10% de chance de infligir Atordoamento no inimigo por 1 segundo.', effect_en: 'Reduces the Damage of Attack Basic received by 56% and each time that takes the Attack Basic, has 10% of chance of inflict Stun in the enemies per 1 second.', effect_es: 'Reduce el Daño de Ataque Basic received por 56% y cada tiempo que toma el Ataque Basic, tiene 10% de probabilidad de inflige Aturdimiento en el enemigos per 1 segundo.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR93', rarity: 'ssr', name: 'Contragolpe', name_en: 'Counterstrike', name_es: 'Counterstrike', image: 'img/codex/QZbVlED.webp',
+  { id: 'cSSR93', rarity: 'ssr', name: 'Contragolpe', name_en: 'Counterstrike', name_es: 'Counterstrike', image: 'img/cards/cSSR93.webp',
       effect: 'Aumenta a Taxa de Aparar em 10%. Após aparar com sucesso, ganha 15% de dano de Roubo de Vida e 8% de Dano Físico, aumenta por 3 segundos. (Não acumula, aplicações repetidas reiniciam a duração)',
       effect_en: 'Increases Parry Rate by 10%. After parry successfully, gains 15% of damage of Roubo of HP and 8% of Physical Damage, increases per 3 seconds. (In the acumula, aplicações repetidas reiniciam the duration)',
       effect_es: 'Aumenta Parry Rate por 10%. Después de parry successfully, gana 15% de daño de Roubo de PV y 8% de Daño Físico, aumenta per 3 segundo. (En el acumula, aplicações repetidas reiniciam el duración)',
@@ -2411,7 +2411,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a Taxa de Aparar em 17%. Após aparar com sucesso, ganha 25.5% de dano de Roubo de Vida e 13.6% de Dano Físico, aumenta por 3 segundos. (Não acumula, aplicações repetidas reiniciam a duração)', effect_en: 'Increases Parry Rate by 17%. After parry successfully, gains 25.5% of damage of Roubo of HP and 13.6% of Physical Damage, increases per 3 seconds. (In the acumula, aplicações repetidas reiniciam the duration)', effect_es: 'Aumenta Parry Rate por 17%. Después de parry successfully, gana 25.5% de daño de Roubo de PV y 13.6% de Daño Físico, aumenta per 3 segundo. (En el acumula, aplicações repetidas reiniciam el duración)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR94', rarity: 'ssr', name: 'Convergência Estelar', name_en: 'Stellar Convergence', name_es: 'Stellar Convergence', image: 'img/codex/8b1wmLf.webp',
+  { id: 'cSSR94', rarity: 'ssr', name: 'Convergência Estelar', name_en: 'Stellar Convergence', name_es: 'Stellar Convergence', image: 'img/cards/cSSR94.webp',
       effect: 'Após sofrer um acerto crítico, recupera PV igual a 13% do ATQ. REC: 1s.',
       effect_en: 'After take the hit crit, recovers HP equal to 13% of the ATK. CD: 1s.',
       effect_es: 'Después de toma el hit crítico, recupera PV igual al 13% del ATQ. CD: 1s.',
@@ -2437,7 +2437,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após sofrer um acerto crítico, recupera PV igual a 23% do ATQ. REC: 1s.', effect_en: 'After take the hit crit, recovers HP equal to 23% of the ATK. CD: 1s.', effect_es: 'Después de toma el hit crítico, recupera PV igual al 23% del ATQ. CD: 1s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR95', rarity: 'ssr', name: 'Dádiva do Dragão de Duas Cabeças', name_en: 'Two-Headed Dragon Gift', name_es: 'Dos-Headed Dragon Gift', image: 'img/codex/t8EsE9g.webp',
+  { id: 'cSSR95', rarity: 'ssr', name: 'Dádiva do Dragão de Duas Cabeças', name_en: 'Two-Headed Dragon Gift', name_es: 'Dos-Headed Dragon Gift', image: 'img/cards/cSSR95.webp',
       effect: 'Após perder PV igual a 55% do PV Máx, cura todos os aliados em 8% do PV Máx, com 21% de chance de remover efeitos de Controle dos aliados.',
       effect_en: 'After perder HP equal to 55% of the HP Máx, healing all the allies by 8% of the HP Máx, with 21% of chance of removes effects of Control of the allies.',
       effect_es: 'Después de perder PV igual al 55% del PV Máx, curación todos el aliados por 8% del PV Máx, con 21% de probabilidad de elimina efecto de Control del aliados.',
@@ -2463,7 +2463,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após perder PV igual a 55% do PV Máx, cura todos os aliados em 15% do PV Máx, com 35% de chance de remover efeitos de Controle dos aliados.', effect_en: 'After perder HP equal to 55% of the HP Máx, healing all the allies by 15% of the HP Máx, with 35% of chance of removes effects of Control of the allies.', effect_es: 'Después de perder PV igual al 55% del PV Máx, curación todos el aliados por 15% del PV Máx, con 35% de probabilidad de elimina efecto de Control del aliados.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR96', rarity: 'ssr', name: 'Dança do Cisne', name_en: 'Swan Dance', name_es: 'Swan Dance', image: 'img/codex/ecdd6Nb.webp',
+  { id: 'cSSR96', rarity: 'ssr', name: 'Dança do Cisne', name_en: 'Swan Dance', name_es: 'Swan Dance', image: 'img/cards/cSSR96.webp',
       effect: 'Aumenta Dano de Gelo em 15%. Quando afetado por Congelamento ou Ar Gelado, há 80% de chance de dissipar instantaneamente os efeitos de Ar Gelado e Congelamento de si mesmo.',
       effect_en: 'Increases Damage of Gelo by 15%. When afetado per Freeze or Ar Gelado, has 80% of chance of dissipar instantaneamente the effects of Ar Gelado and Freeze of self.',
       effect_es: 'Aumenta Daño de Gelo por 15%. Cuando afetado per Congelamiento o Ar Gelado, tiene 80% de probabilidad de dissipar instantaneamente el efecto de Ar Gelado y Congelamiento de sí mismo.',
@@ -2489,7 +2489,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta Dano de Gelo em 26.2%. Quando afetado por Congelamento ou Ar Gelado, há 80% de chance de dissipar instantaneamente os efeitos de Ar Gelado e Congelamento de si mesmo.', effect_en: 'Increases Damage of Gelo by 26.2%. When afetado per Freeze or Ar Gelado, has 80% of chance of dissipar instantaneamente the effects of Ar Gelado and Freeze of self.', effect_es: 'Aumenta Daño de Gelo por 26.2%. Cuando afetado per Congelamiento o Ar Gelado, tiene 80% de probabilidad de dissipar instantaneamente el efecto de Ar Gelado y Congelamiento de sí mismo.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR97', rarity: 'ssr', name: 'Dança', name_en: 'Dance', name_es: 'Dance', image: 'img/codex/wVbUgtv.webp',
+  { id: 'cSSR97', rarity: 'ssr', name: 'Dança', name_en: 'Dance', name_es: 'Dance', image: 'img/cards/cSSR97.webp',
       effect: 'Após entrar, ganha 5 acúmulos de buffs. Cada acúmulo aumenta a própria Taxa de Crít. em 4% e o Dano Crít. em 10%. Depois, perde 1 acúmulo do efeito a cada 5s (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'After enter, gains 5 stacks of buffs. Each stacks increases self Crit Rate by 4% and the Crit DMG by 10%. After, perde 1 stacks of the effect the each 5s (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'Después de enter, gana 5 stacks de buffs. Cada stacks aumenta sí mismo Tasa de Crít. por 4% y el Crítico DMG por 10%. Después de, perde 1 stacks del efecto el cada 5s (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2515,7 +2515,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após entrar, ganha 5 acúmulos de buffs. Cada acúmulo aumenta a própria Taxa de Crít. em 7.5% e o Dano Crít. em 17%. Depois, perde 1 acúmulo do efeito a cada 5s (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter, gains 5 stacks of buffs. Each stacks increases self Crit Rate by 7.5% and the Crit DMG by 17%. After, perde 1 stacks of the effect the each 5s (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter, gana 5 stacks de buffs. Cada stacks aumenta sí mismo Tasa de Crít. por 7.5% y el Crítico DMG por 17%. Después de, perde 1 stacks del efecto el cada 5s (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR98', rarity: 'ssr', name: 'De Volta ao Submundo', name_en: 'Back to the Underworld', name_es: 'Back un el Underworld', image: 'img/codex/o5dfHVj.webp',
+  { id: 'cSSR98', rarity: 'ssr', name: 'De Volta ao Submundo', name_en: 'Back to the Underworld', name_es: 'Back un el Underworld', image: 'img/cards/cSSR98.webp',
       effect: 'Após reviver, aumenta o próprio Dano Psíquico em 42% por 10s.',
       effect_en: 'After revive, increases self Mental Damage by 42% per 10s.',
       effect_es: 'Después de revive, aumenta sí mismo Daño Mental por 42% per 10s.',
@@ -2541,7 +2541,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após reviver, aumenta o próprio Dano Psíquico em 70% por 10s.', effect_en: 'After revive, increases self Mental Damage by 70% per 10s.', effect_es: 'Después de revive, aumenta sí mismo Daño Mental por 70% per 10s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR99', rarity: 'ssr', name: 'Defensor', name_en: 'Defender', name_es: 'Defender', image: 'img/codex/mgHLM2n.webp',
+  { id: 'cSSR99', rarity: 'ssr', name: 'Defensor', name_en: 'Defender', name_es: 'Defender', image: 'img/cards/cSSR99.webp',
       effect: 'Reduz o próprio ATQ em 7.6%, mas aumenta a DEF Física e a DEF Mental em 47.5%.',
       effect_en: 'Reduces the self ATK by 7.6%, mas increases DEF Física and the DEF Mental by 47.5%.',
       effect_es: 'Reduce el sí mismo ATQ por 7.6%, mas aumenta DEF Física y el DEF Mental por 47.5%.',
@@ -2567,7 +2567,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Reduz o próprio ATQ em 4.8%, mas aumenta a DEF Física e a DEF Mental em 65%.', effect_en: 'Reduces the self ATK by 4.8%, mas increases DEF Física and the DEF Mental by 65%.', effect_es: 'Reduce el sí mismo ATQ por 4.8%, mas aumenta DEF Física y el DEF Mental por 65%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR100', rarity: 'ssr', name: 'Defesa de Libra', name_en: 'Libra\'s Defense', name_es: 'Libra\'s Defense', image: 'img/codex/ApWCK9Y.webp',
+  { id: 'cSSR100', rarity: 'ssr', name: 'Defesa de Libra', name_en: 'Libra\'s Defense', name_es: 'Libra\'s Defense', image: 'img/cards/cSSR100.webp',
       effect: 'Aumenta a Taxa de Aparar em 12%. Após aparar com sucesso, há 80% de chance de ganhar o efeito Superproteção por 2 segundos. (Recarga de Ativação: 5 segundos)',
       effect_en: 'Increases Parry Rate by 12%. After parry successfully, has 80% of chance of gain the effect Overprotection per 2 seconds. (Activation CD: 5 seconds)',
       effect_es: 'Aumenta Parry Rate por 12%. Después de parry successfully, tiene 80% de probabilidad de gana el efecto Overprotection per 2 segundo. (Activación CD: 5 segundo)',
@@ -2593,7 +2593,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a Taxa de Aparar em 20.4%. Após aparar com sucesso, há 88% de chance de ganhar o efeito Superproteção por 2 segundos. (Recarga de Ativação: 5 segundos)', effect_en: 'Increases Parry Rate by 20.4%. After parry successfully, has 88% of chance of gain the effect Overprotection per 2 seconds. (Activation CD: 5 seconds)', effect_es: 'Aumenta Parry Rate por 20.4%. Después de parry successfully, tiene 88% de probabilidad de gana el efecto Overprotection per 2 segundo. (Activación CD: 5 segundo)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR101', rarity: 'ssr', name: 'Donzela entre as Flores', name_en: 'Maiden Among the Flowers', name_es: 'Maiden Among el Flowers', image: 'img/codex/MyOzwuD.webp',
+  { id: 'cSSR101', rarity: 'ssr', name: 'Donzela entre as Flores', name_en: 'Maiden Among the Flowers', name_es: 'Maiden Among el Flowers', image: 'img/cards/cSSR101.webp',
       effect: 'Ao lançar Cura, concede ao alvo curado 8% de Velocidade de Habilidade e Velocidade de Ataque por 4 segundo(s)',
       effect_en: 'To cast Healing, grants to target healed 8% of Speed of Skill and Speed of Attack per 4 second(s)',
       effect_es: 'Un lanza Curación, concede un objetivo curado 8% de Speed de Skill y Speed de Ataque per 4 segundo(s)',
@@ -2619,7 +2619,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao lançar Cura, concede ao alvo curado 13.6% de Velocidade de Habilidade e Velocidade de Ataque por 6 segundo(s)', effect_en: 'To cast Healing, grants to target healed 13.6% of Speed of Skill and Speed of Attack per 6 second(s)', effect_es: 'Un lanza Curación, concede un objetivo curado 13.6% de Speed de Skill y Speed de Ataque per 6 segundo(s)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR102', rarity: 'ssr', name: 'Energia da Aurora', name_en: 'Aurora Energy', name_es: 'Aurora Energy', image: 'img/codex/tDt9sad.webp',
+  { id: 'cSSR102', rarity: 'ssr', name: 'Energia da Aurora', name_en: 'Aurora Energy', name_es: 'Aurora Energy', image: 'img/cards/cSSR102.webp',
       effect: '15 s após o início da batalha, o portador e 1 Cavaleiros aliados aleatórios ganham 250 de Ira. (O efeito acumula se a equipe carregar mais de um.)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: '15 s after the início of the battle, the bearer and 1 Knights allies aleatórios ganham 250 of Rage. (The effect acumula if the equipe carregar mais of the.)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: '15 s después de el início del batalla, el portador y 1 Caballero aliados aleatórios ganham 250 de Rage. (El efecto acumula si el equipe carregar mais del.)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2645,7 +2645,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: '15 s após o início da batalha, o portador e 1 Cavaleiros aliados aleatórios ganham 420 de Ira. (O efeito acumula se a equipe carregar mais de um.)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: '15 s after the início of the battle, the bearer and 1 Knights allies aleatórios ganham 420 of Rage. (The effect acumula if the equipe carregar mais of the.)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: '15 s después de el início del batalla, el portador y 1 Caballero aliados aleatórios ganham 420 de Rage. (El efecto acumula si el equipe carregar mais del.)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR103', rarity: 'ssr', name: 'Energia de Congelamento Rápido', name_en: 'Rapid Freezing Energy', name_es: 'Rapid Freezing Energy', image: 'img/codex/LGP7w5B.webp',
+  { id: 'cSSR103', rarity: 'ssr', name: 'Energia de Congelamento Rápido', name_en: 'Rapid Freezing Energy', name_es: 'Rapid Freezing Energy', image: 'img/cards/cSSR103.webp',
       effect: 'Ao infligir Frígido em inimigos, há 35% de chance de congelar eles por 2.2s.',
       effect_en: 'To inflict Frígido in enemies, has 35% of chance of freeze eles per 2.2s.',
       effect_es: 'Un inflige Frígido en enemigos, tiene 35% de probabilidad de congelamiento eles per 2.2s.',
@@ -2671,7 +2671,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao infligir Frígido em inimigos, há 50% de chance de congelar eles por 3.6s.', effect_en: 'To inflict Frígido in enemies, has 50% of chance of freeze eles per 3.6s.', effect_es: 'Un inflige Frígido en enemigos, tiene 50% de probabilidad de congelamiento eles per 3.6s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR104', rarity: 'ssr', name: 'Era Glacial', name_en: 'Glacial Era', name_es: 'Glacial Era', image: 'img/codex/S5TVa1h.webp',
+  { id: 'cSSR104', rarity: 'ssr', name: 'Era Glacial', name_en: 'Glacial Era', name_es: 'Glacial Era', image: 'img/cards/cSSR104.webp',
       effect: 'Redução de Dano Físico e Dano Psíquico +10%. Se a Habilidade Suprema for de alvo único, há 80% de chance de dissipar a Superproteção do inimigo. Se for em múltiplos alvos, há 50% de chance de dissipar os efeitos de Estabilidade.',
       effect_en: 'Reduction of Physical Damage and Mental Damage +10%. If the Ultimate Skill is of target único, has 80% of chance of dissipar the Overprotection of the enemies. If is in múltiplos targets, has 50% of chance of dissipar the effects of Estabilidade.',
       effect_es: 'Reduction de Daño Físico y Daño Mental +10%. Si el Habilidad Suprema es de objetivo único, tiene 80% de probabilidad de dissipar el Overprotection del enemigos. Si es en múltiplos objetivo, tiene 50% de probabilidad de dissipar el efecto de Estabilidade.',
@@ -2697,7 +2697,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Redução de Dano Físico e Dano Psíquico +20.5%. Se a Habilidade Suprema for de alvo único, há 80% de chance de dissipar a Superproteção do inimigo. Se for em múltiplos alvos, há 50% de chance de dissipar os efeitos de Estabilidade.', effect_en: 'Reduction of Physical Damage and Mental Damage +20.5%. If the Ultimate Skill is of target único, has 80% of chance of dissipar the Overprotection of the enemies. If is in múltiplos targets, has 50% of chance of dissipar the effects of Estabilidade.', effect_es: 'Reduction de Daño Físico y Daño Mental +20.5%. Si el Habilidad Suprema es de objetivo único, tiene 80% de probabilidad de dissipar el Overprotection del enemigos. Si es en múltiplos objetivo, tiene 50% de probabilidad de dissipar el efecto de Estabilidade.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR105', rarity: 'ssr', name: 'Escudo Gélido', name_en: 'Frozen Shield', name_es: 'Congelado Escudo', image: 'img/codex/psGCp1B.webp',
+  { id: 'cSSR105', rarity: 'ssr', name: 'Escudo Gélido', name_en: 'Frozen Shield', name_es: 'Congelado Escudo', image: 'img/cards/cSSR105.webp',
       effect: 'Após infligir Congelamento, aumenta a própria Redução de Dano Psíquico e de Dano Físico em 11.6% por 4.5s. (Acumulável)',
       effect_en: 'After inflict Freeze, increases self Reduction of Mental Damage and of Physical Damage by 11.6% per 4.5s. (Stackable)',
       effect_es: 'Después de inflige Congelamiento, aumenta sí mismo Reduction de Daño Mental y de Daño Físico por 11.6% per 4.5s. (Stackable)',
@@ -2723,7 +2723,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após infligir Congelamento, aumenta a própria Redução de Dano Psíquico e de Dano Físico em 20% por 8s. (Acumulável)', effect_en: 'After inflict Freeze, increases self Reduction of Mental Damage and of Physical Damage by 20% per 8s. (Stackable)', effect_es: 'Después de inflige Congelamiento, aumenta sí mismo Reduction de Daño Mental y de Daño Físico por 20% per 8s. (Stackable)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR106', rarity: 'ssr', name: 'Espere e Ataque', name_en: 'Wait and Attack', name_es: 'Wait y Ataque', image: 'img/codex/i0Dt1vX.webp',
+  { id: 'cSSR106', rarity: 'ssr', name: 'Espere e Ataque', name_en: 'Wait and Attack', name_es: 'Wait y Ataque', image: 'img/cards/cSSR106.webp',
       effect: 'No início da batalha, reduz o próprio Dano Físico e o Dano Psíquico causado em 40%, mas aumenta a Redução do Dano Físico e da Redução do Dano Psíquico em 32% por 20 segundos. (Efeitos não podem ser purificados ou dissipados). Quando o efeito acabar, restaura PV equivalente a 100% do próprio ataque.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'In the início of the battle, reduces the self Physical Damage and the Mental Damage causado by 40%, mas increases Reduction of the Physical Damage and of the Reduction of the Mental Damage by 32% per 20 seconds. (Effects in the can be purificados or dissipados). When the effect acabar, restores HP equivalente the 100% of the self attack.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'En el início del batalla, reduce el sí mismo Daño Físico y el Daño Mental causado por 40%, mas aumenta Reduction del Daño Físico y del Reduction del Daño Mental por 32% per 20 segundo. (Efecto en el puede ser purificados o dissipados). Cuando el efecto acabar, restaura PV equivalente el 100% del sí mismo ataque.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2749,7 +2749,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'No início da batalha, reduz o próprio Dano Físico e o Dano Psíquico causado em 40%, mas aumenta a Redução do Dano Físico e da Redução do Dano Psíquico em 46% por 20 segundos. (Efeitos não podem ser purificados ou dissipados). Quando o efeito acabar, restaura PV equivalente a 170% do próprio ataque.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'In the início of the battle, reduces the self Physical Damage and the Mental Damage causado by 40%, mas increases Reduction of the Physical Damage and of the Reduction of the Mental Damage by 46% per 20 seconds. (Effects in the can be purificados or dissipados). When the effect acabar, restores HP equivalente the 170% of the self attack.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'En el início del batalla, reduce el sí mismo Daño Físico y el Daño Mental causado por 40%, mas aumenta Reduction del Daño Físico y del Reduction del Daño Mental por 46% per 20 segundo. (Efecto en el puede ser purificados o dissipados). Cuando el efecto acabar, restaura PV equivalente el 170% del sí mismo ataque.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR107', rarity: 'ssr', name: 'Espírito de Gelo', name_en: 'Ice Spirit', name_es: 'Ice Spirit', image: 'img/codex/ym1hf4v.webp',
+  { id: 'cSSR107', rarity: 'ssr', name: 'Espírito de Gelo', name_en: 'Ice Spirit', name_es: 'Ice Spirit', image: 'img/cards/cSSR107.webp',
       effect: 'Aumenta a Taxa de Crít. em 30% por dano causado aos alvos congelados e em 40% pelo dano causado a alvos gelados. Quando um alvo estiver congelado e gelado, os buffs da Taxa de Crít. dos dois efeitos se aplicam simultaneamente',
       effect_en: 'Increases Crit Rate by 30% per damage dealt to targets congelados and by 40% pelo damage dealt the targets gelados. When the target is frozen and gelado, the buffs of the Crit Rate of the dois effects if aplicam simultaneamente',
       effect_es: 'Aumenta Tasa de Crít. por 30% per daño dealt un objetivo congelados y por 40% pelo daño dealt el objetivo gelados. Cuando el objetivo es congelado y gelado, el buffs del Tasa de Crít. del dois efecto si aplicam simultaneamente',
@@ -2775,7 +2775,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a Taxa de Crít. em 44% por dano causado aos alvos congelados e em 61% pelo dano causado a alvos gelados. Quando um alvo estiver congelado e gelado, os buffs da Taxa de Crít. dos dois efeitos se aplicam simultaneamente', effect_en: 'Increases Crit Rate by 44% per damage dealt to targets congelados and by 61% pelo damage dealt the targets gelados. When the target is frozen and gelado, the buffs of the Crit Rate of the dois effects if aplicam simultaneamente', effect_es: 'Aumenta Tasa de Crít. por 44% per daño dealt un objetivo congelados y por 61% pelo daño dealt el objetivo gelados. Cuando el objetivo es congelado y gelado, el buffs del Tasa de Crít. del dois efecto si aplicam simultaneamente', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR108', rarity: 'ssr', name: 'Explosão Desesperada', name_en: 'Desperate Explosion', name_es: 'Desperate Explosion', image: 'img/codex/bOHhpXh.webp',
+  { id: 'cSSR108', rarity: 'ssr', name: 'Explosão Desesperada', name_en: 'Desperate Explosion', name_es: 'Desperate Explosion', image: 'img/cards/cSSR108.webp',
       effect: 'Ao sair, libera um ATQ de energia no derrotado, causando Dano Real igual a 100% do ATQ do portador e o Derrubando por 1.5 segundo(s), impedindo ressuscitar.',
       effect_en: 'To leave, libera the ATK of energia in the derrotado, dealing True Damage equal to 100% of the ATK of the bearer and the Derrubando per 1.5 second(s), impedindo resurrect.',
       effect_es: 'Un leave, libera el ATQ de energia en el derrotado, dealing Daño Real igual al 100% del ATQ del portador y el Derrubando per 1.5 segundo(s), impedindo resurrect.',
@@ -2801,7 +2801,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao sair, libera um ATQ de energia no derrotado, causando Dano Real igual a 170% do ATQ do portador e o Derrubando por 1.5 segundo(s), impedindo ressuscitar.', effect_en: 'To leave, libera the ATK of energia in the derrotado, dealing True Damage equal to 170% of the ATK of the bearer and the Derrubando per 1.5 second(s), impedindo resurrect.', effect_es: 'Un leave, libera el ATQ de energia en el derrotado, dealing Daño Real igual al 170% del ATQ del portador y el Derrubando per 1.5 segundo(s), impedindo resurrect.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR109', rarity: 'ssr', name: 'Fênix de Fogo', name_en: 'Phoenix of Fire', name_es: 'Phoenix de Fire', image: 'img/codex/WnHISmz.webp',
+  { id: 'cSSR109', rarity: 'ssr', name: 'Fênix de Fogo', name_en: 'Phoenix of Fire', name_es: 'Phoenix de Fire', image: 'img/cards/cSSR109.webp',
       effect: 'Ativa a Fúria da Fênix após entrar no campo, causando dano psíquico igual a 20% do ATQ do portador a 3 inimigos aleatórios e queima-os por 15 segundos, causando dano psíquico igual a 15% do ATQ do portador a cada 2,5 segundos. Ativa uma vez a cada 25 segundos. (Quando Queimadura for infligida novamente, ela irá sobrepor o efeito anterior e atualizar a duração.)',
       effect_en: 'Activates the Fúria of the Fênix after enter on the field, dealing damage psíquico equal to 20% of the ATK of the bearer the 3 enemies aleatórios and queima-the per 15 seconds, dealing damage psíquico equal to 15% of the ATK of the bearer the each 2.5 seconds. Activates the time the each 25 seconds. (When Queimadura is infligida again, ela irá sobrepor the effect anterior and atualizar the duration.)',
       effect_es: 'Activa el Fúria del Fênix después de enter en el field, dealing daño psíquico igual al 20% del ATQ del portador el 3 enemigos aleatórios y queima-el per 15 segundo, dealing daño psíquico igual al 15% del ATQ del portador el cada 2.5 segundo. Activa el tiempo el cada 25 segundo. (Cuando Queimadura es infligida again, ela irá sobrepor el efecto anterior y atualizar el duración.)',
@@ -2827,7 +2827,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ativa a Fúria da Fênix após entrar no campo, causando dano psíquico igual a 20% do ATQ do portador a 3 inimigos aleatórios e queima-os por 15 segundos, causando dano psíquico igual a 25.5% do ATQ do portador a cada 2,5 segundos. Ativa uma vez a cada 25 segundos. (Quando Queimadura for infligida novamente, ela irá sobrepor o efeito anterior e atualizar a duração.)', effect_en: 'Activates the Fúria of the Fênix after enter on the field, dealing damage psíquico equal to 20% of the ATK of the bearer the 3 enemies aleatórios and queima-the per 15 seconds, dealing damage psíquico equal to 25.5% of the ATK of the bearer the each 2.5 seconds. Activates the time the each 25 seconds. (When Queimadura is infligida again, ela irá sobrepor the effect anterior and atualizar the duration.)', effect_es: 'Activa el Fúria del Fênix después de enter en el field, dealing daño psíquico igual al 20% del ATQ del portador el 3 enemigos aleatórios y queima-el per 15 segundo, dealing daño psíquico igual al 25.5% del ATQ del portador el cada 2.5 segundo. Activa el tiempo el cada 25 segundo. (Cuando Queimadura es infligida again, ela irá sobrepor el efecto anterior y atualizar el duración.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR110', rarity: 'ssr', name: 'Físico de Touro', name_en: 'Bull Physique', name_es: 'Bull Physique', image: 'img/codex/BncYFIW.webp',
+  { id: 'cSSR110', rarity: 'ssr', name: 'Físico de Touro', name_en: 'Bull Physique', name_es: 'Bull Physique', image: 'img/cards/cSSR110.webp',
       effect: 'Aumenta o PV Máx. em 25%, mas diminui o Ataque em 10%.',
       effect_en: 'Increases HP Max by 25%, mas decreases the Attack by 10%.',
       effect_es: 'Aumenta PV Max por 25%, mas reduce el Ataque por 10%.',
@@ -2853,7 +2853,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta o PV Máx. em 39%, mas diminui o Ataque em 8.25%.', effect_en: 'Increases HP Max by 39%, mas decreases the Attack by 8.25%.', effect_es: 'Aumenta PV Max por 39%, mas reduce el Ataque por 8.25%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR111', rarity: 'ssr', name: 'Flor Mortal', name_en: 'Deadly Flower', name_es: 'Deadly Flower', image: 'img/codex/Prc7OuC.webp',
+  { id: 'cSSR111', rarity: 'ssr', name: 'Flor Mortal', name_en: 'Deadly Flower', name_es: 'Deadly Flower', image: 'img/cards/cSSR111.webp',
       effect: 'Quando você mesmo aplica um efeito de Veneno com sucesso a um inimigo, o inimigo sofre Dano Real adicional igual a 15% do seu PV Máx.. (Dano máximo é limitado em 1.2% do próprio ataque) (Recarga de Ativação: 1 segundo por inimigo)',
       effect_en: 'When você mesmo applies the effect of Poison successfully the enemies, the enemies takes True Damage additional equal to 15% of the their HP Max. (Damage maximum is limitado by 1.2% of the self attack) (Activation CD: 1 second per enemies)',
       effect_es: 'Cuando você mesmo aplica el efecto de Veneno successfully el enemigos, el enemigos toma Daño Real adicional igual al 15% del su PV Max. (Daño máximo es limitado por 1.2% del sí mismo ataque) (Activación CD: 1 segundo per enemigos)',
@@ -2879,7 +2879,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando você mesmo aplica um efeito de Veneno com sucesso a um inimigo, o inimigo sofre Dano Real adicional igual a 22% do seu PV Máx.. (Dano máximo é limitado em 1.9% do próprio ataque) (Recarga de Ativação: 1 segundo por inimigo)', effect_en: 'When você mesmo applies the effect of Poison successfully the enemies, the enemies takes True Damage additional equal to 22% of the their HP Max. (Damage maximum is limitado by 1.9% of the self attack) (Activation CD: 1 second per enemies)', effect_es: 'Cuando você mesmo aplica el efecto de Veneno successfully el enemigos, el enemigos toma Daño Real adicional igual al 22% del su PV Max. (Daño máximo es limitado por 1.9% del sí mismo ataque) (Activación CD: 1 segundo per enemigos)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR112', rarity: 'ssr', name: 'Flor Tóxica', name_en: 'Toxic Flower', name_es: 'Toxic Flower', image: 'img/codex/NcHy1dx.webp',
+  { id: 'cSSR112', rarity: 'ssr', name: 'Flor Tóxica', name_en: 'Toxic Flower', name_es: 'Toxic Flower', image: 'img/cards/cSSR112.webp',
       effect: 'A cada 8s, aumenta o Dano de Veneno causado em 10%, acumulando até 10 vezes.',
       effect_en: 'The each 8s, increases Damage of Poison causado by 10%, stacking up to 10 times.',
       effect_es: 'El cada 8s, aumenta Daño de Veneno causado por 10%, stacking hasta 10 veces.',
@@ -2905,7 +2905,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A cada 8s, aumenta o Dano de Veneno causado em 17%, acumulando até 10 vezes.', effect_en: 'The each 8s, increases Damage of Poison causado by 17%, stacking up to 10 times.', effect_es: 'El cada 8s, aumenta Daño de Veneno causado por 17%, stacking hasta 10 veces.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR113', rarity: 'ssr', name: 'Floresta da Névoa', name_en: 'Forest of Mist', name_es: 'Forest de Mist', image: 'img/codex/Dh1WWiY.webp',
+  { id: 'cSSR113', rarity: 'ssr', name: 'Floresta da Névoa', name_en: 'Forest of Mist', name_es: 'Forest de Mist', image: 'img/cards/cSSR113.webp',
       effect: 'Aumenta a Taxa de Esquiva em 10%, se torna invisível por 10 segundo(s) após entrar.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'Increases Dodge Rate by 10%, if torna invisible per 10 second(s) after enter.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'Aumenta Dodge Rate por 10%, si torna invisible per 10 segundo(s) después de enter.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2931,7 +2931,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a Taxa de Esquiva em 17%, se torna invisível por 13 segundo(s) após entrar.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'Increases Dodge Rate by 17%, if torna invisible per 13 second(s) after enter.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Aumenta Dodge Rate por 17%, si torna invisible per 13 segundo(s) después de enter.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR114', rarity: 'ssr', name: 'Fortaleza Móvel', name_en: 'Mobile Fortress', name_es: 'Mobile Fortress', image: 'img/codex/xPfnZ8t.webp',
+  { id: 'cSSR114', rarity: 'ssr', name: 'Fortaleza Móvel', name_en: 'Mobile Fortress', name_es: 'Mobile Fortress', image: 'img/cards/cSSR114.webp',
       effect: 'A cada 15 segundo(s), faz um Pisoteamento de Guerra, causa Dano igual a 6% do PV Máx. do portador aos inimigos. Se o seu próprio PV for maior que a do inimigo, o inimigo é atordoado por 1 segundo(s). Se for menor ou igual ao do inimigo, há 70% de chance de o atordoar por 1 segundo(s).',
       effect_en: 'The each 15 second(s), does the War Stomp, deals Damage equal to 6% of the HP Max of the bearer to enemies. If the their self HP is greater than the of the enemies, the enemies is stunned per 1 second(s). If is less than or equal to of the enemies, has 70% of chance of the stun per 1 second(s).',
       effect_es: 'El cada 15 segundo(s), hace el War Stomp, causa Daño igual al 6% del PV Max del portador un enemigos. Si el su sí mismo PV es greater than el del enemigos, el enemigos es aturdido per 1 segundo(s). Si es menos than o igual al del enemigos, tiene 70% de probabilidad de el aturdimiento per 1 segundo(s).',
@@ -2957,7 +2957,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A cada 15 segundo(s), faz um Pisoteamento de Guerra, causa Dano igual a 10% do PV Máx. do portador aos inimigos. Se o seu próprio PV for maior que a do inimigo, o inimigo é atordoado por 2 segundo(s). Se for menor ou igual ao do inimigo, há 100% de chance de o atordoar por 1 segundo(s).', effect_en: 'The each 15 second(s), does the War Stomp, deals Damage equal to 10% of the HP Max of the bearer to enemies. If the their self HP is greater than the of the enemies, the enemies is stunned per 2 second(s). If is less than or equal to of the enemies, has 100% of chance of the stun per 1 second(s).', effect_es: 'El cada 15 segundo(s), hace el War Stomp, causa Daño igual al 10% del PV Max del portador un enemigos. Si el su sí mismo PV es greater than el del enemigos, el enemigos es aturdido per 2 segundo(s). Si es menos than o igual al del enemigos, tiene 100% de probabilidad de el aturdimiento per 1 segundo(s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR115', rarity: 'ssr', name: 'Garra do Dragão', name_en: 'Dragon\'s Claw', name_es: 'Dragon\'s Claw', image: 'img/codex/1oxaaa0.webp',
+  { id: 'cSSR115', rarity: 'ssr', name: 'Garra do Dragão', name_en: 'Dragon\'s Claw', name_es: 'Dragon\'s Claw', image: 'img/cards/cSSR115.webp',
       effect: 'Quando o PV estiver abaixo de 30%, lança uma energia em forma de dragão para infligir Derrubada em inimigos por perto por 1,5 segundo, remove efeitos de Controle do portador e ganha um efeito de Superproteção, aumentando o ATQ em 12% por 8 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'When the HP is below 30%, casts the energia in forma of dragão for inflict Knockdown in enemies per perto per 1.5 second, removes effects of Control of the bearer and gains the effect of Overprotection, aumentando ATK by 12% per 8 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'Cuando el PV es por debajo 30%, lanza el energia en forma de dragão para inflige Knockdown en enemigos per perto per 1.5 segundo, elimina efecto de Control del portador y gana el efecto de Overprotection, aumentando ATQ por 12% per 8 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -2983,7 +2983,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o PV estiver abaixo de 30%, lança uma energia em forma de dragão para infligir Derrubada em inimigos por perto por 1,5 segundo, remove efeitos de Controle do portador e ganha um efeito de Superproteção, aumentando o ATQ em 20.4% por 11.5 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'When the HP is below 30%, casts the energia in forma of dragão for inflict Knockdown in enemies per perto per 1.5 second, removes effects of Control of the bearer and gains the effect of Overprotection, aumentando ATK by 20.4% per 11.5 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Cuando el PV es por debajo 30%, lanza el energia en forma de dragão para inflige Knockdown en enemigos per perto per 1.5 segundo, elimina efecto de Control del portador y gana el efecto de Overprotection, aumentando ATQ por 20.4% per 11.5 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR116', rarity: 'ssr', name: 'Giro do Remo', name_en: 'Oar Spin', name_es: 'Oar Spin', image: 'img/codex/JMojNWT.webp',
+  { id: 'cSSR116', rarity: 'ssr', name: 'Giro do Remo', name_en: 'Oar Spin', name_es: 'Oar Spin', image: 'img/cards/cSSR116.webp',
       effect: 'Taxa de Aparar +12%. Após ativar Aparar, recupera instantaneamente 5% do PV Máx e aumenta a Redução de Dano Físico e Redução de Dano Psíquico em 8% por 10s, acumulando até 5 vezes. REC de Ativação: 2s.',
       effect_en: 'Parry Rate +12%. After activate Parry, recupera instantaneamente 5% of the HP Máx and increases Reduction of Physical Damage and Reduction of Mental Damage by 8% per 10s, stacking up to 5 times. Activation CD: 2s.',
       effect_es: 'Parry Rate +12%. Después de activa Parry, recupera instantaneamente 5% del PV Máx y aumenta Reduction de Daño Físico y Reduction de Daño Mental por 8% per 10s, stacking hasta 5 veces. Activación CD: 2s.',
@@ -3009,7 +3009,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Taxa de Aparar +20.4%. Após ativar Aparar, recupera instantaneamente 7.1% do PV Máx e aumenta a Redução de Dano Físico e Redução de Dano Psíquico em 13.6% por 10s, acumulando até 5 vezes. REC de Ativação: 2s.', effect_en: 'Parry Rate +20.4%. After activate Parry, recupera instantaneamente 7.1% of the HP Máx and increases Reduction of Physical Damage and Reduction of Mental Damage by 13.6% per 10s, stacking up to 5 times. Activation CD: 2s.', effect_es: 'Parry Rate +20.4%. Después de activa Parry, recupera instantaneamente 7.1% del PV Máx y aumenta Reduction de Daño Físico y Reduction de Daño Mental por 13.6% per 10s, stacking hasta 5 veces. Activación CD: 2s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR117', rarity: 'ssr', name: 'Golpe de Meteoro', name_en: 'Meteor Strike', name_es: 'Meteor Strike', image: 'img/codex/va2oCGe.webp',
+  { id: 'cSSR117', rarity: 'ssr', name: 'Golpe de Meteoro', name_en: 'Meteor Strike', name_es: 'Meteor Strike', image: 'img/cards/cSSR117.webp',
       effect: '20 segundos após o início da batalha, libera um meteoro em 1 inimigo aleatório, que explode após aterrissar, causando Dano Físico igual a 250% do ATQ do portador aos inimigos no alcance da explosão e os atordoando por 3 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: '20 seconds after the início of the battle, libera the meteoro by 1 enemies random, that explode after aterrissar, dealing Physical Damage equal to 250% of the ATK of the bearer to enemies in the alcance of the explosão and the atordoando per 3 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: '20 segundo después de el início del batalla, libera el meteoro por 1 enemigos random, que explode después de aterrissar, dealing Daño Físico igual al 250% del ATQ del portador un enemigos en el alcance del explosão y el atordoando per 3 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -3035,7 +3035,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: '20 segundos após o início da batalha, libera um meteoro em 1 inimigo aleatório, que explode após aterrissar, causando Dano Físico igual a 320% do ATQ do portador aos inimigos no alcance da explosão e os atordoando por 5 segundo(s).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: '20 seconds after the início of the battle, libera the meteoro by 1 enemies random, that explode after aterrissar, dealing Physical Damage equal to 320% of the ATK of the bearer to enemies in the alcance of the explosão and the atordoando per 5 second(s).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: '20 segundo después de el início del batalla, libera el meteoro por 1 enemigos random, que explode después de aterrissar, dealing Daño Físico igual al 320% del ATQ del portador un enemigos en el alcance del explosão y el atordoando per 5 segundo(s).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR118', rarity: 'ssr', name: 'Golpe do Dragão Arrependido', name_en: 'Repentant Dragon Strike', name_es: 'Repentant Dragon Strike', image: 'img/codex/dbkBDfc.webp',
+  { id: 'cSSR118', rarity: 'ssr', name: 'Golpe do Dragão Arrependido', name_en: 'Repentant Dragon Strike', name_es: 'Repentant Dragon Strike', image: 'img/cards/cSSR118.webp',
       effect: 'Quando o próprio PV estiver acima de 50%, os efeitos de cura recebida são reduzidos em 80%. Quando o próprio PV estiver abaixo de 50%. A Taxa de Crít. aumenta em 18% e o Dano Crít. aumenta em 30%. (Efeitos não podem ser purificados ou dissipados)',
       effect_en: 'When the self HP is above 50%, the effects of healing received are reduzidos by 80%. When the self HP is below 50%. The Crit Rate increases by 18% and the Crit DMG increases by 30%. (Effects in the can be purificados or dissipados)',
       effect_es: 'Cuando el sí mismo PV es por encima 50%, el efecto de curación received son reduzidos por 80%. Cuando el sí mismo PV es por debajo 50%. El Tasa de Crít. aumenta por 18% y el Crítico DMG aumenta por 30%. (Efecto en el puede ser purificados o dissipados)',
@@ -3061,7 +3061,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o próprio PV estiver acima de 50%, os efeitos de cura recebida são reduzidos em 80%. Quando o próprio PV estiver abaixo de 50%. A Taxa de Crít. aumenta em 32% e o Dano Crít. aumenta em 51%. (Efeitos não podem ser purificados ou dissipados)', effect_en: 'When the self HP is above 50%, the effects of healing received are reduzidos by 80%. When the self HP is below 50%. The Crit Rate increases by 32% and the Crit DMG increases by 51%. (Effects in the can be purificados or dissipados)', effect_es: 'Cuando el sí mismo PV es por encima 50%, el efecto de curación received son reduzidos por 80%. Cuando el sí mismo PV es por debajo 50%. El Tasa de Crít. aumenta por 32% y el Crítico DMG aumenta por 51%. (Efecto en el puede ser purificados o dissipados)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR119', rarity: 'ssr', name: 'Guardião Dourado', name_en: 'Golden Guardian', name_es: 'Golden Guardian', image: 'img/codex/cOaQTXE.webp',
+  { id: 'cSSR119', rarity: 'ssr', name: 'Guardião Dourado', name_en: 'Golden Guardian', name_es: 'Golden Guardian', image: 'img/cards/cSSR119.webp',
       effect: 'Ganha Imunidade para si mesmo para um dano letal, então aumenta a Redução de Dano Letal em 200%, mas reduz também o Dano Letal autoinfligido em 200%. Dura 6 segundo(s). (Pode ser dissipado) (Ativa 1 vez por batalha)',
       effect_en: 'Gains Immunity for self for the damage letal, então increases Damage Reduction Letal by 200%, mas reduces também the Damage Letal autoinfligido by 200%. Lasts 6 second(s). (Can be dissipado) (Activates 1 time per battle)',
       effect_es: 'Gana Immunity para sí mismo para el daño letal, então aumenta Reducción de Daño Letal por 200%, mas reduce também el Daño Letal autoinfligido por 200%. Dura 6 segundo(s). (Puede ser dissipado) (Activa 1 tiempo per batalla)',
@@ -3087,7 +3087,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ganha Imunidade para si mesmo para um dano letal, então aumenta a Redução de Dano Letal em 200%, mas reduz também o Dano Letal autoinfligido em 200%. Dura 9.5 segundo(s). (Pode ser dissipado) (Ativa 1 vez por batalha)', effect_en: 'Gains Immunity for self for the damage letal, então increases Damage Reduction Letal by 200%, mas reduces também the Damage Letal autoinfligido by 200%. Lasts 9.5 second(s). (Can be dissipado) (Activates 1 time per battle)', effect_es: 'Gana Immunity para sí mismo para el daño letal, então aumenta Reducción de Daño Letal por 200%, mas reduce também el Daño Letal autoinfligido por 200%. Dura 9.5 segundo(s). (Puede ser dissipado) (Activa 1 tiempo per batalla)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR120', rarity: 'ssr', name: 'Guerreiro da Beleza', name_en: 'Beauty Warrior', name_es: 'Beauty Warrior', image: 'img/codex/is1qu6I.webp',
+  { id: 'cSSR120', rarity: 'ssr', name: 'Guerreiro da Beleza', name_en: 'Beauty Warrior', name_es: 'Beauty Warrior', image: 'img/cards/cSSR120.webp',
       effect: 'Duração de Veneno +30%. Envenena o inimigo, reduzindo a cura recebida em 30%. Dura 10s. (Não acumula.)',
       effect_en: 'Duration of Poison +30%. Envenena the enemies, reduzindo the healing received by 30%. Lasts 10s. (In the acumula.)',
       effect_es: 'Duración de Veneno +30%. Envenena el enemigos, reduzindo el curación received por 30%. Dura 10s. (En el acumula.)',
@@ -3113,7 +3113,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Duração de Veneno +47.5%. Envenena o inimigo, reduzindo a cura recebida em 44%. Dura 10s. (Não acumula.)', effect_en: 'Duration of Poison +47.5%. Envenena the enemies, reduzindo the healing received by 44%. Lasts 10s. (In the acumula.)', effect_es: 'Duración de Veneno +47.5%. Envenena el enemigos, reduzindo el curación received por 44%. Dura 10s. (En el acumula.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR121', rarity: 'ssr', name: 'Herança da Excalibur', name_en: 'Excalibur\'s Legacy', name_es: 'Excalibur\'s Legacy', image: 'img/codex/L2WJBtO.webp',
+  { id: 'cSSR121', rarity: 'ssr', name: 'Herança da Excalibur', name_en: 'Excalibur\'s Legacy', name_es: 'Excalibur\'s Legacy', image: 'img/cards/cSSR121.webp',
       effect: 'Taxa de Crít. aumentada em 10%, Dano Crít. aumentado em 20%.',
       effect_en: 'Crit Rate increased by 10%, Crit DMG increased by 20%.',
       effect_es: 'Tasa de Crít. aumentado por 10%, Crítico DMG aumentado por 20%.',
@@ -3139,7 +3139,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Taxa de Crít. aumentada em 18%, Dano Crít. aumentado em 35%.', effect_en: 'Crit Rate increased by 18%, Crit DMG increased by 35%.', effect_es: 'Tasa de Crít. aumentado por 18%, Crítico DMG aumentado por 35%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR122', rarity: 'ssr', name: 'Inquebrável', name_en: 'Unbreakable', name_es: 'Unbreakable', image: 'img/codex/1zaQw3L.webp',
+  { id: 'cSSR122', rarity: 'ssr', name: 'Inquebrável', name_en: 'Unbreakable', name_es: 'Unbreakable', image: 'img/cards/cSSR122.webp',
       effect: 'Após entrar em campo, ganha 5 acúmulos de buffs. Cada acúmulo aumenta o próprio Dano Físico em 6%. Depois, perde 1 acúmulo do efeito a cada 5s (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'After enter in field, gains 5 stacks of buffs. Each stacks increases self Physical Damage by 6%. After, perde 1 stacks of the effect the each 5s (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'Después de enter en field, gana 5 stacks de buffs. Cada stacks aumenta sí mismo Daño Físico por 6%. Después de, perde 1 stacks del efecto el cada 5s (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -3165,7 +3165,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após entrar em campo, ganha 5 acúmulos de buffs. Cada acúmulo aumenta o próprio Dano Físico em 10.2%. Depois, perde 1 acúmulo do efeito a cada 5s (indissipável).(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter in field, gains 5 stacks of buffs. Each stacks increases self Physical Damage by 10.2%. After, perde 1 stacks of the effect the each 5s (indissipável).(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter en field, gana 5 stacks de buffs. Cada stacks aumenta sí mismo Daño Físico por 10.2%. Después de, perde 1 stacks del efecto el cada 5s (indissipável).(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR123', rarity: 'ssr', name: 'Intenção Assassina Oculta', name_en: 'Hidden Killing Intent', name_es: 'Hidden Killing Intent', image: 'img/codex/RMHEqul.webp',
+  { id: 'cSSR123', rarity: 'ssr', name: 'Intenção Assassina Oculta', name_en: 'Hidden Killing Intent', name_es: 'Hidden Killing Intent', image: 'img/cards/cSSR123.webp',
       effect: 'A cada 2 segundos, aumenta o Dano Físico e o Dano Psíquico em 6%, até um máximo de 30%. Esse buff é removido sempre que perder PV.',
       effect_en: 'The each 2 seconds, increases Physical Damage and the Mental Damage by 6%, up to the maximum of 30%. This buff is removido sempre that perder HP.',
       effect_es: 'El cada 2 segundo, aumenta Daño Físico y el Daño Mental por 6%, hasta el máximo de 30%. Esto buff es removido sempre que perder PV.',
@@ -3191,7 +3191,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A cada 2 segundos, aumenta o Dano Físico e o Dano Psíquico em 9.5%, até um máximo de 47.5%. Esse buff é removido sempre que perder PV.', effect_en: 'The each 2 seconds, increases Physical Damage and the Mental Damage by 9.5%, up to the maximum of 47.5%. This buff is removido sempre that perder HP.', effect_es: 'El cada 2 segundo, aumenta Daño Físico y el Daño Mental por 9.5%, hasta el máximo de 47.5%. Esto buff es removido sempre que perder PV.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR124', rarity: 'ssr', name: 'Intenção Assassina Velada', name_en: 'Veiled Killing Intent', name_es: 'Veiled Killing Intent', image: 'img/codex/ElLdLTR.webp',
+  { id: 'cSSR124', rarity: 'ssr', name: 'Intenção Assassina Velada', name_en: 'Veiled Killing Intent', name_es: 'Veiled Killing Intent', image: 'img/cards/cSSR124.webp',
       effect: 'A Taxa de Esquiva aumenta em 12%, com 35% de chance de ativar Invisibilidade por 1,5 segundo após uma esquiva com sucesso. (REC de Ativação: 7 segundo(s))',
       effect_en: 'The Dodge Rate increases by 12%, with 35% of chance of activate Invisibility per 1.5 second after the dodge successfully. (Activation CD: 7 second(s))',
       effect_es: 'El Dodge Rate aumenta por 12%, con 35% de probabilidad de activa Invisibility per 1.5 segundo después de el dodge successfully. (Activación CD: 7 segundo(s))',
@@ -3217,7 +3217,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A Taxa de Esquiva aumenta em 19%, com 35% de chance de ativar Invisibilidade por 1,5 segundo após uma esquiva com sucesso. (REC de Ativação: 5 segundo(s))', effect_en: 'The Dodge Rate increases by 19%, with 35% of chance of activate Invisibility per 1.5 second after the dodge successfully. (Activation CD: 5 second(s))', effect_es: 'El Dodge Rate aumenta por 19%, con 35% de probabilidad de activa Invisibility per 1.5 segundo después de el dodge successfully. (Activación CD: 5 segundo(s))', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR125', rarity: 'ssr', name: 'Lança Dourada', name_en: 'Golden Spear', name_es: 'Golden Lanza', image: 'img/codex/4PZzLVQ.webp',
+  { id: 'cSSR125', rarity: 'ssr', name: 'Lança Dourada', name_en: 'Golden Spear', name_es: 'Golden Lanza', image: 'img/cards/cSSR125.webp',
       effect: 'Quebra de Armadura +15%. Ao causar dano, tem 30% de chance de causar adicionalmente Dano Físico igual a 100% da DEF Fís. do inimigo (REC de Ativação: 1s).',
       effect_en: 'Armor Break +15%. To deal damage, has 30% of chance of deal additionally Physical Damage equal to 100% of the P.DEF of the enemies (Activation CD: 1s).',
       effect_es: 'Armadura Break +15%. Un causa daño, tiene 30% de probabilidad de causa adicional Daño Físico igual al 100% del P-DEF del enemigos (Activación CD: 1s).',
@@ -3243,7 +3243,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quebra de Armadura +25.5%. Ao causar dano, tem 30% de chance de causar adicionalmente Dano Físico igual a 170% da DEF Fís. do inimigo (REC de Ativação: 1s).', effect_en: 'Armor Break +25.5%. To deal damage, has 30% of chance of deal additionally Physical Damage equal to 170% of the P.DEF of the enemies (Activation CD: 1s).', effect_es: 'Armadura Break +25.5%. Un causa daño, tiene 30% de probabilidad de causa adicional Daño Físico igual al 170% del P-DEF del enemigos (Activación CD: 1s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR126', rarity: 'ssr', name: 'Libertação', name_en: 'Liberation', name_es: 'Liberation', image: 'img/codex/6fUtGb5.webp',
+  { id: 'cSSR126', rarity: 'ssr', name: 'Libertação', name_en: 'Liberation', name_es: 'Liberation', image: 'img/cards/cSSR126.webp',
       effect: 'Quando atordoado, purifica todos os efeitos de Atordoamento em si, restaura PV igual a 32.5% do ATQ e fica imune a Atordoamento por 3s. REC de Ativação: 6.2s.',
       effect_en: 'When stunned, purifica all the effects of Stun in si, restores HP equal to 32.5% of the ATK and fica immune the Stun per 3s. Activation CD: 6.2s.',
       effect_es: 'Cuando aturdido, purifica todos el efecto de Aturdimiento en si, restaura PV igual al 32.5% del ATQ y fica immune el Aturdimiento per 3s. Activación CD: 6.2s.',
@@ -3269,7 +3269,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando atordoado, purifica todos os efeitos de Atordoamento em si, restaura PV igual a 50% do ATQ e fica imune a Atordoamento por 3s. REC de Ativação: 4s.', effect_en: 'When stunned, purifica all the effects of Stun in si, restores HP equal to 50% of the ATK and fica immune the Stun per 3s. Activation CD: 4s.', effect_es: 'Cuando aturdido, purifica todos el efecto de Aturdimiento en si, restaura PV igual al 50% del ATQ y fica immune el Aturdimiento per 3s. Activación CD: 4s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR127', rarity: 'ssr', name: 'Mariposa Voando para a Chama', name_en: 'Moth Flying to the Flame', name_es: 'Moth Volando un el Flame', image: 'img/codex/iMsmVtg.webp',
+  { id: 'cSSR127', rarity: 'ssr', name: 'Mariposa Voando para a Chama', name_en: 'Moth Flying to the Flame', name_es: 'Moth Volando un el Flame', image: 'img/cards/cSSR127.webp',
       effect: 'Quando um inimigo se torna invisível, quebra o seu efeito de invisibilidade e Atordoa o inimigo por 5 segundos. Durante o efeito desse Atordoamento, aumenta o Dano Físico e o Dano Psíquico sofrido pelo inimigo em 9%. (Ativa uma vez a cada 25 segundos, o efeito não pode ser esquivado)',
       effect_en: 'When the enemies if torna invisible, quebra the their effect of invisibility and Stuns the enemies per 5 seconds. During the effect desse Stun, increases Physical Damage and the Mental Damage sofrido pelo enemies by 9%. (Activates the time the each 25 seconds, the effect in the can be esquivado)',
       effect_es: 'Cuando el enemigos si torna invisible, quebra el su efecto de invisibility y Aturdimiento el enemigos per 5 segundo. Durante el efecto desse Aturdimiento, aumenta Daño Físico y el Daño Mental sofrido pelo enemigos por 9%. (Activa el tiempo el cada 25 segundo, el efecto en el puede ser esquivado)',
@@ -3295,7 +3295,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando um inimigo se torna invisível, quebra o seu efeito de invisibilidade e Atordoa o inimigo por 5 segundos. Durante o efeito desse Atordoamento, aumenta o Dano Físico e o Dano Psíquico sofrido pelo inimigo em 14.6%. (Ativa uma vez a cada 25 segundos, o efeito não pode ser esquivado)', effect_en: 'When the enemies if torna invisible, quebra the their effect of invisibility and Stuns the enemies per 5 seconds. During the effect desse Stun, increases Physical Damage and the Mental Damage sofrido pelo enemies by 14.6%. (Activates the time the each 25 seconds, the effect in the can be esquivado)', effect_es: 'Cuando el enemigos si torna invisible, quebra el su efecto de invisibility y Aturdimiento el enemigos per 5 segundo. Durante el efecto desse Aturdimiento, aumenta Daño Físico y el Daño Mental sofrido pelo enemigos por 14.6%. (Activa el tiempo el cada 25 segundo, el efecto en el puede ser esquivado)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR128', rarity: 'ssr', name: 'Melodia da Sirene', name_en: 'Siren\'s Melody', name_es: 'Siren\'s Melody', image: 'img/codex/6QXF6aW.webp',
+  { id: 'cSSR128', rarity: 'ssr', name: 'Melodia da Sirene', name_en: 'Siren\'s Melody', name_es: 'Siren\'s Melody', image: 'img/cards/cSSR128.webp',
       effect: 'Ao atordoar um inimigo, reduz a Redução de Dano Físico e Dano Psíquico do alvo em 10% por 6s. Quando qualquer inimigo usa habilidades de recarga/ciclo/ativadas passivamente, Sorento tem 25% de chance de causar 30% do próprio ATQ como Dano Psíquico a ele e atordoá-lo por 1,5s.',
       effect_en: 'To stun the enemies, reduces the Reduction of Physical Damage and Mental Damage of the target by 10% per 6s. When any enemies uses skills of cooldown/ciclo/ativadas passivamente, Sorento has 25% of chance of deal 30% of the self ATK como Mental Damage the ele and atordoá-lo per 1.5s.',
       effect_es: 'Un aturdimiento el enemigos, reduce el Reduction de Daño Físico y Daño Mental del objetivo por 10% per 6s. Cuando cualquier enemigos uses skills de tiempo de recarga/ciclo/ativadas passivamente, Sorento tiene 25% de probabilidad de causa 30% del sí mismo ATQ como Daño Mental el ele y atordoá-lo per 1.5s.',
@@ -3321,7 +3321,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao atordoar um inimigo, reduz a Redução de Dano Físico e Dano Psíquico do alvo em 17% por 6s. Quando qualquer inimigo usa habilidades de recarga/ciclo/ativadas passivamente, Sorento tem 25% de chance de causar 30% do próprio ATQ como Dano Psíquico a ele e atordoá-lo por 1,5s.', effect_en: 'To stun the enemies, reduces the Reduction of Physical Damage and Mental Damage of the target by 17% per 6s. When any enemies uses skills of cooldown/ciclo/ativadas passivamente, Sorento has 25% of chance of deal 30% of the self ATK como Mental Damage the ele and atordoá-lo per 1.5s.', effect_es: 'Un aturdimiento el enemigos, reduce el Reduction de Daño Físico y Daño Mental del objetivo por 17% per 6s. Cuando cualquier enemigos uses skills de tiempo de recarga/ciclo/ativadas passivamente, Sorento tiene 25% de probabilidad de causa 30% del sí mismo ATQ como Daño Mental el ele y atordoá-lo per 1.5s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR129', rarity: 'ssr', name: 'Melodia Etérea', name_en: 'Ethereal Melody', name_es: 'Ethereal Melody', image: 'img/codex/GH5CL1R.webp',
+  { id: 'cSSR129', rarity: 'ssr', name: 'Melodia Etérea', name_en: 'Ethereal Melody', name_es: 'Ethereal Melody', image: 'img/cards/cSSR129.webp',
       effect: 'Taxa de Esquiva +11%. Após esquivar com sucesso, ganha 90 de Ira. REC de Ativação: 7s.',
       effect_en: 'Dodge Rate +11%. After esquivar successfully, gains 90 of Rage. Activation CD: 7s.',
       effect_es: 'Dodge Rate +11%. Después de esquivar successfully, gana 90 de Rage. Activación CD: 7s.',
@@ -3347,7 +3347,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Taxa de Esquiva +18%. Após esquivar com sucesso, ganha 160 de Ira. REC de Ativação: 5s.', effect_en: 'Dodge Rate +18%. After esquivar successfully, gains 160 of Rage. Activation CD: 5s.', effect_es: 'Dodge Rate +18%. Después de esquivar successfully, gana 160 de Rage. Activación CD: 5s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR130', rarity: 'ssr', name: 'O Observador', name_en: 'The Observer', name_es: 'El Observer', image: 'img/codex/rRkToBH.webp',
+  { id: 'cSSR130', rarity: 'ssr', name: 'O Observador', name_en: 'The Observer', name_es: 'El Observer', image: 'img/cards/cSSR130.webp',
       effect: 'Aumenta a própria cura recebida em 30%, mas o próprio dano sofrido será compartilhado para 2 aliados aleatórios em 40%',
       effect_en: 'Increases self healing received by 30%, mas the self damage taken will be compartilhado for 2 allies aleatórios by 40%',
       effect_es: 'Aumenta sí mismo curación received por 30%, mas el sí mismo daño tomado va un ser compartilhado para 2 aliados aleatórios por 40%',
@@ -3373,7 +3373,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a própria cura recebida em 44%, mas o próprio dano sofrido será compartilhado para 2 aliados aleatórios em 54%', effect_en: 'Increases self healing received by 44%, mas the self damage taken will be compartilhado for 2 allies aleatórios by 54%', effect_es: 'Aumenta sí mismo curación received por 44%, mas el sí mismo daño tomado va un ser compartilhado para 2 aliados aleatórios por 54%', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR131', rarity: 'ssr', name: 'O Poder do Chakra', name_en: 'The Power of Chakra', name_es: 'El Power de Chakra', image: 'img/codex/AVhhH9v.webp',
+  { id: 'cSSR131', rarity: 'ssr', name: 'O Poder do Chakra', name_en: 'The Power of Chakra', name_es: 'El Power de Chakra', image: 'img/cards/cSSR131.webp',
       effect: 'Ao ganhar um escudo, recupera PV igual a 60% do ATQ. Se o PV estiver cheio, a cura excedente será convertida em escudo. Dura 8s (REC de Ativação: 0,5s).',
       effect_en: 'To gain the shield, recovers HP equal to 60% of the ATK. If the HP is full, the healing excess will be converted in shield. Lasts 8s (Activation CD: 0.5s).',
       effect_es: 'Un gana el escudo, recupera PV igual al 60% del ATQ. Si el PV es full, el curación excess va un ser converted en escudo. Dura 8s (Activación CD: 0.5s).',
@@ -3399,7 +3399,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao ganhar um escudo, recupera PV igual a 95% do ATQ. Se o PV estiver cheio, a cura excedente será convertida em escudo. Dura 8s (REC de Ativação: 0,5s).', effect_en: 'To gain the shield, recovers HP equal to 95% of the ATK. If the HP is full, the healing excess will be converted in shield. Lasts 8s (Activation CD: 0.5s).', effect_es: 'Un gana el escudo, recupera PV igual al 95% del ATQ. Si el PV es full, el curación excess va un ser converted en escudo. Dura 8s (Activación CD: 0.5s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR132', rarity: 'ssr', name: 'Ondas do Inferno', name_en: 'Hell Waves', name_es: 'Hell Waves', image: 'img/codex/fZNrJSD.webp',
+  { id: 'cSSR132', rarity: 'ssr', name: 'Ondas do Inferno', name_en: 'Hell Waves', name_es: 'Hell Waves', image: 'img/cards/cSSR132.webp',
       effect: 'Quando uma habilidade tem como alvo todos os inimigos ou mais de 5 alvos, a Habilidade Suprema também inflige 16% de Dano de Roubo de Vida.',
       effect_en: 'When the skill has como target all the enemies or mais of 5 targets, the Ultimate Skill também inflicts 16% of Damage of Roubo of HP.',
       effect_es: 'Cuando el skill tiene como objetivo todos el enemigos o mais de 5 objetivo, el Habilidad Suprema também inflige 16% de Daño de Roubo de PV.',
@@ -3425,7 +3425,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando uma habilidade tem como alvo todos os inimigos ou mais de 5 alvos, a Habilidade Suprema também inflige 27% de Dano de Roubo de Vida.', effect_en: 'When the skill has como target all the enemies or mais of 5 targets, the Ultimate Skill também inflicts 27% of Damage of Roubo of HP.', effect_es: 'Cuando el skill tiene como objetivo todos el enemigos o mais de 5 objetivo, el Habilidad Suprema também inflige 27% de Daño de Roubo de PV.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR133', rarity: 'ssr', name: 'Oração de Freya', name_en: 'Freya\'s Prayer', name_es: 'Freya\'s Prayer', image: 'img/codex/8QGwZiQ.webp',
+  { id: 'cSSR133', rarity: 'ssr', name: 'Oração de Freya', name_en: 'Freya\'s Prayer', name_es: 'Freya\'s Prayer', image: 'img/cards/cSSR133.webp',
       effect: 'Aumenta os próprios efeitos de cura em 20% e Taxa de Cura Crít. em 30%.',
       effect_en: 'Increases the próprios effects of healing by 20% and Taxa of Healing Crit by 30%.',
       effect_es: 'Aumenta el próprios efecto de curación por 20% y Taxa de Curación Crítico por 30%.',
@@ -3451,7 +3451,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta os próprios efeitos de cura em 34% e Taxa de Cura Crít. em 51%.', effect_en: 'Increases the próprios effects of healing by 34% and Taxa of Healing Crit by 51%.', effect_es: 'Aumenta el próprios efecto de curación por 34% y Taxa de Curación Crítico por 51%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR134', rarity: 'ssr', name: 'Outra Dimensão', name_en: 'Another Dimension', name_es: 'Otro Dimension', image: 'img/codex/Dq35D0C.webp',
+  { id: 'cSSR134', rarity: 'ssr', name: 'Outra Dimensão', name_en: 'Another Dimension', name_es: 'Otro Dimension', image: 'img/cards/cSSR134.webp',
       effect: 'Após sair da Outra Dimensão, ganha o efeito Estabilidade por 5 segundo(s) e recupera 100 de Ira',
       effect_en: 'After leave of the Outra Dimensão, gains the effect Estabilidade per 5 second(s) and recupera 100 of Rage',
       effect_es: 'Después de leave del Outra Dimensão, gana el efecto Estabilidade per 5 segundo(s) y recupera 100 de Rage',
@@ -3477,7 +3477,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após sair da Outra Dimensão, ganha o efeito Estabilidade por 8.5 segundo(s) e recupera 170 de Ira', effect_en: 'After leave of the Outra Dimensão, gains the effect Estabilidade per 8.5 second(s) and recupera 170 of Rage', effect_es: 'Después de leave del Outra Dimensão, gana el efecto Estabilidade per 8.5 segundo(s) y recupera 170 de Rage', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR135', rarity: 'ssr', name: 'Poder Absoluto', name_en: 'Absolute Power', name_es: 'Absolute Power', image: 'img/codex/93fGQ45.webp',
+  { id: 'cSSR135', rarity: 'ssr', name: 'Poder Absoluto', name_en: 'Absolute Power', name_es: 'Absolute Power', image: 'img/cards/cSSR135.webp',
       effect: 'VEL de Habilidade +20%. Após usar uma habilidade com recuperação, ganha 4% de Bônus de Dano Físico e Bônus de Dano Psíquico por 10s. Máx. de 3 acúmulos.',
       effect_en: 'VEL of Skill +20%. After use the skill with recuperação, gains 4% of Bônus of Physical Damage and Bônus of Mental Damage per 10s. Max of 3 stacks.',
       effect_es: 'VEL de Skill +20%. Después de use el skill con recuperação, gana 4% de Bônus de Daño Físico y Bônus de Daño Mental per 10s. Max de 3 stacks.',
@@ -3503,7 +3503,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'VEL de Habilidade +34%. Após usar uma habilidade com recuperação, ganha 6.8% de Bônus de Dano Físico e Bônus de Dano Psíquico por 10s. Máx. de 3 acúmulos.', effect_en: 'VEL of Skill +34%. After use the skill with recuperação, gains 6.8% of Bônus of Physical Damage and Bônus of Mental Damage per 10s. Max of 3 stacks.', effect_es: 'VEL de Skill +34%. Después de use el skill con recuperação, gana 6.8% de Bônus de Daño Físico y Bônus de Daño Mental per 10s. Max de 3 stacks.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR136', rarity: 'ssr', name: 'Poder da Nevasca e da Tempestade', name_en: 'Power of Blizzard and Storm', name_es: 'Power de Blizzard y Storm', image: 'img/codex/WbTxrHx.webp',
+  { id: 'cSSR136', rarity: 'ssr', name: 'Poder da Nevasca e da Tempestade', name_en: 'Power of Blizzard and Storm', name_es: 'Power de Blizzard y Storm', image: 'img/cards/cSSR136.webp',
       effect: 'A cada 2,5s, causa 5% do próprio PV Máx como Dano Físico a todos os inimigos.',
       effect_en: 'The each 2.5s, deals 5% of the self HP Máx como Physical Damage the all the enemies.',
       effect_es: 'El cada 2.5s, causa 5% del sí mismo PV Máx como Daño Físico el todos el enemigos.',
@@ -3529,7 +3529,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A cada 2,5s, causa 8.5% do próprio PV Máx como Dano Físico a todos os inimigos.', effect_en: 'The each 2.5s, deals 8.5% of the self HP Máx como Physical Damage the all the enemies.', effect_es: 'El cada 2.5s, causa 8.5% del sí mismo PV Máx como Daño Físico el todos el enemigos.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR137', rarity: 'ssr', name: 'Poder das Estrelas', name_en: 'Star Power', name_es: 'Star Power', image: 'img/codex/Q3hLRYc.webp',
+  { id: 'cSSR137', rarity: 'ssr', name: 'Poder das Estrelas', name_en: 'Star Power', name_es: 'Star Power', image: 'img/cards/cSSR137.webp',
       effect: 'Ao atacar um inimigo atordoado, o Dano Crítico causado é aumentado em 80%.',
       effect_en: 'To atacar the enemies stunned, the Crit Damage causado is increased by 80%.',
       effect_es: 'Un atacar el enemigos aturdido, el Daño Crít. causado es aumentado por 80%.',
@@ -3555,7 +3555,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao atacar um inimigo atordoado, o Dano Crítico causado é aumentado em 150%.', effect_en: 'To atacar the enemies stunned, the Crit Damage causado is increased by 150%.', effect_es: 'Un atacar el enemigos aturdido, el Daño Crít. causado es aumentado por 150%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR138', rarity: 'ssr', name: 'Poder de Gêmeos', name_en: 'Gemini Power', name_es: 'Gemini Power', image: 'img/codex/tGiY1zR.webp',
+  { id: 'cSSR138', rarity: 'ssr', name: 'Poder de Gêmeos', name_en: 'Gemini Power', name_es: 'Gemini Power', image: 'img/cards/cSSR138.webp',
       effect: 'Aumenta o ataque em 15%, mas a duração do próprio Atordoamento é estendido em 40%',
       effect_en: 'Increases attack by 15%, mas the duration of the self Stun is estendido by 40%',
       effect_es: 'Aumenta ataque por 15%, mas el duración del sí mismo Aturdimiento es estendido por 40%',
@@ -3581,7 +3581,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta o ataque em 25.5%, mas a duração do próprio Atordoamento é estendido em 54%', effect_en: 'Increases attack by 25.5%, mas the duration of the self Stun is estendido by 54%', effect_es: 'Aumenta ataque por 25.5%, mas el duración del sí mismo Aturdimiento es estendido por 54%', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR139', rarity: 'ssr', name: 'Poder de Sekishiki', name_en: 'Sekishiki Power', name_es: 'Sekishiki Power', image: 'img/codex/zgBRce2.webp',
+  { id: 'cSSR139', rarity: 'ssr', name: 'Poder de Sekishiki', name_en: 'Sekishiki Power', name_es: 'Sekishiki Power', image: 'img/cards/cSSR139.webp',
       effect: 'Se a Habilidade Suprema for um ataque em todo o campo ou se mirar 5 ou mais inimigos, aumenta seu Dano em 32%.',
       effect_en: 'If the Ultimate Skill is the attack in todo the field or if aim 5 or mais enemies, increases their Damage to 32%.',
       effect_es: 'Si el Habilidad Suprema es el ataque en todo el field o si aim 5 o mais enemigos, aumenta su Daño un 32%.',
@@ -3607,7 +3607,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Se a Habilidade Suprema for um ataque em todo o campo ou se mirar 5 ou mais inimigos, aumenta seu Dano em 53%.', effect_en: 'If the Ultimate Skill is the attack in todo the field or if aim 5 or mais enemies, increases their Damage to 53%.', effect_es: 'Si el Habilidad Suprema es el ataque en todo el field o si aim 5 o mais enemigos, aumenta su Daño un 53%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR140', rarity: 'ssr', name: 'Poder Dimensional', name_en: 'Dimensional Power', name_es: 'Dimensional Power', image: 'img/codex/iH3LdKV.webp',
+  { id: 'cSSR140', rarity: 'ssr', name: 'Poder Dimensional', name_en: 'Dimensional Power', name_es: 'Dimensional Power', image: 'img/cards/cSSR140.webp',
       effect: 'Aumenta o próprio Dano de Habilidade em 25% e cada vez que é aplicado a Outra Dimensão, reduz todas as recargas de habilidade em 1 segundo(s).',
       effect_en: 'Increases self Damage of Skill by 25% and each time that is applied the Outra Dimensão, reduces all the recargas of skill within 1 second(s).',
       effect_es: 'Aumenta sí mismo Daño de Skill por 25% y cada tiempo que es aplicado el Outra Dimensão, reduce todos el recargas de skill within 1 segundo(s).',
@@ -3633,7 +3633,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta o próprio Dano de Habilidade em 42.5% e cada vez que é aplicado a Outra Dimensão, reduz todas as recargas de habilidade em 1.75 segundo(s).', effect_en: 'Increases self Damage of Skill by 42.5% and each time that is applied the Outra Dimensão, reduces all the recargas of skill by 1.75 second(s).', effect_es: 'Aumenta sí mismo Daño de Skill por 42.5% y cada tiempo que es aplicado el Outra Dimensão, reduce todos el recargas de skill por 1.75 segundo(s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR141', rarity: 'ssr', name: 'Poder do Cristal', name_en: 'Crystal Power', name_es: 'Crystal Power', image: 'img/codex/XdRITUV.webp',
+  { id: 'cSSR141', rarity: 'ssr', name: 'Poder do Cristal', name_en: 'Crystal Power', name_es: 'Crystal Power', image: 'img/cards/cSSR141.webp',
       effect: 'Ao aplicar escudos, causa 22% de Dano Psíquico a todos os inimigos, reduzindo permanentemente a Taxa de Crítico deles em 3.8%. (Até 5 acúmulos. Pode ser purificado.)',
       effect_en: 'To apply escudos, deals 22% of Mental Damage the all the enemies, reduzindo permanentemente the Crit Rate their by 3.8%. (Up to 5 stacks. Can be purificado.)',
       effect_es: 'Un apply escudos, causa 22% de Daño Mental el todos el enemigos, reduzindo permanentemente el Tasa de Crít. su por 3.8%. (Hasta 5 stacks. Puede ser purificado.)',
@@ -3659,7 +3659,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Ao aplicar escudos, causa 30% de Dano Psíquico a todos os inimigos, reduzindo permanentemente a Taxa de Crítico deles em 6%. (Até 5 acúmulos. Pode ser purificado.)', effect_en: 'To apply escudos, deals 30% of Mental Damage the all the enemies, reduzindo permanentemente the Crit Rate their by 6%. (Up to 5 stacks. Can be purificado.)', effect_es: 'Un apply escudos, causa 30% de Daño Mental el todos el enemigos, reduzindo permanentemente el Tasa de Crít. su por 6%. (Hasta 5 stacks. Puede ser purificado.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR142', rarity: 'ssr', name: 'Poder do Titã', name_en: 'Titan\'s Power', name_es: 'Titan\'s Power', image: 'img/codex/tH02O60.webp',
+  { id: 'cSSR142', rarity: 'ssr', name: 'Poder do Titã', name_en: 'Titan\'s Power', name_es: 'Titan\'s Power', image: 'img/cards/cSSR142.webp',
       effect: 'Quando o PV estiver abaixo de 50%, Dano Crít. +55%.',
       effect_en: 'When the HP is below 50%, Crit DMG +55%.',
       effect_es: 'Cuando el PV es por debajo 50%, Crítico DMG +55%.',
@@ -3685,7 +3685,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o PV estiver abaixo de 50%, Dano Crít. +90%.', effect_en: 'When the HP is below 50%, Crit DMG +90%.', effect_es: 'Cuando el PV es por debajo 50%, Crítico DMG +90%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR143', rarity: 'ssr', name: 'Poder Maligno', name_en: 'Evil Power', name_es: 'Evil Power', image: 'img/codex/TEfrQmj.webp',
+  { id: 'cSSR143', rarity: 'ssr', name: 'Poder Maligno', name_en: 'Evil Power', name_es: 'Evil Power', image: 'img/cards/cSSR143.webp',
       effect: 'A duração de Revolta infligida por você aumenta em 2 segundo(s). Durante esse tempo, os inimigos afetados pela Revolta causam e recebem Dano Físico e Dano Psíquico aumentados em 20%',
       effect_en: 'The duration of Revolta infligida per você increases by 2 second(s). During this time, the enemies afetados pela Revolta causam and recebem Physical Damage and Mental Damage aumentados by 20%',
       effect_es: 'El duración de Revolta infligida per você aumenta por 2 segundo(s). Durante esto tiempo, el enemigos afetados pela Revolta causam y recebem Daño Físico y Daño Mental aumentados por 20%',
@@ -3711,7 +3711,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A duração de Revolta infligida por você aumenta em 2.5 segundo(s). Durante esse tempo, os inimigos afetados pela Revolta causam e recebem Dano Físico e Dano Psíquico aumentados em 34%', effect_en: 'The duration of Revolta infligida per você increases by 2.5 second(s). During this time, the enemies afetados pela Revolta causam and recebem Physical Damage and Mental Damage aumentados by 34%', effect_es: 'El duración de Revolta infligida per você aumenta por 2.5 segundo(s). Durante esto tiempo, el enemigos afetados pela Revolta causam y recebem Daño Físico y Daño Mental aumentados por 34%', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR144', rarity: 'ssr', name: 'Poder Triangular', name_en: 'Triangular Power', name_es: 'Triangular Power', image: 'img/codex/W15ez4p.webp',
+  { id: 'cSSR144', rarity: 'ssr', name: 'Poder Triangular', name_en: 'Triangular Power', name_es: 'Triangular Power', image: 'img/cards/cSSR144.webp',
       effect: 'Aumenta o próprio Ataque em 18%. A cada 6 segundo(s), ganha uma barreira que bloqueia uma ocorrência dos efeitos de Atordoamento, negativos ou dano contínuo.',
       effect_en: 'Increases self Attack by 18%. The each 6 second(s), gains the barreira that bloqueia the ocorrência of the effects of Stun, negative or damage continuous.',
       effect_es: 'Aumenta sí mismo Ataque por 18%. El cada 6 segundo(s), gana el barreira que bloqueia el ocorrência del efecto de Aturdimiento, negative o daño continuous.',
@@ -3737,7 +3737,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta o próprio Ataque em 32%. A cada 3 segundo(s), ganha uma barreira que bloqueia uma ocorrência dos efeitos de Atordoamento, negativos ou dano contínuo.', effect_en: 'Increases self Attack by 32%. The each 3 second(s), gains the barreira that bloqueia the ocorrência of the effects of Stun, negative or damage continuous.', effect_es: 'Aumenta sí mismo Ataque por 32%. El cada 3 segundo(s), gana el barreira que bloqueia el ocorrência del efecto de Aturdimiento, negative o daño continuous.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR145', rarity: 'ssr', name: 'Poderosa Excalibur', name_en: 'Mighty Excalibur', name_es: 'Mighty Excalibur', image: 'img/codex/Sio3yZn.webp',
+  { id: 'cSSR145', rarity: 'ssr', name: 'Poderosa Excalibur', name_en: 'Mighty Excalibur', name_es: 'Mighty Excalibur', image: 'img/cards/cSSR145.webp',
       effect: 'O portador causa 25% de dano aumentado a alvos com escudo (efeito permanente);',
       effect_en: 'The bearer deals 25% of damage increased the targets with shield (effect permanente);',
       effect_es: 'El portador causa 25% de daño aumentado el objetivo con escudo (efecto permanente);',
@@ -3763,7 +3763,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'O portador causa 43% de dano aumentado a alvos com escudo (efeito permanente);', effect_en: 'The bearer deals 43% of damage increased the targets with shield (effect permanente);', effect_es: 'El portador causa 43% de daño aumentado el objetivo con escudo (efecto permanente);', copies: null, accumulated: null, cost: null }
       ]
     },
-  { id: 'cSSR146', rarity: 'ssr', name: 'Prática Ascética', name_en: 'Ascetic Practice', name_es: 'Ascetic Practice', image: 'img/codex/UZNt881.webp',
+  { id: 'cSSR146', rarity: 'ssr', name: 'Prática Ascética', name_en: 'Ascetic Practice', name_es: 'Ascetic Practice', image: 'img/cards/cSSR146.webp',
       effect: 'O portador ganha um efeito de Estabilidade por 30 segundo(s), enquanto estiver com Estabilidade, ganha DEF Fís. e DEF Psíquica em 11.5%.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'The bearer gains the effect of Estabilidade per 30 second(s), enquanto is with Estabilidade, gains P.DEF and M.DEF by 11.5%.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'El portador gana el efecto de Estabilidade per 30 segundo(s), enquanto es con Estabilidade, gana P-DEF y M-DEF por 11.5%.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -3789,7 +3789,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'O portador ganha um efeito de Estabilidade por 40 segundo(s), enquanto estiver com Estabilidade, ganha DEF Fís. e DEF Psíquica em 15%.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'The bearer gains the effect of Estabilidade per 40 second(s), enquanto is with Estabilidade, gains P.DEF and M.DEF by 15%.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'El portador gana el efecto de Estabilidade per 40 segundo(s), enquanto es con Estabilidade, gana P-DEF y M-DEF por 15%.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR147', rarity: 'ssr', name: 'Presa do Leão', name_en: 'Lion\'s Fang', name_es: 'Lion\'s Fang', image: 'img/codex/detWyD3.webp',
+  { id: 'cSSR147', rarity: 'ssr', name: 'Presa do Leão', name_en: 'Lion\'s Fang', name_es: 'Lion\'s Fang', image: 'img/cards/cSSR147.webp',
       effect: 'Taxa de Acerto +13%. Ao causar Dano Crítico, causa 13% de Dano Físico adicional ao inimigo. REC de Ativação: 0,5s.',
       effect_en: 'Taxa of Hit +13%. To deal Crit Damage, deals 13% of Physical Damage additional to enemies. Activation CD: 0.5s.',
       effect_es: 'Taxa de Hit +13%. Un causa Daño Crít., causa 13% de Daño Físico adicional un enemigos. Activación CD: 0.5s.',
@@ -3815,7 +3815,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Taxa de Acerto +15%. Ao causar Dano Crítico, causa 15% de Dano Físico adicional ao inimigo. REC de Ativação: 0,5s.', effect_en: 'Taxa of Hit +15%. To deal Crit Damage, deals 15% of Physical Damage additional to enemies. Activation CD: 0.5s.', effect_es: 'Taxa de Hit +15%. Un causa Daño Crít., causa 15% de Daño Físico adicional un enemigos. Activación CD: 0.5s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR148', rarity: 'ssr', name: 'Protetor de Cristal', name_en: 'Crystal Protector', name_es: 'Crystal Protector', image: 'img/codex/LGkugF5.webp',
+  { id: 'cSSR148', rarity: 'ssr', name: 'Protetor de Cristal', name_en: 'Crystal Protector', name_es: 'Crystal Protector', image: 'img/cards/cSSR148.webp',
       effect: 'Escudos aplicados por você concedem ao alvo do escudo 44% de Resist. a Crít. por 8s.',
       effect_en: 'Escudos aplicados per você concedem to target of the shield 44% of Resist. the Crit per 8s.',
       effect_es: 'Escudos aplicados per você concedem un objetivo del escudo 44% de Resist. el Crítico per 8s.',
@@ -3841,7 +3841,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Escudos aplicados por você concedem ao alvo do escudo 72% de Resist. a Crít. por 8s.', effect_en: 'Escudos aplicados per você concedem to target of the shield 72% of Resist. the Crit per 8s.', effect_es: 'Escudos aplicados per você concedem un objetivo del escudo 72% de Resist. el Crítico per 8s.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR149', rarity: 'ssr', name: 'Rápido como o Trovão', name_en: 'Fast as Thunder', name_es: 'Fast como Thunder', image: 'img/codex/ELw1Ncq.webp',
+  { id: 'cSSR149', rarity: 'ssr', name: 'Rápido como o Trovão', name_en: 'Fast as Thunder', name_es: 'Fast como Thunder', image: 'img/cards/cSSR149.webp',
       effect: 'Após entrar no campo, o próprio dano de habilidades, habilidades supremas e efeitos com dano contínuo (como Queimadura, Veneno, Sangramento, etc.) são reduzidos em 50%, enquanto o dano de ataque básico não é reduzido; a Velocidade de Ataque é aumentada em 35% por 20 segundos.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: 'After enter on the field, the self damage of skills, ultimate skills and effects with damage continuous (como Queimadura, Poison, Bleed, etc.) are reduzidos by 50%, enquanto the damage of attack basic in the is reduced; the Speed of Attack is increased by 35% per 20 seconds.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: 'Después de enter en el field, el sí mismo daño de skills, ultimate skills y efecto con daño continuous (como Queimadura, Veneno, Bleed, etc.) son reduzidos por 50%, enquanto el daño de ataque basic en el es reducido; el Speed de Ataque es aumentado por 35% per 20 segundo.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -3867,7 +3867,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após entrar no campo, o próprio dano de habilidades, habilidades supremas e efeitos com dano contínuo (como Queimadura, Veneno, Sangramento, etc.) são reduzidos em 50%, enquanto o dano de ataque básico não é reduzido; a Velocidade de Ataque é aumentada em 52.5% por 20 segundos.(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: 'After enter on the field, the self damage of skills, ultimate skills and effects with damage continuous (como Queimadura, Poison, Bleed, etc.) are reduzidos by 50%, enquanto the damage of attack basic in the is reduced; the Speed of Attack is increased by 52.5% per 20 seconds.(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: 'Después de enter en el field, el sí mismo daño de skills, ultimate skills y efecto con daño continuous (como Queimadura, Veneno, Bleed, etc.) son reduzidos por 50%, enquanto el daño de ataque basic en el es reducido; el Speed de Ataque es aumentado por 52.5% per 20 segundo.(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR150', rarity: 'ssr', name: 'Redenção da Deusa', name_en: 'Goddess\'s Redemption', name_es: 'Diosa\'s Redemption', image: 'img/codex/jwx3ZqH.webp',
+  { id: 'cSSR150', rarity: 'ssr', name: 'Redenção da Deusa', name_en: 'Goddess\'s Redemption', name_es: 'Diosa\'s Redemption', image: 'img/cards/cSSR150.webp',
       effect: 'Aumenta a taxa de recuperação de Ira em 20%. Se equipado com Saga de Gêmeos, ganha um efeito extra: após a Outra Dimensão ativada por Controle acabar, ganha Invencibilidade por 1.5 segundo(s) após 0,1 segundo.',
       effect_en: 'Increases taxa of recuperação of Rage by 20%. If equipado with Saga of Gêmeos, gains the effect extra: after the Outra Dimensão triggered is Control acabar, gains Invencibilidade per 1.5 second(s) after 0.1 second.',
       effect_es: 'Aumenta taxa de recuperação de Rage por 20%. Si equipado con Saga de Gêmeos, gana el efecto extra: después de el Outra Dimensão activado es Control acabar, gana Invencibilidade per 1.5 segundo(s) después de 0.1 segundo.',
@@ -3893,7 +3893,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a taxa de recuperação de Ira em 34%. Se equipado com Saga de Gêmeos, ganha um efeito extra: após a Outra Dimensão ativada por Controle acabar, ganha Invencibilidade por 2.2 segundo(s) após 0,1 segundo.', effect_en: 'Increases taxa of recuperação of Rage by 34%. If equipado with Saga of Gêmeos, gains the effect extra: after the Outra Dimensão triggered is Control acabar, gains Invencibilidade per 2.2 second(s) after 0.1 second.', effect_es: 'Aumenta taxa de recuperação de Rage por 34%. Si equipado con Saga de Gêmeos, gana el efecto extra: después de el Outra Dimensão activado es Control acabar, gana Invencibilidade per 2.2 segundo(s) después de 0.1 segundo.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR151', rarity: 'ssr', name: 'Renascimento e Avivamento', name_en: 'Rebirth and Revival', name_es: 'Rebirth y Revival', image: 'img/codex/KslyCLC.webp',
+  { id: 'cSSR151', rarity: 'ssr', name: 'Renascimento e Avivamento', name_en: 'Rebirth and Revival', name_es: 'Rebirth y Revival', image: 'img/cards/cSSR151.webp',
       effect: 'Após avivamento, aumenta o próprio Ataque, Defesa Física e Defesa Psíquica em 20%. (Pode acumular até 3 vezes, pode ser dissipado)',
       effect_en: 'After avivamento, increases self Attack, Defense Física and Defense Psíquica by 20%. (Can stack up to 3 times, can be dissipado)',
       effect_es: 'Después de avivamento, aumenta sí mismo Ataque, Defense Física y Defense Psíquica por 20%. (Puede stack hasta 3 veces, puede ser dissipado)',
@@ -3919,7 +3919,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após avivamento, aumenta o próprio Ataque, Defesa Física e Defesa Psíquica em 34%. (Pode acumular até 3 vezes, pode ser dissipado)', effect_en: 'After avivamento, increases self Attack, Defense Física and Defense Psíquica by 34%. (Can stack up to 3 times, can be dissipado)', effect_es: 'Después de avivamento, aumenta sí mismo Ataque, Defense Física y Defense Psíquica por 34%. (Puede stack hasta 3 veces, puede ser dissipado)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR152', rarity: 'ssr', name: 'Robe de Odin', name_en: 'Odin\'s Robe', name_es: 'Odin\'s Robe', image: 'img/codex/kyeGtZP.webp',
+  { id: 'cSSR152', rarity: 'ssr', name: 'Robe de Odin', name_en: 'Odin\'s Robe', name_es: 'Odin\'s Robe', image: 'img/cards/cSSR152.webp',
       effect: 'Cada vez que o ATQ Básico causa dano, aumenta a própria Velocidade de Ataque em 1.5% por 6 segundo(s), alcança até 20 acúmulos. Após chegar a 20 acúmulos, ganha o efeito Espada Divina. Efeito: a cada 5 ATQs, ativa um Corte adicional que causa 30% de Dano Físico a todos os inimigos (Conta como Dano de ATQ Básico) e fornece 10% de Dano de Roubo de Vida',
       effect_en: 'Each time that ATK Basic deals damage, increases self Speed of Attack by 1.5% per 6 second(s), alcança up to 20 stacks. After chegar the 20 stacks, gains the effect Espada Divina. Effect: the each 5 ATQs, activates the Corte additional that deals 30% of Physical Damage the all the enemies (Conta como Damage of ATK Basic) and fornece 10% of Damage of Roubo of HP',
       effect_es: 'Cada tiempo que ATQ Basic causa daño, aumenta sí mismo Speed de Ataque por 1.5% per 6 segundo(s), alcança hasta 20 stacks. Después de chegar el 20 stacks, gana el efecto Espada Divina. Efecto: el cada 5 ATQs, activa el Corte adicional que causa 30% de Daño Físico el todos el enemigos (Conta como Daño de ATQ Basic) y fornece 10% de Daño de Roubo de PV',
@@ -3945,7 +3945,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Cada vez que o ATQ Básico causa dano, aumenta a própria Velocidade de Ataque em 2.9% por 6 segundo(s), alcança até 20 acúmulos. Após chegar a 20 acúmulos, ganha o efeito Espada Divina. Efeito: a cada 5 ATQs, ativa um Corte adicional que causa 30% de Dano Físico a todos os inimigos (Conta como Dano de ATQ Básico) e fornece 10% de Dano de Roubo de Vida', effect_en: 'Each time that ATK Basic deals damage, increases self Speed of Attack by 2.9% per 6 second(s), alcança up to 20 stacks. After chegar the 20 stacks, gains the effect Espada Divina. Effect: the each 5 ATQs, activates the Corte additional that deals 30% of Physical Damage the all the enemies (Conta como Damage of ATK Basic) and fornece 10% of Damage of Roubo of HP', effect_es: 'Cada tiempo que ATQ Basic causa daño, aumenta sí mismo Speed de Ataque por 2.9% per 6 segundo(s), alcança hasta 20 stacks. Después de chegar el 20 stacks, gana el efecto Espada Divina. Efecto: el cada 5 ATQs, activa el Corte adicional que causa 30% de Daño Físico el todos el enemigos (Conta como Daño de ATQ Basic) y fornece 10% de Daño de Roubo de PV', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR153', rarity: 'ssr', name: 'Shaka de Virgem', name_en: 'Shaka of Virgo', name_es: 'Shaka de Virgo', image: 'img/codex/chR69a4.webp',
+  { id: 'cSSR153', rarity: 'ssr', name: 'Shaka de Virgem', name_en: 'Shaka of Virgo', name_es: 'Shaka de Virgo', image: 'img/cards/cSSR153.webp',
       effect: 'Após se curar ou curar outros Cavaleiros, aumenta o próprio Dano causado em 15% e aumenta o Dano causado as criaturas invocadas em 10%. Dura 5 segundo(s). Por cada unidade derrotada, aumenta a própria Ira em 50',
       effect_en: 'After if curar or curar outros Knights, increases self Damage dealt by 15% and increases Damage dealt the criaturas invocadas by 10%. Lasts 5 second(s). Per each unidade derrotada, increases self Rage by 50',
       effect_es: 'Después de si curar o curar outros Caballero, aumenta sí mismo Daño dealt por 15% y aumenta Daño dealt el criaturas invocadas por 10%. Dura 5 segundo(s). Per cada unidade derrotada, aumenta sí mismo Rage por 50',
@@ -3971,7 +3971,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após se curar ou curar outros Cavaleiros, aumenta o próprio Dano causado em 22% e aumenta o Dano causado as criaturas invocadas em 24%. Dura 5 segundo(s). Por cada unidade derrotada, aumenta a própria Ira em 85', effect_en: 'After if curar or curar outros Knights, increases self Damage dealt by 22% and increases Damage dealt the criaturas invocadas by 24%. Lasts 5 second(s). Per each unidade derrotada, increases self Rage by 85', effect_es: 'Después de si curar o curar outros Caballero, aumenta sí mismo Daño dealt por 22% y aumenta Daño dealt el criaturas invocadas por 24%. Dura 5 segundo(s). Per cada unidade derrotada, aumenta sí mismo Rage por 85', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR154', rarity: 'ssr', name: 'Soco do Dragão de Duas Cabeças', name_en: 'Two-Headed Dragon Punch', name_es: 'Dos-Headed Dragon Punch', image: 'img/codex/GOKrt6z.webp',
+  { id: 'cSSR154', rarity: 'ssr', name: 'Soco do Dragão de Duas Cabeças', name_en: 'Two-Headed Dragon Punch', name_es: 'Dos-Headed Dragon Punch', image: 'img/cards/cSSR154.webp',
       effect: 'Para cada 10% do PV Máx. perdido, aumenta o tamanho do corpo em 5%, o peso em 10%, alcança até 10 acúmulos. Não pode ser dissipado. Após chegar a 10 acúmulos, aumenta o PV Máx. em 50% e efeitos de cura recebidos em 50%, enquanto reduz a duração de Controle em 50%. Dura 12 segundos. (Após o efeito acabar, o tamanho e o peso do corpo voltam ao normal)',
       effect_en: 'For each 10% of the HP Max perdido, increases tamanho of the corpo by 5%, the peso by 10%, alcança up to 10 stacks. In the can be dissipado. After chegar the 10 stacks, increases HP Max by 50% and effects of healing recebidos by 50%, enquanto reduces the duration of Control by 50%. Lasts 12 seconds. (After the effect acabar, the tamanho and the peso of the corpo voltam to normal)',
       effect_es: 'Para cada 10% del PV Max perdido, aumenta tamanho del corpo por 5%, el peso por 10%, alcança hasta 10 stacks. En el puede ser dissipado. Después de chegar el 10 stacks, aumenta PV Max por 50% y efecto de curación recebidos por 50%, enquanto reduce el duración de Control por 50%. Dura 12 segundo. (Después de el efecto acabar, el tamanho y el peso del corpo voltam un normal)',
@@ -3997,7 +3997,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Para cada 10% do PV Máx. perdido, aumenta o tamanho do corpo em 5%, o peso em 10%, alcança até 10 acúmulos. Não pode ser dissipado. Após chegar a 10 acúmulos, aumenta o PV Máx. em 50% e efeitos de cura recebidos em 85%, enquanto reduz a duração de Controle em 85%. Dura 12 segundos. (Após o efeito acabar, o tamanho e o peso do corpo voltam ao normal)', effect_en: 'For each 10% of the HP Max perdido, increases tamanho of the corpo by 5%, the peso by 10%, alcança up to 10 stacks. In the can be dissipado. After chegar the 10 stacks, increases HP Max by 50% and effects of healing recebidos by 85%, enquanto reduces the duration of Control by 85%. Lasts 12 seconds. (After the effect acabar, the tamanho and the peso of the corpo voltam to normal)', effect_es: 'Para cada 10% del PV Max perdido, aumenta tamanho del corpo por 5%, el peso por 10%, alcança hasta 10 stacks. En el puede ser dissipado. Después de chegar el 10 stacks, aumenta PV Max por 50% y efecto de curación recebidos por 85%, enquanto reduce el duración de Control por 85%. Dura 12 segundo. (Después de el efecto acabar, el tamanho y el peso del corpo voltam un normal)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR155', rarity: 'ssr', name: 'Sonho Ilusório', name_en: 'Illusory Dream', name_es: 'Illusory Dream', image: 'img/codex/6rVRamy.webp',
+  { id: 'cSSR155', rarity: 'ssr', name: 'Sonho Ilusório', name_en: 'Illusory Dream', name_es: 'Illusory Dream', image: 'img/cards/cSSR155.webp',
       effect: 'Aumenta a Velocidade de Ataque básica em 20% e quando o próprio PV estiver abaixo de 35%, ativa 2 Sósias Fantasmas herdando 40% dos atributos do próprio Ataque. As Sósias podem usar apenas Ataques Básicos e tem pouco PV. (REC de Ativação: 30 segundos, remove efeitos de Controle, negativos e danos contínuos de si mesmo após ativar)',
       effect_en: 'Increases Speed of Attack basic by 20% and when the self HP is below 35%, activates 2 Doubles Phantoms inheriting 40% of the attributes of the self Attack. The Doubles can use only Basic Attacks and has little HP. (Activation CD: 30 seconds, removes effects of Control, negative and continuous damages of self after activate)',
       effect_es: 'Aumenta Speed de Ataque basic por 20% y cuando el sí mismo PV es por debajo 35%, activa 2 Doubles Phantoms inheriting 40% del attributes del sí mismo Ataque. El Doubles puede use solo Ataques Básicos y tiene little PV. (Activación CD: 30 segundo, elimina efecto de Control, negative y continuous damages de sí mismo después de activa)',
@@ -4021,7 +4021,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a Velocidade de Ataque básica em 34% e quando o próprio PV estiver abaixo de 35%, ativa 2 Sósias Fantasmas herdando 68% dos atributos do próprio Ataque. As Sósias podem usar apenas Ataques Básicos e tem pouco PV. (REC de Ativação: 30 segundos, remove efeitos de Controle, negativos e danos contínuos de si mesmo após ativar)', effect_en: 'Increases Speed of Attack basic by 34% and when the self HP is below 35%, activates 2 Doubles Phantoms inheriting 68% of the attributes of the self Attack. The Doubles can use only Basic Attacks and has little HP. (Activation CD: 30 seconds, removes effects of Control, negative and continuous damages of self after activate)', effect_es: 'Aumenta Speed de Ataque basic por 34% y cuando el sí mismo PV es por debajo 35%, activa 2 Doubles Phantoms inheriting 68% del attributes del sí mismo Ataque. El Doubles puede use solo Ataques Básicos y tiene little PV. (Activación CD: 30 segundo, elimina efecto de Control, negative y continuous damages de sí mismo después de activa)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR156', rarity: 'ssr', name: 'Supressão Suprema', name_en: 'Supreme Suppression', name_es: 'Supremo Suppression', image: 'img/codex/I0HnZCS.webp',
+  { id: 'cSSR156', rarity: 'ssr', name: 'Supressão Suprema', name_en: 'Supreme Suppression', name_es: 'Supremo Suppression', image: 'img/cards/cSSR156.webp',
       effect: 'Recebe 20% menos dano de Habilidades Supremas. Se qualquer inimigo estiver com Ira cheia, reduz o Dano de Habilidade Suprema do inimigo com maior Ira em 15%. Dura 10s (REC de Ativação: 10s).',
       effect_en: 'Receives 20% menos damage of Ultimate Skills. If any enemies is with Rage cheia, reduces the Ultimate Skill Damage of the enemies with greater Rage by 15%. Lasts 10s (Activation CD: 10s).',
       effect_es: 'Receives 20% menos daño de Ultimate Skills. Si cualquier enemigos es con Rage cheia, reduce el Habilidad Suprema Daño del enemigos con greater Rage por 15%. Dura 10s (Activación CD: 10s).',
@@ -4047,7 +4047,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Recebe 34% menos dano de Habilidades Supremas. Se qualquer inimigo estiver com Ira cheia, reduz o Dano de Habilidade Suprema do inimigo com maior Ira em 22%. Dura 10s (REC de Ativação: 10s).', effect_en: 'Receives 34% menos damage of Ultimate Skills. If any enemies is with Rage cheia, reduces the Ultimate Skill Damage of the enemies with greater Rage by 22%. Lasts 10s (Activation CD: 10s).', effect_es: 'Receives 34% menos daño de Ultimate Skills. Si cualquier enemigos es con Rage cheia, reduce el Habilidad Suprema Daño del enemigos con greater Rage por 22%. Dura 10s (Activación CD: 10s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR157', rarity: 'ssr', name: 'Taxa de Travessia do Rio', name_en: 'River Crossing Rate', name_es: 'River Crossing Rate', image: 'img/codex/r2wSZma.webp',
+  { id: 'cSSR157', rarity: 'ssr', name: 'Taxa de Travessia do Rio', name_en: 'River Crossing Rate', name_es: 'River Crossing Rate', image: 'img/cards/cSSR157.webp',
       effect: 'Após entrar no campo, vincula-se a 1 inimigo aleatório, transferindo 30% do PV recuperado por ele para o conjurador. (Este efeito termina quando o inimigo vinculado morre.)',
       effect_en: 'After enter on the field, vincula-if the 1 enemies random, transferindo 30% of the HP recuperado per ele for the caster. (Este effect termina when the enemies vinculado morre.)',
       effect_es: 'Después de enter en el field, vincula-si el 1 enemigos random, transferindo 30% del PV recuperado per ele para el lanzador. (Este efecto termina cuando el enemigos vinculado morre.)',
@@ -4073,7 +4073,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Após entrar no campo, vincula-se a 1 inimigo aleatório, transferindo 45% do PV recuperado por ele para o conjurador. (Este efeito termina quando o inimigo vinculado morre.)', effect_en: 'After enter on the field, vincula-if the 1 enemies random, transferindo 45% of the HP recuperado per ele for the caster. (Este effect termina when the enemies vinculado morre.)', effect_es: 'Después de enter en el field, vincula-si el 1 enemigos random, transferindo 45% del PV recuperado per ele para el lanzador. (Este efecto termina cuando el enemigos vinculado morre.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR158', rarity: 'ssr', name: 'Técnica Secreta Mais Poderosa', name_en: 'Most Powerful Secret Technique', name_es: 'Most Powerful Secret Technique', image: 'img/codex/ZeqbiAS.webp',
+  { id: 'cSSR158', rarity: 'ssr', name: 'Técnica Secreta Mais Poderosa', name_en: 'Most Powerful Secret Technique', name_es: 'Most Powerful Secret Technique', image: 'img/cards/cSSR158.webp',
       effect: 'Cada vez que a duração acumulada de Atordoamento infligido aos inimigos chegar a 5 segundo(s), a própria Velocidade de Habilidade aumenta em 8%. Isso pode ser ativado no máximo uma vez por segundo, alcançando até 5 acúmulos. Cada vez que esse efeito é ativado, o próprio ganha um efeito que fornece Imunidade a uma ocorrência de Atordoamento. Esse efeito não pode acumular',
       effect_en: 'Each time that the duration acumulada of Stun infligido to enemies chegar the 5 second(s), the self Speed of Skill increases by 8%. This can be activated in the maximum the time per second, alcançando up to 5 stacks. Each time that this effect is activated, the self gains the effect that fornece Immunity the ocorrência of Stun. This effect in the can stack',
       effect_es: 'Cada tiempo que el duración acumulada de Aturdimiento infligido un enemigos chegar el 5 segundo(s), el sí mismo Speed de Skill aumenta por 8%. Esto puede ser activa en el máximo el tiempo per segundo, alcançando hasta 5 stacks. Cada tiempo que esto efecto es activa, el sí mismo gana el efecto que fornece Immunity el ocorrência de Aturdimiento. Esto efecto en el puede stack',
@@ -4099,7 +4099,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Cada vez que a duração acumulada de Atordoamento infligido aos inimigos chegar a 4 segundo(s), a própria Velocidade de Habilidade aumenta em 15%. Isso pode ser ativado no máximo uma vez por segundo, alcançando até 5 acúmulos. Cada vez que esse efeito é ativado, o próprio ganha um efeito que fornece Imunidade a uma ocorrência de Atordoamento. Esse efeito não pode acumular', effect_en: 'Each time that the duration acumulada of Stun infligido to enemies chegar the 4 second(s), the self Speed of Skill increases by 15%. This can be activated in the maximum the time per second, alcançando up to 5 stacks. Each time that this effect is activated, the self gains the effect that fornece Immunity the ocorrência of Stun. This effect in the can stack', effect_es: 'Cada tiempo que el duración acumulada de Aturdimiento infligido un enemigos chegar el 4 segundo(s), el sí mismo Speed de Skill aumenta por 15%. Esto puede ser activa en el máximo el tiempo per segundo, alcançando hasta 5 stacks. Cada tiempo que esto efecto es activa, el sí mismo gana el efecto que fornece Immunity el ocorrência de Aturdimiento. Esto efecto en el puede stack', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR159', rarity: 'ssr', name: 'Tempestade Nebulosa', name_en: 'Nebula Storm', name_es: 'Nebula Storm', image: 'img/codex/YLWPbjZ.webp',
+  { id: 'cSSR159', rarity: 'ssr', name: 'Tempestade Nebulosa', name_en: 'Nebula Storm', name_es: 'Nebula Storm', image: 'img/cards/cSSR159.webp',
       effect: 'A cada 10s, aumenta a própria Redução de Dano Físico/Dano Psíquico em 3% e Reforço de Dano Físico/Dano Psíquico em 4%, acumulando até 10 vezes.',
       effect_en: 'The each 10s, increases self Reduction of Physical Damage/Mental Damage by 3% and Boost of Physical Damage/Mental Damage by 4%, stacking up to 10 times.',
       effect_es: 'El cada 10s, aumenta sí mismo Reduction de Daño Físico/Daño Mental por 3% y Boost de Daño Físico/Daño Mental por 4%, stacking hasta 10 veces.',
@@ -4125,7 +4125,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'A cada 10s, aumenta a própria Redução de Dano Físico/Dano Psíquico em 5.1% e Reforço de Dano Físico/Dano Psíquico em 6.8%, acumulando até 10 vezes.', effect_en: 'The each 10s, increases self Reduction of Physical Damage/Mental Damage by 5.1% and Boost of Physical Damage/Mental Damage by 6.8%, stacking up to 10 times.', effect_es: 'El cada 10s, aumenta sí mismo Reduction de Daño Físico/Daño Mental por 5.1% y Boost de Daño Físico/Daño Mental por 6.8%, stacking hasta 10 veces.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR160', rarity: 'ssr', name: 'Templo Avassalador', name_en: 'Overwhelming Temple', name_es: 'Overwhelming Temple', image: 'img/codex/56wNOyc.webp',
+  { id: 'cSSR160', rarity: 'ssr', name: 'Templo Avassalador', name_en: 'Overwhelming Temple', name_es: 'Overwhelming Temple', image: 'img/cards/cSSR160.webp',
       effect: '10 s após o início da batalha, reduz a Ira de 2 Cavaleiros inimigos aleatórios em 250. (O efeito acumula se a equipe carregar mais de um.)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)',
       effect_en: '10 s after the início of the battle, reduces the Rage of 2 Knights enemies aleatórios by 250. (The effect acumula if the equipe carregar mais of the.)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)',
       effect_es: '10 s después de el início del batalla, reduce el Rage de 2 Caballero enemigos aleatórios por 250. (El efecto acumula si el equipe carregar mais del.)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)',
@@ -4151,7 +4151,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: '10 s após o início da batalha, reduz a Ira de 2 Cavaleiros inimigos aleatórios em 420. (O efeito acumula se a equipe carregar mais de um.)(Ativado 1 vez por batalha. Não é ativado novamente ao reviver ou ao retroceder o tempo.)', effect_en: '10 s after the início of the battle, reduces the Rage of 2 Knights enemies aleatórios by 420. (The effect acumula if the equipe carregar mais of the.)(Activated 1 time per battle. In the is activated again to revive or to rewinding the time.)', effect_es: '10 s después de el início del batalla, reduce el Rage de 2 Caballero enemigos aleatórios por 420. (El efecto acumula si el equipe carregar mais del.)(Activa 1 tiempo per batalla. En el es activa again un revive o un rewinding el tiempo.)', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR161', rarity: 'ssr', name: 'Trama Revelada', name_en: 'Plot Revealed', name_es: 'Plot Revealed', image: 'img/codex/QlGoZiK.webp',
+  { id: 'cSSR161', rarity: 'ssr', name: 'Trama Revelada', name_en: 'Plot Revealed', name_es: 'Plot Revealed', image: 'img/cards/cSSR161.webp',
       effect: 'DEF Psíquica +15%. Ao receber efeitos de Defeito, purifica-os imediatamente e aumenta adicionalmente o ATQ em 30%. Dura 12s (REC de Ativação: 20s).',
       effect_en: 'M.DEF +15%. To receber effects of Defeito, purifica-the imediatamente and increases additionally ATK by 30%. Lasts 12s (Activation CD: 20s).',
       effect_es: 'M-DEF +15%. Un receber efecto de Defeito, purifica-el imediatamente y aumenta adicional ATQ por 30%. Dura 12s (Activación CD: 20s).',
@@ -4177,7 +4177,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'DEF Psíquica +22%. Ao receber efeitos de Defeito, purifica-os imediatamente e aumenta adicionalmente o ATQ em 58%. Dura 12s (REC de Ativação: 20s).', effect_en: 'M.DEF +22%. To receber effects of Defeito, purifica-the imediatamente and increases additionally ATK by 58%. Lasts 12s (Activation CD: 20s).', effect_es: 'M-DEF +22%. Un receber efecto de Defeito, purifica-el imediatamente y aumenta adicional ATQ por 58%. Dura 12s (Activación CD: 20s).', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR162', rarity: 'ssr', name: 'Transformando Defesa em Ataque', name_en: 'Turning Defense into Attack', name_es: 'Turning Defense into Ataque', image: 'img/codex/NmUQrmP.webp',
+  { id: 'cSSR162', rarity: 'ssr', name: 'Transformando Defesa em Ataque', name_en: 'Turning Defense into Attack', name_es: 'Turning Defense into Ataque', image: 'img/cards/cSSR162.webp',
       effect: 'Quando o próprio PV cai abaixo de 50%, aumenta a própria DEF Fís. em 12% e o ATQ em 12%. Permanente e indissipável.',
       effect_en: 'When the self HP cai below 50%, increases self P.DEF by 12% and ATK by 12%. Permanente and indissipável.',
       effect_es: 'Cuando el sí mismo PV cai por debajo 50%, aumenta sí mismo P-DEF por 12% y ATQ por 12%. Permanente y indissipável.',
@@ -4203,7 +4203,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando o próprio PV cai abaixo de 50%, aumenta a própria DEF Fís. em 20.4% e o ATQ em 20.4%. Permanente e indissipável.', effect_en: 'When the self HP cai below 50%, increases self P.DEF by 20.4% and ATK by 20.4%. Permanente and indissipável.', effect_es: 'Cuando el sí mismo PV cai por debajo 50%, aumenta sí mismo P-DEF por 20.4% y ATQ por 20.4%. Permanente y indissipável.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR163', rarity: 'ssr', name: 'Uma Tempestade de Golpes', name_en: 'A Storm of Strikes', name_es: 'Un Storm de Strikes', image: 'img/codex/VIHg5Md.webp',
+  { id: 'cSSR163', rarity: 'ssr', name: 'Uma Tempestade de Golpes', name_en: 'A Storm of Strikes', name_es: 'Un Storm de Strikes', image: 'img/cards/cSSR163.webp',
       effect: 'Aumenta a própria Quebra de Poder em 15% e Dano Físico em 15%.',
       effect_en: 'Increases self Power Break by 15% and Physical Damage by 15%.',
       effect_es: 'Aumenta sí mismo Power Break por 15% y Daño Físico por 15%.',
@@ -4229,7 +4229,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Aumenta a própria Quebra de Poder em 22% e Dano Físico em 22%.', effect_en: 'Increases self Power Break by 22% and Physical Damage by 22%.', effect_es: 'Aumenta sí mismo Power Break por 22% y Daño Físico por 22%.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR164', rarity: 'ssr', name: 'Viajante Dimensional', name_en: 'Dimensional Traveler', name_es: 'Dimensional Traveler', image: 'img/codex/T34A2lI.webp',
+  { id: 'cSSR164', rarity: 'ssr', name: 'Viajante Dimensional', name_en: 'Dimensional Traveler', name_es: 'Dimensional Traveler', image: 'img/cards/cSSR164.webp',
       effect: 'Quando os inimigos no campo de batalha é atacado pelo portador e entra na Outra Dimensão, sofrem Dano Psíquico igual a 4.2% do seu PV Máx. por segundo. (Limitado em 50% do próprio Dano de Ataque) e esse Dano tem 50% de Roubo de Vida.',
       effect_en: 'When the enemies on the field of battle is atacado pelo bearer and entra in the Outra Dimensão, sofrem Mental Damage equal to 4.2% of the their HP Max per second. (Limitado by 50% of the self Damage of Attack) and this Damage has 50% of Roubo of HP.',
       effect_es: 'Cuando el enemigos en el campo de batalla es atacado pelo portador y entra en el Outra Dimensão, sofrem Daño Mental igual al 4.2% del su PV Max per segundo. (Limitado por 50% del sí mismo Daño de Ataque) y esto Daño tiene 50% de Roubo de PV.',
@@ -4255,7 +4255,7 @@ const CODEX_CARDS = [
         { stars: 14, effect: 'Quando os inimigos no campo de batalha é atacado pelo portador e entra na Outra Dimensão, sofrem Dano Psíquico igual a 6.3% do seu PV Máx. por segundo. (Limitado em 50% do próprio Dano de Ataque) e esse Dano tem 50% de Roubo de Vida.', effect_en: 'When the enemies on the field of battle is atacado pelo bearer and entra in the Outra Dimensão, sofrem Mental Damage equal to 6.3% of the their HP Max per second. (Limitado by 50% of the self Damage of Attack) and this Damage has 50% of Roubo of HP.', effect_es: 'Cuando el enemigos en el campo de batalla es atacado pelo portador y entra en el Outra Dimensão, sofrem Daño Mental igual al 6.3% del su PV Max per segundo. (Limitado por 50% del sí mismo Daño de Ataque) y esto Daño tiene 50% de Roubo de PV.', copies: 6, accumulated: 43, cost: 5 }
       ]
     },
-  { id: 'cSSR165', rarity: 'ssr', name: 'Voo Celestial do Dragão', name_en: 'Dragon\'s Celestial Flight', name_es: 'Dragon\'s Celestial Flight', image: 'img/codex/IptUC6S.webp',
+  { id: 'cSSR165', rarity: 'ssr', name: 'Voo Celestial do Dragão', name_en: 'Dragon\'s Celestial Flight', name_es: 'Dragon\'s Celestial Flight', image: 'img/cards/cSSR165.webp',
       effect: 'A cada 2,5 segundos, causa Dano Físico equivalente a 25% da própria DEF Fís. a todos os inimigos.',
       effect_en: 'The each 2.5 seconds, deals Physical Damage equivalente the 25% of the self P.DEF the all the enemies.',
       effect_es: 'El cada 2.5 segundo, causa Daño Físico equivalente el 25% del sí mismo P-DEF el todos el enemigos.',
