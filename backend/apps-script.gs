@@ -42,7 +42,7 @@ function ensureMasterSheets() {
 }
 
 function slugifyGuildName(nome) {
-  return String(nome || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+  return String(nome || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
