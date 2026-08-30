@@ -90,7 +90,7 @@ function heroCardHTML(h, onClickAttr = `onclick="showHeroDetail(${h.id})"`) {
   // codex usa o card do cavaleiro emoldurado (showcard + moldura do jogo por raridade);
   // cai na showcard crua e depois no retrato se faltar
   const portraitInner = h.image
-    ? `<img src="img/heroes/framed/${h.id}.webp" alt="${nomeIdioma}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/banners/hd/${h.id}.webp';var c=this.closest('.hero-card');if(c){c.classList.remove('codex-card-framed');c.classList.remove('codex-card-knight');}" />`
+    ? `<img src="img/banners/framed/${h.id}.webp" alt="${nomeIdioma}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/banners/hd/${h.id}.webp';var c=this.closest('.hero-card');if(c){c.classList.remove('codex-card-framed');c.classList.remove('codex-card-knight');}" />`
     : `<span class="glyph">${h.glyph || '⚔️'}</span>`;
   return `
     <div class="hero-card codex-card codex-card-framed codex-card-knight r-${h.rarity}" ${onClickAttr} style="cursor:pointer;">
