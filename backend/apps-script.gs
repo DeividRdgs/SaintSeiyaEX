@@ -339,6 +339,99 @@ function guildDeny(params) {
   return jsonResponse({ok: true, message: 'Pedido recusado'});
 }
 
+// ─── Gestão de elenco pelo líder (aba Jogadores) ───
+function rosterAssertLeader(params, ctx) {
+  var auth = getEmailFromAuthToken(ctx.ss, String(params.authToken || ''));
+  if (!auth.ok) return {ok: false, resp: jsonResponse({ok: false, error: auth.error, sessionExpired: auth.sessionExpired})};
+  var sheets = ensureAuthSheets(ctx.ss);
+  if (!isUserLeader(sheets.users, auth.email)) {
+    return {ok: false, resp: jsonResponse({ok: false, error: 'Apenas o líder pode gerenciar o elenco.'})};
+  }
+  return {ok: true, email: auth.email, sheets: sheets};
+}
+
+function rosterFindUserByNick(usersData, nick) {
+  var alvo = String(nick || '').trim().toLowerCase();
+  for (var i = 1; i < usersData.length; i++) {
+    var st = String(usersData[i][5] || '').trim().toLowerCase();
+    if (String(usersData[i][3] || '').trim().toLowerCase() === alvo && (st === 'pendente' || st === 'aprovado')) {
+      return {row: i + 1, email: String(usersData[i][0] || '').toLowerCase()};
+    }
+  }
+  return null;
+}
+
+function rosterList(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var jog = ctx.ss.getSheetByName('Jogadores');
+  if (!jog) return jsonResponse({ok: true, nicks: []});
+  var jd = jog.getDataRange().getValues();
+  var usersData = lid.sheets.users.getDataRange().getValues();
+  var out = [];
+  for (var i = 1; i < jd.length; i++) {
+    var nick = String(jd[i][0] || '').trim();
+    if (!nick) continue;
+    out.push({
+      nick: nick,
+      power: Number(jd[i][1] || 0),
+      vinculado: !!rosterFindUserByNick(usersData, nick)
+    });
+  }
+  out.sort(function (a, b) { return a.nick.toLowerCase().localeCompare(b.nick.toLowerCase()); });
+  return jsonResponse({ok: true, nicks: out});
+}
+
+function rosterAdd(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var nick = String(params.nick || '').trim();
+  if (!nick) return jsonResponse({ok: false, error: 'Informe o nick'});
+  if (nick.length > AUTH_NAME_MAX) return jsonResponse({ok: false, error: 'Nick muito longo (máx ' + AUTH_NAME_MAX + ' caracteres)'});
+  var jog = ctx.ss.getSheetByName('Jogadores');
+  if (!jog) return jsonResponse({ok: false, error: 'Aba de jogadores não encontrada'});
+  var jd = jog.getDataRange().getValues();
+  for (var i = 1; i < jd.length; i++) {
+    if (String(jd[i][0] || '').trim().toLowerCase() === nick.toLowerCase()) {
+      return jsonResponse({ok: false, error: 'Este nick já está no elenco'});
+    }
+  }
+  jog.appendRow([nick, '', '', '']);
+  logEvent('roster_add', {email: maskEmail(lid.email), detalhes: 'Nick: ' + nick}, ctx.ss);
+  return jsonResponse({ok: true, message: 'Nick adicionado ao elenco'});
+}
+
+function rosterRemove(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var nick = String(params.nick || '').trim();
+  if (!nick) return jsonResponse({ok: false, error: 'Informe o nick'});
+  var jog = ctx.ss.getSheetByName('Jogadores');
+  if (!jog) return jsonResponse({ok: false, error: 'Aba de jogadores não encontrada'});
+  var jd = jog.getDataRange().getValues();
+  var alvoRow = 0;
+  for (var i = 1; i < jd.length; i++) {
+    if (String(jd[i][0] || '').trim().toLowerCase() === nick.toLowerCase()) { alvoRow = i + 1; break; }
+  }
+  if (!alvoRow) return jsonResponse({ok: false, error: 'Nick não encontrado no elenco'});
+
+  var usersData = lid.sheets.users.getDataRange().getValues();
+  var conta = rosterFindUserByNick(usersData, nick);
+  if (conta && conta.email === lid.email) {
+    return jsonResponse({ok: false, error: 'Você não pode remover o próprio nick de líder'});
+  }
+  if (conta && params.confirm !== true) {
+    return jsonResponse({ok: false, needsConfirm: true, error: 'Este nick tem uma conta vinculada. Confirmar remove o nick E desativa a conta.'});
+  }
+  jog.deleteRow(alvoRow);
+  if (conta) {
+    lid.sheets.users.getRange(conta.row, 6).setValue('removido');
+    indexRemoveUser(conta.email);
+  }
+  logEvent('roster_remove', {email: maskEmail(lid.email), detalhes: 'Nick: ' + nick + (conta ? ' (conta desativada)' : '')}, ctx.ss);
+  return jsonResponse({ok: true, message: 'Nick removido do elenco'});
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
@@ -2196,11 +2289,17 @@ function authRegister(params, ctx) {
     if (status === 'negado') return jsonResponse({ok: false, error: 'Este email teve o cadastro negado. Fale com o líder.'});
   }
 
+  var guildaDoEmail = indexFindGuildByEmail(email);
+  if (guildaDoEmail && guildaDoEmail !== ctx.slug) {
+    return jsonResponse({ok: false, error: 'Este email já está cadastrado em outra guilda.'});
+  }
+
   var salt = gerarSalt();
   var senhaHash = hashSenha(senha, salt);
   var TZ = 'America/Sao_Paulo';
   var now = Utilities.formatDate(new Date(), TZ, 'dd/MM/yyyy HH:mm:ss');
   sheets.users.appendRow([email, senhaHash, salt, nick, '', 'pendente', now, '', '', '']);
+  indexSetUser(email, ctx.slug, 'pendente');
   markActionRateLimit('register_email:' + email);
   logEvent('auth_register', {email: maskEmail(email), detalhes: 'Nick: ' + nick}, ss);
 
@@ -2501,7 +2600,7 @@ function authApproveUser(params, ctx) {
   var senha = String(params.senha || '');
   var authToken = String(params.authToken || '');
   var email = String(params.email || '').trim().toLowerCase();
-  var guilda = String(params.guilda || 'Triade');
+  var guilda = String(params.guilda || ctx.nome);
   var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var aprovadoPor = 'admin';
@@ -2532,6 +2631,7 @@ function authApproveUser(params, ctx) {
   sheets.users.getRange(user.row, 6).setValue('aprovado');
   sheets.users.getRange(user.row, 8).setValue(now);
   sheets.users.getRange(user.row, 9).setValue(aprovadoPor);
+  indexSetUser(email, ctx.slug, 'aprovado');
   logEvent('auth_approved', {email: maskEmail(email), detalhes: 'Guilda: ' + guilda + ' | por: ' + aprovadoPor}, ss);
 
   try {
@@ -2581,6 +2681,7 @@ function authDenyUser(params, ctx) {
   sheets.users.getRange(user.row, 6).setValue('negado');
   sheets.users.getRange(user.row, 8).setValue(now);
   sheets.users.getRange(user.row, 9).setValue(negadoPor);
+  indexRemoveUser(email);
   logEvent('auth_denied', {email: maskEmail(email), detalhes: 'por: ' + negadoPor}, ss);
   return jsonResponse({ok: true, message: 'Cadastro negado'});
 }
