@@ -6,17 +6,30 @@ const API_URL = "https://script.google.com/macros/s/AKfycbyHeTjW4NvbUBYWITS0YIyi
 // ════════════════════════════════════════════════
 
 // ─── Multi-guilda: slug da guilda da sessão (fallback: triade) ───
+// Lê _authState quando já existe; antes disso (ordem dos scripts defer:
+// app-part2 roda antes de app.js) cai para a sessão salva no localStorage,
+// para o fetch inicial de dados já sair com a guilda certa.
+function _guildFromStorage(campo) {
+  try {
+    var raw = localStorage.getItem('triade_auth_v1');
+    if (raw) {
+      var p = JSON.parse(raw);
+      if (p && p.token && p[campo]) return p[campo];
+    }
+  } catch (e) {}
+  return null;
+}
 function guildSlug() {
   try {
     if (typeof _authState !== 'undefined' && _authState && _authState.guild) return _authState.guild;
   } catch (e) {}
-  return 'triade';
+  return _guildFromStorage('guild') || 'triade';
 }
 function guildDisplayName() {
   try {
     if (typeof _authState !== 'undefined' && _authState && _authState.guildName) return _authState.guildName;
   } catch (e) {}
-  return 'TRIADE';
+  return _guildFromStorage('guildName') || 'TRIADE';
 }
 
 // VERSÃO DO APP — atualize quando fizer mudanças relevantes
