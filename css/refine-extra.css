@@ -193,3 +193,72 @@ body footer [data-i18n="footer.motto"] {
 .hero-card.codex-card .hero-name {
   overflow: hidden !important;
 }
+
+/* ═══════════════ MISSÃO E — DETALHE COMPACTO (herói/artefato/carta) ═══════════════
+   As views de detalhe estavam infladas: nome 42px, ícones de skill 128px,
+   caixas de stats altas e muito respiro. Densidade de produto, sem perder hierarquia. */
+
+/* Largura de leitura confortável para as três views */
+#hero-detail-view, #artifact-detail-view, #card-detail-view {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Cabeçalho do herói: retrato menor, texto mais denso */
+.hero-detail {
+  grid-template-columns: minmax(180px, 230px) 1fr;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.hero-detail-name {
+  font-size: clamp(20px, 2.4vw, 28px);
+  letter-spacing: .05em;
+  line-height: 1.12;
+}
+.hero-detail-title {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.hero-tags { margin-bottom: 14px; }
+.hero-bio {
+  font-size: .85rem;
+  line-height: 1.6;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+}
+
+/* Stats compactos */
+.stat-box { padding: 8px 12px; }
+.stat-label { font-size: .58rem; margin-bottom: 2px; }
+.stat-value { font-size: 17px; }
+
+/* Título de seção interno (HABILIDADES etc.) */
+.codex-section-title {
+  font-size: 13px;
+  letter-spacing: .18em;
+  margin: 20px 0 12px;
+}
+
+/* Skills: ícone 128px -> 56px, textos densos */
+.skill-item { padding: 12px 14px; gap: 14px; }
+.skill-icon-wrap { width: 56px; height: 56px; }
+.skill-icon-wrap.no-icon::after { font-size: 22px; }
+.skill-header { margin-bottom: 4px; }
+.skill-name { font-size: 14px; }
+.skill-desc { font-size: .82rem; line-height: 1.55; }
+.skill-cd { font-size: .68rem; }
+
+/* Detalhe de artefato e carta no mesmo passo */
+.artifact-detail-lore, .artifact-detail-effect { font-size: .88rem; line-height: 1.6; }
+.artifact-detail-tier { padding: 12px 14px; }
+.card-lv-table th, .card-lv-table td { padding: 7px 10px; font-size: .8rem; }
+
+/* Botão voltar mais colado no conteúdo */
+.hero-back { margin-bottom: 12px; }
+
+@media (max-width: 800px) {
+  .hero-detail { gap: 16px; }
+  .hero-portrait-large { max-width: 220px; margin: 0 auto; }
+  .skill-icon-wrap { width: 48px; height: 48px; }
+}
