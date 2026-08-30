@@ -1913,21 +1913,6 @@
     display:flex;align-items:center;justify-content:center;
     position:relative;overflow:hidden;
   }
-  /* artefatos: fundo do astrolábio do jogo atrás do item (item é transparente) */
-  .codex-card-artifact .hero-portrait{
-    background: #14121c url('../img/artifacts/bg-astro.webp') center/cover no-repeat;
-  }
-  .codex-card-artifact .hero-portrait img{
-    object-fit: contain;
-    padding: 11%;
-    object-position: center;
-    filter: drop-shadow(0 3px 8px rgba(0,0,0,.55));
-  }
-  .codex-card-artifact:hover .hero-portrait img{
-    transform: scale(1.06);
-    filter: drop-shadow(0 5px 12px rgba(0,0,0,.6)) brightness(1.08);
-  }
-
   /* cartas com a moldura do jogo já embutida: sem borda/badge/vinheta do wrapper */
   .codex-card-framed{
     border-color: transparent !important;
@@ -1949,32 +1934,6 @@
   .codex-card-framed .hero-portrait .rays,
   .codex-card-framed .hero-rarity-badge{ display: none !important; }
   .codex-card-framed:hover .hero-portrait{ filter: drop-shadow(0 8px 16px rgba(0,0,0,.55)); }
-  /* cards de cavaleiro no formato do banner (moldura ty_bak_daka): proporção da
-     moldura; esconde os selos antigos — a borda da moldura já indica a raridade */
-  .codex-card-knight .hero-portrait{ aspect-ratio: 316 / 880; }
-  .codex-card-knight .hero-faction-badge,
-  .codex-card-knight .hero-rarity-badge{ display: none !important; }
-  /* tamanho estimado correto (o antigo 170px era do card baixo) e nome compacto
-     sem caixa, pra a arte ocupar todo o espaço como no banner.
-     Especificidade alta (:root + 3 classes) pra vencer o fundo branco do tema
-     claro (:root[data-theme=light] .codex-card { background:#fff !important }). */
-  :root .hero-card.codex-card.codex-card-knight{
-    background: transparent !important;
-    border-color: transparent !important;
-    box-shadow: none !important;
-    /* o card ganha a proporção da moldura (antes era 95/152, mais largo, e a
-       moldura alta ficava com margem lateral) — agora a arte preenche tudo */
-    aspect-ratio: 316 / 880 !important;
-    contain-intrinsic-size: auto 300px;
-  }
-  /* a moldura preenche o card por inteiro (sem letterbox lateral) */
-  :root .hero-card.codex-card.codex-card-knight .hero-portrait img{ object-fit: cover; }
-  :root .hero-card.codex-card.codex-card-knight:hover{ box-shadow: none !important; }
-  .codex-card-knight .hero-info{
-    background: transparent !important;
-    border-top: none !important;
-    padding: 6px 4px 4px !important;
-  }
   .hero-portrait img{
     position:absolute;
     inset:0;
