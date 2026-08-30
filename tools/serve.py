@@ -11,6 +11,11 @@ class SpaHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=ROOT, **kwargs)
 
+    def end_headers(self):
+        # Dev local: nunca cachear — F5 sempre pega a versão atual
+        self.send_header("Cache-Control", "no-store, must-revalidate")
+        super().end_headers()
+
     def send_head(self):
         path = self.translate_path(self.path)
         if not os.path.exists(path):

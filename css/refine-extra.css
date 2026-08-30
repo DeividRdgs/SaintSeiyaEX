@@ -270,3 +270,7 @@ body footer [data-i18n="footer.motto"] {
 .hero-tags { margin-bottom: 10px; gap: 6px; }
 .hero-tag { padding: 3px 8px; }
 .hero-bio { font-size: .8rem; padding: 8px 12px; margin-bottom: 0; }
+
+/* Cinto de segurança: stats de placeholder nunca aparecem no detalhe,
+   mesmo se o navegador estiver com js/app.js antigo em cache */
+#hero-detail-view .stats-grid { display: none; }
