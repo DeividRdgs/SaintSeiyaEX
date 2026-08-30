@@ -1954,6 +1954,14 @@
   .codex-card-knight .hero-portrait{ aspect-ratio: 316 / 880; }
   .codex-card-knight .hero-faction-badge,
   .codex-card-knight .hero-rarity-badge{ display: none !important; }
+  /* tamanho estimado correto (o antigo 170px era do card baixo) e nome compacto
+     sem caixa, pra a arte ocupar todo o espaço como no banner */
+  .codex-card-knight{ contain-intrinsic-size: auto 300px; background: transparent !important; }
+  .codex-card-knight .hero-info{
+    background: transparent !important;
+    border-top: none !important;
+    padding: 6px 4px 4px !important;
+  }
   .hero-portrait img{
     position:absolute;
     inset:0;
