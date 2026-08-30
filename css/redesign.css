@@ -519,3 +519,18 @@ body.gsearch-open { overflow: hidden; }
 /* Rodapé: gap entre os links e hover neutro do link oficial */
 .footer-links { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 .footer-official:hover { color: var(--gold-bright); border-color: var(--line-gold); }
+
+/* Destaque com múltiplos banners: linhas clicáveis */
+.home-featured-body {
+  cursor: pointer;
+  transition: background .2s;
+}
+.home-featured-body + .home-featured-body { border-top: 1px solid var(--line); }
+.home-featured-body:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+.home-featured-body:hover .home-featured-go { color: var(--gold-bright); transform: translateX(3px); }
+.home-featured-go {
+  margin-left: auto;
+  color: var(--ink-dim);
+  font-size: 1.1rem;
+  transition: transform .2s, color .2s;
+}

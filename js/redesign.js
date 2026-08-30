@@ -21,10 +21,10 @@ function _rdEsc(s) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-/* ---------- destaque da home (edite aqui para trocar o herói do banner) ---------- */
+/* ---------- destaque da home (edite aqui para trocar os heróis do banner) ---------- */
 const HOME_FEATURED = {
-  heroId: 1078,        // Seiya de Pégaso Divino
-  endsAt: null         // ex.: '2026-09-15T23:59:00-03:00' para mostrar countdown; null esconde
+  heroIds: [1084, 1032], // Shion de Áries, Hypnos — os banners atuais
+  endsAt: null           // ex.: '2026-09-15T23:59:00-03:00' para countdown; null mostra "confira o calendário"
 };
 
 const FACTION_LABELS = {
@@ -42,8 +42,11 @@ function _rdFaction(f) {
 function renderHomeFeatured() {
   var box = document.getElementById('homeFeatured');
   if (!box || typeof CODEX_HEROES === 'undefined') return;
-  var h = CODEX_HEROES.find(function (x) { return x.id === HOME_FEATURED.heroId; });
-  if (!h) { box.style.display = 'none'; return; }
+  var ids = HOME_FEATURED.heroIds || (HOME_FEATURED.heroId ? [HOME_FEATURED.heroId] : []);
+  var heroes = ids.map(function (id) {
+    return CODEX_HEROES.find(function (x) { return x.id === id; });
+  }).filter(Boolean);
+  if (!heroes.length) { box.style.display = 'none'; return; }
 
   var countdown = '';
   if (HOME_FEATURED.endsAt) {
@@ -58,13 +61,10 @@ function renderHomeFeatured() {
     countdown = '<span class="home-featured-ends">' + _rdUi('home.featured.seeCalendar', 'confira o calendário') + '</span>';
   }
 
-  box.style.display = '';
-  box.innerHTML =
-    '<div class="home-featured-head">' +
-      '<span class="home-featured-kicker"><span class="home-featured-dot"></span>' + _rdUi('home.featured.kicker', 'Em destaque') + '</span>' +
-      countdown +
-    '</div>' +
-    '<div class="home-featured-body">' +
+  var rows = heroes.map(function (h) {
+    return '<div class="home-featured-body" role="button" tabindex="0" ' +
+      'onclick="navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')" ' +
+      'onkeydown="if(event.key===\'Enter\'){navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')}">' +
       '<div class="home-featured-ring"><img src="' + _rdEsc(h.image) + '" alt="' + _rdEsc(_rdName(h)) + '" loading="lazy" decoding="async"></div>' +
       '<div class="home-featured-info">' +
         '<div class="home-featured-badges">' +
@@ -73,9 +73,18 @@ function renderHomeFeatured() {
         '</div>' +
         '<div class="home-featured-name">' + _rdEsc(_rdName(h)) + '</div>' +
       '</div>' +
+      '<span class="home-featured-go" aria-hidden="true">→</span>' +
+    '</div>';
+  }).join('');
+
+  box.style.display = '';
+  box.innerHTML =
+    '<div class="home-featured-head">' +
+      '<span class="home-featured-kicker"><span class="home-featured-dot"></span>' + _rdUi('home.featured.kicker', 'Em destaque') + '</span>' +
+      countdown +
     '</div>' +
+    rows +
     '<div class="home-featured-actions">' +
-      '<button class="home-featured-btn primary" onclick="navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')">' + _rdUi('home.featured.viewCodex', 'Ver no codex') + '</button>' +
       '<button class="home-featured-btn" onclick="navigateToTab(\'banners\')">' + _rdUi('home.featured.calendar', 'Calendário de banners') + '</button>' +
     '</div>';
 }
