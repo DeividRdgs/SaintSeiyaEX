@@ -1,0 +1,222 @@
+/* ═══════════════════════════════════════════════════════════════════
+   icons.css — Sistema de ícones SVG via CSS mask (Saint Seiya EX)
+   Ícones de traço (stroke 2, 24x24, estilo lucide/feather) pintados
+   com currentColor via mask — funcionam nos dois temas sem ajuste.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Geometria compartilhada ─────────────────────────────────────── */
+
+.tabs-nav .tab-btn[data-tab]::before,
+.guild-subtab[data-subtab]::before,
+.auth-login-btn::before,
+.auth-logout-btn::before,
+.auth-admin-link-btn::before,
+.btn-update::before {
+  content: '';
+  display: inline-block;
+  background: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  flex: none;
+}
+
+/* Tabs principais (fonte Sora no .topbar — alinhamento fino) */
+.tabs-nav .tab-btn[data-tab]::before {
+  width: 16px;
+  height: 16px;
+  margin-right: 7px;
+  vertical-align: -3px;
+  /* neutraliza o losango decorativo do .tab-btn.active::before legado */
+  position: static;
+  transform: none;
+}
+
+/* Sub-abas da guilda */
+.guild-subtab[data-subtab]::before {
+  width: 15px;
+  height: 15px;
+  margin-right: 6px;
+  vertical-align: -2.5px;
+}
+
+/* Botões pequenos (auth / atualizar) */
+.auth-login-btn::before,
+.auth-logout-btn::before,
+.auth-admin-link-btn::before,
+.btn-update::before {
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  vertical-align: -2px;
+}
+
+/* ── Navegação principal ─────────────────────────────────────────── */
+
+/* Início — casa */
+.tabs-nav .tab-btn[data-tab="inicio"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+}
+
+/* Guilda — prédio com colunas */
+.tabs-nav .tab-btn[data-tab="guilda"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='22' x2='21' y2='22'/%3E%3Cline x1='6' y1='18' x2='6' y2='11'/%3E%3Cline x1='10' y1='18' x2='10' y2='11'/%3E%3Cline x1='14' y1='18' x2='14' y2='11'/%3E%3Cline x1='18' y1='18' x2='18' y2='11'/%3E%3Cpolygon points='12 2 20 7 4 7'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='22' x2='21' y2='22'/%3E%3Cline x1='6' y1='18' x2='6' y2='11'/%3E%3Cline x1='10' y1='18' x2='10' y2='11'/%3E%3Cline x1='14' y1='18' x2='14' y2='11'/%3E%3Cline x1='18' y1='18' x2='18' y2='11'/%3E%3Cpolygon points='12 2 20 7 4 7'/%3E%3C/svg%3E");
+}
+
+/* Heróis — elmo com fenda ocular */
+.tabs-nav .tab-btn[data-tab="heroes"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20v-6a7 7 0 0 1 14 0v6'/%3E%3Cpath d='M5 20h14'/%3E%3Cpath d='M12 11v9'/%3E%3Cpath d='M5 15.5h4'/%3E%3Cpath d='M15 15.5h4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 20v-6a7 7 0 0 1 14 0v6'/%3E%3Cpath d='M5 20h14'/%3E%3Cpath d='M12 11v9'/%3E%3Cpath d='M5 15.5h4'/%3E%3Cpath d='M15 15.5h4'/%3E%3C/svg%3E");
+}
+
+/* Artefatos — diamante lapidado */
+.tabs-nav .tab-btn[data-tab="artifacts"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h12l4 6-10 12L2 9z'/%3E%3Cpath d='M11 3 8 9l4 13 4-13-3-6'/%3E%3Cpath d='M2 9h20'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3h12l4 6-10 12L2 9z'/%3E%3Cpath d='M11 3 8 9l4 13 4-13-3-6'/%3E%3Cpath d='M2 9h20'/%3E%3C/svg%3E");
+}
+
+/* Cartas — duas cartas sobrepostas */
+.tabs-nav .tab-btn[data-tab="cards"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='2' width='13' height='16' rx='2'/%3E%3Cpath d='M4 7v13a2 2 0 0 0 2 2h11'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='8' y='2' width='13' height='16' rx='2'/%3E%3Cpath d='M4 7v13a2 2 0 0 0 2 2h11'/%3E%3C/svg%3E");
+}
+
+/* Tier List — medalha com fitas */
+.tabs-nav .tab-btn[data-tab="tier"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='5'/%3E%3Cpath d='M8.5 13 7 22l5-3 5 3-1.5-9'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='5'/%3E%3Cpath d='M8.5 13 7 22l5-3 5 3-1.5-9'/%3E%3C/svg%3E");
+}
+
+/* Roleta — roda com raios */
+.tabs-nav .tab-btn[data-tab="roleta"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 3v6'/%3E%3Cpath d='M12 15v6'/%3E%3Cpath d='M3 12h6'/%3E%3Cpath d='M15 12h6'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 3v6'/%3E%3Cpath d='M12 15v6'/%3E%3Cpath d='M3 12h6'/%3E%3Cpath d='M15 12h6'/%3E%3C/svg%3E");
+}
+
+/* Banners — calendário */
+.tabs-nav .tab-btn[data-tab="banners"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+}
+
+/* Team Builder — chave de ferramenta */
+.tabs-nav .tab-btn[data-tab="team"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z'/%3E%3C/svg%3E");
+}
+
+/* ── Sub-abas da guilda ──────────────────────────────────────────── */
+
+/* Atualizar Poder — alvo */
+.guild-subtab[data-subtab="update"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Ccircle cx='12' cy='12' r='1'/%3E%3C/svg%3E");
+}
+
+/* Bosses — espadas cruzadas */
+.guild-subtab[data-subtab="bosses"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4l12 12'/%3E%3Cpath d='M13 19l6-6'/%3E%3Cpath d='M16 16l4 4'/%3E%3Cpath d='M20 4 8 16'/%3E%3Cpath d='M5 13l6 6'/%3E%3Cpath d='M8 16l-4 4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4l12 12'/%3E%3Cpath d='M13 19l6-6'/%3E%3Cpath d='M16 16l4 4'/%3E%3Cpath d='M20 4 8 16'/%3E%3Cpath d='M5 13l6 6'/%3E%3Cpath d='M8 16l-4 4'/%3E%3C/svg%3E");
+}
+
+/* Ranking — troféu */
+.guild-subtab[data-subtab="ranking"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h10v6a5 5 0 0 1-10 0z'/%3E%3Cpath d='M7 5H4v2a3 3 0 0 0 3 3'/%3E%3Cpath d='M17 5h3v2a3 3 0 0 1-3 3'/%3E%3Cpath d='M12 14v7'/%3E%3Cpath d='M8 21h8'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 3h10v6a5 5 0 0 1-10 0z'/%3E%3Cpath d='M7 5H4v2a3 3 0 0 0 3 3'/%3E%3Cpath d='M17 5h3v2a3 3 0 0 1-3 3'/%3E%3Cpath d='M12 14v7'/%3E%3Cpath d='M8 21h8'/%3E%3C/svg%3E");
+}
+
+/* GVG — escudo */
+.guild-subtab[data-subtab="gvg"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3C/svg%3E");
+}
+
+/* Eventos — calendário */
+.guild-subtab[data-subtab="eventos"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4'/%3E%3Cpath d='M8 2v4'/%3E%3Cpath d='M3 10h18'/%3E%3C/svg%3E");
+}
+
+/* Estatísticas — gráfico de barras */
+.guild-subtab[data-subtab="stats"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 20v-9'/%3E%3Cpath d='M12 20V4'/%3E%3Cpath d='M18 20v-6'/%3E%3Cpath d='M3 20h18'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 20v-9'/%3E%3Cpath d='M12 20V4'/%3E%3Cpath d='M18 20v-6'/%3E%3Cpath d='M3 20h18'/%3E%3C/svg%3E");
+}
+
+/* Votação — cédula entrando na urna */
+.guild-subtab[data-subtab="vote"]::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 12V3h6v9'/%3E%3Cpath d='M11 6h2'/%3E%3Cpath d='M4 13h5'/%3E%3Cpath d='M15 13h5'/%3E%3Cpath d='M4 13v8h16v-8'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 12V3h6v9'/%3E%3Cpath d='M11 6h2'/%3E%3Cpath d='M4 13h5'/%3E%3Cpath d='M15 13h5'/%3E%3Cpath d='M4 13v8h16v-8'/%3E%3C/svg%3E");
+}
+
+/* ── Botões ──────────────────────────────────────────────────────── */
+
+/* Entrar — cadeado aberto */
+.auth-login-btn::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='10' rx='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 9.9-1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='10' rx='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 9.9-1'/%3E%3C/svg%3E");
+}
+
+/* Sair — porta com seta */
+.auth-logout-btn::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpath d='M16 17l5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4'/%3E%3Cpath d='M16 17l5-5-5-5'/%3E%3Cpath d='M21 12H9'/%3E%3C/svg%3E");
+}
+
+/* Pendentes (admin) — engrenagem */
+.auth-admin-link-btn::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='7'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v3'/%3E%3Cpath d='M12 19v3'/%3E%3Cpath d='M2 12h3'/%3E%3Cpath d='M19 12h3'/%3E%3Cpath d='M4.9 4.9 7 7'/%3E%3Cpath d='M17 17l2.1 2.1'/%3E%3Cpath d='M19.1 4.9 17 7'/%3E%3Cpath d='M7 17l-2.1 2.1'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='7'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v3'/%3E%3Cpath d='M12 19v3'/%3E%3Cpath d='M2 12h3'/%3E%3Cpath d='M19 12h3'/%3E%3Cpath d='M4.9 4.9 7 7'/%3E%3Cpath d='M17 17l2.1 2.1'/%3E%3Cpath d='M19.1 4.9 17 7'/%3E%3Cpath d='M7 17l-2.1 2.1'/%3E%3C/svg%3E");
+}
+
+/* Atualizar poder — espada */
+.btn-update::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3l12 12'/%3E%3Cpath d='M12 18l6-6'/%3E%3Cpath d='M16 16l4 4'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3l12 12'/%3E%3Cpath d='M12 18l6-6'/%3E%3Cpath d='M16 16l4 4'/%3E%3C/svg%3E");
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .tabs-nav .tab-btn[data-tab]::before {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    vertical-align: -2px;
+  }
+  .guild-subtab[data-subtab]::before {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+  }
+}
+
+/* Neutraliza o losango decorativo antigo do tab ativo (style.css .tab-btn.active::after) */
+.tabs-nav .tab-btn.active::after {
+  content: none;
+}
+
+/* ═══ Ícones dos cards de features da home (substituem os emojis 📋⚒🎖🛡🗳📊) ═══ */
+.home-feature-icon {
+  font-size: 0;
+  line-height: 0;
+}
+.home-feature-icon::before {
+  content: '';
+  display: inline-block;
+  width: 28px; height: 28px;
+  background: var(--gold);
+  -webkit-mask: var(--hf-icon) no-repeat center / contain;
+  mask: var(--hf-icon) no-repeat center / contain;
+}
+.home-feature-card:nth-child(1) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='4' width='14' height='17' rx='2'/%3E%3Cpath d='M9 4 L9 2 L15 2 L15 4 M9 9 L15 9 M9 13 L15 13 M9 17 L13 17'/%3E%3C/svg%3E"); }
+.home-feature-card:nth-child(2) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.7 6.3 L21 12.6 M3 21 L9.3 14.7 M14.7 6.3 L17.85 3.15 L20.85 6.15 L17.7 9.3 M14.7 6.3 L9.3 14.7'/%3E%3C/svg%3E"); }
+.home-feature-card:nth-child(3) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3Cpath d='M8.5 14 L7 22 L12 19.5 L17 22 L15.5 14'/%3E%3C/svg%3E"); }
+.home-feature-card:nth-child(4) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2 L20 6 L20 12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 L4 6 Z'/%3E%3C/svg%3E"); }
+.home-feature-card:nth-child(5) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 11 L20 11 L20 21 L4 21 Z M12 11 L12 8 M9 3 L15 3 L15 8 L9 8 Z M10 16 L14 16'/%3E%3C/svg%3E"); }
+.home-feature-card:nth-child(6) .home-feature-icon { --hf-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 21 L21 21 M6 21 L6 13 M11 21 L11 8 M16 21 L16 11 M21 21 L21 5'/%3E%3C/svg%3E"); }

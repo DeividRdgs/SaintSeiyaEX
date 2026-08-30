@@ -1,0 +1,31 @@
+/* ═══════════════════════════════════════════════════════════
+   SKELETONS — placeholders enquanto os dados do codex carregam.
+   Os .sk-card estáticos vivem dentro das grades no index.html e
+   somem quando o JS sobrescreve o innerHTML com os cards reais.
+   ═══════════════════════════════════════════════════════════ */
+.sk-card {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, var(--bg-1), var(--bg-2));
+  min-height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+.sk-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg,
+    transparent 30%,
+    color-mix(in srgb, var(--gold) 7%, transparent) 50%,
+    transparent 70%);
+  transform: translateX(-100%);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sk-card::after {
+    animation: sk-shimmer 1.6s ease-in-out infinite;
+  }
+  @keyframes sk-shimmer {
+    to { transform: translateX(100%); }
+  }
+}

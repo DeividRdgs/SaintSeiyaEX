@@ -1,0 +1,195 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   REFINE-EXTRA — micro-refinamentos visuais (carregar por ÚLTIMO, depois de
+   redesign-guild.css). Só sobrescreve; nenhuma regra estrutural nova.
+
+   Índice:
+     A. Placa de nome dos cards do codex (.hero-card.codex-card)
+     B. Céu estrelado mais sutil (body::before)
+     C. Rodapé (.last-update / .app-version / lema)
+     D. Tema claro — seletor de idioma, toggle de tema, badges do redesign
+
+   Regras seguidas: zero !important, só tokens (exceto rgba preto/branco de
+   scrim), funciona nos dois temas, sem tocar em display/position/overflow
+   de nada funcional. Especificidade é vencida repetindo uma classe já
+   presente no elemento (.codex-card.codex-card) — hack leve, mas honesto.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   A. PLACA DE NOME DOS CARDS DO CODEX
+   Classes reais (js/app.js:heroCardHTML e renderCodexArtifacts/Cards):
+   .hero-card.codex-card > .hero-info > .hero-name + .hero-class
+   Os grids de artefatos/cartas e os pools da tier list / team builder /
+   roleta usam EXATAMENTE o mesmo markup, então tudo herda daqui.
+   Glows/bordas de raridade (.r-ur/.r-ssr/...) ficam intocados.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* A1 — Scrim: fade mais alto e progressivo (transparente → ~.86), sem
+   "tarja" de corte seco. Sobe o padding-top pra dar respiro ao gradiente.
+   (No tema claro o style.css impõe o próprio gradiente com !important —
+   segue escuro lá também, o que é correto: o texto dourado precisa dele.) */
+.hero-card.codex-card.codex-card .hero-info {
+  padding: 30px 9px 8px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, .06) 22%,
+    rgba(0, 0, 0, .32) 52%,
+    rgba(0, 0, 0, .68) 78%,
+    rgba(0, 0, 0, .86) 100%
+  );
+}
+
+/* A2 — Nome: Sora, caixa normal (capitalização vinda do dado), até 2 linhas
+   com ellipsis. Nota: o style.css legado tem overflow:visible !important
+   neste elemento; onde ele valer, o clamp degrada graciosamente para
+   "quebra em 2+ linhas sem corte" — nunca pior que hoje. */
+.hero-card.codex-card.codex-card .hero-name {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: .01em;
+  line-height: 1.25;
+  color: var(--gold-bright);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+
+/* A3 — Rótulo de classe (LUTADOR/MAGO/...): micro-chip pill discreto.
+   A cor do texto vem do style.css (#e8d9b8 com !important) — creme claro
+   sobre o pill escuro, contraste ok nos dois temas (o scrim é escuro
+   sempre). Fundo rgba preto permitido (scrim). */
+.hero-card.codex-card.codex-card .hero-class {
+  display: inline-block;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .56rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  line-height: 1;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .45);
+}
+
+/* Mobile: um degrau abaixo (o card cai pra ~78-90px de largura) */
+@media (max-width: 600px) {
+  .hero-card.codex-card.codex-card .hero-name {
+    font-size: .62rem;
+  }
+  .hero-card.codex-card.codex-card .hero-class {
+    font-size: .52rem;
+    padding: 2px 6px;
+  }
+  .hero-card.codex-card.codex-card .hero-info {
+    padding: 24px 6px 6px;
+  }
+}
+
+/* Pool do team builder (.team-pool-row): mantém os overrides !important
+   do style.css (7px, branco) — aqui só o fallback tipográfico já herda
+   Sora da regra acima. Nada a redeclarar. */
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   B. CÉU ESTRELADO MAIS SUTIL
+   Fonte original: style.css body::before — 8 radial-gradients (um de 2px)
+   com opacity .7 + animação drift. Mesma técnica, mesmíssimas posições e
+   cores, mas: estrela grande 2px → 1px e opacity .7 → .38 (~55% do atual).
+   `html body::before` só pra vencer a especificidade do original.
+   A animação drift, o pause de reduced-motion e o display:none do tema
+   claro (ambos !important no style.css) seguem valendo. */
+html body::before {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff8d6 99%, transparent),
+    radial-gradient(1px 1px at 70% 80%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 40% 60%, #ffe9a8 99%, transparent),
+    radial-gradient(1px 1px at 85% 20%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 10% 75%, #fff8d6 99%, transparent),
+    radial-gradient(1px 1px at 55% 15%, #fff 99%, transparent),
+    radial-gradient(1px 1px at 90% 50%, #ffe9a8 99%, transparent),
+    radial-gradient(1px 1px at 30% 90%, #fff 99%, transparent);
+  opacity: .38;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   C. RODAPÉ
+   Markup real (index.html): footer > span[data-i18n="footer.motto"] (lema,
+   Cormorant itálico herdado do body) + .last-update + .app-version (mono).
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* Bloco técnico agrupado: mesmo corpo, mesmo tracking, 2px entre eles */
+body footer .last-update {
+  font-size: .62rem;
+  letter-spacing: .06em;
+  opacity: .75;
+  margin-top: 14px; /* separa o bloco técnico do lema */
+}
+body footer .app-version {
+  font-size: .62rem;
+  letter-spacing: .06em;
+  opacity: .75;
+  margin-top: 2px; /* cola no .last-update — leem-se como uma coisa só */
+}
+
+/* Lema: fica (charme), só garante tom rebaixado e corpo menor.
+   O itálico Cormorant já vem herdado do footer/body. */
+body footer [data-i18n="footer.motto"] {
+  color: var(--ink-dim);
+  font-size: .85rem;
+}
+
+
+/* ───────────────────────────────────────────────────────────────────────────
+   D. TEMA CLARO — DETALHES
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* D1 — Seletor de bandeiras e toggle de tema: no claro o fundo bg-2/
+   transparent + --line a 6% somem no branco. Fundo var(--bg-1) e uma
+   sombra-token curta pra definir a aresta sem inventar cor. */
+:root[data-theme="light"] .lang-switcher {
+  background: var(--bg-1);
+  border-color: var(--line);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+:root[data-theme="light"] .theme-toggle-btn {
+  background: var(--bg-1);
+  border-color: var(--line);
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+/* A regra acima (0,3,0) passaria por cima do :hover legado (0,2,0);
+   devolve o feedback dourado do hover no claro. */
+:root[data-theme="light"] .theme-toggle-btn:hover {
+  border-color: var(--gold);
+  background: var(--bg-2);
+}
+
+/* D2 — Badges do redesign no claro.
+   .rd-badge-sr: texto var(--ink) (#1c1a16) sobre mix de 8% de ink em
+   branco ≈ 14:1 — ok; o problema era a BORDA --line (6% preto), invisível.
+   --line-gold (25%) é o token de contorno visível do tema claro. */
+:root[data-theme="light"] .rd-badge-sr {
+  border-color: var(--line-gold);
+  color: var(--ink);
+}
+/* .home-featured-ends: --ink-dim (#5c574d) sobre branco ≈ 6.3:1 e o
+   <strong> em --ink ≈ 15:1 — ambos acima de 4.5:1. Declarado explícito
+   pra blindar contra heranças de cor de containers do redesign. */
+:root[data-theme="light"] .home-featured-ends {
+  color: var(--ink-dim);
+}
+:root[data-theme="light"] .home-featured-ends strong {
+  color: var(--ink);
+}
+
+/* Exceção documentada: o style.css legado tem overflow:visible !important no
+   nome do card do codex, o que deixa a 3ª linha meio-cortada vazando sob o chip.
+   Único jeito de vencer !important é com !important — escopo mínimo. */
+.hero-card.codex-card .hero-name {
+  overflow: hidden !important;
+}

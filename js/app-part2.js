@@ -266,25 +266,25 @@ function renderRanking(players) {
 // Abas principais (mostradas na nav superior)
 const TAB_ROUTES = {
   'inicio':    { slug: '',              title: 'Início',        title_en: 'Home',         desc: 'Guia completo de Saint Seiya EX (Rebirth 2): codex, team builder, tier list e roleta.', desc_en: 'Complete Saint Seiya EX (Rebirth 2) guide: codex, team builder, tier list and roulette.', private: false },
-  'guilda':    { slug: 'guilda',        title: '🏛 Guilda',      title_en: '🏛 Guild',     desc: 'Área restrita aos membros da Legião TRIADE.', desc_en: 'Restricted area for members of the TRIADE Legion.', private: true, isParent: true },
-  'heroes':    { slug: 'herois',        title: '⚜ Heróis',      title_en: '⚜ Heroes',     desc: 'Codex completo dos 103 Cavaleiros do Zodíaco.', desc_en: 'Complete codex of the 103 Knights of the Zodiac.', private: false },
-  'artifacts': { slug: 'artefatos',     title: '💎 Artefatos',  title_en: '💎 Artifacts', desc: 'Codex dos 34 artefatos lendários.', desc_en: 'Codex of the 34 legendary artifacts.', private: false },
-  'cards':     { slug: 'cartas',        title: '🃏 Cartas',     title_en: '🃏 Cards',     desc: 'Codex de Ultimate Power Cards.', desc_en: 'Codex of Ultimate Power Cards.', private: false },
-  'tier':      { slug: 'tier-list',     title: '🎖 Tier List',  title_en: '🎖 Tier List', desc: 'Tier list interativa dos Cavaleiros do Zodíaco.', desc_en: 'Interactive tier list of the Knights of the Zodiac.', private: false },
-  'roleta':    { slug: 'roleta',        title: '🎰 Roleta de Cavaleiros', title_en: '🎰 Knights Roulette', desc: 'Sorteie cavaleiros e construa sua Tier List ao vivo, ideal para vídeos e lives.', desc_en: 'Spin to draw knights and build your Tier List live, perfect for videos and streams.', private: false },
-  'banners':   { slug: 'banners',       title: '📅 Calendário de Banners', title_en: '📅 Banner Calendar', desc: 'Previsão da ordem de banners no servidor global, com base no Taiwan.', desc_en: 'Forecast of banner order on the global server, based on Taiwan.', private: false },
-  'team':      { slug: 'team-builder',  title: '⚒ Team Builder', title_en: '⚒ Team Builder', desc: 'Monte a equipe perfeita com 9 cavaleiros + 2 suportes + equipamentos.', desc_en: 'Build the perfect team with 9 knights + 2 supports + equipment.', private: false }
+  'guilda':    { slug: 'guilda',        title: 'Guilda',      title_en: 'Guild',     desc: 'Área restrita aos membros da Legião TRIADE.', desc_en: 'Restricted area for members of the TRIADE Legion.', private: true, isParent: true },
+  'heroes':    { slug: 'herois',        title: 'Heróis',      title_en: 'Heroes',     desc: 'Codex completo dos 103 Cavaleiros do Zodíaco.', desc_en: 'Complete codex of the 103 Knights of the Zodiac.', private: false },
+  'artifacts': { slug: 'artefatos',     title: 'Artefatos',  title_en: 'Artifacts', desc: 'Codex dos 34 artefatos lendários.', desc_en: 'Codex of the 34 legendary artifacts.', private: false },
+  'cards':     { slug: 'cartas',        title: 'Cartas',     title_en: 'Cards',     desc: 'Codex de Ultimate Power Cards.', desc_en: 'Codex of Ultimate Power Cards.', private: false },
+  'tier':      { slug: 'tier-list',     title: 'Tier List',  title_en: 'Tier List', desc: 'Tier list interativa dos Cavaleiros do Zodíaco.', desc_en: 'Interactive tier list of the Knights of the Zodiac.', private: false },
+  'roleta':    { slug: 'roleta',        title: 'Roleta de Cavaleiros', title_en: 'Knights Roulette', desc: 'Sorteie cavaleiros e construa sua Tier List ao vivo, ideal para vídeos e lives.', desc_en: 'Spin to draw knights and build your Tier List live, perfect for videos and streams.', private: false },
+  'banners':   { slug: 'banners',       title: 'Calendário de Banners', title_en: 'Banner Calendar', desc: 'Previsão da ordem de banners no servidor global, com base no Taiwan.', desc_en: 'Forecast of banner order on the global server, based on Taiwan.', private: false },
+  'team':      { slug: 'team-builder',  title: 'Team Builder', title_en: 'Team Builder', desc: 'Monte a equipe perfeita com 9 cavaleiros + 2 suportes + equipamentos.', desc_en: 'Build the perfect team with 9 knights + 2 supports + equipment.', private: false }
 };
 
 // Sub-abas dentro de Guilda (todas privadas)
 const GUILD_SUBTAB_ROUTES = {
-  'update':    { slug: 'atualizar',     title: '🎯 Atualizar Poder', title_en: '🎯 Update Power', desc: 'Atualize seu poder de Cavaleiro.', desc_en: 'Update your Knight power.' },
-  'bosses':    { slug: 'bosses',        title: '⚔ Bosses',      title_en: '⚔ Bosses',     desc: 'Distribuição de Bosses da Legião TRIADE.', desc_en: 'Boss distribution of the TRIADE Legion.' },
-  'ranking':   { slug: 'ranking',       title: '🏆 Ranking',    title_en: '🏆 Ranking',   desc: 'Ranking de poder dos Cavaleiros da Legião TRIADE.', desc_en: 'Power ranking of the Knights of the TRIADE Legion.' },
-  'gvg':       { slug: 'gvg',           title: '🛡 GVG',         title_en: '🛡 GVG',       desc: 'Guerra de Guildas — distribuição de papéis.', desc_en: 'Guild War — role distribution.' },
-  'eventos':   { slug: 'eventos',       title: '📅 Eventos',    title_en: '📅 Events',    desc: 'Calendário de eventos da Legião TRIADE.', desc_en: 'Events calendar of the TRIADE Legion.' },
-  'stats':     { slug: 'estatisticas',  title: '📊 Estatísticas', title_en: '📊 Statistics', desc: 'Histórico de evolução de poder da Legião.', desc_en: 'Power evolution history of the Legion.' },
-  'vote':      { slug: 'votacao',       title: '🗳 Votação',    title_en: '🗳 Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' }
+  'update':    { slug: 'atualizar',     title: 'Atualizar Poder', title_en: 'Update Power', desc: 'Atualize seu poder de Cavaleiro.', desc_en: 'Update your Knight power.' },
+  'bosses':    { slug: 'bosses',        title: 'Bosses',      title_en: 'Bosses',     desc: 'Distribuição de Bosses da Legião TRIADE.', desc_en: 'Boss distribution of the TRIADE Legion.' },
+  'ranking':   { slug: 'ranking',       title: 'Ranking',    title_en: 'Ranking',   desc: 'Ranking de poder dos Cavaleiros da Legião TRIADE.', desc_en: 'Power ranking of the Knights of the TRIADE Legion.' },
+  'gvg':       { slug: 'gvg',           title: 'GVG',         title_en: 'GVG',       desc: 'Guerra de Guildas — distribuição de papéis.', desc_en: 'Guild War — role distribution.' },
+  'eventos':   { slug: 'eventos',       title: 'Eventos',    title_en: 'Events',    desc: 'Calendário de eventos da Legião TRIADE.', desc_en: 'Events calendar of the TRIADE Legion.' },
+  'stats':     { slug: 'estatisticas',  title: 'Estatísticas', title_en: 'Statistics', desc: 'Histórico de evolução de poder da Legião.', desc_en: 'Power evolution history of the Legion.' },
+  'vote':      { slug: 'votacao',       title: 'Votação',    title_en: 'Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' }
 };
 const GUILD_DEFAULT_SUBTAB = 'update'; // Sub-aba padrão ao entrar em /guilda
 

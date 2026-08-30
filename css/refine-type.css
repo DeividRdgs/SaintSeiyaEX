@@ -1,0 +1,250 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   REFINE-TYPE.CSS — Unificação tipográfica final + cabeçalhos compactos
+   Saint Seiya EX · carregado por ÚLTIMO (depois de style/polish/redesign-*)
+
+   Papel deste arquivo:
+   - MISSÃO A: matar os últimos resquícios da identidade antiga
+     (JetBrains Mono com letter-spacing gritante em labels/botões,
+      Cormorant itálico em campos de UI, Cinzel uppercase em botões).
+   - MISSÃO B: compactar o cabeçalho padrão das abas (.section-title),
+     que hoje consome ~200px de ornamento antes do conteúdo.
+
+   Regras seguidas: só tokens de tema (funciona claro/escuro), zero
+   !important (vence por ordem de carga/especificidade), alvos de toque
+   nunca reduzidos (só min-height ADICIONADO onde faltava).
+   ═══════════════════════════════════════════════════════════════════════ */
+
+
+/* ─────────────────────────────────────────────────────────────
+   A1. LABELS — mono espaçado → Sora discreto
+   Padrão unificado: Sora .68-.72rem, weight 600, tracking .08em,
+   uppercase mantido, cor var(--ink-dim).
+   ───────────────────────────────────────────────────────────── */
+
+/* .field label (style.css:1064) — antes: JetBrains Mono 9px, ls .3em.
+   redesign-guild.css já trouxe pra Sora .66rem/.1em; aqui fecha no
+   padrão final .68rem/.08em junto com os labels irmãos. */
+.field label,
+.stats-filter label,
+.vote-admin-section label,
+.auth-field label,
+.share-label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+
+/* Barra de auth no topo (style.css:5611) — antes: mono 11px.
+   Componentes internos (.auth-user-info, botões) já são Sora. */
+.auth-topbar {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .72rem;
+  letter-spacing: .02em;
+}
+
+/* Abas do formulário de auth (style.css:950) — antes: mono 11px, ls .15em.
+   min-height só ADICIONA área de toque (padding antigo dava ~41px). */
+.auth-tab {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  min-height: 44px;
+}
+
+/* Micro-labels do GvG (style.css:1735/1749) — antes: mono 8-9px,
+   ls .25-.3em. Mantêm o tamanho reduzido (são metadados de card),
+   mas entram na família e no tracking do sistema.
+   (.head-of-key .label preserva a cor local — vive sobre card escuro.) */
+.stat-label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--ink-dim);
+}
+.head-of-key .label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+/* Abreviação do dia no calendário (style.css:1555) — antes: mono 9px,
+   ls .2em. */
+.day-header .day-short {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   A2. RESQUÍCIOS DE CORMORANT EM CAMPOS/TEXTOS DE UI
+   Campos, placeholders e hints saem do serif itálico → Sora reto.
+   Textos LONGOS editoriais (hero-bio, lore) ficam como estão —
+   apenas garantimos respiro de linha ≥ 1.6.
+   ───────────────────────────────────────────────────────────── */
+
+/* Busca do codex (style.css:1815) — antes: Cormorant 1rem +
+   placeholder itálico. Definido no style.css, tratado por garantia. */
+.codex-search {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .9rem;
+  font-style: normal;
+}
+.codex-search::placeholder {
+  font-style: normal;
+  color: var(--ink-dim);
+}
+
+/* Label de filtro legado do codex (style.css:1831) — antes: mono 9px,
+   ls .25em, dourado. Entra no padrão de label A1. */
+.codex-filter-label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  color: var(--ink-dim);
+}
+
+/* Garantia editorial: lore/bio continuam serifados nos pontos em que
+   o tema atual assim decidir, mas nunca com entrelinha apertada. */
+.hero-bio,
+.artifact-detail-lore,
+.card-detail-lore {
+  line-height: 1.7;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   A3. BOTÕES DE UI — Cinzel/mono uppercase → Sora
+   Padrão: Sora .8-.85rem, weight 600, ls .02em, sem uppercase
+   forçado. Cinzel segue reservado a títulos display.
+   ───────────────────────────────────────────────────────────── */
+
+/* "Ver Heróis →" etc. (style.css:657) — antes: Cinzel 10px, ls .2em,
+   uppercase, ~35px de altura. min-height 44px melhora o toque. */
+.home-feature-link {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+  min-height: 44px;
+}
+
+/* CTAs da home (style.css:828) — antes: Cinzel 12px, ls .2em, uppercase. */
+.home-cta-btn {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+  min-height: 48px;
+}
+
+/* Botão secundário do updater/auth (style.css:969) — antes: mono 11px,
+   ls .2em, uppercase (height 44px preservada no style.css). */
+.btn-secondary {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   A4. CONTADORES / METAS EM MONO
+   Mono é bem-vindo para números, mas com tracking contido (≤.1em)
+   e cor alinhada a var(--ink-dim).
+   ───────────────────────────────────────────────────────────── */
+
+/* Rodapé (style.css:1779/1780) — antes: ls .1em/.15em e cor
+   gold-deep apagada no .app-version. */
+footer .last-update {
+  letter-spacing: .08em;
+  color: var(--ink-dim);
+}
+footer .app-version {
+  letter-spacing: .08em;
+  color: var(--ink-dim);
+}
+
+
+/* ═════════════════════════════════════════════════════════════
+   B. CABEÇALHOS DE PÁGINA COMPACTOS (.section-title)
+   Antes (style.css:1513-1528 + polish.css:122):
+     - bloco: margin-bottom 44px
+     - h2: Cinzel 900, clamp(1.8rem → 2.6rem), gradiente dourado
+     - .sub: JetBrains Mono 11px, ls .45em, dourado ("⚔ ... ⚔")
+     - ::after: divisor de 200px com margin-top 24px
+   ≈ 200px de ornamento antes do conteúdo de cada aba.
+   Depois: título 1.5rem desktop / ~1.25rem mobile, sub discreto,
+   divisor de 120px, bloco todo a ~40% do respiro original.
+   (A home usa .home-section-title/.home-hub-* — intocados.)
+   ═════════════════════════════════════════════════════════════ */
+
+/* Bloco: 44px → 18px de margem inferior.
+   Tipografia no container cobre também o caso da aba Atualizar,
+   onde .section-title é um div sem <h2> interno. */
+.section-title {
+  margin-bottom: 18px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.5rem);
+  letter-spacing: .04em;
+  color: var(--gold-bright);
+  line-height: 1.2;
+}
+
+/* Título: clamp(1.8rem, 3.5vw, 2.6rem) → clamp(1.25 → 1.5rem).
+   Mantém Cinzel + gradiente dourado do tema; peso 900 → 700 e
+   tracking .08em → .04em para caber no novo corpo. */
+.section-title h2 {
+  font-size: clamp(1.25rem, 1.05rem + 1vw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: .04em;
+  margin: 0 0 8px;
+}
+
+/* Subtítulo: mono 11px ls .45em dourado → linha discreta Sora.
+   Os ⚔ vêm do texto/i18n (não removíveis por CSS), então o peso
+   visual cai via corpo .65rem + opacity .7, conforme o plano B. */
+.section-title .sub {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .65rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  color: var(--ink-dim);
+  opacity: .7;
+  margin-top: 0;
+}
+
+/* Divisor: 200px/24px → 120px/10px, mais sutil (gradiente já usa
+   var(--gold), ok nos dois temas). */
+.section-title::after {
+  width: 120px;
+  margin: 10px auto 0;
+  opacity: .55;
+}
+
+/* Mobile: título ancora no piso do clamp e o bloco respira menos
+   (vence as regras de polish.css 30/24px por ordem de carga). */
+@media (max-width: 640px) {
+  .section-title {
+    margin-bottom: 14px;
+  }
+  .section-title h2 {
+    font-size: 1.25rem;
+  }
+  .section-title .sub {
+    font-size: .62rem;
+    letter-spacing: .1em;
+  }
+}
