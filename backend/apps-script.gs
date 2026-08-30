@@ -124,6 +124,86 @@ function indexRemoveUser(email) {
   }
 }
 
+// ─── Pedido de criação de guilda (fica pendente até o admin do site aprovar) ───
+function guildRegister(params) {
+  var nome = String(params.nome || '').trim();
+  var nick = String(params.nick || '').trim();
+  var email = String(params.email || '').trim().toLowerCase();
+  var senha = String(params.senha || '');
+  if (!nome || !nick || !email || !senha) return jsonResponse({ok: false, error: 'Preencha todos os campos'});
+  if (nome.length > 40) return jsonResponse({ok: false, error: 'Nome da guilda muito longo (máx 40)'});
+  if (nick.length > AUTH_NAME_MAX) return jsonResponse({ok: false, error: 'Nick muito longo (máx ' + AUTH_NAME_MAX + ' caracteres)'});
+  var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email) || email.length > 100) return jsonResponse({ok: false, error: 'Email inválido'});
+  if (senha.length < AUTH_PWD_MIN_LEN) return jsonResponse({ok: false, error: 'A senha precisa ter pelo menos ' + AUTH_PWD_MIN_LEN + ' caracteres'});
+
+  var slug = slugifyGuildName(nome);
+  if (!slug || slug.length < 2) return jsonResponse({ok: false, error: 'Nome de guilda inválido'});
+
+  var blockEmail = checkActionRateLimit('guildreg_email:' + email, AUTH_RATE_REGISTER_MIN * 60 * 1000);
+  if (blockEmail) return jsonResponse(blockEmail);
+  var blockGlobal = checkGlobalRateLimit('guildreg_global', 5, 60 * 60 * 1000);
+  if (blockGlobal) return jsonResponse(blockGlobal);
+
+  var m = ensureMasterSheets();
+  var existente = findGuildRow(slug);
+  if (existente && existente.status !== 'recusada') {
+    return jsonResponse({ok: false, error: 'Já existe uma guilda com este nome'});
+  }
+  if (indexFindGuildByEmail(email)) {
+    return jsonResponse({ok: false, error: 'Este email já está cadastrado em uma guilda'});
+  }
+  var gd = m.guildas.getDataRange().getValues();
+  for (var i = 1; i < gd.length; i++) {
+    if (String(gd[i][4] || '').trim().toLowerCase() === email &&
+        String(gd[i][3] || '').trim().toLowerCase() === 'pendente') {
+      return jsonResponse({ok: false, error: 'Este email já tem um pedido de guilda pendente'});
+    }
+  }
+
+  var salt = gerarSalt();
+  var hash = hashSenha(senha, salt);
+  var now = Utilities.formatDate(new Date(), 'America/Sao_Paulo', 'dd/MM/yyyy HH:mm:ss');
+  if (existente) {
+    m.guildas.getRange(existente.row, 1, 1, 10).setValues([[slug, nome, '', 'pendente', email, nick, hash, salt, now, '']]);
+  } else {
+    m.guildas.appendRow([slug, nome, '', 'pendente', email, nick, hash, salt, now, '']);
+  }
+  markActionRateLimit('guildreg_email:' + email);
+  logEvent('guild_register', {email: maskEmail(email), detalhes: 'Guilda: ' + nome});
+  try {
+    enviarDiscord({
+      username: 'SSEX — Guildas', avatar_url: TRIADE_BOT_AVATAR,
+      embeds: [{
+        title: '🏰 Novo pedido de guilda', color: 0xd4af37,
+        fields: [
+          {name: 'Guilda', value: nome, inline: true},
+          {name: 'Líder', value: nick, inline: true},
+          {name: 'Email', value: maskEmail(email), inline: false}
+        ],
+        footer: {text: 'Aprove na sub-aba Guildas do site'}
+      }]
+    });
+  } catch (e) { Logger.log('Falha Discord pedido guilda: ' + e.toString()); }
+  return jsonResponse({ok: true, message: 'Pedido enviado! Você receberá um email quando a guilda for aprovada.'});
+}
+
+// ─── Guildas ativas (para os selects de cadastro) ───
+function guildList(params) {
+  var block = checkGlobalRateLimit('guildlist_global', 30, 60 * 1000);
+  if (block) return jsonResponse(block);
+  var m = ensureMasterSheets();
+  var data = m.guildas.getDataRange().getValues();
+  var out = [];
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][3] || '').trim().toLowerCase() === 'ativa') {
+      out.push({slug: String(data[i][0]), nome: String(data[i][1])});
+    }
+  }
+  out.sort(function (a, b) { return a.nome.toLowerCase().localeCompare(b.nome.toLowerCase()); });
+  return jsonResponse({ok: true, guilds: out});
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
