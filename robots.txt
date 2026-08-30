@@ -1,4 +1,34 @@
+# Robots.txt — TRIADE Saint Seiya: Rebirth 2
+# https://triade-ssex.netlify.app/
+
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://triade-ssex.netlify.app/sitemap.xml
+
+# Bloqueia área privada (Guilda)
+Disallow: /guilda
+Disallow: /guilda/
+
+# Permite explicitamente crawlers conhecidos
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Discordbot
+Allow: /

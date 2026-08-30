@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Página inicial -->
   <url>
     <loc>https://triade-ssex.netlify.app/</loc>
-    <lastmod>2026-08-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Codex de Heróis -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/herois</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Codex de Artefatos -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/artefatos</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Codex de Cartas -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/cartas</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Tier List -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/tier-list</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Roleta de Cavaleiros -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/roleta</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Calendário de Banners -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/banners</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Team Builder -->
+  <url>
+    <loc>https://triade-ssex.netlify.app/team-builder</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>

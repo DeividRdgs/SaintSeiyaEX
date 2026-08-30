@@ -1,0 +1,10 @@
+# Netlify SPA fallback — qualquer rota não-arquivo serve o index.html (status 200)
+# Isso permite que URLs como /team-builder, /herois, /artefatos, /guilda etc.
+# funcionem ao ser acessadas diretamente (SPA com History API)
+
+# Arquivos especiais devem ser servidos com seu Content-Type correto
+/sitemap.xml   /sitemap.xml   200!
+/robots.txt    /robots.txt    200!
+
+# Fallback SPA pra todo o resto
+/*    /index.html   200
