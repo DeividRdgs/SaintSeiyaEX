@@ -5,6 +5,17 @@
    então o tema claro/escuro continua funcionando.
    ═══════════════════════════════════════════════════════════ */
 
+/* ───────── 0. Normalização de controles ─────────
+   O style.css original tem um erro de sintaxe (declarações --rarity-* órfãs
+   nas linhas ~39-50) que anula o reset universal `*{box-sizing:border-box}`.
+   Resultado: inputs de texto ficam content-box (44px de min-height viram ~61px)
+   enquanto selects/botões são border-box — os campos "Buscar" estouravam.
+   Não dá para reativar o reset global sem re-testar o site inteiro, então
+   normalizamos apenas os controles de formulário. */
+input, select, textarea, button {
+  box-sizing: border-box;
+}
+
 /* ───────── 1. Tipografia: corpo sans moderno, Cinzel só em títulos ───────── */
 html, body {
   font-family: 'Sora', system-ui, -apple-system, sans-serif;
