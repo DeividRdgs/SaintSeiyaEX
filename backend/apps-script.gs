@@ -127,7 +127,9 @@ function indexRemoveUser(email) {
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ctx = resolveGuild(e && e.parameter && e.parameter.guild);
+    if (!ctx) return jsonResponse({ok: false, error: 'Guilda não encontrada'});
+    var ss = ctx.ss;
     var action = (e && e.parameter && e.parameter.action) || '';
     if (action === 'historico') return getHistoricoPoder(ss);
     if (action === 'votacao') return getVotacaoAtiva(ss);
@@ -196,7 +198,7 @@ function doGet(e) {
     }
 
     return jsonResponse({
-      ok: true, players: players, events: events, gvg: gvg, config: config,
+      ok: true, guildName: ctx.nome, players: players, events: events, gvg: gvg, config: config,
       timestamp: new Date().toISOString()
     });
   } catch(err) {
@@ -210,39 +212,53 @@ function doPost(e) {
     var params = JSON.parse(e.postData.contents);
     var action = params.action || 'update';
 
-    if (action === 'sendCode') return enviarCodigo(params);
-    if (action === 'abrirVotacao') return abrirVotacao(params);
-    if (action === 'fecharVotacao') return fecharVotacao(params);
-    if (action === 'cancelarVotacao') return cancelarVotacao(params);
-    if (action === 'votar') return registrarVoto(params);
-    if (action === 'configCanal') return configurarCanalYoutube(params);
-    if (action === 'authRegister') return authRegister(params);
-    if (action === 'authGetNicks') return authGetNicksDisponiveis(params);
+    // Ações que resolvem a guilda sozinhas (por email/índice) ou são da master
     if (action === 'authLogin') return authLogin(params);
     if (action === 'authForgotPassword') return authForgotPassword(params);
     if (action === 'authResetPassword') return authResetPassword(params);
-    if (action === 'authValidateToken') return authValidateToken(params);
-    if (action === 'authLogout') return authLogout(params);
-    if (action === 'authListPending') return authListPending(params);
-    if (action === 'authApprove') return authApproveUser(params);
-    if (action === 'authDeny') return authDenyUser(params);
+    if (action === 'guildRegister') return guildRegister(params);
+    if (action === 'guildList') return guildList(params);
+    if (action === 'guildListPending') return guildListPending(params);
+    if (action === 'guildApprove') return guildApprove(params);
+    if (action === 'guildDeny') return guildDeny(params);
     if (action === 'contactSend') return contactSend(params);
-    if (action === 'relatorioDisparar') return relatorioDispararAgora(params);
-    return atualizarPoder(params);
+
+    // Demais ações operam na planilha da guilda do params.guild
+    var ctx = resolveGuild(params.guild);
+    if (!ctx) return jsonResponse({ok: false, error: 'Guilda não encontrada'});
+
+    if (action === 'sendCode') return enviarCodigo(params, ctx);
+    if (action === 'abrirVotacao') return abrirVotacao(params, ctx);
+    if (action === 'fecharVotacao') return fecharVotacao(params, ctx);
+    if (action === 'cancelarVotacao') return cancelarVotacao(params, ctx);
+    if (action === 'votar') return registrarVoto(params, ctx);
+    if (action === 'configCanal') return configurarCanalYoutube(params, ctx);
+    if (action === 'authRegister') return authRegister(params, ctx);
+    if (action === 'authGetNicks') return authGetNicksDisponiveis(params, ctx);
+    if (action === 'authValidateToken') return authValidateToken(params, ctx);
+    if (action === 'authLogout') return authLogout(params, ctx);
+    if (action === 'authListPending') return authListPending(params, ctx);
+    if (action === 'authApprove') return authApproveUser(params, ctx);
+    if (action === 'authDeny') return authDenyUser(params, ctx);
+    if (action === 'rosterList') return rosterList(params, ctx);
+    if (action === 'rosterAdd') return rosterAdd(params, ctx);
+    if (action === 'rosterRemove') return rosterRemove(params, ctx);
+    if (action === 'relatorioDisparar') return relatorioDispararAgora(params, ctx);
+    return atualizarPoder(params, ctx);
   } catch(err) {
     return jsonResponse({ok: false, error: err.toString()});
   }
 }
 
 // =========== ENVIAR CÓDIGO POR EMAIL ===========
-function enviarCodigo(params) {
+function enviarCodigo(params, ctx) {
   var nick = params.nick;
   var email = params.email ? String(params.email).trim().toLowerCase() : '';
 
   if (!nick || !email) return jsonResponse({ok: false, error: 'Nick e email obrigatórios'});
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return jsonResponse({ok: false, error: 'Email inválido'});
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheet = ss.getSheetByName('Jogadores');
   var data = sheet.getDataRange().getValues();
   var encontrou = false;
@@ -323,7 +339,7 @@ function enviarCodigo(params) {
 }
 
 // =========== ATUALIZAR PODER ===========
-function atualizarPoder(params) {
+function atualizarPoder(params, ctx) {
   var nick = params.nick;
   var newPower = Number(params.power);
   var senha = params.senha || '';
@@ -331,7 +347,7 @@ function atualizarPoder(params) {
   var codigo = params.codigo ? String(params.codigo).trim() : '';
   var token = params.token || '';
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
 
   var configSheet = ss.getSheetByName('Config');
   var configData = configSheet.getDataRange().getValues();
@@ -556,7 +572,7 @@ function atualizarPoder(params) {
   } catch(e) {}
 
   try {
-    avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, totalPlayers);
+    avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, totalPlayers, ss);
   } catch(e) {
     Logger.log('Erro ao avisar Discord: ' + e.toString());
   }
@@ -734,8 +750,8 @@ function testeEmail() {
 //  DISCORD INTEGRATION
 // ========================================================
 
-function getDiscordWebhook() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+function getDiscordWebhook(ssArg) {
+  var ss = ssArg || SpreadsheetApp.getActiveSpreadsheet();
   var cfg = ss.getSheetByName('Config').getDataRange().getValues();
   for (var i = 1; i < cfg.length; i++) {
     if (cfg[i][0] === 'webhook_discord') {
@@ -746,8 +762,8 @@ function getDiscordWebhook() {
   return '';
 }
 
-function enviarDiscord(payload) {
-  var url = getDiscordWebhook();
+function enviarDiscord(payload, ssArg) {
+  var url = getDiscordWebhook(ssArg);
   if (!url) return;
   var lock = LockService.getScriptLock();
   try { lock.waitLock(10000); }
@@ -782,7 +798,7 @@ function enviarDiscord(payload) {
   }
 }
 
-function avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, total) {
+function avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, total, ss) {
   var diff = newPower - oldPower;
   var pct = oldPower > 0 ? ((diff / oldPower) * 100).toFixed(1) : '∞';
   var subiu = diff > 0;
@@ -812,7 +828,7 @@ function avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, tot
       footer: {text: 'Atualização registrada por ' + origemLabel + ' • Legião TRIADE'},
       timestamp: new Date().toISOString()
     }]
-  });
+  }, ss);
 }
 
 function avisarEventosProximos() {
@@ -1532,14 +1548,14 @@ function validarSenhaComLider(ss, senha, authToken) {
   return {ok: true, isMaster: false, isAdmin: true, ctxUsuario: ctxUsuario};
 }
 
-function abrirVotacao(params) {
+function abrirVotacao(params, ctx) {
   var senha = params.senha || '';
   var authToken = params.authToken || '';
   var heroId = Number(params.heroId);
   var heroName = String(params.heroName || '');
   var duracaoMin = Number(params.duracao || 0);
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var validacao = validarSenhaComLider(ss, senha, authToken);
   if (!validacao.ok) return jsonResponse({ok: false, error: validacao.error, sessionExpired: validacao.sessionExpired, rateLimited: validacao.rateLimited});
   var ctxUsuario = validacao.ctxUsuario;
@@ -1565,10 +1581,10 @@ function abrirVotacao(params) {
   return jsonResponse({ok: true, heroId: heroId, heroName: heroName, abertaEm: now, duracao: duracaoMin, fechaEmTs: fechaEmTs});
 }
 
-function fecharVotacao(params) {
+function fecharVotacao(params, ctx) {
   var senha = params.senha || '';
   var authToken = params.authToken || '';
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var validacao = validarSenhaComLider(ss, senha, authToken);
   if (!validacao.ok) return jsonResponse({ok: false, error: validacao.error, sessionExpired: validacao.sessionExpired, rateLimited: validacao.rateLimited});
   var ctxUsuario = validacao.ctxUsuario;
@@ -1607,14 +1623,14 @@ function fecharVotacao(params) {
   return jsonResponse({ok: true, heroId: heroId, heroName: heroName, total: total, vencedora: vencedora, resultados: contagem});
 }
 
-function registrarVoto(params) {
+function registrarVoto(params, ctx) {
   var heroId = Number(params.heroId);
   var tier = String(params.tier || '').toUpperCase();
   var voterId = String(params.voterId || '').substring(0, 40);
   if (!heroId || !tier || !voterId) return jsonResponse({ok: false, error: 'Dados incompletos'});
   if (['S','A','B','C','D'].indexOf(tier) === -1) return jsonResponse({ok: false, error: 'Tier inválida'});
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var lock = LockService.getScriptLock();
   try { lock.waitLock(5000); }
   catch(e) { return jsonResponse({ok: false, error: 'Sistema sobrecarregado. Tente novamente.'}); }
@@ -1718,11 +1734,11 @@ function fecharVotacaoAuto(ss) {
   return {heroId: heroId, heroName: heroName, total: total, vencedora: vencedora, resultados: contagem};
 }
 
-function configurarCanalYoutube(params) {
+function configurarCanalYoutube(params, ctx) {
   var senha = params.senha || '';
   var authToken = params.authToken || '';
   var youtubeUrl = String(params.youtubeUrl || '').trim();
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var validacao = validarSenhaComLider(ss, senha, authToken);
   if (!validacao.ok) return jsonResponse({ok: false, error: validacao.error, sessionExpired: validacao.sessionExpired, rateLimited: validacao.rateLimited});
 
@@ -1738,10 +1754,10 @@ function configurarCanalYoutube(params) {
   return jsonResponse({ok: true, youtubeUrl: youtubeUrl});
 }
 
-function cancelarVotacao(params) {
+function cancelarVotacao(params, ctx) {
   var senha = params.senha || '';
   var authToken = params.authToken || '';
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var validacao = validarSenhaComLider(ss, senha, authToken);
   if (!validacao.ok) return jsonResponse({ok: false, error: validacao.error, sessionExpired: validacao.sessionExpired, rateLimited: validacao.rateLimited});
   var ctxUsuario = validacao.ctxUsuario;
@@ -1896,7 +1912,7 @@ function checkGlobalRateLimit(chave, maxChamadas, janelaMs) {
   return null;
 }
 
-function authRegister(params) {
+function authRegister(params, ctx) {
   var email = String(params.email || '').trim().toLowerCase();
   var senha = String(params.senha || '');
   var nick = String(params.nick || '').trim();
@@ -1924,7 +1940,7 @@ function authRegister(params) {
   if (senha.length < AUTH_PWD_MIN_LEN) return jsonResponse({ok: false, error: 'A senha precisa ter pelo menos ' + AUTH_PWD_MIN_LEN + ' caracteres'});
   if (nick.length > AUTH_NAME_MAX) return jsonResponse({ok: false, error: 'Nick muito longo (máx ' + AUTH_NAME_MAX + ' caracteres)'});
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
 
   var jogadoresSheet = ss.getSheetByName('Jogadores');
@@ -1965,19 +1981,19 @@ function authRegister(params) {
   markActionRateLimit('register_email:' + email);
   logEvent('auth_register', {email: maskEmail(email), detalhes: 'Nick: ' + nick});
 
-  try { notificarDiscordNovoCadastro(email, nick, now); }
+  try { notificarDiscordNovoCadastro(email, nick, now, ss); }
   catch(e) { Logger.log('Falha Discord: ' + e.toString()); }
 
   return jsonResponse({ok: true, message: 'Cadastro feito! Aguarde aprovação do líder. Você receberá acesso assim que for liberado.'});
 }
 
-function authGetNicksDisponiveis(params) {
+function authGetNicksDisponiveis(params, ctx) {
   var block = checkGlobalRateLimit('getnicks_global', 30, 60 * 1000);
   if (block) {
     logEvent('rate_limit', {detalhes: 'getNicks: scraping detectado'});
     return jsonResponse({ok: false, error: 'Muitas requisições. Tente novamente em instantes.'});
   }
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var jogadoresSheet = ss.getSheetByName('Jogadores');
   if (!jogadoresSheet) return jsonResponse({ok: true, nicks: []});
   var sheets = ensureAuthSheets(ss);
@@ -2002,7 +2018,7 @@ function authGetNicksDisponiveis(params) {
   return jsonResponse({ok: true, nicks: disponiveis});
 }
 
-function notificarDiscordNovoCadastro(email, nick, criadoEm) {
+function notificarDiscordNovoCadastro(email, nick, criadoEm, ss) {
   enviarDiscord({
     username: 'TRIADE — Auth', avatar_url: TRIADE_BOT_AVATAR,
     embeds: [{
@@ -2014,7 +2030,7 @@ function notificarDiscordNovoCadastro(email, nick, criadoEm) {
       ],
       footer: { text: 'Aprove pela planilha ou painel admin' }
     }]
-  });
+  }, ss);
 }
 
 function authLogin(params) {
@@ -2025,7 +2041,10 @@ function authLogin(params) {
   var rateErr = checkSenhaRateLimit();
   if (rateErr) return jsonResponse(rateErr);
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var slugIdx = indexFindGuildByEmail(email) || 'triade';
+  var ctx = resolveGuild(slugIdx) || resolveGuild('triade');
+  if (!ctx) return jsonResponse({ok: false, error: 'Guilda não encontrada'});
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var user = authFindUser(sheets.users, email);
 
@@ -2071,15 +2090,16 @@ function authLogin(params) {
 
   return jsonResponse({
     ok: true, token: token,
-    user: {email: email, nick: user.data[3], guilda: user.data[4], isLeader: isLeader},
+    user: {email: email, nick: user.data[3], guilda: user.data[4], isLeader: isLeader, siteAdmin: isSiteAdmin(SpreadsheetApp.getActiveSpreadsheet(), email)},
+    guild: ctx.slug, guildName: ctx.nome,
     expiraEm: expiraStr
   });
 }
 
-function authValidateToken(params) {
+function authValidateToken(params, ctx) {
   var token = String(params.token || '').trim();
   if (!token) return jsonResponse({ok: false, error: 'Token vazio'});
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var sessions = sheets.sessions.getDataRange().getValues();
 
@@ -2111,15 +2131,15 @@ function authValidateToken(params) {
       var sLider = String(liderVal || '').trim().toLowerCase();
       isLeader = (sLider === 'true' || sLider === 'sim' || sLider === 'yes' || sLider === '1' || sLider === 'x' || sLider === 'lider' || sLider === 'líder');
     }
-    return jsonResponse({ok: true, user: {email: email, nick: user.data[3], guilda: user.data[4], isLeader: isLeader}});
+    return jsonResponse({ok: true, user: {email: email, nick: user.data[3], guilda: user.data[4], isLeader: isLeader, siteAdmin: isSiteAdmin(SpreadsheetApp.getActiveSpreadsheet(), email)}, guild: ctx.slug, guildName: ctx.nome});
   }
   return jsonResponse({ok: false, error: 'Token inválido'});
 }
 
-function authLogout(params) {
+function authLogout(params, ctx) {
   var token = String(params.token || '').trim();
   if (!token) return jsonResponse({ok: true});
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var data = sheets.sessions.getDataRange().getValues();
   for (var i = 1; i < data.length; i++) {
@@ -2143,7 +2163,9 @@ function authForgotPassword(params) {
     return jsonResponse({ok: true, message: 'Se este email existe, um código foi enviado.'});
   }
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ctxFp = resolveGuild(indexFindGuildByEmail(email) || 'triade');
+  if (!ctxFp) return jsonResponse({ok: true, message: 'Se este email existe, um código foi enviado.'});
+  var ss = ctxFp.ss;
   var sheets = ensureAuthSheets(ss);
   var user = authFindUser(sheets.users, email);
   if (!user || String(user.data[5]) !== 'aprovado') {
@@ -2191,7 +2213,9 @@ function authResetPassword(params) {
   }
   if (codigo !== codigoCorreto) return jsonResponse({ok: false, error: 'Código incorreto'});
 
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ctxRp = resolveGuild(indexFindGuildByEmail(email) || 'triade');
+  if (!ctxRp) return jsonResponse({ok: false, error: 'Código não encontrado ou expirado'});
+  var ss = ctxRp.ss;
   var sheets = ensureAuthSheets(ss);
   var user = authFindUser(sheets.users, email);
   if (!user) return jsonResponse({ok: false, error: 'Usuário não encontrado'});
@@ -2210,10 +2234,10 @@ function authResetPassword(params) {
   return jsonResponse({ok: true, message: 'Senha redefinida! Faça login com a nova senha.'});
 }
 
-function authListPending(params) {
+function authListPending(params, ctx) {
   var senha = String(params.senha || '');
   var authToken = String(params.authToken || '');
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var ctxUsuario = resolverContextoUsuarioLogado(ss, authToken);
 
@@ -2250,12 +2274,12 @@ function formatarData(val) {
   return String(val);
 }
 
-function authApproveUser(params) {
+function authApproveUser(params, ctx) {
   var senha = String(params.senha || '');
   var authToken = String(params.authToken || '');
   var email = String(params.email || '').trim().toLowerCase();
   var guilda = String(params.guilda || 'Triade');
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var aprovadoPor = 'admin';
   var ctxUsuario = resolverContextoUsuarioLogado(ss, authToken);
@@ -2301,11 +2325,11 @@ function authApproveUser(params) {
   return jsonResponse({ok: true, message: 'Usuário aprovado com sucesso'});
 }
 
-function authDenyUser(params) {
+function authDenyUser(params, ctx) {
   var senha = String(params.senha || '');
   var authToken = String(params.authToken || '');
   var email = String(params.email || '').trim().toLowerCase();
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var sheets = ensureAuthSheets(ss);
   var negadoPor = 'admin';
   var ctxUsuario = resolverContextoUsuarioLogado(ss, authToken);
@@ -2558,10 +2582,10 @@ function truncarLista(linhas, maxChars) {
   return resultado || '_(vazio)_';
 }
 
-function relatorioDispararAgora(params) {
+function relatorioDispararAgora(params, ctx) {
   var authToken = String(params.authToken || '');
   if (!authToken) return jsonResponse({ok: false, error: 'Você precisa estar logado como líder.'});
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = ctx.ss;
   var auth = getEmailFromAuthToken(ss, authToken);
   if (!auth.ok) return jsonResponse({ok: false, error: auth.error, sessionExpired: auth.sessionExpired});
   var sheets = ensureAuthSheets(ss);
