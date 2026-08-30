@@ -74,7 +74,6 @@ function renderBannersCalendar() {
         '<div class="bnx-frame">' +
           '<img class="bnx-art" src="img/banners/framed/' + h.id + '.webp" alt="" decoding="async" ' +
             'onerror="bnxArtFallback(this,' + h.id + ')">' +
-          '<img class="bnx-badge" src="img/banners/' + badge + '.webp" alt="' + _bnxEsc((h.rarity || '').toUpperCase()) + '">' +
         '</div>' +
         '<div class="bnx-name">' + nome + '</div>' +
       '</div>';
