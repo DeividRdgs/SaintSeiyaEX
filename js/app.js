@@ -5408,7 +5408,20 @@ if (document.readyState === 'loading') {
   initTheme();
 }
 
+// Nome da guilda logada nos pontos da área da guilda
+function applyGuildBranding() {
+  var h = document.getElementById('guildHeroName');
+  if (h) h.textContent = guildDisplayName();
+  // Descrições de rota (usadas no meta description da área da guilda)
+  try {
+    var nome = guildDisplayName();
+    TAB_ROUTES.guilda.desc = 'Área restrita aos membros da guilda ' + nome + '.';
+    TAB_ROUTES.guilda.desc_en = 'Restricted area for members of the ' + nome + ' guild.';
+  } catch (e) {}
+}
+
 function updateAuthUI() {
+  applyGuildBranding();
   const loginBtn = document.getElementById('authLoginBtn');
   const userInfo = document.getElementById('authUserInfo');
   const adminBtn = document.getElementById('authAdminLinkBtn');
