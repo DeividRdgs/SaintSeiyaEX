@@ -213,8 +213,23 @@ document.addEventListener('keydown', function (e) {
   }
 }, true);
 
+/* ---------- variáveis de layout do trilho da guilda ---------- */
+function _rdRailVars() {
+  var wrap = document.querySelector('.wrap');
+  var tb = document.getElementById('topbar');
+  if (!wrap || !tb) return;
+  var r = document.documentElement.style;
+  r.setProperty('--rail-left', Math.round(wrap.getBoundingClientRect().left + 28) + 'px');
+  r.setProperty('--tb-h', Math.round(tb.getBoundingClientRect().height) + 'px');
+}
+window.addEventListener('resize', function () {
+  clearTimeout(window._rdRailTimer);
+  window._rdRailTimer = setTimeout(_rdRailVars, 120);
+});
+
 /* ---------- boot ---------- */
 (function () {
+  _rdRailVars();
   var inp = document.getElementById('gsearchInput');
   if (inp) {
     inp.addEventListener('input', function () {
