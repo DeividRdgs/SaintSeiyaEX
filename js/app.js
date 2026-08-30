@@ -6161,11 +6161,14 @@ async function initElencoTab() {
     if (!data.ok) { lista.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
     if (!data.nicks.length) { lista.innerHTML = `<div class="pending-hint">${ui('elenco.empty')}</div>`; return; }
     lista.innerHTML = data.nicks.map(n => {
+      // exibição: escapa HTML; onclick: escapa também \ e ' para a string JS inline
       const safe = String(n.nick).replace(/</g, '&lt;').replace(/"/g, '&quot;');
+      const jsSafe = String(n.nick).replace(/\\/g, '\\\\').replace(/'/g, "\\'")
+        .replace(/</g, '&lt;').replace(/"/g, '&quot;');
       const badge = n.vinculado ? ` <span style="opacity:.7;font-size:.85em;">✓ ${ui('elenco.linked')}</span>` : '';
       return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.08);">` +
         `<span><strong>${safe}</strong>${badge}</span>` +
-        `<button class="auth-btn" onclick="elencoRemove('${safe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
+        `<button class="auth-btn" onclick="elencoRemove('${jsSafe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
         `</div>`;
     }).join('');
   } catch (err) {
