@@ -209,6 +209,8 @@
     <button class="guild-subtab" data-subtab="stats" data-i18n="guild.subStats">Estatísticas</button>
     <button class="guild-subtab" data-subtab="vote" data-i18n="guild.subVote">Votação</button>
     <button class="guild-subtab" data-subtab="pendentes" data-i18n="guild.subPendentes">Pendentes</button>
+    <button class="guild-subtab" data-subtab="elenco" data-i18n="guild.subElenco" id="subtabElencoBtn" style="display:none;">Elenco</button>
+    <button class="guild-subtab" data-subtab="guildas" data-i18n="guild.subGuildas" id="subtabGuildasBtn" style="display:none;">Guildas</button>
   </nav>
 
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
@@ -521,6 +523,29 @@
         <div id="authAdminBody"><div class="pending-hint" data-i18n="admin.loginToSee">Faça login como líder para ver as solicitações.</div></div>
       </div>
     </section>
+  </div>
+
+  <!-- ============ SUB-ABA: ELENCO (só líder) ============ -->
+  <div class="tab-content" id="tab-elenco">
+    <div class="panel">
+      <h2 data-i18n="elenco.title">⚔ Elenco da Guilda</h2>
+      <p class="pending-hint" data-i18n="elenco.hint">Adicione os nicks dos jogadores; cada um cria a própria conta escolhendo o nick no cadastro.</p>
+      <div style="display:flex;gap:8px;margin:12px 0;">
+        <input type="text" id="elencoNovoNick" maxlength="30" placeholder="Nick do jogador" data-i18n-placeholder="elenco.nickPh" style="flex:1;" onkeydown="if(event.key==='Enter') elencoAdd()">
+        <button class="auth-btn primary" id="elencoAddBtn" onclick="elencoAdd()" data-i18n="elenco.addBtn">+ Adicionar</button>
+      </div>
+      <div class="auth-msg" id="elencoMsg"></div>
+      <div id="elencoLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+    </div>
+  </div>
+
+  <!-- ============ SUB-ABA: GUILDAS (só admin do site) ============ -->
+  <div class="tab-content" id="tab-guildas">
+    <div class="panel">
+      <h2 data-i18n="guildas.title">🏰 Guildas</h2>
+      <div class="auth-msg" id="guildasMsg"></div>
+      <div id="guildasLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+    </div>
   </div>
 
   <!-- ============ ABA: HEROES ============ -->

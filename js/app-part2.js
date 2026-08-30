@@ -285,7 +285,9 @@ const GUILD_SUBTAB_ROUTES = {
   'eventos':   { slug: 'eventos',       title: 'Eventos',    title_en: 'Events',    desc: 'Calendário de eventos da Legião TRIADE.', desc_en: 'Events calendar of the TRIADE Legion.' },
   'stats':     { slug: 'estatisticas',  title: 'Estatísticas', title_en: 'Statistics', desc: 'Histórico de evolução de poder da Legião.', desc_en: 'Power evolution history of the Legion.' },
   'vote':      { slug: 'votacao',       title: 'Votação',    title_en: 'Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' },
-  'pendentes': { slug: 'pendentes',     title: 'Solicitações Pendentes', title_en: 'Pending Requests', desc: 'Aprovação de novos membros da guilda.', desc_en: 'Approval of new guild members.' }
+  'pendentes': { slug: 'pendentes',     title: 'Solicitações Pendentes', title_en: 'Pending Requests', desc: 'Aprovação de novos membros da guilda.', desc_en: 'Approval of new guild members.' },
+  'elenco':    { slug: 'elenco',        title: 'Elenco',     title_en: 'Roster',    desc: 'Gestão do elenco da guilda.', desc_en: 'Guild roster management.' },
+  'guildas':   { slug: 'guildas',       title: 'Guildas',    title_en: 'Guilds',    desc: 'Aprovação de novas guildas.', desc_en: 'New guild approval.' }
 };
 const GUILD_DEFAULT_SUBTAB = 'update'; // Sub-aba padrão ao entrar em /guilda
 
@@ -398,6 +400,8 @@ function runTabInitHook(tabId) {
   if (tabId === 'vote' && typeof initVoteTab === 'function') initVoteTab();
   if (tabId === 'team' && typeof initTeamTab === 'function') initTeamTab();
   if (tabId === 'update' && typeof initUpdatePoderTab === 'function') initUpdatePoderTab();
+  if (tabId === 'elenco' && typeof initElencoTab === 'function') initElencoTab();
+  if (tabId === 'guildas' && typeof initGuildasTab === 'function') initGuildasTab();
 }
 
 // Atualiza title/meta — agora aceita sub-aba opcional

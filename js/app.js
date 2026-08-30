@@ -5440,12 +5440,20 @@ function updateAuthUI() {
     if (modoLiderBlock) {
       modoLiderBlock.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
     }
+    var elencoBtn = document.getElementById('subtabElencoBtn');
+    if (elencoBtn) elencoBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
+    var guildasBtn = document.getElementById('subtabGuildasBtn');
+    if (guildasBtn) guildasBtn.style.display = (_authState.user && _authState.user.siteAdmin) ? '' : 'none';
   } else {
     if (loginBtn) loginBtn.style.display = '';
     if (userInfo) userInfo.style.display = 'none';
     if (adminBtn) adminBtn.style.display = 'none';
     var modoLiderBlock2 = document.getElementById('modo-lider-block');
     if (modoLiderBlock2) modoLiderBlock2.style.display = 'none';
+    var elencoBtn2 = document.getElementById('subtabElencoBtn');
+    if (elencoBtn2) elencoBtn2.style.display = 'none';
+    var guildasBtn2 = document.getElementById('subtabGuildasBtn');
+    if (guildasBtn2) guildasBtn2.style.display = 'none';
   }
   // Atualiza cadeados nas abas
   updateTabsLockUI();
@@ -6127,4 +6135,79 @@ if (_authState.token) {
 } else {
   _authState.validated = true;
   setTimeout(updateAuthUI, 100);
+}
+
+// ════════════ SUB-ABA ELENCO (gestão de nicks pelo líder) ════════════
+function elencoShowMsg(msg, type) {
+  const el = document.getElementById('elencoMsg');
+  if (el) { el.textContent = msg || ''; el.className = 'auth-msg ' + (type || ''); }
+}
+
+async function initElencoTab() {
+  const lista = document.getElementById('elencoLista');
+  if (!lista) return;
+  if (!isLoggedIn() || !_authState.user.isLeader) {
+    lista.innerHTML = `<div class="pending-hint">${ui('elenco.leaderOnly')}</div>`;
+    return;
+  }
+  lista.innerHTML = `<div class="pending-hint">${ui('generic.loading')}</div>`;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'rosterList', guild: guildSlug(), authToken: _authState.token })
+    });
+    const data = await res.json();
+    if (!data.ok) { lista.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
+    if (!data.nicks.length) { lista.innerHTML = `<div class="pending-hint">${ui('elenco.empty')}</div>`; return; }
+    lista.innerHTML = data.nicks.map(n => {
+      const safe = String(n.nick).replace(/</g, '&lt;').replace(/"/g, '&quot;');
+      const badge = n.vinculado ? ` <span style="opacity:.7;font-size:.85em;">✓ ${ui('elenco.linked')}</span>` : '';
+      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.08);">` +
+        `<span><strong>${safe}</strong>${badge}</span>` +
+        `<button class="auth-btn" onclick="elencoRemove('${safe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
+        `</div>`;
+    }).join('');
+  } catch (err) {
+    lista.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
+  }
+}
+
+async function elencoAdd() {
+  const inp = document.getElementById('elencoNovoNick');
+  const nick = inp ? inp.value.trim() : '';
+  if (!nick) { elencoShowMsg(ui('elenco.nickRequired'), 'error'); return; }
+  const btn = document.getElementById('elencoAddBtn');
+  setButtonLoading(btn, true, '...');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'rosterAdd', guild: guildSlug(), authToken: _authState.token, nick })
+    });
+    const data = await res.json();
+    if (data.ok) { if (inp) inp.value = ''; elencoShowMsg(data.message, 'success'); initElencoTab(); }
+    else elencoShowMsg(data.error || 'Erro', 'error');
+  } catch (err) { elencoShowMsg(ui('auth.connectionError'), 'error'); }
+  finally { setButtonLoading(btn, false); }
+}
+
+async function elencoRemove(nick, vinculado) {
+  let confirmFlag = false;
+  if (vinculado) {
+    if (!confirm(ui('elenco.confirmLinked'))) return;
+    confirmFlag = true;
+  } else if (!confirm(ui('elenco.confirmRemove') + ' ' + nick + '?')) {
+    return;
+  }
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'rosterRemove', guild: guildSlug(), authToken: _authState.token, nick, confirm: confirmFlag })
+    });
+    const data = await res.json();
+    if (data.ok) { elencoShowMsg(data.message, 'success'); initElencoTab(); }
+    else elencoShowMsg(data.error || 'Erro', 'error');
+  } catch (err) { elencoShowMsg(ui('auth.connectionError'), 'error'); }
 }
