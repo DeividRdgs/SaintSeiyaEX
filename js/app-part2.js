@@ -580,6 +580,22 @@ function resolveRouteFromURL() {
     return;
   }
 
+  // /artefatos/<slug> → detalhe de artefato (F5 mantém a página aberta)
+  if (path.indexOf('artefatos/') === 0) {
+    applyTabUI('artifacts', false);
+    const artSlug = path.split('/')[1] || '';
+    if (typeof openArtifactBySlug === 'function') openArtifactBySlug(artSlug);
+    return;
+  }
+
+  // /cartas/<slug> → detalhe de carta
+  if (path.indexOf('cartas/') === 0) {
+    applyTabUI('cards', false);
+    const cardSlug = path.split('/')[1] || '';
+    if (typeof openCardBySlug === 'function') openCardBySlug(cardSlug);
+    return;
+  }
+
   // Outras rotas: aba principal pelo slug
   const tabId = SLUG_TO_TAB[path];
   if (tabId) {

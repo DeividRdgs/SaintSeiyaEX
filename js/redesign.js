@@ -279,6 +279,65 @@ if (typeof hideHeroDetail === 'function') {
     }
   };
 }
+/* ---------- URLs profundas de artefatos e cartas (F5 mantém o detalhe) ---------- */
+function openArtifactBySlug(slug) {
+  rdArtifactsReady.then(function () {
+    var a = (typeof CODEX_ARTIFACTS !== 'undefined') &&
+      CODEX_ARTIFACTS.find(function (x) { return rdSlugify(x.name) === slug; });
+    if (a && typeof showArtifactDetail === 'function') showArtifactDetail(a.id);
+    else if (slug) history.replaceState({ tab: 'artifacts' }, '', '/artefatos');
+  });
+}
+function openCardBySlug(slug) {
+  rdCardsReady.then(function () {
+    var c = (typeof CODEX_CARDS !== 'undefined') &&
+      CODEX_CARDS.find(function (x) { return rdSlugify(x.name) === slug; });
+    if (c && typeof showCardDetail === 'function') showCardDetail(c.id);
+    else if (slug) history.replaceState({ tab: 'cards' }, '', '/cartas');
+  });
+}
+if (typeof showArtifactDetail === 'function') {
+  var _rdOrigShowArtifact = showArtifactDetail;
+  showArtifactDetail = function (id) {
+    _rdOrigShowArtifact(id);
+    var a = (typeof CODEX_ARTIFACTS !== 'undefined') && CODEX_ARTIFACTS.find(function (x) { return x.id === id; });
+    if (a) {
+      var url = '/artefatos/' + rdSlugify(a.name);
+      if (location.pathname !== url) history.pushState({ tab: 'artifacts', artifact: rdSlugify(a.name) }, '', url);
+      document.title = (typeof t === 'function' ? t(a, 'name') : a.name) + ' — Saint Seiya EX / Rebirth 2';
+    }
+  };
+}
+if (typeof hideArtifactDetail === 'function') {
+  var _rdOrigHideArtifact = hideArtifactDetail;
+  hideArtifactDetail = function () {
+    _rdOrigHideArtifact();
+    if (location.pathname.indexOf('/artefatos/') === 0) {
+      history.replaceState({ tab: 'artifacts' }, '', '/artefatos');
+    }
+  };
+}
+if (typeof showCardDetail === 'function') {
+  var _rdOrigShowCard = showCardDetail;
+  showCardDetail = function (id) {
+    _rdOrigShowCard(id);
+    var c = (typeof CODEX_CARDS !== 'undefined') && CODEX_CARDS.find(function (x) { return x.id === id; });
+    if (c) {
+      var url = '/cartas/' + rdSlugify(c.name);
+      if (location.pathname !== url) history.pushState({ tab: 'cards', card: rdSlugify(c.name) }, '', url);
+      document.title = (typeof t === 'function' ? t(c, 'name') : c.name) + ' — Saint Seiya EX / Rebirth 2';
+    }
+  };
+}
+if (typeof hideCardDetail === 'function') {
+  var _rdOrigHideCard = hideCardDetail;
+  hideCardDetail = function () {
+    _rdOrigHideCard();
+    if (location.pathname.indexOf('/cartas/') === 0) {
+      history.replaceState({ tab: 'cards' }, '', '/cartas');
+    }
+  };
+}
 /* Remove o conteúdo pré-renderizado (SEO) quando o app assume */
 (function () {
   var pre = document.getElementById('prerender-hero');
