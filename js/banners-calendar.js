@@ -41,14 +41,17 @@ function _bnxEsc(s) {
 function bnxArtFallback(img, id) {
   var cell = img.parentNode && img.parentNode.parentNode;
   var step = img.getAttribute('data-fb') || '0';
-  if (step === '0') {
+  if (step === '0') {          // sem card emoldurado -> arte HD crua
     img.setAttribute('data-fb', '1');
-    img.src = 'img/banners/' + id + '.webp';
-    if (cell) cell.classList.add('bnx-baked'); // selo já vem no recorte
-  } else if (step === '1') {
+    img.src = 'img/banners/hd/' + id + '.webp';
+  } else if (step === '1') {   // sem HD -> recorte do pôster (selo já gravado)
     img.setAttribute('data-fb', '2');
+    img.src = 'img/banners/' + id + '.webp';
+    if (cell) cell.classList.add('bnx-baked');
+  } else if (step === '2') {   // por fim, retrato do codex
+    img.setAttribute('data-fb', '3');
     img.src = 'img/heroes/' + id + '.webp';
-    if (cell) cell.classList.remove('bnx-baked'); // retrato não tem selo -> mostra por cima
+    if (cell) cell.classList.remove('bnx-baked');
   } else {
     img.onerror = null;
   }
@@ -69,7 +72,7 @@ function renderBannersCalendar() {
         'onclick="navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')" ' +
         'onkeydown="if(event.key===\'Enter\'){navigateToTab(\'heroes\');showHeroDetail(' + h.id + ')}">' +
         '<div class="bnx-frame">' +
-          '<img class="bnx-art" src="img/banners/hd/' + h.id + '.webp" alt="" loading="lazy" decoding="async" ' +
+          '<img class="bnx-art" src="img/banners/framed/' + h.id + '.webp" alt="" decoding="async" ' +
             'onerror="bnxArtFallback(this,' + h.id + ')">' +
           '<img class="bnx-badge" src="img/banners/' + badge + '.webp" alt="' + _bnxEsc((h.rarity || '').toUpperCase()) + '">' +
         '</div>' +
