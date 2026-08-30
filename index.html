@@ -9,7 +9,7 @@
 <meta name="google-site-verification" content="TAwujKAvR27oM-55KZveTUmHZg7uT9GL_EHGa5b_RXo" />
 
 <!-- ════════════════ SEO BÁSICO ════════════════ -->
-<title id="pageTitle">TRIADE — Saint Seiya EX / Rebirth 2 | Codex, Team Builder, Tier List</title>
+<title id="pageTitle">Saint Seiya EX / Rebirth 2 — Codex, Team Builder e Tier List</title>
 <meta name="description" id="pageDescription" content="Guia completo de Saint Seiya EX (Rebirth 2 / Awakening EX): codex de 103 cavaleiros, 34 artefatos, 165 cartas, team builder interativo, tier list e roleta. Português, Inglês e Espanhol.">
 <meta name="keywords" content="Saint Seiya EX, Saint Seiya Awakening EX, Saint Seiya Rebirth 2, SSEX, Cavaleiros do Zodíaco, Knights of the Zodiac, codex, tier list, team builder, build, roleta, guia, guild, triade, caballeros del zodiaco, saint seiya ex tier list, saint seiya ex guide, saint seiya ex team builder, saint seiya ex codex, saint seiya rebirth 2 guide">
 <meta name="author" content="TRIADE Guild">
@@ -19,21 +19,21 @@
 
 <!-- ════════════════ OPEN GRAPH (Discord, Twitter, Facebook, WhatsApp) ════════════════ -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="TRIADE — Saint Seiya EX (Rebirth 2)">
-<meta property="og:title" id="ogTitle" content="TRIADE — Saint Seiya EX / Rebirth 2 | Codex completo, Team Builder e Tier List">
+<meta property="og:site_name" content="Saint Seiya EX / Rebirth 2">
+<meta property="og:title" id="ogTitle" content="Saint Seiya EX / Rebirth 2 — Codex completo, Team Builder e Tier List">
 <meta property="og:description" id="ogDescription" content="Guia interativo de Saint Seiya EX (Awakening EX / Rebirth 2) com 103 cavaleiros, 34 artefatos, 165 cartas, team builder, tier list e roleta para vídeos.">
 <meta property="og:url" id="ogUrl" content="https://triade-ssex.netlify.app/">
 <meta property="og:image" content="https://triade-ssex.netlify.app/calendario-banners.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="TRIADE — Saint Seiya: Rebirth 2">
+<meta property="og:image:alt" content="Saint Seiya EX / Rebirth 2 — Guia">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 
 <!-- ════════════════ TWITTER CARD ════════════════ -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" id="twitterTitle" content="TRIADE — Saint Seiya EX / Rebirth 2">
+<meta name="twitter:title" id="twitterTitle" content="Saint Seiya EX / Rebirth 2 — Guia">
 <meta name="twitter:description" id="twitterDescription" content="Codex, Team Builder, Tier List e Roleta de Cavaleiros — guia completo de Saint Seiya EX (Awakening EX / Rebirth 2).">
 <meta name="twitter:image" content="https://triade-ssex.netlify.app/calendario-banners.png">
 
@@ -42,15 +42,16 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "TRIADE — Saint Seiya EX (Rebirth 2)",
-  "alternateName": ["Triade SSEX", "Saint Seiya EX Guide", "Saint Seiya Awakening EX Guide", "Saint Seiya Rebirth 2 Guide"],
+  "name": "Saint Seiya EX / Rebirth 2",
+  "alternateName": ["Saint Seiya EX Guide", "Saint Seiya Awakening EX Guide", "Saint Seiya Rebirth 2 Guide", "SSEX Guide"],
   "url": "https://triade-ssex.netlify.app/",
   "description": "Guia completo de Saint Seiya EX (Awakening EX / Rebirth 2) com codex, team builder, tier list e roleta de cavaleiros.",
   "inLanguage": ["pt-BR", "en-US", "es-ES"],
   "publisher": {
     "@type": "Organization",
     "name": "TRIADE Guild",
-    "url": "https://triade-ssex.netlify.app/"
+    "url": "https://triade-ssex.netlify.app/",
+    "sameAs": ["https://discord.gg/JdjaESRjxF"]
   },
   "potentialAction": {
     "@type": "SearchAction",
@@ -91,9 +92,10 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/polish.css">
+<link rel="stylesheet" href="css/redesign.css">
 
 <!-- ═══════════════════════════════════════════════════════════
      Cloudflare Web Analytics
@@ -107,7 +109,20 @@
 <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
 <div class="wrap">
 
-  <!-- ============ TOPBAR DE AUTENTICAÇÃO ============ -->
+  <!-- ============ TOPBAR (marca + navegação + busca + autenticação) ============ -->
+  <div class="topbar" id="topbar">
+    <div class="topbar-brand" onclick="navigateToTab('inicio')" role="button" tabindex="0" aria-label="Início">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2 L21 20 L3 20 Z"></path><path d="M12 8 L16.5 17 L7.5 17 Z"></path></svg>
+      <span class="topbar-logo">SAINT SEIYA EX</span>
+      <span class="topbar-badge">Rebirth 2</span>
+    </div>
+
+    <button class="global-search-btn" id="globalSearchBtn" onclick="openGlobalSearch()" aria-label="Buscar no site" data-i18n-title="search.button">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21 L16.5 16.5"></path></svg>
+      <span class="global-search-label" data-i18n="search.placeholderShort">Buscar…</span>
+      <span class="global-search-kbd">Ctrl K</span>
+    </button>
+
   <div class="auth-topbar">
     <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" title="Alternar tema (claro/escuro)" aria-label="Alternar tema" data-i18n-title="theme.toggle">
       <span class="theme-icon-dark">🌙</span>
@@ -151,7 +166,7 @@
   </div>
 
   <!-- ============ ABAS DE NAVEGAÇÃO ============ -->
-  <nav class="tabs-nav">
+  <nav class="tabs-nav"><!-- dentro do .topbar -->
     <button class="tab-btn active" data-tab="inicio" data-i18n="menu.inicio">🏠 Início</button>
     <button class="tab-btn" data-tab="guilda" data-i18n="menu.guilda">🏛 Guilda</button>
     <button class="tab-btn" data-tab="heroes" data-i18n="menu.heroes">⚜ Heróis</button>
@@ -162,6 +177,7 @@
     <button class="tab-btn" data-tab="banners" data-i18n="menu.banners">📅 Banners</button>
     <button class="tab-btn" data-tab="team" data-i18n="menu.team">⚒ Team Builder</button>
   </nav>
+  </div><!-- /topbar -->
 
   <!-- ============ HEADER DA GUILDA (aparece em todas as sub-abas) ============ -->
   <header class="hero guild-hero" id="guildHeader" style="display:none;">
@@ -186,9 +202,43 @@
 
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
   <div class="tab-content active" id="tab-inicio">
-    <div class="home-intro">
-      <p data-i18n="home.welcome">Bem-vindo, Cavaleiro! Sistema completo de gestão para guildas de <strong>Saint Seiya: Rebirth 2</strong>.</p>
-    </div>
+
+    <!-- ════════ HUB: manchete + destaque ════════ -->
+    <section class="home-hub">
+      <div class="home-hub-main">
+        <div class="home-hub-kicker" data-i18n="home.hub.kicker">⚡ Guia completo · Rebirth 2 / Awakening EX</div>
+        <h1 class="home-hub-title" data-i18n="home.hub.title">Domine o cosmos.<br>Monte o time perfeito.</h1>
+        <p class="home-hub-sub" data-i18n="home.hub.sub">Codex completo, tier list e team builder interativo — em português, inglês e espanhol.</p>
+        <div class="home-hub-ctas">
+          <button class="home-hub-btn primary" onclick="navigateToTab('team')" data-i18n="home.hub.cta1">⚒ Montar meu time</button>
+          <button class="home-hub-btn" onclick="navigateToTab('heroes')" data-i18n="home.hub.cta2">Explorar o codex</button>
+          <a class="home-hub-btn discord" href="https://discord.gg/JdjaESRjxF" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.8 13.8 0 0 0-.64 1.28 18.3 18.3 0 0 0-5.5 0 13.8 13.8 0 0 0-.64-1.28c-1.71.29-3.37.8-4.93 1.51A20.3 20.3 0 0 0 .1 18.06a19.9 19.9 0 0 0 6.07 3.03c.49-.66.93-1.37 1.3-2.1a12.9 12.9 0 0 1-2.05-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.16 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.81 1.44 1.3 2.1a19.9 19.9 0 0 0 6.07-3.03 20.3 20.3 0 0 0-3.58-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Zm7.96 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Z"></path></svg>
+            Discord
+          </a>
+        </div>
+        <div class="home-hub-stats">
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statHeroes">103</div><div class="home-hub-stat-label" data-i18n="home.hub.stHeroes">Cavaleiros</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statArtifacts">34</div><div class="home-hub-stat-label" data-i18n="home.hub.stArtifacts">Artefatos</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num" id="statCards">165</div><div class="home-hub-stat-label" data-i18n="home.hub.stCards">Cartas</div></div>
+          <div class="home-hub-stat-sep"></div>
+          <div class="home-hub-stat"><div class="home-hub-stat-num">3</div><div class="home-hub-stat-label" data-i18n="home.hub.stLangs">Idiomas</div></div>
+        </div>
+      </div>
+      <div class="home-hub-featured" id="homeFeatured"><!-- preenchido por js/redesign.js --></div>
+    </section>
+
+    <!-- ════════ LENDÁRIOS UR ════════ -->
+    <section class="home-section home-top-section">
+      <div class="home-top-header">
+        <div class="home-section-title" data-i18n="home.top.title">✦ Lendários do Codex</div>
+        <span class="home-top-sub" data-i18n="home.top.sub">os heróis UR do jogo</span>
+        <button class="home-top-link" onclick="navigateToTab('tier')" data-i18n="home.top.viewAll">ver tier list completa →</button>
+      </div>
+      <div class="home-top-grid" id="homeTopTier"><!-- preenchido por js/redesign.js --></div>
+    </section>
 
     <!-- ════════ FEATURES PRINCIPAIS ════════ -->
     <section class="home-section">
@@ -1274,9 +1324,27 @@
 
   <footer>
     <span class="star">✦</span> <span data-i18n="footer.motto">Que a luz do Cosmo guie a Legião à vitória</span> <span class="star">✦</span>
+    <div class="footer-links">
+      <a class="footer-discord" href="https://discord.gg/JdjaESRjxF" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.8 13.8 0 0 0-.64 1.28 18.3 18.3 0 0 0-5.5 0 13.8 13.8 0 0 0-.64-1.28c-1.71.29-3.37.8-4.93 1.51A20.3 20.3 0 0 0 .1 18.06a19.9 19.9 0 0 0 6.07 3.03c.49-.66.93-1.37 1.3-2.1a12.9 12.9 0 0 1-2.05-.98c.17-.12.34-.25.5-.38a14.2 14.2 0 0 0 12.16 0c.16.13.33.26.5.38-.65.38-1.34.71-2.05.98.37.73.81 1.44 1.3 2.1a19.9 19.9 0 0 0 6.07-3.03 20.3 20.3 0 0 0-3.58-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Zm7.96 0c-1.18 0-2.16-1.08-2.16-2.42 0-1.33.95-2.42 2.16-2.42 1.21 0 2.18 1.09 2.16 2.42 0 1.34-.95 2.42-2.16 2.42Z"></path></svg>
+        <span data-i18n="footer.discord">Entre no nosso Discord</span>
+      </a>
+    </div>
     <div class="last-update" id="last-update"></div>
     <div class="app-version" id="app-version"></div>
   </footer>
+
+  <!-- ════════ BUSCA GLOBAL (Ctrl+K) ════════ -->
+  <div class="gsearch-overlay" id="gsearchOverlay" style="display:none;" onclick="if(event.target===this)closeGlobalSearch()">
+    <div class="gsearch-box" role="dialog" aria-modal="true" aria-label="Busca global">
+      <div class="gsearch-input-row">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M21 21 L16.5 16.5"></path></svg>
+        <input type="text" id="gsearchInput" autocomplete="off" spellcheck="false" placeholder="Buscar herói, artefato, carta…" data-i18n-placeholder="search.placeholder">
+        <button class="gsearch-esc" onclick="closeGlobalSearch()" aria-label="Fechar">Esc</button>
+      </div>
+      <div class="gsearch-results" id="gsearchResults"></div>
+    </div>
+  </div>
 
 </div>
 
@@ -1287,5 +1355,6 @@
 <script defer src="js/data/artifacts.js"></script>
 <script defer src="js/data/cards.js"></script>
 <script defer src="js/app.js"></script>
+<script defer src="js/redesign.js"></script>
 </body>
 </html>

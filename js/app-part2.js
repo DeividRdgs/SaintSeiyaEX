@@ -265,7 +265,7 @@ function renderRanking(players) {
 // ═══════════ MAPA DE ROTAS ═══════════
 // Abas principais (mostradas na nav superior)
 const TAB_ROUTES = {
-  'inicio':    { slug: '',              title: 'Início',        title_en: 'Home',         desc: 'Distribuição tática de Cavaleiros do Zodíaco da Legião TRIADE.', desc_en: 'Tactical distribution of Knights of the Zodiac of the TRIADE Legion.', private: false },
+  'inicio':    { slug: '',              title: 'Início',        title_en: 'Home',         desc: 'Guia completo de Saint Seiya EX (Rebirth 2): codex, team builder, tier list e roleta.', desc_en: 'Complete Saint Seiya EX (Rebirth 2) guide: codex, team builder, tier list and roulette.', private: false },
   'guilda':    { slug: 'guilda',        title: '🏛 Guilda',      title_en: '🏛 Guild',     desc: 'Área restrita aos membros da Legião TRIADE.', desc_en: 'Restricted area for members of the TRIADE Legion.', private: true, isParent: true },
   'heroes':    { slug: 'herois',        title: '⚜ Heróis',      title_en: '⚜ Heroes',     desc: 'Codex completo dos 103 Cavaleiros do Zodíaco.', desc_en: 'Complete codex of the 103 Knights of the Zodiac.', private: false },
   'artifacts': { slug: 'artefatos',     title: '💎 Artefatos',  title_en: '💎 Artifacts', desc: 'Codex dos 34 artefatos lendários.', desc_en: 'Codex of the 34 legendary artifacts.', private: false },
@@ -411,9 +411,9 @@ function updatePageMeta(tabId, subtabId) {
   const titleStr = useEn && info.title_en ? info.title_en : info.title;
   const descStr  = useEn && info.desc_en  ? info.desc_en  : info.desc;
   const baseTitle = useEn
-    ? 'TRIADE — Saint Seiya EX / Rebirth 2 Guide'
-    : 'TRIADE — Saint Seiya EX (Rebirth 2) — Guia da Legião';
-  document.title = (tabId === 'inicio') ? baseTitle : `${titleStr} · TRIADE`;
+    ? 'Saint Seiya EX / Rebirth 2 — Codex, Team Builder & Tier List'
+    : 'Saint Seiya EX / Rebirth 2 — Codex, Team Builder e Tier List';
+  document.title = (tabId === 'inicio') ? baseTitle : `${titleStr} · Saint Seiya EX`;
 
   // Helper pra criar/atualizar meta tag por seletor
   const upsertMeta = (selector, attrName, attrValue, contentValue) => {

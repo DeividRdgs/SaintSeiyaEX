@@ -1,0 +1,10 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 1500, "title": "Home — Desktop" },
+    { "file": "Mobile.dc.html", "x": 1540, "y": 0, "w": 390, "h": 844, "title": "Home — Mobile" }
+  ],
+  "annotations": [
+    { "id": "nota-proposta", "x": 1540, "y": 950, "w": 380, "text": "Proposta de redesign da home (estilo produto gamer).\nDados reais do codex: 103 cavaleiros, top 5 = 5 dos 6 heróis UR do jogo.\nO countdown do banner (3d 14h) é valor de exemplo.\nIdentidade preservada: dourado #d4af37, cosmos escuro, Cinzel." }
+  ],
+  "launch": { "view": "canvas" }
+}

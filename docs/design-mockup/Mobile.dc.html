@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Sora:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #0e0e12; }
+    a { color: #f5d76e; text-decoration: none; } a:hover { color: #d4af37; }
+  </style>
+</helmet>
+<div style="width: 390px; height: 844px; background: #0e0e12; background-image: radial-gradient(circle at 20% 5%, rgba(58,23,88,.28) 0%, rgba(14,14,18,0) 45%), radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,.3) 50%, transparent 51%), radial-gradient(1px 1px at 75% 15%, rgba(255,255,255,.3) 50%, transparent 51%), radial-gradient(1.5px 1.5px at 85% 60%, rgba(255,255,255,.2) 50%, transparent 51%); font-family: Sora, system-ui, sans-serif; color: #ececef; display: flex; flex-direction: column; overflow: hidden;">
+
+  <!-- Topbar -->
+  <div style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 16px; background: rgba(22,22,28,.9); border-bottom: 1px solid rgba(212,175,55,.20); flex-shrink: 0;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.6"><path d="M12 2 L21 20 L3 20 Z"></path><path d="M12 8 L16.5 17 L7.5 17 Z"></path></svg>
+      <div style="font-family: Cinzel, Georgia, serif; font-weight: 900; font-size: 16px; letter-spacing: .16em; color: #f5d76e;">TRIADE</div>
+    </div>
+    <div style="flex-grow: 1;"></div>
+    <div style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px;">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#ececef" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M21 21 L16.5 16.5"></path></svg>
+    </div>
+    <div style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 10px;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ececef" stroke-width="2"><path d="M4 7 L20 7 M4 12 L20 12 M4 17 L20 17"></path></svg>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 22px; padding: 20px 16px; overflow: hidden;">
+
+    <!-- Banner atual -->
+    <div style="display: flex; flex-direction: column; border-radius: 16px; background: linear-gradient(160deg, #1f1f28, #16161c); border: 1px solid rgba(212,175,55,.35); box-shadow: 0 16px 40px rgba(0,0,0,.45); overflow: hidden;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid rgba(212,175,55,.18);">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: .13em; color: #f5d76e;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #f5d76e; box-shadow: 0 0 8px #f5d76e;"></span>
+          BANNER ATUAL
+        </div>
+        <div style="font-size: 11px; color: #9a9aa5;">termina em <span style="color: #ececef; font-weight: 600;">3d 14h</span></div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 14px; padding: 16px;">
+        <div style="width: 76px; height: 76px; border-radius: 50%; padding: 2px; background: linear-gradient(135deg, #8b0a1a, #d4af37, #f5d76e); flex-shrink: 0;">
+          <img src="circleherohead_10780.png" alt="Seiya de Pégaso Divino" style="width: 72px; height: 72px; border-radius: 50%; display: block; background: #0e0e12;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; gap: 6px;">
+            <div style="padding: 2px 8px; border-radius: 5px; background: linear-gradient(135deg, #8b0a1a, #d4af37); color: #fff; font-size: 10px; font-weight: 700;">UR</div>
+            <div style="padding: 2px 8px; border-radius: 5px; background: rgba(212,175,55,.12); border: 1px solid rgba(212,175,55,.3); color: #f5d76e; font-size: 10px; font-weight: 600;">Santuário</div>
+          </div>
+          <div style="font-family: Cinzel, Georgia, serif; font-size: 16px; font-weight: 700; line-height: 1.25;">Seiya de Pégaso Divino</div>
+          <div style="font-size: 11.5px; color: #9a9aa5;">Lutador · dano físico</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top tier list: carrossel -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: baseline;">
+        <div style="font-family: Cinzel, Georgia, serif; font-size: 17px; font-weight: 700; color: #ececef;">Top da Tier List</div>
+        <div style="flex-grow: 1;"></div>
+        <a style="display: flex; align-items: center; min-height: 44px; padding: 0 10px; font-size: 12px; font-weight: 600;">ver todos →</a>
+      </div>
+      <div style="display: flex; gap: 12px;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 10px; border-radius: 12px; background: #16161c; border: 1px solid rgba(212,175,55,.3); border-top: 3px solid #f5d76e; width: 140px; flex-shrink: 0;">
+          <div style="align-self: flex-start; font-family: Cinzel, Georgia, serif; font-size: 12px; font-weight: 900; color: #f5d76e;">#1</div>
+          <img src="circleherohead_10270.png" alt="Hades" style="width: 58px; height: 58px; border-radius: 50%; border: 2px solid rgba(212,175,55,.5); background: #0e0e12;">
+          <div style="font-size: 11px; font-weight: 600; text-align: center; line-height: 1.3;">Hades, Rei do Submundo</div>
+          <div style="padding: 2px 7px; border-radius: 5px; background: linear-gradient(135deg, #8b0a1a, #d4af37); color: #fff; font-size: 10px; font-weight: 700;">UR</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 10px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); border-top: 3px solid #d4af37; width: 140px; flex-shrink: 0;">
+          <div style="align-self: flex-start; font-family: Cinzel, Georgia, serif; font-size: 12px; font-weight: 900; color: #d4af37;">#2</div>
+          <img src="circleherohead_10780.png" alt="Seiya de Pégaso Divino" style="width: 58px; height: 58px; border-radius: 50%; border: 2px solid rgba(212,175,55,.5); background: #0e0e12;">
+          <div style="font-size: 11px; font-weight: 600; text-align: center; line-height: 1.3;">Seiya de Pégaso Divino</div>
+          <div style="padding: 2px 7px; border-radius: 5px; background: linear-gradient(135deg, #8b0a1a, #d4af37); color: #fff; font-size: 10px; font-weight: 700;">UR</div>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 10px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); border-top: 3px solid #d4af37; width: 140px; flex-shrink: 0;">
+          <div style="align-self: flex-start; font-family: Cinzel, Georgia, serif; font-size: 12px; font-weight: 900; color: #d4af37;">#3</div>
+          <img src="circleherohead_10710.png" alt="Poseidon" style="width: 58px; height: 58px; border-radius: 50%; border: 2px solid rgba(212,175,55,.5); background: #0e0e12;">
+          <div style="font-size: 11px; font-weight: 600; text-align: center; line-height: 1.3;">Poseidon</div>
+          <div style="padding: 2px 7px; border-radius: 5px; background: linear-gradient(135deg, #8b0a1a, #d4af37); color: #fff; font-size: 10px; font-weight: 700;">UR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ferramentas 2x2 -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="font-family: Cinzel, Georgia, serif; font-size: 17px; font-weight: 700; color: #ececef;">Ferramentas</div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); min-height: 44px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.7"><path d="M14.7 6.3 L21 12.6 M3 21 L9.3 14.7 M14.7 6.3 L17.85 3.15 L20.85 6.15 L17.7 9.3 M14.7 6.3 L9.3 14.7"></path></svg>
+          <div style="font-size: 13.5px; font-weight: 700;">Team Builder</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); min-height: 44px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.7"><path d="M4 4 L20 4 L20 20 L4 20 Z M4 9 L20 9 M9 9 L9 20"></path></svg>
+          <div style="font-size: 13.5px; font-weight: 700;">Codex</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); min-height: 44px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.7"><circle cx="12" cy="12" r="9"></circle><path d="M12 3 L12 12 L18.4 18.4"></path></svg>
+          <div style="font-size: 13.5px; font-weight: 700;">Roleta</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 16px; border-radius: 12px; background: #16161c; border: 1px solid rgba(255,255,255,.08); min-height: 44px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4af37" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10 L21 10 M8 3 L8 7 M16 3 L16 7"></path></svg>
+          <div style="font-size: 13.5px; font-weight: 700;">Calendário de Banners</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+</body>
+</html>
