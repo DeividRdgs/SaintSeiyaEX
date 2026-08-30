@@ -5,6 +5,20 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbyHeTjW4NvbUBYWITS0YIyiL-k5kfxkTYiVSDfdEx0pij7W8FXd-LS_fKQk9qMkKEyZ/exec";
 // ════════════════════════════════════════════════
 
+// ─── Multi-guilda: slug da guilda da sessão (fallback: triade) ───
+function guildSlug() {
+  try {
+    if (typeof _authState !== 'undefined' && _authState && _authState.guild) return _authState.guild;
+  } catch (e) {}
+  return 'triade';
+}
+function guildDisplayName() {
+  try {
+    if (typeof _authState !== 'undefined' && _authState && _authState.guildName) return _authState.guildName;
+  } catch (e) {}
+  return 'TRIADE';
+}
+
 // VERSÃO DO APP — atualize quando fizer mudanças relevantes
 const APP_VERSION = 'v3.0.0';
 const APP_VERSION_DATE = '10/05/2026';

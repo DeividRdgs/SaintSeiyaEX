@@ -964,7 +964,7 @@ async function loadStatsData(force) {
   }
 
   try {
-    const res = await fetch(API_URL + '?action=historico&t=' + Date.now());
+    const res = await fetch(API_URL + '?action=historico&guild=' + encodeURIComponent(guildSlug()) + '&t=' + Date.now());
     const json = await res.json();
     if (!json.ok) throw new Error(json.error || 'Erro desconhecido');
 
@@ -2986,7 +2986,7 @@ function stopVotePolling() {
 
 async function loadVoteState() {
   try {
-    const res = await fetch(API_URL + '?action=votacao&t=' + Date.now());
+    const res = await fetch(API_URL + '?action=votacao&guild=' + encodeURIComponent(guildSlug()) + '&t=' + Date.now());
     const data = await res.json();
     if (!data.ok) return;
 
@@ -3197,7 +3197,7 @@ async function castVote(tier) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'votar', heroId: heroId, tier: tier, voterId: voterId })
+      body: JSON.stringify({ action: 'votar', guild: guildSlug(), heroId: heroId, tier: tier, voterId: voterId })
     });
     const data = await res.json();
     if (data.ok) {
@@ -3373,7 +3373,7 @@ async function voteOpenSubmit() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'abrirVotacao', senha, heroId, heroName: hero.name, duracao })
+      body: JSON.stringify({ action: 'abrirVotacao', guild: guildSlug(), senha, heroId, heroName: hero.name, duracao })
     });
     const data = await res.json();
     if (data.ok) {
@@ -3410,7 +3410,7 @@ async function voteCloseSubmit() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'fecharVotacao', senha })
+      body: JSON.stringify({ action: 'fecharVotacao', guild: guildSlug(), senha })
     });
     const data = await res.json();
     if (data.ok) {
@@ -3443,7 +3443,7 @@ async function voteCancelSubmit() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'cancelarVotacao', senha })
+      body: JSON.stringify({ action: 'cancelarVotacao', guild: guildSlug(), senha })
     });
     const data = await res.json();
     if (data.ok) {
@@ -3476,7 +3476,7 @@ async function voteSaveYoutubeSubmit() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'configCanal', senha, youtubeUrl })
+      body: JSON.stringify({ action: 'configCanal', guild: guildSlug(), senha, youtubeUrl })
     });
     const data = await res.json();
     if (data.ok) {
@@ -5306,6 +5306,8 @@ function authLoadFromStorage() {
       if (parsed && parsed.token) {
         _authState.token = parsed.token;
         _authState.user = parsed.user;
+        _authState.guild = parsed.guild || null;
+        _authState.guildName = parsed.guildName || null;
       }
     }
   } catch(_) {}
@@ -5313,7 +5315,7 @@ function authLoadFromStorage() {
 function authSaveToStorage() {
   try {
     if (_authState.token && _authState.user) {
-      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({token: _authState.token, user: _authState.user}));
+      localStorage.setItem(AUTH_STORAGE_KEY, JSON.stringify({token: _authState.token, user: _authState.user, guild: _authState.guild || null, guildName: _authState.guildName || null}));
     } else {
       localStorage.removeItem(AUTH_STORAGE_KEY);
     }
@@ -5334,11 +5336,13 @@ async function authValidateStoredToken() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authValidateToken', token: _authState.token })
+      body: JSON.stringify({ action: 'authValidateToken', token: _authState.token, guild: guildSlug() })
     });
     const data = await res.json();
     if (data.ok) {
       _authState.user = data.user;
+      _authState.guild = data.guild || _authState.guild || 'triade';
+      _authState.guildName = data.guildName || _authState.guildName || 'TRIADE';
       _authState.validated = true;
       authSaveToStorage();
       updateAuthUI();
@@ -5347,6 +5351,8 @@ async function authValidateStoredToken() {
       // Token inválido/expirado
       _authState.token = null;
       _authState.user = null;
+      _authState.guild = null;
+      _authState.guildName = null;
       _authState.validated = true;
       authSaveToStorage();
       updateAuthUI();
@@ -5500,7 +5506,7 @@ async function authLoadNicksDisponiveis() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authGetNicks' })
+      body: JSON.stringify({ action: 'authGetNicks', guild: guildSlug() })
     });
     const data = await res.json();
     if (data.ok && Array.isArray(data.nicks)) {
@@ -5546,9 +5552,12 @@ async function authSubmitLogin(e) {
     if (data.ok) {
       _authState.token = data.token;
       _authState.user = data.user;
+      _authState.guild = data.guild || 'triade';
+      _authState.guildName = data.guildName || 'TRIADE';
       authSaveToStorage();
       updateAuthUI();
       closeAuthModal();
+      if (typeof loadData === 'function') loadData(true);
       toast({ title: '⚔ Bem-vindo', msg: data.user.nick, type: 'success' });
     } else {
       authShowMsg('login', data.error || 'Erro', 'error');
@@ -5577,7 +5586,7 @@ async function authSubmitRegister(e) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authRegister', email, senha, nick })
+      body: JSON.stringify({ action: 'authRegister', guild: guildSlug(), email, senha, nick })
     });
     const data = await res.json();
     if (data.ok) {
@@ -5652,8 +5661,11 @@ async function authSubmitReset(e) {
 
 async function authLogout() {
   const token = _authState.token;
+  const guild = guildSlug();
   _authState.token = null;
   _authState.user = null;
+  _authState.guild = null;
+  _authState.guildName = null;
   authSaveToStorage();
   updateAuthUI();
   toast({ msg: ui('msg.loggedOut'), type: 'info' });
@@ -5668,7 +5680,7 @@ async function authLogout() {
       fetch(API_URL, {
         method: 'POST',
         headers: {'Content-Type': 'text/plain'},
-        body: JSON.stringify({ action: 'authLogout', token })
+        body: JSON.stringify({ action: 'authLogout', token, guild })
       });
     } catch(_) {}
   }
@@ -5688,7 +5700,7 @@ async function openAuthAdminPanel() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authListPending', authToken: _authState.token })
+      body: JSON.stringify({ action: 'authListPending', guild: guildSlug(), authToken: _authState.token })
     });
     const data = await res.json();
     if (!data.ok) {
@@ -5710,7 +5722,7 @@ async function openAuthAdminPanelLegacy(senha) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'authListPending', senha })
+      body: JSON.stringify({ action: 'authListPending', guild: guildSlug(), senha })
     });
     const data = await res.json();
     if (!data.ok) { toast({ msg: data.error || 'Erro', type: 'error' }); return; }
@@ -5837,7 +5849,7 @@ async function authApprovePending(email, idx) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify(Object.assign({ action: 'authApprove', email, guilda }, authPayload))
+      body: JSON.stringify(Object.assign({ action: 'authApprove', guild: guildSlug(), email, guilda }, authPayload))
     });
     const data = await res.json();
     if (data.ok) {
@@ -5858,7 +5870,7 @@ async function authDenyPending(email) {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify(Object.assign({ action: 'authDeny', email }, authPayload))
+      body: JSON.stringify(Object.assign({ action: 'authDeny', guild: guildSlug(), email }, authPayload))
     });
     const data = await res.json();
     if (data.ok) {
@@ -5907,7 +5919,7 @@ async function enviarRelatorioAgora() {
     const res = await fetch(API_URL, {
       method: 'POST',
       headers: {'Content-Type': 'text/plain'},
-      body: JSON.stringify({ action: 'relatorioDisparar', authToken: _authState.token })
+      body: JSON.stringify({ action: 'relatorioDisparar', guild: guildSlug(), authToken: _authState.token })
     });
     const data = await res.json();
     if (data.ok) {

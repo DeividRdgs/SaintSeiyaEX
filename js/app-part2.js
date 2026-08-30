@@ -20,7 +20,7 @@ function showAppVersion() {
         });
       }, 1500);
       // Limpa cache antigo de dados (força refresh)
-      localStorage.removeItem(CACHE_KEY);
+      localStorage.removeItem(cacheKey());
     }
     localStorage.setItem('triade_app_version', APP_VERSION);
   } catch(_) {}
@@ -59,12 +59,12 @@ let lastRecentNick = null;
 // ═══════════ CACHE LOCAL ═══════════
 // Reduz chamadas à API: serve cache imediato e atualiza em background.
 // TTL configurável + invalidação por hash do conteúdo.
-const CACHE_KEY = 'triade_cache_v1';
+function cacheKey() { return 'triade_cache_v1_' + guildSlug(); }
 const CACHE_TTL_MS = 30 * 1000; // 30 segundos
 
 function readCache() {
   try {
-    const raw = localStorage.getItem(CACHE_KEY);
+    const raw = localStorage.getItem(cacheKey());
     if (!raw) return null;
     const cached = JSON.parse(raw);
     if (!cached || !cached.t || !cached.data) return null;
@@ -74,7 +74,7 @@ function readCache() {
 
 function writeCache(data) {
   try {
-    localStorage.setItem(CACHE_KEY, JSON.stringify({
+    localStorage.setItem(cacheKey(), JSON.stringify({
       t: Date.now(),
       data: data
     }));
@@ -138,7 +138,7 @@ async function loadData(forceRefresh) {
 
   // 2. Buscar da rede
   try {
-    const res = await fetch(API_URL + "?t=" + Date.now());
+    const res = await fetch(API_URL + "?t=" + Date.now() + "&guild=" + encodeURIComponent(guildSlug()));
     const data = await res.json();
     if (!data.ok) throw new Error(data.error || "Erro desconhecido");
 
@@ -1321,7 +1321,7 @@ async function enviarCodigo() {
   try {
     const res = await fetch(API_URL, {
       method: 'POST',
-      body: JSON.stringify({action: 'sendCode', nick, email: emailNorm}),
+      body: JSON.stringify({action: 'sendCode', guild: guildSlug(), nick, email: emailNorm}),
       headers: {'Content-Type': 'text/plain'}
     });
     const data = await res.json();
@@ -1357,7 +1357,7 @@ async function atualizarPoder(modo) {
     fb.textContent = '⚠ ' + ui('msg.invalidPower'); fb.classList.add('err'); return; 
   }
   
-  let payload = {action: 'update', nick, power: Number(power)};
+  let payload = {action: 'update', guild: guildSlug(), nick, power: Number(power)};
   let btn;
   let usandoSessao = false;
   
