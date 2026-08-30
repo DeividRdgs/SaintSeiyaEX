@@ -1,0 +1,699 @@
+/* ═══════════════════════════════════════════════════════════
+   REDESIGN GUILDA — Saint Seiya EX / Rebirth 2
+   Camada carregada após style.css, polish.css e redesign.css.
+   Estende a linguagem visual "produto gamer" (Sora + painéis
+   arredondados + tokens do tema) à área da guilda, modais,
+   formulários, toasts e rodapé. Nunca hardcoda cor de tema.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ───────── 1. Header da guilda (.guild-hero — TRIADE) ───────── */
+.guild-hero .kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border: 1px solid var(--line-gold);
+  color: var(--gold-bright);
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  opacity: 1;
+}
+.guild-hero .subtitle {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .95rem;
+  color: var(--ink-dim);
+  letter-spacing: .02em;
+}
+.guild-hero .meta-row {
+  gap: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+.guild-hero .meta-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-weight: 600;
+}
+.guild-hero .meta-row span b {
+  color: var(--gold-bright);
+  font-weight: 700;
+}
+
+/* ───────── 2. Sub-navegação da guilda (pills, como o topbar) ───────── */
+.guild-subnav {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-1);
+  padding: 8px;
+  gap: 4px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.guild-subtab {
+  font-family: 'Sora', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: none;
+  padding: 9px 16px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+}
+.guild-subtab:hover {
+  color: var(--gold-bright);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+.guild-subtab.active {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  border-color: var(--line-gold);
+  color: var(--gold-bright);
+}
+
+/* ───────── 3. Formulário de atualizar poder (.updater) ───────── */
+.updater {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.updater::before {
+  font-family: 'Sora', sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--gold-bright);
+  background: var(--bg-1);
+  border: 1px solid var(--line-gold);
+  border-radius: 999px;
+  padding: 5px 14px;
+  top: -14px;
+}
+.updater-row { gap: 14px; }
+.updater-advanced { border-top: 1px dashed var(--line); }
+.updater-advanced summary {
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+/* Labels de formulário unificados (Sora, sem serif) */
+.field label,
+.stats-filter label,
+.vote-admin-section label,
+.auth-field label,
+.share-label {
+  font-family: 'Sora', sans-serif;
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  color: var(--ink-dim);
+}
+
+/* Inputs e selects (substitui o serif itálico) */
+.field input, .field select,
+.stats-filter select,
+.vote-admin-section input, .vote-admin-section select,
+.vote-hero-picker,
+.vote-duration-wrap input,
+.auth-field input, .auth-field select, .auth-field textarea {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  font-size: .88rem;
+  min-height: 44px;
+  padding: 10px 12px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field input:focus, .field select:focus,
+.stats-filter select:focus,
+.vote-admin-section input:focus, .vote-admin-section select:focus,
+.vote-duration-wrap input:focus,
+.auth-field input:focus, .auth-field select:focus, .auth-field textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 18%, transparent);
+}
+.auth-field textarea { min-height: 110px; }
+.auth-field input[readonly] { background: color-mix(in srgb, var(--ink) 6%, transparent); }
+.vote-duration-wrap input { font-family: 'JetBrains Mono', monospace; }
+
+/* Botão primário do updater */
+.btn-update {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: #16120a;
+  border: none;
+  border-radius: 10px;
+  height: auto;
+  min-height: 46px;
+  padding: 0 22px;
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+.btn-update:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--gold) 40%, transparent);
+}
+
+/* Hints, status e feedback */
+.hint,
+.vote-admin-hint {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .78rem;
+  line-height: 1.55;
+  background: color-mix(in srgb, var(--gold) 5%, transparent);
+  border-left: 2px solid var(--gold-deep);
+  border-radius: 0 8px 8px 0;
+}
+.vote-admin-hint code {
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+  border-radius: 5px;
+}
+.nick-status {
+  font-family: 'Sora', sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+.feedback,
+.stats-report-feedback {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .85rem;
+}
+
+/* ───────── 4. Toasts ───────── */
+.toast {
+  border-radius: 12px;
+  background: var(--bg-1);
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  padding: 12px 16px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.toast-title { font-weight: 600; }
+.toast-msg { font-size: .8rem; }
+
+/* ───────── 5. Ranking (pódio + tabela) ───────── */
+.podium-place {
+  background: var(--bg-1);
+  border-radius: 14px;
+}
+.podium-nick { color: var(--ink); }
+.ranking-table {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.rank-row { border-bottom: 1px solid var(--line); }
+.rank-row:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+.rank-row.top1 .rank-nick { color: var(--ink); }
+.rank-nick {
+  font-family: 'Sora', sans-serif;
+  font-size: .9rem;
+  font-weight: 500;
+}
+.rank-bar {
+  border: none;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.rank-bar-fill { border-radius: 999px; }
+.show-more-btn {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 0 24px;
+  color: var(--ink);
+  font-family: 'Sora', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+.show-more-btn:hover {
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  border-color: var(--line-gold);
+  color: var(--gold-bright);
+  letter-spacing: .04em;
+  box-shadow: none;
+}
+
+/* ───────── 6. GvG ───────── */
+.gvg-block {
+  background: var(--bg-1);
+  border-width: 1px;
+  border-radius: 14px;
+}
+.gvg-header { border-bottom-color: var(--line); }
+.gvg-stats {
+  font-family: 'Sora', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.gvg-player { border-bottom: 1px solid var(--line); }
+.gvg-player:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+.gvg-player .gvg-nick {
+  font-family: 'Sora', sans-serif;
+  font-size: .84rem;
+  font-weight: 500;
+}
+.gvg-player .gvg-obs {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .72rem;
+}
+
+/* ───────── 7. Eventos ───────── */
+.events-section .day-col {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.events-section .event-card {
+  background: var(--bg-2);
+  border-radius: 8px;
+}
+.events-section .event-name {
+  font-family: 'Sora', sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+}
+.events-section .event-desc,
+.events-section .empty-day {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .76rem;
+}
+
+/* ───────── 8. Roster dos bosses (.roster / .player) ───────── */
+.roster {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.player {
+  border-bottom: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+}
+.player:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+.player .pname {
+  font-family: 'Sora', sans-serif;
+  font-size: .84rem;
+  font-weight: 500;
+}
+.head-of-key { border-radius: 10px; }
+
+/* ───────── 9. Estatísticas ───────── */
+.stats-toolbar {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.stats-refresh-btn {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  height: auto;
+  min-height: 44px;
+  min-width: 44px;
+}
+.stats-refresh-btn:hover { border-color: var(--line-gold); }
+.stat-card {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.stat-card-label {
+  font-family: 'Sora', sans-serif;
+  font-size: .64rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.stats-chart-wrap {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.stats-empty { font-family: 'Sora', sans-serif; font-style: normal; font-size: .85rem; }
+.stats-leaderboard {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.stats-leader-row {
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  border-bottom: 1px dashed var(--line);
+}
+.stats-report-block {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.stats-report-desc {
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  line-height: 1.6;
+}
+.stats-report-btn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: #16120a;
+  border-radius: 10px;
+  min-height: 44px;
+  padding: 0 24px;
+  font-family: 'Sora', sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+.stats-report-btn:hover {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--gold) 40%, transparent);
+}
+
+/* ───────── 10. Votação ───────── */
+.vote-admin-toggle {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  min-height: 44px;
+  padding: 0 16px;
+  color: var(--ink-dim);
+  font-family: 'Sora', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.vote-admin-toggle:hover {
+  color: var(--gold-bright);
+  border-color: var(--line-gold);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+.vote-idle {
+  background: var(--bg-1);
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+}
+.vote-idle p { font-family: 'Sora', sans-serif; font-style: normal; font-size: .9rem; }
+.vote-panel {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.vote-video-col { border-radius: 14px; overflow: hidden; }
+.vote-hero-card { border-radius: 12px; }
+.vote-countdown { border-radius: 12px; }
+.vote-tier-btn { border-radius: 12px; }
+.vote-status { font-family: 'Sora', sans-serif; font-size: .8rem; }
+.vote-results {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.vote-result-row { font-family: 'Sora', sans-serif; font-size: .85rem; }
+.vote-result-bar-wrap { border-radius: 999px; }
+.vote-admin-panel {
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+.vote-admin-close { border-radius: 9px; width: 36px; height: 36px; }
+.vote-admin-btn {
+  border-radius: 9px;
+  min-height: 44px;
+  padding: 0 16px;
+  font-family: 'Sora', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.vote-hero-picker:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+
+/* ───────── 11. Modais de auth / contato / painel admin ───────── */
+.auth-modal { background: var(--overlay-bg); }
+.auth-modal-inner {
+  background: var(--bg-1);
+  border: 1px solid var(--line-gold);
+  border-radius: 16px;
+  padding: 30px 26px;
+  box-shadow: 0 24px 60px var(--shadow-color);
+}
+.auth-modal-close { border-radius: 9px; width: 36px; height: 36px; }
+.auth-subtitle {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .84rem;
+  line-height: 1.5;
+}
+.auth-msg { font-family: 'Sora', sans-serif; font-size: .8rem; border-radius: 0 8px 8px 0; }
+.auth-btn {
+  border-radius: 10px;
+  min-height: 46px;
+  font-family: 'Sora', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.auth-btn.primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: #16120a;
+  border: none;
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+.auth-btn.primary:hover {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  color: #16120a;
+  transform: translateY(-1px);
+}
+.auth-links { font-family: 'Sora', sans-serif; font-size: .8rem; }
+.auth-links a { color: var(--gold); }
+.auth-pending-text { font-family: 'Sora', sans-serif; font-size: .9rem; }
+
+/* Painel admin de aprovação */
+.auth-admin-row {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.auth-admin-email { font-size: .74rem; }
+.auth-admin-date { font-family: 'Sora', sans-serif; font-style: normal; font-size: .72rem; }
+.auth-admin-btn {
+  border-radius: 9px;
+  min-height: 40px;
+  padding: 0 14px;
+  font-family: 'Sora', sans-serif;
+  font-size: .74rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.auth-admin-guilda,
+.auth-admin-guilda-other {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-family: 'Sora', sans-serif;
+  font-size: .82rem;
+  min-height: 38px;
+}
+
+/* Botões de auth no topbar */
+.auth-login-btn {
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border: 1px solid var(--line-gold);
+  border-radius: 9px;
+  min-height: 40px;
+  padding: 0 16px;
+  color: var(--gold-bright);
+  font-family: 'Sora', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.auth-login-btn:hover { background: color-mix(in srgb, var(--gold) 16%, transparent); }
+.auth-user-info { font-family: 'Sora', sans-serif; font-size: .82rem; }
+.auth-logout-btn,
+.auth-admin-link-btn {
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-family: 'Sora', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+/* ───────── 12. Modal de compartilhar ───────── */
+.share-modal { background: var(--overlay-bg); }
+.share-modal-inner {
+  background: var(--bg-1);
+  border: 1px solid var(--line-gold);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px var(--shadow-color);
+}
+.share-modal-subtitle {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .85rem;
+}
+.share-tabs { gap: 6px; border-bottom: none; }
+.share-tab {
+  border: 1px solid transparent;
+  border-radius: 9px;
+  min-height: 44px;
+  font-family: 'Sora', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.share-tab.active {
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  border-color: var(--line-gold);
+  color: var(--gold-bright);
+}
+.share-link-input {
+  background: var(--bg-2);
+  border-radius: 9px;
+  min-height: 44px;
+}
+.share-copy-btn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  border: none;
+  border-radius: 9px;
+  min-height: 44px;
+  color: #16120a;
+  font-family: 'Sora', sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.share-copy-btn:hover {
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--gold) 30%, transparent);
+}
+.share-summary {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: .82rem;
+}
+.share-modal-close {
+  border-radius: 10px;
+  min-height: 44px;
+  font-family: 'Sora', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+.share-modal-close:hover { background: color-mix(in srgb, var(--gold) 6%, transparent); }
+
+/* ───────── 13. Rodapé (harmonização; .footer-discord já no redesign.css) ───────── */
+footer {
+  font-family: 'Sora', sans-serif;
+  font-style: normal;
+  font-size: .82rem;
+}
+
+/* ───────── 14. Animações (respeitando reduced motion) ───────── */
+@media (prefers-reduced-motion: no-preference) {
+  .guild-subtab,
+  .vote-admin-toggle,
+  .show-more-btn,
+  .auth-login-btn { transition: color .2s, background .2s, border-color .2s; }
+  .btn-update,
+  .stats-report-btn,
+  .auth-btn.primary { transition: transform .15s, box-shadow .2s, background .2s; }
+
+  @keyframes rg-crown-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-4px); }
+  }
+  .podium-crown { animation: rg-crown-float 3s ease-in-out infinite; }
+}
+
+/* ───────── 15. Tema claro — ajustes finos ───────── */
+:root[data-theme="light"] .guild-hero .meta-row span b { color: var(--gold-deep); }
+:root[data-theme="light"] .auth-links a { color: var(--gold-deep); }
+:root[data-theme="light"] .vote-duration-wrap input { color: var(--gold-deep); }
+:root[data-theme="light"] .btn-update,
+:root[data-theme="light"] .stats-report-btn,
+:root[data-theme="light"] .auth-btn.primary,
+:root[data-theme="light"] .share-copy-btn { color: #fffdf5; }
+
+/* ───────── 16. Responsivo (alvos ≥44px) ───────── */
+@media (max-width: 720px) {
+  .guild-subnav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 8px;
+  }
+  .guild-subnav::-webkit-scrollbar { height: 0; }
+  .guild-subtab {
+    flex: none;
+    min-height: 44px;
+    padding: 8px 14px;
+    font-size: .78rem;
+    letter-spacing: .02em;
+  }
+  .auth-logout-btn,
+  .auth-admin-link-btn,
+  .auth-modal-close,
+  .vote-admin-close { min-height: 44px; min-width: 44px; }
+  .field input, .field select,
+  .stats-filter select,
+  .auth-field input, .auth-field select,
+  .vote-admin-section input, .vote-admin-section select { min-height: 44px; }
+  .updater { padding: 24px 18px 20px; }
+  .vote-admin-panel { padding: 16px; }
+  .stats-toolbar { padding: 14px; }
+}
+@media (max-width: 480px) {
+  .guild-hero .meta-row { gap: 8px; }
+  .guild-hero .meta-row span { padding: 6px 11px; font-size: .68rem; }
+  .updater { padding: 22px 14px 18px; }
+  .auth-modal { padding: 40px 12px 12px; }
+  .auth-modal-inner { padding: 24px 16px; }
+  .share-modal-inner { padding: 22px 16px; }
+  .rank-row { border-bottom-color: var(--line); }
+  .stats-report-btn, .btn-update { width: 100%; }
+}

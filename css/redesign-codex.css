@@ -1,0 +1,506 @@
+/* ═══════════════════════════════════════════════════════════
+   REDESIGN CODEX — Saint Seiya EX / Rebirth 2
+   Estende a linguagem visual de css/redesign.css (Sora + tokens
+   de tema) para as abas Heróis, Artefatos e Cartas, as views de
+   detalhe e o modal do codex. Carregado após style/polish/redesign,
+   então vence por ordem + especificidade (escopo por ID das abas).
+   Nenhuma cor de tema hardcoded — só tokens (funciona claro/escuro);
+   as únicas cores literais são as de RARIDADE, replicadas do
+   style.css (.r-sr/.r-r etc.) para manter a identidade dos tiers.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ───────── 1. Toolbar de filtros (Heróis / Artefatos / Cartas / modal) ───────── */
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-pool-toolbar {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  box-shadow: 0 6px 18px var(--shadow-color);
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-pool-filters {
+  gap: 12px 14px;
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item select,
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item input {
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-style: normal;
+  font-size: .84rem;
+  transition: border-color .2s, box-shadow .2s;
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item input::placeholder {
+  color: var(--ink-dim);
+  font-style: normal;
+  opacity: .8;
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item select:focus,
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 16%, transparent);
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-clear {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-clear:hover {
+  border-color: var(--line-gold);
+  color: var(--gold-bright);
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+
+/* ───────── 2. Contador de resultados ───────── */
+:is(#tab-heroes, #tab-artifacts, #tab-cards) .codex-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  padding: 4px 13px;
+  margin: 2px 0 18px;
+  border-radius: 999px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: none;
+  color: var(--ink-dim);
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards) .codex-count::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold-bright);
+  box-shadow: 0 0 6px var(--gold-bright);
+}
+
+/* ───────── 3. Grades e cards do codex ───────── */
+:is(#tab-heroes, #tab-artifacts, #tab-cards) :is(.heroes-grid, .artifacts-grid) {
+  gap: 12px;
+}
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .hero-card.codex-card {
+  border-radius: 12px;
+}
+/* Sem preferência de movimento declarada: cancela o lift/scale do style.css
+   (a versão animada volta na seção 11, dentro de no-preference) */
+:is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .hero-card.codex-card:hover {
+  transform: none;
+}
+
+/* ───────── 4. Botão voltar (topo e rodapé dos detalhes) ───────── */
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-back {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  text-transform: none;
+}
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-back:hover {
+  transform: none;
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border-color: var(--line-gold);
+  color: var(--gold-bright);
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* ───────── 5. Painel de detalhe (herói / artefato / carta) ───────── */
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-detail {
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-detail-title {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .95rem;
+  color: var(--ink-dim);
+}
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  text-transform: none;
+}
+:is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .codex-section-title {
+  letter-spacing: .18em;
+  color: var(--gold-bright);
+}
+
+/* ───────── 6. Detalhe do herói: bio, stats, skills e bonds ───────── */
+#hero-detail-view .hero-bio {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-style: normal;
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--ink);
+  padding: 14px 18px;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: var(--bg-2);
+}
+#hero-detail-view .stat-box {
+  border-radius: 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+}
+#hero-detail-view .stat-label {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+/* Abas de habilidades: controle segmentado */
+#hero-detail-view .skill-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg-1);
+}
+#hero-detail-view .skill-tab {
+  min-height: 44px;
+  padding: 9px 18px;
+  border: none;
+  border-radius: 9px;
+  color: var(--ink-dim);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  transition: color .2s, background .2s, box-shadow .2s;
+}
+#hero-detail-view .skill-tab:hover {
+  color: var(--gold-bright);
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+}
+#hero-detail-view .skill-tab.active {
+  color: var(--gold-bright);
+  background: color-mix(in srgb, var(--gold) 12%, transparent);
+  box-shadow: inset 0 0 0 1px var(--line-gold);
+}
+
+/* Blocos de skill */
+#hero-detail-view .skill-item {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+}
+#hero-detail-view .skill-item:hover {
+  transform: none;
+  border-color: var(--line-gold);
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+#hero-detail-view .skill-icon-wrap {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+}
+#hero-detail-view .skill-type {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+  border: 1px solid var(--line-gold);
+  color: var(--gold-bright);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+#hero-detail-view .skill-desc {
+  font-size: .92rem;
+  line-height: 1.65;
+}
+#hero-detail-view .skill-cd {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .74rem;
+  color: var(--ink-dim);
+}
+#hero-detail-view .skill-empty {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .88rem;
+  color: var(--ink-dim);
+}
+
+/* Bonds e atributos de suporte */
+#hero-detail-view .bond-block-title {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--gold-bright);
+}
+#hero-detail-view .support-attr {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .8rem;
+  color: var(--ink);
+}
+#hero-detail-view .bond-card {
+  border-radius: 12px;
+  background: var(--bg-1);
+  border: 1px solid var(--line);
+  transition: border-color .2s, box-shadow .2s, transform .18s;
+}
+#hero-detail-view .bond-card:hover {
+  border-color: var(--line-gold);
+  box-shadow: 0 12px 30px var(--shadow-color);
+}
+#hero-detail-view .bond-bonus {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .82rem;
+  line-height: 1.6;
+}
+#hero-detail-view .combo-group,
+#hero-detail-view .combo-partners {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .82rem;
+}
+
+/* ───────── 7. Detalhe do artefato: lore, efeito e progressão ───────── */
+:is(#artifact-detail-view, #card-detail-view) :is(.artifact-detail-lore, .card-detail-lore) {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-style: normal;
+  font-size: .92rem;
+  line-height: 1.7;
+  color: var(--ink);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  background: var(--bg-2);
+}
+:is(#artifact-detail-view, #card-detail-view) :is(.artifact-detail-effect, .card-detail-effect) {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--gold) 6%, var(--bg-1));
+  border: 1px solid var(--line-gold);
+}
+:is(#artifact-detail-view, #card-detail-view) :is(.artifact-detail-effect-title, .card-detail-effect-title) {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+:is(#artifact-detail-view, #card-detail-view) :is(.artifact-detail-effect-body, .card-detail-effect-body) {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .92rem;
+  line-height: 1.65;
+}
+
+/* Abas de tier (R/SR/SSR/UR) viram pills; cores por tier preservadas */
+#artifact-detail-view .artifact-tier-tabs {
+  gap: 8px;
+  border-bottom: 0;
+  margin-bottom: 4px;
+}
+#artifact-detail-view .artifact-tier-tab {
+  min-height: 44px;
+  margin-bottom: 0;
+  padding: 9px 18px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+#artifact-detail-view .artifact-tier-tab.active { border-color: var(--gold); }
+#artifact-detail-view .artifact-tier-tab.sr.active { border-color: #c084fc; }
+#artifact-detail-view .artifact-tier-tab.r.active { border-color: #60a5fa; }
+#artifact-detail-view .artifact-tier-tab.ur.active { border-color: #ff3030; }
+
+#artifact-detail-view .artifact-detail-tier {
+  border-radius: 12px;
+  border-top: 1px solid var(--gold-deep);
+  box-shadow: 0 8px 22px var(--shadow-color);
+}
+#artifact-detail-view .artifact-detail-tier.ur { border-top-color: rgba(255, 48, 48, .5); }
+#artifact-detail-view .artifact-detail-tier.sr { border-top-color: rgba(192, 132, 252, .4); }
+#artifact-detail-view .artifact-detail-tier.r { border-top-color: rgba(96, 165, 250, .4); }
+#artifact-detail-view .artifact-detail-levels {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .88rem;
+  line-height: 1.65;
+}
+
+/* ───────── 8. Detalhe da carta: tabelas de progressão ───────── */
+#card-detail-view .card-lv-table-wrap {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--bg-1);
+  box-shadow: 0 8px 22px var(--shadow-color);
+}
+#card-detail-view .card-lv-section-title {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  border-bottom: 1px solid var(--line);
+}
+#card-detail-view .card-lv-table {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .84rem;
+}
+#card-detail-view .card-lv-table th {
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+#card-detail-view .card-lv-effect {
+  line-height: 1.55;
+}
+#card-detail-view .card-lv-num {
+  font-size: .78rem;
+}
+
+/* ───────── 9. Modal do codex ───────── */
+.codex-modal-inner {
+  border-radius: 16px;
+  border: 1px solid var(--line-gold);
+  box-shadow: 0 30px 80px var(--shadow-color);
+}
+.codex-modal-title {
+  font-size: 1.02rem;
+  letter-spacing: .12em;
+}
+.codex-modal-close {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 20px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.codex-modal-close:hover {
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+}
+
+/* ───────── 10. Responsivo (720 / 480) ───────── */
+@media (max-width: 720px) {
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-pool-toolbar {
+    padding: 12px 14px;
+    border-radius: 12px;
+  }
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-search {
+    margin-left: 0;
+    flex: 1 1 100%;
+  }
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item select,
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .team-filter-item input {
+    min-height: 44px;
+    font-size: .84rem;
+  }
+  :is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-detail {
+    padding: 18px;
+    gap: 20px;
+  }
+  #hero-detail-view .skill-tabs {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #hero-detail-view .skill-tab {
+    flex: 1 0 auto;
+    padding: 9px 14px;
+  }
+  #hero-detail-view .skill-item {
+    padding: 14px;
+    gap: 14px;
+  }
+  #hero-detail-view .skill-icon-wrap {
+    width: 84px;
+    height: 84px;
+  }
+  .codex-modal-inner {
+    border-radius: 14px;
+    padding: 18px 14px;
+  }
+}
+@media (max-width: 480px) {
+  :is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-detail {
+    padding: 14px;
+  }
+  :is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-back {
+    width: 100%;
+    justify-content: center;
+  }
+  #hero-detail-view .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  #hero-detail-view .skill-icon-wrap {
+    width: 64px;
+    height: 64px;
+  }
+  #artifact-detail-view .artifact-tier-tab {
+    flex: 1 1 auto;
+    padding: 9px 12px;
+    text-align: center;
+  }
+}
+
+/* ───────── 11. Micro-animações (só com movimento permitido) ───────── */
+@media (prefers-reduced-motion: no-preference) {
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .hero-card.codex-card {
+    transition: transform .18s ease, box-shadow .25s ease, border-color .2s ease;
+  }
+  :is(#tab-heroes, #tab-artifacts, #tab-cards, .codex-modal) .hero-card.codex-card:hover {
+    transform: translateY(-3px);
+  }
+  :is(#hero-detail-view, #artifact-detail-view, #card-detail-view) .hero-back:hover {
+    transform: translateX(-2px);
+  }
+  #hero-detail-view .skill-item:hover,
+  #hero-detail-view .bond-card:hover {
+    transform: translateY(-2px);
+  }
+  /* Entrada suave da view de detalhe (reexecuta ao trocar display none→block) */
+  #hero-detail-view,
+  #artifact-detail-view,
+  #card-detail-view {
+    animation: cdx-rise .32s ease both;
+  }
+  @keyframes cdx-rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
