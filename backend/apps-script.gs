@@ -572,6 +572,49 @@ function gvgReplace(params, ctx) {
   return jsonResponse({ok: true, message: 'GVG salva (' + rows.length + ' linhas)'});
 }
 
+function configSetWebhook(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var url = String(params.webhook || '').trim();
+  if (url && url.indexOf('discord.com/api/webhooks/') === -1) {
+    return jsonResponse({ok: false, error: 'URL inválida — cole a URL do webhook do Discord'});
+  }
+  if (url.length > 300) return jsonResponse({ok: false, error: 'URL muito longa'});
+  var cfg = ctx.ss.getSheetByName('Config');
+  if (!cfg) {
+    cfg = ctx.ss.insertSheet('Config');
+    cfg.appendRow(['chave', 'valor']);
+    cfg.setFrozenRows(1);
+  }
+  var data = cfg.getDataRange().getValues();
+  var achou = false;
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][0] || '').trim().toLowerCase() === 'webhook_discord') {
+      cfg.getRange(i + 1, 2).setValue(url);
+      achou = true;
+      break;
+    }
+  }
+  if (!achou) cfg.appendRow(['webhook_discord', url]);
+  logEvent('webhook_set', {email: maskEmail(lid.email), detalhes: url ? 'configurado' : 'removido'}, ctx.ss);
+  return jsonResponse({ok: true, message: url ? 'Webhook salvo!' : 'Webhook removido'});
+}
+
+function configTestWebhook(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  if (!getDiscordWebhook(ctx.ss)) return jsonResponse({ok: false, error: 'Configure o webhook primeiro'});
+  enviarDiscord({
+    username: ctx.nome + ' — Site', avatar_url: TRIADE_BOT_AVATAR,
+    embeds: [{
+      title: '✅ Webhook configurado!',
+      description: 'Os avisos da guilda **' + ctx.nome + '** chegarão neste canal.',
+      color: 0x2ecc71, timestamp: new Date().toISOString()
+    }]
+  }, ctx.ss);
+  return jsonResponse({ok: true, message: 'Mensagem de teste enviada — confira o canal'});
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
