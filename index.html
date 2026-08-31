@@ -527,25 +527,34 @@
 
   <!-- ============ SUB-ABA: ELENCO (só líder) ============ -->
   <div class="tab-content" id="tab-elenco">
-    <div class="panel">
-      <h2 data-i18n="elenco.title">⚔ Elenco da Guilda</h2>
-      <p class="pending-hint" data-i18n="elenco.hint">Adicione os nicks dos jogadores; cada um cria a própria conta escolhendo o nick no cadastro.</p>
-      <div style="display:flex;gap:8px;margin:12px 0;">
-        <input type="text" id="elencoNovoNick" maxlength="30" placeholder="Nick do jogador" data-i18n-placeholder="elenco.nickPh" style="flex:1;" onkeydown="if(event.key==='Enter') elencoAdd()">
-        <button class="auth-btn primary" id="elencoAddBtn" onclick="elencoAdd()" data-i18n="elenco.addBtn">+ Adicionar</button>
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="elenco.title">⚔ Elenco da Guilda</h2>
+        <div class="sub" data-i18n="elenco.hint">Adicione os nicks dos jogadores; cada um cria a própria conta escolhendo o nick no cadastro.</div>
       </div>
-      <div class="auth-msg" id="elencoMsg"></div>
-      <div id="elencoLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
-    </div>
+      <div class="pending-panel">
+        <div class="elenco-add-row">
+          <input type="text" id="elencoNovoNick" maxlength="30" placeholder="Nick do jogador" data-i18n-placeholder="elenco.nickPh" onkeydown="if(event.key==='Enter') elencoAdd()">
+          <button class="auth-admin-btn approve" id="elencoAddBtn" onclick="elencoAdd()" data-i18n="elenco.addBtn">+ Adicionar</button>
+        </div>
+        <div class="auth-msg" id="elencoMsg"></div>
+        <div id="elencoLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+      </div>
+    </section>
   </div>
 
   <!-- ============ SUB-ABA: GUILDAS (só admin do site) ============ -->
   <div class="tab-content" id="tab-guildas">
-    <div class="panel">
-      <h2 data-i18n="guildas.title">🏰 Guildas</h2>
-      <div class="auth-msg" id="guildasMsg"></div>
-      <div id="guildasLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
-    </div>
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="guildas.title">🏰 Guildas</h2>
+        <div class="sub" data-i18n="guildas.subtitle">Aprove pedidos de criação e acompanhe as guildas ativas</div>
+      </div>
+      <div class="pending-panel">
+        <div class="auth-msg" id="guildasMsg"></div>
+        <div id="guildasLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+      </div>
+    </section>
   </div>
 
   <!-- ============ ABA: HEROES ============ -->

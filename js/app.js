@@ -5413,6 +5413,10 @@ function applyGuildBranding() {
   if (typeof guildDisplayName !== 'function') return;
   var h = document.getElementById('guildHeroName');
   if (h) h.textContent = guildDisplayName();
+  // Rótulo da sidebar da guilda (o content do ::before vem desta variável CSS)
+  try {
+    document.documentElement.style.setProperty('--guild-name', JSON.stringify(guildDisplayName()));
+  } catch (e0) {}
   // Descrições de rota (usadas no meta description da área da guilda)
   try {
     var nome = guildDisplayName();
@@ -6166,10 +6170,10 @@ async function initElencoTab() {
       const safe = String(n.nick).replace(/</g, '&lt;').replace(/"/g, '&quot;');
       const jsSafe = String(n.nick).replace(/\\/g, '\\\\').replace(/'/g, "\\'")
         .replace(/</g, '&lt;').replace(/"/g, '&quot;');
-      const badge = n.vinculado ? ` <span style="opacity:.7;font-size:.85em;">✓ ${ui('elenco.linked')}</span>` : '';
-      return `<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.08);">` +
-        `<span><strong>${safe}</strong>${badge}</span>` +
-        `<button class="auth-btn" onclick="elencoRemove('${jsSafe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
+      const badge = n.vinculado ? `<span class="elenco-row-badge">✓ ${ui('elenco.linked')}</span>` : '';
+      return `<div class="elenco-row">` +
+        `<span class="elenco-row-nick">${safe}${badge}</span>` +
+        `<button class="auth-admin-btn deny" onclick="elencoRemove('${jsSafe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
         `</div>`;
     }).join('');
   } catch (err) {
@@ -6238,7 +6242,7 @@ async function initGuildasTab() {
     });
     const data = await res.json();
     if (!data.ok) { lista.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
-    let html = `<h3 style="margin-top:8px;">${ui('guildas.pendingTitle')}</h3>`;
+    let html = `<h3 class="guildas-h3">${ui('guildas.pendingTitle')}</h3>`;
     if (!data.pendentes.length) {
       html += `<div class="pending-hint">${ui('guildas.noPending')}</div>`;
     } else {
@@ -6247,16 +6251,16 @@ async function initGuildasTab() {
         const nome = String(p.nome).replace(/</g, '&lt;');
         const nick = String(p.nickLider).replace(/</g, '&lt;');
         const email = String(p.email).replace(/</g, '&lt;');
-        return `<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:10px 4px;border-bottom:1px solid rgba(255,255,255,.08);">` +
-          `<span><strong>${nome}</strong><br><small>${ui('guildas.leader')}: ${nick} · ${email} · ${p.criadaEm}</small></span>` +
-          `<span style="display:flex;gap:6px;">` +
-            `<button class="auth-btn primary" onclick="guildasApprove('${slug}')">✓ ${ui('guildas.approveBtn')}</button>` +
-            `<button class="auth-btn" onclick="guildasDeny('${slug}')">✕ ${ui('guildas.denyBtn')}</button>` +
+        return `<div class="guildas-row">` +
+          `<span class="guildas-row-info"><strong>${nome}</strong><br><small>${ui('guildas.leader')}: ${nick} · ${email} · ${p.criadaEm}</small></span>` +
+          `<span class="guildas-row-actions">` +
+            `<button class="auth-admin-btn approve" onclick="guildasApprove('${slug}')">✓ ${ui('guildas.approveBtn')}</button>` +
+            `<button class="auth-admin-btn deny" onclick="guildasDeny('${slug}')">✕ ${ui('guildas.denyBtn')}</button>` +
           `</span></div>`;
       }).join('');
     }
-    html += `<h3 style="margin-top:20px;">${ui('guildas.activeTitle')} (${data.ativas.length})</h3>` +
-      data.ativas.map(a => `<div style="padding:6px 4px;">🏰 ${String(a.nome).replace(/</g, '&lt;')} <small style="opacity:.6">/${String(a.slug).replace(/</g, '&lt;')}</small></div>`).join('');
+    html += `<h3 class="guildas-h3">${ui('guildas.activeTitle')} (${data.ativas.length})</h3>` +
+      data.ativas.map(a => `<div class="guildas-ativa-row">🏰 ${String(a.nome).replace(/</g, '&lt;')} <small>/${String(a.slug).replace(/</g, '&lt;')}</small></div>`).join('');
     lista.innerHTML = html;
   } catch (err) {
     lista.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
