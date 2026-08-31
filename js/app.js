@@ -5447,6 +5447,8 @@ function updateAuthUI() {
     }
     var elencoBtn = document.getElementById('subtabElencoBtn');
     if (elencoBtn) elencoBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
+    var discordBtn = document.getElementById('subtabDiscordBtn');
+    if (discordBtn) discordBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
     var guildasBtn = document.getElementById('subtabGuildasBtn');
     if (guildasBtn) guildasBtn.style.display = (_authState.user && _authState.user.siteAdmin) ? '' : 'none';
     var manageEvBtn = document.getElementById('btnManageEvents');
@@ -5461,6 +5463,8 @@ function updateAuthUI() {
     if (modoLiderBlock2) modoLiderBlock2.style.display = 'none';
     var elencoBtn2 = document.getElementById('subtabElencoBtn');
     if (elencoBtn2) elencoBtn2.style.display = 'none';
+    var discordBtn2 = document.getElementById('subtabDiscordBtn');
+    if (discordBtn2) discordBtn2.style.display = 'none';
     var guildasBtn2 = document.getElementById('subtabGuildasBtn');
     if (guildasBtn2) guildasBtn2.style.display = 'none';
     var manageEvBtn2 = document.getElementById('btnManageEvents');
@@ -6191,7 +6195,6 @@ async function initElencoTab() {
   } catch (err) {
     lista.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
   }
-  initGuildConfig();
 }
 
 async function elencoAdd() {

@@ -287,6 +287,7 @@ const GUILD_SUBTAB_ROUTES = {
   'vote':      { slug: 'votacao',       title: 'Votação',    title_en: 'Voting',    desc: 'Votação comunitária dos tiers dos Cavaleiros.', desc_en: 'Community voting on Knight tiers.' },
   'pendentes': { slug: 'pendentes',     title: 'Solicitações Pendentes', title_en: 'Pending Requests', desc: 'Aprovação de novos membros da guilda.', desc_en: 'Approval of new guild members.' },
   'elenco':    { slug: 'elenco',        title: 'Membros',    title_en: 'Members',   desc: 'Gestão dos membros da guilda.', desc_en: 'Guild members management.' },
+  'discord':   { slug: 'discord',       title: 'Discord',    title_en: 'Discord',   desc: 'Webhook do Discord da guilda.', desc_en: 'Guild Discord webhook.' },
   'guildas':   { slug: 'guildas',       title: 'Guildas',    title_en: 'Guilds',    desc: 'Aprovação de novas guildas.', desc_en: 'New guild approval.' }
 };
 const GUILD_DEFAULT_SUBTAB = 'update'; // Sub-aba padrão ao entrar em /guilda
@@ -401,6 +402,7 @@ function runTabInitHook(tabId) {
   if (tabId === 'team' && typeof initTeamTab === 'function') initTeamTab();
   if (tabId === 'update' && typeof initUpdatePoderTab === 'function') initUpdatePoderTab();
   if (tabId === 'elenco' && typeof initElencoTab === 'function') initElencoTab();
+  if (tabId === 'discord' && typeof initGuildConfig === 'function') initGuildConfig();
   if (tabId === 'guildas' && typeof initGuildasTab === 'function') initGuildasTab();
 }
 

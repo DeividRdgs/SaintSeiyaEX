@@ -741,7 +741,7 @@ footer {
   .guild-hero,
   #tab-update.active, #tab-bosses.active, #tab-ranking.active,
   #tab-gvg.active, #tab-eventos.active, #tab-stats.active, #tab-vote.active,
-  #tab-elenco.active, #tab-guildas.active {
+  #tab-elenco.active, #tab-guildas.active, #tab-discord.active {
     margin-left: 224px;
   }
   /* Cabeçalho TRIADE compacto: o nome já vive na sidebar */
