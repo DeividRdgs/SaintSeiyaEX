@@ -834,3 +834,35 @@ body.stream-mode #tab-vote { margin-left: 0; }
 .pending-panel .guildas-h3:first-child { margin-top: 0; }
 .guildas-ativa-row { padding: 6px 2px; font-size: .85rem; }
 .guildas-ativa-row small { color: var(--ink-dim); }
+
+/* Painéis de gestão do líder (Fase 2) */
+.manage-panel { max-width: 980px; margin: 0 auto 22px; }
+.manage-row {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 6px;
+  align-items: center;
+}
+.manage-row-ev { grid-template-columns: 110px 1.2fr 76px 1.5fr 1fr 96px 40px; }
+.manage-row input, .manage-row select {
+  background: var(--bg-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  min-height: 38px;
+  padding: 0 10px;
+  font-family: 'Sora', sans-serif;
+  font-size: .8rem;
+  min-width: 0;
+}
+.manage-row .mr-del { min-height: 38px; padding: 0 10px; }
+.manage-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+@media (max-width: 900px) {
+  .manage-row-ev { grid-template-columns: 1fr 1fr; }
+}

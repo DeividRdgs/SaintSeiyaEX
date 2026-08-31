@@ -502,6 +502,18 @@
         <h2 data-i18n="events.title">Eventos da Legião</h2>
         <div class="sub" data-i18n="events.subtitle">⚔ Atividades semanais ⚔</div>
       </div>
+      <div style="text-align:center;">
+        <button class="auth-admin-btn approve" id="btnManageEvents" style="display:none;margin:0 0 14px;" onclick="manageEventsOpen()" data-i18n="manage.eventsBtn">✎ Gerenciar eventos</button>
+      </div>
+      <div class="pending-panel manage-panel" id="manageEventsPanel" style="display:none;">
+        <div class="auth-msg" id="manageEventsMsg"></div>
+        <div id="manageEventsRows"></div>
+        <div class="manage-actions">
+          <button class="auth-admin-btn" onclick="manageEventsAddRow()" data-i18n="manage.addEvent">+ Adicionar evento</button>
+          <button class="auth-admin-btn approve" id="manageEventsSaveBtn" onclick="manageEventsSave()" data-i18n="manage.save">💾 Salvar</button>
+          <button class="auth-admin-btn deny" onclick="manageEventsClose()" data-i18n="manage.cancel">Cancelar</button>
+        </div>
+      </div>
       <div class="week-grid" id="week-grid">
         <div class="skel skel-event-col"></div>
         <div class="skel skel-event-col"></div>

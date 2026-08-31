@@ -5449,6 +5449,8 @@ function updateAuthUI() {
     if (elencoBtn) elencoBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
     var guildasBtn = document.getElementById('subtabGuildasBtn');
     if (guildasBtn) guildasBtn.style.display = (_authState.user && _authState.user.siteAdmin) ? '' : 'none';
+    var manageEvBtn = document.getElementById('btnManageEvents');
+    if (manageEvBtn) manageEvBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
   } else {
     if (loginBtn) loginBtn.style.display = '';
     if (userInfo) userInfo.style.display = 'none';
@@ -5459,6 +5461,10 @@ function updateAuthUI() {
     if (elencoBtn2) elencoBtn2.style.display = 'none';
     var guildasBtn2 = document.getElementById('subtabGuildasBtn');
     if (guildasBtn2) guildasBtn2.style.display = 'none';
+    var manageEvBtn2 = document.getElementById('btnManageEvents');
+    if (manageEvBtn2) manageEvBtn2.style.display = 'none';
+    var manageEvPanel2 = document.getElementById('manageEventsPanel');
+    if (manageEvPanel2) manageEvPanel2.style.display = 'none';
   }
   // Atualiza cadeados nas abas
   updateTabsLockUI();
@@ -6294,4 +6300,99 @@ async function guildasDeny(slug) {
     guildasShowMsg(data.ok ? data.message : (data.error || 'Erro'), data.ok ? 'success' : 'error');
     if (data.ok) initGuildasTab();
   } catch (err) { guildasShowMsg(ui('auth.connectionError'), 'error'); }
+}
+
+// ════════════ GESTÃO DE EVENTOS PELO LÍDER (Fase 2) ════════════
+function manageShowMsg(id, msg, type) {
+  const el = document.getElementById(id);
+  if (el) { el.textContent = msg || ''; el.className = 'auth-msg ' + (type || 'error'); }
+}
+
+function manageEventRowHtml(ev) {
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'];
+  let diaOpts = dias.map(d => `<option value="${d}"${ev.dia === d ? ' selected' : ''}>${d}</option>`).join('');
+  if (ev.dia && dias.indexOf(ev.dia) === -1) {
+    diaOpts = `<option value="${esc(ev.dia)}" selected>${esc(ev.dia)}</option>` + diaOpts;
+  }
+  const stAtivo = (ev.status || 'Ativo') !== 'Inativo';
+  return `<div class="manage-row manage-row-ev">` +
+    `<select class="mr-dia">${diaOpts}</select>` +
+    `<input class="mr-nome" maxlength="60" placeholder="${ui('manage.evNome')}" value="${esc(ev.nome)}">` +
+    `<input class="mr-horario" maxlength="20" placeholder="20:30" value="${esc(ev.horario)}">` +
+    `<input class="mr-desc" maxlength="200" placeholder="${ui('manage.evDesc')}" value="${esc(ev.descricao)}">` +
+    `<input class="mr-rec" maxlength="100" placeholder="${ui('manage.evRec')}" value="${esc(ev.recompensa)}">` +
+    `<select class="mr-status">` +
+      `<option value="Ativo"${stAtivo ? ' selected' : ''}>${ui('manage.ativo')}</option>` +
+      `<option value="Inativo"${!stAtivo ? ' selected' : ''}>${ui('manage.inativo')}</option>` +
+    `</select>` +
+    `<button class="auth-admin-btn deny mr-del" onclick="this.closest('.manage-row').remove()">✕</button>` +
+    `</div>`;
+}
+
+async function manageEventsOpen() {
+  const panel = document.getElementById('manageEventsPanel');
+  const rows = document.getElementById('manageEventsRows');
+  if (!panel || !rows) return;
+  panel.style.display = '';
+  manageShowMsg('manageEventsMsg', '');
+  rows.innerHTML = `<div class="pending-hint">${ui('generic.loading')}</div>`;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'manageList', guild: guildSlug(), authToken: _authState.token })
+    });
+    const data = await res.json();
+    if (!data.ok) { rows.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
+    rows.innerHTML = (data.events || []).map(manageEventRowHtml).join('') ||
+      `<div class="pending-hint">${ui('manage.noEvents')}</div>`;
+  } catch (err) {
+    rows.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
+  }
+}
+
+function manageEventsAddRow() {
+  const rows = document.getElementById('manageEventsRows');
+  if (!rows) return;
+  const hint = rows.querySelector('.pending-hint');
+  if (hint) hint.remove();
+  rows.insertAdjacentHTML('beforeend', manageEventRowHtml({dia: '', nome: '', horario: '', descricao: '', status: 'Ativo', recompensa: ''}));
+}
+
+async function manageEventsSave() {
+  const linhas = Array.from(document.querySelectorAll('#manageEventsRows .manage-row-ev')).map(r => ({
+    dia: r.querySelector('.mr-dia').value,
+    nome: r.querySelector('.mr-nome').value.trim(),
+    horario: r.querySelector('.mr-horario').value.trim(),
+    descricao: r.querySelector('.mr-desc').value.trim(),
+    recompensa: r.querySelector('.mr-rec').value.trim(),
+    status: r.querySelector('.mr-status').value
+  }));
+  const btn = document.getElementById('manageEventsSaveBtn');
+  setButtonLoading(btn, true, '...');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'eventsReplace', guild: guildSlug(), authToken: _authState.token, events: linhas })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      manageEventsClose();
+      toast({ msg: data.message, type: 'success' });
+      if (typeof loadData === 'function') loadData(true);
+    } else {
+      manageShowMsg('manageEventsMsg', data.error || 'Erro');
+    }
+  } catch (err) {
+    manageShowMsg('manageEventsMsg', ui('auth.connectionError'));
+  } finally {
+    setButtonLoading(btn, false);
+  }
+}
+
+function manageEventsClose() {
+  const panel = document.getElementById('manageEventsPanel');
+  if (panel) panel.style.display = 'none';
 }
