@@ -469,11 +469,13 @@ function doGet(e) {
     for (var i = 1; i < data.length; i++) {
       var nick = data[i][0];
       var power = data[i][1];
-      if (nick && power) {
+      // Nick sem poder ainda (recém-adicionado ao elenco) entra com poder 0,
+      // senão o membro novo não aparece no select de Atualizar Poder
+      if (nick) {
         var emailLink = data[i][3] ? String(data[i][3]).trim() : '';
         players.push({
           nick: String(nick),
-          power: Number(power),
+          power: Number(power) || 0,
           updated: data[i][2] ? String(data[i][2]) : '',
           locked: emailLink !== '',
           emailMask: emailLink ? maskEmail(emailLink) : ''
