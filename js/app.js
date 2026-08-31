@@ -5823,8 +5823,8 @@ async function reloadAuthAdminPanel() {
 
   try {
     const payload = senhaLegacy
-      ? { action: 'authListPending', senha: senhaLegacy }
-      : { action: 'authListPending', authToken: (_authState && _authState.token) || '' };
+      ? { action: 'authListPending', guild: guildSlug(), senha: senhaLegacy }
+      : { action: 'authListPending', guild: guildSlug(), authToken: (_authState && _authState.token) || '' };
 
     const res = await fetch(API_URL, {
       method: 'POST',
