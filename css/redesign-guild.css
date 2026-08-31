@@ -866,3 +866,7 @@ body.stream-mode #tab-vote { margin-left: 0; }
 @media (max-width: 900px) {
   .manage-row-ev { grid-template-columns: 1fr 1fr; }
 }
+.manage-row-gvg { grid-template-columns: 1fr 1fr 1.5fr 40px; }
+@media (max-width: 900px) {
+  .manage-row-gvg { grid-template-columns: 1fr 1fr; }
+}

@@ -488,6 +488,18 @@
         <h2 data-i18n="gvg.title">Guerra de Guildas</h2>
         <div class="sub" data-i18n="gvg.subtitle">⚔ Distribuição tática ⚔</div>
       </div>
+      <div style="text-align:center;">
+        <button class="auth-admin-btn approve" id="btnManageGvg" style="display:none;margin:0 0 14px;" onclick="manageGvgOpen()" data-i18n="manage.gvgBtn">✎ Gerenciar GVG</button>
+      </div>
+      <div class="pending-panel manage-panel" id="manageGvgPanel" style="display:none;">
+        <div class="auth-msg" id="manageGvgMsg"></div>
+        <div id="manageGvgRows"></div>
+        <div class="manage-actions">
+          <button class="auth-admin-btn" onclick="manageGvgAddRow()" data-i18n="manage.addGvg">+ Adicionar linha</button>
+          <button class="auth-admin-btn approve" id="manageGvgSaveBtn" onclick="manageGvgSave()" data-i18n="manage.save">💾 Salvar</button>
+          <button class="auth-admin-btn deny" onclick="manageGvgClose()" data-i18n="manage.cancel">Cancelar</button>
+        </div>
+      </div>
       <div class="gvg-grid" id="gvg-grid">
         <div class="skel skel-gvg-col"></div>
         <div class="skel skel-gvg-col"></div>

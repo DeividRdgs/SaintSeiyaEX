@@ -5451,6 +5451,8 @@ function updateAuthUI() {
     if (guildasBtn) guildasBtn.style.display = (_authState.user && _authState.user.siteAdmin) ? '' : 'none';
     var manageEvBtn = document.getElementById('btnManageEvents');
     if (manageEvBtn) manageEvBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
+    var manageGvgBtn = document.getElementById('btnManageGvg');
+    if (manageGvgBtn) manageGvgBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
   } else {
     if (loginBtn) loginBtn.style.display = '';
     if (userInfo) userInfo.style.display = 'none';
@@ -5465,6 +5467,10 @@ function updateAuthUI() {
     if (manageEvBtn2) manageEvBtn2.style.display = 'none';
     var manageEvPanel2 = document.getElementById('manageEventsPanel');
     if (manageEvPanel2) manageEvPanel2.style.display = 'none';
+    var manageGvgBtn2 = document.getElementById('btnManageGvg');
+    if (manageGvgBtn2) manageGvgBtn2.style.display = 'none';
+    var manageGvgPanel2 = document.getElementById('manageGvgPanel');
+    if (manageGvgPanel2) manageGvgPanel2.style.display = 'none';
   }
   // Atualiza cadeados nas abas
   updateTabsLockUI();
@@ -6394,5 +6400,80 @@ async function manageEventsSave() {
 
 function manageEventsClose() {
   const panel = document.getElementById('manageEventsPanel');
+  if (panel) panel.style.display = 'none';
+}
+
+// ════════════ GESTÃO DE GVG PELO LÍDER (Fase 2) ════════════
+function manageGvgRowHtml(item) {
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+  return `<div class="manage-row manage-row-gvg">` +
+    `<input class="mr-papel" maxlength="40" placeholder="${ui('manage.gvgPapel')}" value="${esc(item.papel)}">` +
+    `<input class="mr-nick" maxlength="30" placeholder="${ui('manage.gvgNick')}" value="${esc(item.nick)}">` +
+    `<input class="mr-obs" maxlength="120" placeholder="${ui('manage.gvgObs')}" value="${esc(item.observacao)}">` +
+    `<button class="auth-admin-btn deny mr-del" onclick="this.closest('.manage-row').remove()">✕</button>` +
+    `</div>`;
+}
+
+async function manageGvgOpen() {
+  const panel = document.getElementById('manageGvgPanel');
+  const rows = document.getElementById('manageGvgRows');
+  if (!panel || !rows) return;
+  panel.style.display = '';
+  manageShowMsg('manageGvgMsg', '');
+  rows.innerHTML = `<div class="pending-hint">${ui('generic.loading')}</div>`;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'manageList', guild: guildSlug(), authToken: _authState.token })
+    });
+    const data = await res.json();
+    if (!data.ok) { rows.innerHTML = `<div class="pending-hint">${data.error || 'Erro'}</div>`; return; }
+    rows.innerHTML = (data.gvg || []).map(manageGvgRowHtml).join('') ||
+      `<div class="pending-hint">${ui('manage.noGvg')}</div>`;
+  } catch (err) {
+    rows.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
+  }
+}
+
+function manageGvgAddRow() {
+  const rows = document.getElementById('manageGvgRows');
+  if (!rows) return;
+  const hint = rows.querySelector('.pending-hint');
+  if (hint) hint.remove();
+  rows.insertAdjacentHTML('beforeend', manageGvgRowHtml({papel: '', nick: '', observacao: ''}));
+}
+
+async function manageGvgSave() {
+  const linhas = Array.from(document.querySelectorAll('#manageGvgRows .manage-row-gvg')).map(r => ({
+    papel: r.querySelector('.mr-papel').value.trim(),
+    nick: r.querySelector('.mr-nick').value.trim(),
+    observacao: r.querySelector('.mr-obs').value.trim()
+  }));
+  const btn = document.getElementById('manageGvgSaveBtn');
+  setButtonLoading(btn, true, '...');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'gvgReplace', guild: guildSlug(), authToken: _authState.token, gvg: linhas })
+    });
+    const data = await res.json();
+    if (data.ok) {
+      manageGvgClose();
+      toast({ msg: data.message, type: 'success' });
+      if (typeof loadData === 'function') loadData(true);
+    } else {
+      manageShowMsg('manageGvgMsg', data.error || 'Erro');
+    }
+  } catch (err) {
+    manageShowMsg('manageGvgMsg', ui('auth.connectionError'));
+  } finally {
+    setButtonLoading(btn, false);
+  }
+}
+
+function manageGvgClose() {
+  const panel = document.getElementById('manageGvgPanel');
   if (panel) panel.style.display = 'none';
 }
