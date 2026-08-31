@@ -6191,6 +6191,7 @@ async function initElencoTab() {
   } catch (err) {
     lista.innerHTML = `<div class="pending-hint">${ui('auth.connectionError')}</div>`;
   }
+  initGuildConfig();
 }
 
 async function elencoAdd() {
@@ -6476,4 +6477,57 @@ async function manageGvgSave() {
 function manageGvgClose() {
   const panel = document.getElementById('manageGvgPanel');
   if (panel) panel.style.display = 'none';
+}
+
+// ════════════ CONFIGURAÇÕES DA GUILDA (webhook do Discord) ════════════
+async function initGuildConfig() {
+  const status = document.getElementById('webhookStatus');
+  if (!status) return;
+  if (!isLoggedIn() || !_authState.user.isLeader) { status.textContent = ''; return; }
+  status.textContent = ui('generic.loading');
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'manageList', guild: guildSlug(), authToken: _authState.token })
+    });
+    const data = await res.json();
+    if (!data.ok) { status.textContent = data.error || 'Erro'; return; }
+    status.textContent = data.webhookSet
+      ? ui('config.statusSet') + ' ' + data.webhookMask
+      : ui('config.statusUnset');
+  } catch (err) {
+    status.textContent = ui('auth.connectionError');
+  }
+}
+
+async function webhookPost(body, okThen) {
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify(Object.assign({ guild: guildSlug(), authToken: _authState.token }, body))
+    });
+    const data = await res.json();
+    manageShowMsg('webhookMsg', data.ok ? data.message : (data.error || 'Erro'), data.ok ? 'success' : 'error');
+    if (data.ok && okThen) okThen();
+  } catch (err) {
+    manageShowMsg('webhookMsg', ui('auth.connectionError'));
+  }
+}
+
+function webhookSave() {
+  const inp = document.getElementById('webhookInput');
+  const url = inp ? inp.value.trim() : '';
+  if (!url) { manageShowMsg('webhookMsg', ui('config.urlRequired')); return; }
+  webhookPost({ action: 'configSetWebhook', webhook: url }, () => { if (inp) inp.value = ''; initGuildConfig(); });
+}
+
+function webhookTest() {
+  webhookPost({ action: 'configTestWebhook' });
+}
+
+function webhookRemove() {
+  if (!confirm(ui('config.confirmRemove'))) return;
+  webhookPost({ action: 'configSetWebhook', webhook: '' }, () => initGuildConfig());
 }

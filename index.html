@@ -565,6 +565,20 @@
         </div>
         <div class="auth-msg" id="elencoMsg"></div>
         <div id="elencoLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+        <div id="guildConfigSection">
+          <h3 class="guildas-h3" data-i18n="config.title">⚙ Configurações</h3>
+          <div class="sub" style="font-size:.8rem;margin-bottom:8px;" data-i18n="config.webhookLabel">Webhook do Discord — os avisos da guilda (poder, eventos, resumo) chegam neste canal</div>
+          <div class="config-hint pending-hint" id="webhookStatus" style="padding:8px;"></div>
+          <div class="elenco-add-row">
+            <input type="url" id="webhookInput" maxlength="300" placeholder="https://discord.com/api/webhooks/...">
+            <button class="auth-admin-btn approve" id="webhookSaveBtn" onclick="webhookSave()" data-i18n="config.save">Salvar</button>
+          </div>
+          <div class="manage-actions">
+            <button class="auth-admin-btn" id="webhookTestBtn" onclick="webhookTest()" data-i18n="config.test">Enviar teste</button>
+            <button class="auth-admin-btn deny" id="webhookRemoveBtn" onclick="webhookRemove()" data-i18n="config.remove">Remover</button>
+          </div>
+          <div class="auth-msg" id="webhookMsg"></div>
+        </div>
       </div>
     </section>
   </div>
