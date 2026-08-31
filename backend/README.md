@@ -11,8 +11,7 @@ no editor do Apps Script da planilha da TRIADE (Extensões → Apps Script).
    Drive usado para criar planilhas de guildas novas). Essa mesma execução já
    popula o `Usuarios_Index` com as contas existentes da TRIADE (backfill
    automático, só roda na criação da aba).
-3. Rode `testeMultiGuilda` e confira no log `✅ TESTE COMPLETO PASSOU`; depois
-   rode `testeMultiGuildaLimpar`.
+3. Rode `testeMultiGuilda` e confira no log `✅ TESTE COMPLETO PASSOU` (cobre criação de guilda, elenco, cadastro, eventos/GVG/webhook da Fase 2); depois rode `testeMultiGuildaLimpar`.
 4. Na aba `Usuarios` da planilha da TRIADE, escreva `sim` na coluna
    `site_admin` da SUA linha (quem aprova guildas).
 5. Implantar → Gerenciar implantações → editar a implantação ativa → Nova
@@ -25,3 +24,4 @@ no editor do Apps Script da planilha da TRIADE (Extensões → Apps Script).
 - Cada guilda aprovada ganha uma planilha própria "SSEX Guilda — <nome>" no
   Drive, criada por `criarPlanilhaGuilda`.
 - Toda requisição do site envia `guild=<slug>`; sem o parâmetro, cai na TRIADE.
+- Os avisos automáticos (lembretes de eventos e resumo semanal) rodam para todas as guildas ativas que tiverem `webhook_discord` no Config.

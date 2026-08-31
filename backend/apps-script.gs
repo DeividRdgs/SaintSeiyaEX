@@ -3235,10 +3235,38 @@ function testeMultiGuilda() {
   if (listResp.nicks.length !== 2) throw new Error('FALHA rosterList: esperava 2 nicks, veio ' + listResp.nicks.length);
   Logger.log('5. elenco + cadastro de membro ok');
 
+  // Fase 2: eventos, GVG e webhook na guilda de teste
+  var evResp = JSON.parse(eventsReplace({authToken: loginResp.token, events: [
+    {dia: 'Segunda', nome: 'Boss Teste', horario: '20:30', descricao: 'desc', status: 'Ativo', recompensa: 'ouro'},
+    {dia: 'Sexta', nome: 'GVG Teste', horario: '21:00', descricao: '', status: 'Inativo', recompensa: ''}
+  ]}, ctx).getContent());
+  if (!evResp.ok) throw new Error('FALHA eventsReplace: ' + evResp.error);
+  var evCheck = ctx.ss.getSheetByName('Eventos').getDataRange().getValues();
+  if (evCheck.length !== 3) throw new Error('FALHA: Eventos deveria ter 2 linhas, tem ' + (evCheck.length - 1));
+  var gvgResp = JSON.parse(gvgReplace({authToken: loginResp.token, gvg: [
+    {papel: 'Ataque', nick: 'LiderTeste', observacao: 'obs'}
+  ]}, ctx).getContent());
+  if (!gvgResp.ok) throw new Error('FALHA gvgReplace: ' + gvgResp.error);
+  var whBad = JSON.parse(configSetWebhook({authToken: loginResp.token, webhook: 'https://exemplo.com/x'}, ctx).getContent());
+  if (whBad.ok) throw new Error('FALHA: webhook inválido foi aceito');
+  var whOk = JSON.parse(configSetWebhook({authToken: loginResp.token, webhook: 'https://discord.com/api/webhooks/123/abc'}, ctx).getContent());
+  if (!whOk.ok) throw new Error('FALHA configSetWebhook: ' + whOk.error);
+  var mng = JSON.parse(manageList({authToken: loginResp.token}, ctx).getContent());
+  if (!mng.ok || mng.events.length !== 2 || mng.gvg.length !== 1) throw new Error('FALHA manageList');
+  if (!mng.webhookSet || mng.webhookMask.indexOf('…') !== 0) throw new Error('FALHA: máscara do webhook');
+  Logger.log('5b. gestão Fase 2 ok');
+
   // TRIADE intacta: membro de teste não aparece lá
   var jogTriade = ctxTriade.ss.getSheetByName('Jogadores').getDataRange().getValues();
   for (var i = 1; i < jogTriade.length; i++) {
     if (String(jogTriade[i][0]).toLowerCase() === 'membroteste') throw new Error('FALHA: vazou nick pra TRIADE');
+  }
+  var evTriade = ctxTriade.ss.getSheetByName('Eventos');
+  if (evTriade) {
+    var evtData = evTriade.getDataRange().getValues();
+    for (var t = 1; t < evtData.length; t++) {
+      if (String(evtData[t][1]).toLowerCase() === 'boss teste') throw new Error('FALHA: evento de teste vazou pra TRIADE');
+    }
   }
   Logger.log('6. TRIADE intacta — ✅ TESTE COMPLETO PASSOU');
   Logger.log('Limpeza: rode testeMultiGuildaLimpar() para remover a guilda de teste.');
