@@ -1164,8 +1164,32 @@ function avisarDiscordAtualizacao(nick, oldPower, newPower, origem, posicao, tot
   }, ss);
 }
 
+// Itera as guildas ativas da master; erro em uma não derruba as demais
+function forEachGuildaAtiva(fn) {
+  var m = ensureMasterSheets();
+  var data = m.guildas.getDataRange().getValues();
+  var master = SpreadsheetApp.getActiveSpreadsheet();
+  for (var i = 1; i < data.length; i++) {
+    if (String(data[i][3] || '').trim().toLowerCase() !== 'ativa') continue;
+    var id = String(data[i][2] || '').trim();
+    if (!id) continue;
+    var slug = String(data[i][0] || '').trim().toLowerCase();
+    var nome = String(data[i][1] || '');
+    try {
+      var ss = (id === master.getId()) ? master : SpreadsheetApp.openById(id);
+      fn({slug: slug, nome: nome, ss: ss});
+    } catch (e) {
+      try { logEvent('trigger_guild_fail', {detalhes: slug + ': ' + e.toString()}); } catch (e2) {}
+    }
+  }
+}
+
 function avisarEventosProximos() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  forEachGuildaAtiva(avisarEventosProximosGuilda);
+}
+
+function avisarEventosProximosGuilda(g) {
+  var ss = g.ss;
   var eventSheet = ss.getSheetByName('Eventos');
   if (!eventSheet) return;
   var data = eventSheet.getDataRange().getValues();
@@ -1180,7 +1204,7 @@ function avisarEventosProximos() {
   var diaHoje = DIAS_ORDEM[diaSemanaIdx];
 
   var props = PropertiesService.getScriptProperties();
-  var avisadosKey = 'avisados_' + dataHoje;
+  var avisadosKey = 'avisados_' + g.slug + '_' + dataHoje;
   var avisadosStr = props.getProperty(avisadosKey) || '';
   var avisados = avisadosStr ? avisadosStr.split('|') : [];
 
@@ -1217,15 +1241,15 @@ function avisarEventosProximos() {
     if (recompensa) fields.push({name: '🎁 Recompensa', value: recompensa, inline: false});
 
     enviarDiscord({
-      username: 'TRIADE Bot', avatar_url: TRIADE_BOT_AVATAR,
+      username: g.nome + ' Bot', avatar_url: TRIADE_BOT_AVATAR,
       content: '@everyone', allowed_mentions: {parse: ['everyone']},
       embeds: [{
         title: '🔔 EVENTO COMEÇANDO EM ' + diff + ' MINUTOS',
         description: '**' + nome + '**', color: 0xff8a00, fields: fields,
-        footer: {text: 'Preparem-se, cavaleiros! • Legião TRIADE'},
+        footer: {text: 'Preparem-se, cavaleiros! • ' + g.nome},
         timestamp: new Date().toISOString()
       }]
-    });
+    }, g.ss);
 
     avisados.push(idEvento);
     Logger.log('✅ Disparou: ' + idEvento);
@@ -1240,7 +1264,7 @@ function limparAvisadosAntigos(dataHoje) {
     var props = PropertiesService.getScriptProperties();
     var todas = props.getProperties();
     for (var key in todas) {
-      if (key.indexOf('avisados_') === 0 && key !== 'avisados_' + dataHoje) {
+      if (key.indexOf('avisados_') === 0 && key.indexOf(dataHoje) === -1) {
         props.deleteProperty(key);
       }
     }
@@ -1255,7 +1279,12 @@ function resetarAvisadosHoje() {
 }
 
 function resumoSemanalDiscord() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  forEachGuildaAtiva(resumoSemanalDiscordGuilda);
+}
+
+function resumoSemanalDiscordGuilda(g) {
+  var ss = g.ss;
+  if (!getDiscordWebhook(g.ss)) return;
   var sheet = ss.getSheetByName('Jogadores');
   var data = sheet.getDataRange().getValues();
   var players = [];
@@ -1290,9 +1319,9 @@ function resumoSemanalDiscord() {
   }
 
   enviarDiscord({
-    username: 'TRIADE Bot', avatar_url: TRIADE_BOT_AVATAR,
+    username: g.nome + ' Bot', avatar_url: TRIADE_BOT_AVATAR,
     embeds: [{
-      title: '📊 RESUMO SEMANAL — TRIADE',
+      title: '📊 RESUMO SEMANAL — ' + g.nome,
       description: '⚔️ *Que a luz do Cosmo continue guiando a Legião!* ⚔️',
       color: 0xd4af37,
       fields: [
@@ -1302,10 +1331,10 @@ function resumoSemanalDiscord() {
         {name: '🔄 Atualizações na semana', value: '**' + atualizacoes + '** registros', inline: false},
         {name: '🏆 TOP 10 — Cavaleiros mais poderosos', value: top10Str, inline: false}
       ],
-      footer: {text: 'Resumo automático • Legião TRIADE'},
+      footer: {text: 'Resumo automático • ' + g.nome},
       timestamp: new Date().toISOString()
     }]
-  });
+  }, g.ss);
 }
 
 function testeDiscord() {
@@ -1401,7 +1430,11 @@ function debugDiscord() {
 var DIAS_ORDEM = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'];
 
 function atualizarStatusEventos() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  forEachGuildaAtiva(atualizarStatusEventosGuilda);
+}
+
+function atualizarStatusEventosGuilda(g) {
+  var ss = g.ss;
   var eventSheet = ss.getSheetByName('Eventos');
   if (!eventSheet) { Logger.log('❌ Aba Eventos não encontrada'); return; }
   var data = eventSheet.getDataRange().getValues();
@@ -1496,7 +1529,7 @@ function limparAvisosAntigosEventos() {
   var dataHoje = Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd');
   var removidas = 0;
   for (var key in todas) {
-    if (key.indexOf('avisados_') === 0 && key !== 'avisados_' + dataHoje) {
+    if (key.indexOf('avisados_') === 0 && key.indexOf(dataHoje) === -1) {
       props.deleteProperty(key); removidas++;
     }
   }
