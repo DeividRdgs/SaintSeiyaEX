@@ -521,9 +521,11 @@ function doGet(e) {
     var configSheet = ss.getSheetByName('Config');
     var configData = configSheet.getDataRange().getValues();
     var config = {};
+    // Chaves sensíveis nunca saem na resposta pública
+    var configPrivada = ['senha_admin', 'senha_master', 'webhook_discord', 'contato_email'];
     for (var j = 1; j < configData.length; j++) {
       var key = configData[j][0];
-      if (key && key !== 'senha_admin' && key !== 'senha_master') {
+      if (key && configPrivada.indexOf(String(key).trim().toLowerCase()) === -1) {
         config[key] = configData[j][1];
       }
     }
