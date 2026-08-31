@@ -576,7 +576,7 @@ function configSetWebhook(params, ctx) {
   var lid = rosterAssertLeader(params, ctx);
   if (!lid.ok) return lid.resp;
   var url = String(params.webhook || '').trim();
-  if (url && url.indexOf('discord.com/api/webhooks/') === -1) {
+  if (url && url.indexOf('https://discord.com/api/webhooks/') !== 0) {
     return jsonResponse({ok: false, error: 'URL inválida — cole a URL do webhook do Discord'});
   }
   if (url.length > 300) return jsonResponse({ok: false, error: 'URL muito longa'});
@@ -1383,6 +1383,9 @@ function avisarEventosProximosGuilda(g) {
     var horario = String(data[i][2] || '').trim();
     if (!nome || !horario || !diaEvRaw) continue;
 
+    var statusEv = String(data[i][4] || '').trim();
+    if (statusEv === 'Inativo') continue; // evento desligado pelo líder: sem lembrete
+
     var diasEvento = parseDiasEvento(diaEvRaw);
     if (diasEvento.indexOf(diaHoje) === -1) continue;
 
@@ -1441,8 +1444,12 @@ function limparAvisadosAntigos(dataHoje) {
 function resetarAvisadosHoje() {
   var TZ = 'America/Sao_Paulo';
   var dataHoje = Utilities.formatDate(new Date(), TZ, 'yyyy-MM-dd');
-  PropertiesService.getScriptProperties().deleteProperty('avisados_' + dataHoje);
-  Logger.log('✅ Lista de avisados de hoje foi resetada');
+  var props = PropertiesService.getScriptProperties();
+  var todas = props.getProperties();
+  for (var key in todas) {
+    if (key.indexOf('avisados_') === 0 && key.indexOf(dataHoje) !== -1) props.deleteProperty(key);
+  }
+  Logger.log('✅ Lista de avisados de hoje foi resetada (todas as guildas)');
 }
 
 function resumoSemanalDiscord() {
@@ -1619,6 +1626,7 @@ function atualizarStatusEventosGuilda(g) {
     var nome = String(data[i][1] || '').trim();
     var statusAtual = String(data[i][4] || '').trim();
     if (!diaEvRaw || !nome) continue;
+    if (statusAtual === 'Inativo') continue; // desligado pelo líder: não sobrescreve
     var diasEvento = parseDiasEvento(diaEvRaw);
     var ehHoje = diasEvento.indexOf(diaHoje) !== -1;
     var novoStatus = ehHoje ? 'Ativo' : 'Encerrado';
