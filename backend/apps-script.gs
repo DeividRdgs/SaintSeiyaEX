@@ -502,6 +502,76 @@ function replaceSheetRows(ss, sheetName, header, rows) {
   if (rows.length > 0) sheet.getRange(2, 1, rows.length, header.length).setValues(rows);
 }
 
+function eventsReplace(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var lista = params.events;
+  if (!Array.isArray(lista)) return jsonResponse({ok: false, error: 'Lista de eventos inválida'});
+  if (lista.length > 30) return jsonResponse({ok: false, error: 'Máximo de 30 eventos'});
+  var rows = [];
+  for (var i = 0; i < lista.length; i++) {
+    var ev = lista[i] || {};
+    var dia = String(ev.dia || '').trim();
+    var nome = String(ev.nome || '').trim();
+    var horario = String(ev.horario || '').trim();
+    var descricao = String(ev.descricao || '').trim();
+    var status = String(ev.status || 'Ativo').trim();
+    var recompensa = String(ev.recompensa || '').trim();
+    var n = 'Evento ' + (i + 1) + ': ';
+    if (!dia) return jsonResponse({ok: false, error: n + 'dia obrigatório'});
+    if (dia.length > 40) return jsonResponse({ok: false, error: n + 'dia muito longo (máx 40)'});
+    if (!nome) return jsonResponse({ok: false, error: n + 'nome obrigatório'});
+    if (nome.length > 60) return jsonResponse({ok: false, error: n + 'nome muito longo (máx 60)'});
+    if (horario.length > 20) return jsonResponse({ok: false, error: n + 'horário muito longo (máx 20)'});
+    if (descricao.length > 200) return jsonResponse({ok: false, error: n + 'descrição muito longa (máx 200)'});
+    if (recompensa.length > 100) return jsonResponse({ok: false, error: n + 'recompensa muito longa (máx 100)'});
+    if (status !== 'Ativo' && status !== 'Inativo') return jsonResponse({ok: false, error: n + 'status inválido'});
+    rows.push([dia, nome, horario, descricao, status, recompensa]);
+  }
+  var lock = LockService.getScriptLock();
+  try { lock.waitLock(5000); }
+  catch (eLock) { return jsonResponse({ok: false, error: 'Planilha ocupada. Tente novamente.'}); }
+  try {
+    replaceSheetRows(ctx.ss, 'Eventos', ['Dia', 'Nome', 'Horario', 'Descricao', 'Status', 'Recompensa'], rows);
+  } finally {
+    try { lock.releaseLock(); } catch (eRel) {}
+  }
+  logEvent('events_replace', {email: maskEmail(lid.email), detalhes: rows.length + ' eventos'}, ctx.ss);
+  return jsonResponse({ok: true, message: 'Eventos salvos (' + rows.length + ')'});
+}
+
+function gvgReplace(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var lista = params.gvg;
+  if (!Array.isArray(lista)) return jsonResponse({ok: false, error: 'Lista de GVG inválida'});
+  if (lista.length > 60) return jsonResponse({ok: false, error: 'Máximo de 60 linhas de GVG'});
+  var rows = [];
+  for (var i = 0; i < lista.length; i++) {
+    var item = lista[i] || {};
+    var papel = String(item.papel || '').trim();
+    var nick = String(item.nick || '').trim();
+    var observacao = String(item.observacao || '').trim();
+    var n = 'Linha ' + (i + 1) + ': ';
+    if (!papel) return jsonResponse({ok: false, error: n + 'papel obrigatório'});
+    if (papel.length > 40) return jsonResponse({ok: false, error: n + 'papel muito longo (máx 40)'});
+    if (!nick) return jsonResponse({ok: false, error: n + 'nick obrigatório'});
+    if (nick.length > 30) return jsonResponse({ok: false, error: n + 'nick muito longo (máx 30)'});
+    if (observacao.length > 120) return jsonResponse({ok: false, error: n + 'observação muito longa (máx 120)'});
+    rows.push([papel, nick, observacao]);
+  }
+  var lock = LockService.getScriptLock();
+  try { lock.waitLock(5000); }
+  catch (eLock2) { return jsonResponse({ok: false, error: 'Planilha ocupada. Tente novamente.'}); }
+  try {
+    replaceSheetRows(ctx.ss, 'GVG', ['Papel', 'Nick', 'Observacao'], rows);
+  } finally {
+    try { lock.releaseLock(); } catch (eRel2) {}
+  }
+  logEvent('gvg_replace', {email: maskEmail(lid.email), detalhes: rows.length + ' linhas'}, ctx.ss);
+  return jsonResponse({ok: true, message: 'GVG salva (' + rows.length + ' linhas)'});
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
