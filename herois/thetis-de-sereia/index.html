@@ -114,7 +114,7 @@
      Cloudflare Web Analytics
      Painel: https://dash.cloudflare.com/?to=/:account/web-analytics
      ═══════════════════════════════════════════════════════════ -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b7e403462b0d4c1e94e5990bce7679cc"}'></script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4ed113733983485ebbb8c8f929f6418f"}'></script>
 
 </head>
 <body>
@@ -194,7 +194,7 @@
   <!-- ============ HEADER DA GUILDA (aparece em todas as sub-abas) ============ -->
   <header class="hero guild-hero" id="guildHeader" style="display:none;">
     <div class="kicker" data-i18n="guild.kicker">⚔ Legião · Distribuição Tática ⚔</div>
-    <h1>TRIADE</h1>
+    <h1 id="guildHeroName">TRIADE</h1>
     <div class="subtitle" data-i18n="guild.subtitle">Cavaleiros do Zodíaco — Distribuição de Bosses</div>
     <div class="meta-row" id="meta-row">
       <span data-i18n="generic.loading">Carregando...</span>
@@ -211,6 +211,9 @@
     <button class="guild-subtab" data-subtab="stats" data-i18n="guild.subStats">Estatísticas</button>
     <button class="guild-subtab" data-subtab="vote" data-i18n="guild.subVote">Votação</button>
     <button class="guild-subtab" data-subtab="pendentes" data-i18n="guild.subPendentes">Pendentes</button>
+    <button class="guild-subtab" data-subtab="elenco" data-i18n="guild.subElenco" id="subtabElencoBtn" style="display:none;">Membros</button>
+    <button class="guild-subtab" data-subtab="discord" data-i18n="guild.subDiscord" id="subtabDiscordBtn" style="display:none;">Discord</button>
+    <button class="guild-subtab" data-subtab="guildas" data-i18n="guild.subGuildas" id="subtabGuildasBtn" style="display:none;">Guildas</button>
   </nav>
 
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
@@ -444,8 +447,8 @@
       <div class="home-cta-divider"></div>
       <div class="home-cta-other">
         <div class="home-cta-other-title" data-i18n="home.otherTitle">É líder de outra guilda?</div>
-        <div class="home-cta-other-text" data-i18n="home.otherText">Quer um sistema parecido pra sua guilda? Entra em contato — vamos conversar.</div>
-        <button class="home-cta-btn primary" onclick="openContactModal()" data-i18n="home.otherBtn">Quero pra Minha Guilda</button>
+        <div class="home-cta-other-text" data-i18n="home.otherText">Cadastre a sua guilda e ganhe uma área própria: membros, ranking, eventos, GVG e avisos no Discord — tudo grátis.</div>
+        <button class="home-cta-btn primary" onclick="openAuthModal('guild')" data-i18n="home.otherBtn">🏰 Cadastrar Minha Guilda</button>
       </div>
     </section>
   </div>
@@ -463,10 +466,12 @@
           </select>
         </div>
         <div class="field">
-          <label data-i18n="update.newPower">Novo poder</label>
+          <label data-i18n="update.newPower">Novo poder (Time 1)</label>
           <input type="number" id="inp-power" placeholder="ex: 175000" min="0" data-i18n-placeholder="update.powerPh">
         </div>
       </div>
+
+      <div class="hint" data-i18n="update.team1Hint">⚠️ Informe o poder do seu <strong>Time 1</strong> (sua equipe principal) — não o poder total da conta.</div>
 
       <button class="btn-update" id="btn-update-logado" data-i18n="update.btnUpdateMine">Atualizar Meu Poder</button>
 
@@ -519,6 +524,18 @@
         <h2 data-i18n="gvg.title">Guerra de Guildas</h2>
         <div class="sub" data-i18n="gvg.subtitle">⚔ Distribuição tática ⚔</div>
       </div>
+      <div style="text-align:center;">
+        <button class="auth-admin-btn approve" id="btnManageGvg" style="display:none;margin:0 0 14px;" onclick="manageGvgOpen()" data-i18n="manage.gvgBtn">✎ Gerenciar GVG</button>
+      </div>
+      <div class="pending-panel manage-panel" id="manageGvgPanel" style="display:none;">
+        <div class="auth-msg" id="manageGvgMsg"></div>
+        <div id="manageGvgRows"></div>
+        <div class="manage-actions">
+          <button class="auth-admin-btn" onclick="manageGvgAddRow()" data-i18n="manage.addGvg">+ Adicionar linha</button>
+          <button class="auth-admin-btn approve" id="manageGvgSaveBtn" onclick="manageGvgSave()" data-i18n="manage.save">💾 Salvar</button>
+          <button class="auth-admin-btn deny" onclick="manageGvgClose()" data-i18n="manage.cancel">Cancelar</button>
+        </div>
+      </div>
       <div class="gvg-grid" id="gvg-grid">
         <div class="skel skel-gvg-col"></div>
         <div class="skel skel-gvg-col"></div>
@@ -532,6 +549,18 @@
       <div class="section-title">
         <h2 data-i18n="events.title">Eventos da Legião</h2>
         <div class="sub" data-i18n="events.subtitle">⚔ Atividades semanais ⚔</div>
+      </div>
+      <div style="text-align:center;">
+        <button class="auth-admin-btn approve" id="btnManageEvents" style="display:none;margin:0 0 14px;" onclick="manageEventsOpen()" data-i18n="manage.eventsBtn">✎ Gerenciar eventos</button>
+      </div>
+      <div class="pending-panel manage-panel" id="manageEventsPanel" style="display:none;">
+        <div class="auth-msg" id="manageEventsMsg"></div>
+        <div id="manageEventsRows"></div>
+        <div class="manage-actions">
+          <button class="auth-admin-btn" onclick="manageEventsAddRow()" data-i18n="manage.addEvent">+ Adicionar evento</button>
+          <button class="auth-admin-btn approve" id="manageEventsSaveBtn" onclick="manageEventsSave()" data-i18n="manage.save">💾 Salvar</button>
+          <button class="auth-admin-btn deny" onclick="manageEventsClose()" data-i18n="manage.cancel">Cancelar</button>
+        </div>
       </div>
       <div class="week-grid" id="week-grid">
         <div class="skel skel-event-col"></div>
@@ -554,6 +583,63 @@
       </div>
       <div class="pending-panel">
         <div id="authAdminBody"><div class="pending-hint" data-i18n="admin.loginToSee">Faça login como líder para ver as solicitações.</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SUB-ABA: ELENCO (só líder) ============ -->
+  <div class="tab-content" id="tab-elenco">
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="elenco.title">⚔ Membros da Guilda</h2>
+        <div class="sub" data-i18n="elenco.hint">Adicione os nicks dos jogadores; cada um cria a própria conta escolhendo o nick no cadastro.</div>
+      </div>
+      <div class="pending-panel">
+        <div class="elenco-add-row">
+          <input type="text" id="elencoNovoNick" maxlength="30" placeholder="Nick do jogador" data-i18n-placeholder="elenco.nickPh" onkeydown="if(event.key==='Enter') elencoAdd()">
+          <button class="auth-admin-btn approve" id="elencoAddBtn" onclick="elencoAdd()" data-i18n="elenco.addBtn">+ Adicionar</button>
+        </div>
+        <div class="auth-msg" id="elencoMsg"></div>
+        <div id="elencoLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SUB-ABA: DISCORD (só líder) ============ -->
+  <div class="tab-content" id="tab-discord">
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="discord.title">💬 Discord da Guilda</h2>
+        <div class="sub" data-i18n="config.webhookLabel">Webhook do Discord — os avisos da guilda (poder, eventos, resumo) chegam neste canal</div>
+      </div>
+      <div class="pending-panel">
+        <div id="guildConfigSection">
+          <div class="pending-hint" id="webhookStatus" style="padding:8px;"></div>
+          <div class="elenco-add-row">
+            <input type="url" id="webhookInput" maxlength="300" placeholder="https://discord.com/api/webhooks/...">
+            <button class="auth-admin-btn approve" id="webhookSaveBtn" onclick="webhookSave()" data-i18n="config.save">Salvar</button>
+          </div>
+          <div class="manage-actions">
+            <button class="auth-admin-btn" id="webhookTestBtn" onclick="webhookTest()" data-i18n="config.test">Enviar teste</button>
+            <button class="auth-admin-btn deny" id="webhookRemoveBtn" onclick="webhookRemove()" data-i18n="config.remove">Remover</button>
+          </div>
+          <div class="auth-msg" id="webhookMsg"></div>
+          <div class="hint" style="margin-top:14px;" data-i18n="discord.howTo">Para criar o webhook: no Discord, canal desejado → ⚙ Configurações do canal → Integrações → Webhooks → Novo webhook → Copiar URL.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SUB-ABA: GUILDAS (só admin do site) ============ -->
+  <div class="tab-content" id="tab-guildas">
+    <section class="pending-section">
+      <div class="section-title">
+        <h2 data-i18n="guildas.title">🏰 Guildas</h2>
+        <div class="sub" data-i18n="guildas.subtitle">Aprove pedidos de criação e acompanhe as guildas ativas</div>
+      </div>
+      <div class="pending-panel">
+        <div class="auth-msg" id="guildasMsg"></div>
+        <div id="guildasLista"><div class="pending-hint" data-i18n="generic.loading">Carregando...</div></div>
       </div>
     </section>
   </div>
@@ -1305,6 +1391,12 @@
         <div class="auth-subtitle" data-i18n="auth.regSubtitle">Selecione seu nick da guilda. O líder vai aprovar.</div>
         <div class="auth-msg"></div>
         <div class="auth-field">
+          <label data-i18n="auth.regGuildLabel">Sua guilda</label>
+          <select id="authRegGuild" onchange="authLoadNicksDisponiveis()">
+            <option value="" data-i18n="auth.regGuildLoading">— Carregando guildas... —</option>
+          </select>
+        </div>
+        <div class="auth-field">
           <label data-i18n="auth.regNickLabel">Seu nick na guilda</label>
           <select id="authRegNick">
             <option value="" data-i18n="auth.regNickLoading">— Carregando nicks disponíveis... —</option>
@@ -1324,6 +1416,8 @@
         </div>
         <button class="auth-btn primary" id="authRegSubmitBtn" onclick="authSubmitRegister(event)" data-i18n="auth.regBtn">✓ Solicitar Acesso</button>
         <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('guild')" data-i18n="auth.createGuildLink">Cadastrar minha guilda</a>
+          <span class="auth-sep">·</span>
           <a href="javascript:void(0)" onclick="switchAuthView('login')" data-i18n="auth.backToLogin">← Voltar pra Entrar</a>
         </div>
       </div>
@@ -1335,6 +1429,48 @@
         <p class="auth-pending-text" data-i18n="auth.regDoneText">
           Sua solicitação foi enviada ao líder da guilda.<br>
           Você vai receber um <strong>email</strong> assim que for aprovado.
+        </p>
+        <button class="auth-btn primary" onclick="closeAuthModal()" data-i18n="auth.gotIt">Entendi</button>
+      </div>
+
+      <!-- CADASTRO DE GUILDA -->
+      <div class="auth-view" id="authView-guild">
+        <h2 class="auth-title" data-i18n="auth.titleGuild">Cadastrar Guilda</h2>
+        <div class="auth-subtitle" data-i18n="auth.guildSubtitle">Peça a criação da sua guilda. Você será o líder quando for aprovada.</div>
+        <div class="auth-msg"></div>
+        <div class="auth-field">
+          <label data-i18n="auth.guildNameLabel">Nome da guilda</label>
+          <input type="text" id="authGuildName" maxlength="40" placeholder="Minha Legião" data-i18n-placeholder="auth.guildNamePh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.guildNickLabel">Seu nick no jogo</label>
+          <input type="text" id="authGuildNick" maxlength="30" placeholder="Nick" data-i18n-placeholder="auth.guildNickPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.email">Email</label>
+          <input type="email" id="authGuildEmail" placeholder="seu@email.com" autocomplete="email" data-i18n-placeholder="auth.emailPh">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword">Senha (mín 6 caracteres)</label>
+          <input type="password" id="authGuildPassword" placeholder="••••••••" autocomplete="new-password">
+        </div>
+        <div class="auth-field">
+          <label data-i18n="auth.regPassword2">Confirme a senha</label>
+          <input type="password" id="authGuildPassword2" placeholder="••••••••" autocomplete="new-password" onkeydown="if(event.key==='Enter') authSubmitGuildRegister(event)">
+        </div>
+        <button class="auth-btn primary" id="authGuildSubmitBtn" onclick="authSubmitGuildRegister(event)" data-i18n="auth.guildBtn">🏰 Pedir Criação</button>
+        <div class="auth-links">
+          <a href="javascript:void(0)" onclick="switchAuthView('register')" data-i18n="auth.backToRegister">← Voltar</a>
+        </div>
+      </div>
+
+      <!-- GUILDA AGUARDANDO APROVAÇÃO -->
+      <div class="auth-view" id="authView-guildPending">
+        <div class="auth-pending-icon">🏰</div>
+        <h2 class="auth-title" data-i18n="auth.guildDoneTitle">Pedido Enviado!</h2>
+        <p class="auth-pending-text" data-i18n="auth.guildDoneText">
+          Seu pedido de guilda foi enviado ao administrador do site.<br>
+          Você vai receber um <strong>email</strong> quando for aprovada — aí é só fazer login como líder.
         </p>
         <button class="auth-btn primary" onclick="closeAuthModal()" data-i18n="auth.gotIt">Entendi</button>
       </div>
