@@ -143,8 +143,8 @@ const UI_TEXTS = {
     'home.ctaLogin': 'Entrar',
     'home.ctaRegister': 'Solicitar Acesso',
     'home.otherTitle': 'É líder de outra guilda?',
-    'home.otherText': 'Quer um sistema parecido pra sua guilda? Entra em contato — vamos conversar.',
-    'home.otherBtn': 'Quero pra Minha Guilda',
+    'home.otherText': 'Cadastre a sua guilda e ganhe uma área própria: membros, ranking, eventos, GVG e avisos no Discord — tudo grátis.',
+    'home.otherBtn': '🏰 Cadastrar Minha Guilda',
     // === Team Builder ===
     'team.title': 'Team Builder',
     'team.subtitle': '⚔ Forje a equipe perfeita ⚔',
@@ -687,8 +687,8 @@ const UI_TEXTS = {
     'home.ctaLogin': 'Sign in',
     'home.ctaRegister': 'Request Access',
     'home.otherTitle': 'Are you a leader of another guild?',
-    'home.otherText': 'Want a similar system for your guild? Get in touch — let us talk.',
-    'home.otherBtn': 'I want it for my guild',
+    'home.otherText': 'Register your guild and get your own area: members, ranking, events, GVG and Discord notices — all free.',
+    'home.otherBtn': '🏰 Register My Guild',
     // === Team Builder ===
     'team.title': 'Team Builder',
     'team.subtitle': '⚔ Forge the perfect team ⚔',
@@ -1235,8 +1235,8 @@ const UI_TEXTS = {
     'home.ctaLogin': 'Iniciar sesión',
     'home.ctaRegister': 'Solicitar Acceso',
     'home.otherTitle': '¿Eres líder de otra guild?',
-    'home.otherText': '¿Quieres un sistema similar para tu guild? Ponte en contacto — hablemos.',
-    'home.otherBtn': 'Lo quiero para mi guild',
+    'home.otherText': 'Registra tu gremio y obtén un área propia: miembros, ranking, eventos, GVG y avisos en Discord — todo gratis.',
+    'home.otherBtn': '🏰 Registrar Mi Gremio',
     // === Team Builder ===
     'team.title': 'Constructor de Equipo',
     'team.subtitle': '⚔ Forge el perfect equipo ⚔',
