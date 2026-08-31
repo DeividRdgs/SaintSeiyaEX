@@ -453,6 +453,55 @@ function rosterRemove(params, ctx) {
   return jsonResponse({ok: true, message: 'Nick removido do elenco'});
 }
 
+// ═══════════ FASE 2 — GESTÃO PELO LÍDER (eventos, GVG, webhook) ═══════════
+
+// Dados de gestão para o líder. O webhook NUNCA sai completo — só máscara.
+function manageList(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var events = [];
+  var evSheet = ctx.ss.getSheetByName('Eventos');
+  if (evSheet) {
+    var evd = evSheet.getDataRange().getValues();
+    for (var i = 1; i < evd.length; i++) {
+      if (!evd[i][0] && !evd[i][1]) continue;
+      events.push({
+        dia: String(evd[i][0] || ''), nome: String(evd[i][1] || ''),
+        horario: String(evd[i][2] || ''), descricao: String(evd[i][3] || ''),
+        status: String(evd[i][4] || 'Ativo'), recompensa: String(evd[i][5] || '')
+      });
+    }
+  }
+  var gvg = [];
+  var gvgSheet = ctx.ss.getSheetByName('GVG');
+  if (gvgSheet) {
+    var gd = gvgSheet.getDataRange().getValues();
+    for (var j = 1; j < gd.length; j++) {
+      if (!gd[j][0] && !gd[j][1]) continue;
+      gvg.push({papel: String(gd[j][0] || ''), nick: String(gd[j][1] || ''), observacao: String(gd[j][2] || '')});
+    }
+  }
+  var webhook = getDiscordWebhook(ctx.ss);
+  return jsonResponse({
+    ok: true, events: events, gvg: gvg,
+    webhookSet: webhook !== '',
+    webhookMask: webhook ? '…' + webhook.slice(-6) : ''
+  });
+}
+
+// Limpa os dados (linha 2+) e regrava de uma vez
+function replaceSheetRows(ss, sheetName, header, rows) {
+  var sheet = ss.getSheetByName(sheetName);
+  if (!sheet) {
+    sheet = ss.insertSheet(sheetName);
+    sheet.appendRow(header);
+    sheet.setFrozenRows(1);
+  }
+  var last = sheet.getLastRow();
+  if (last > 1) sheet.getRange(2, 1, last - 1, Math.max(sheet.getLastColumn(), header.length)).clearContents();
+  if (rows.length > 0) sheet.getRange(2, 1, rows.length, header.length).setValues(rows);
+}
+
 // =========== LEITURA (GET) ===========
 function doGet(e) {
   try {
@@ -576,6 +625,11 @@ function doPost(e) {
     if (action === 'rosterList') return rosterList(params, ctx);
     if (action === 'rosterAdd') return rosterAdd(params, ctx);
     if (action === 'rosterRemove') return rosterRemove(params, ctx);
+    if (action === 'manageList') return manageList(params, ctx);
+    if (action === 'eventsReplace') return eventsReplace(params, ctx);
+    if (action === 'gvgReplace') return gvgReplace(params, ctx);
+    if (action === 'configSetWebhook') return configSetWebhook(params, ctx);
+    if (action === 'configTestWebhook') return configTestWebhook(params, ctx);
     if (action === 'relatorioDisparar') return relatorioDispararAgora(params, ctx);
     return atualizarPoder(params, ctx);
   } catch(err) {
