@@ -295,3 +295,50 @@ html.rd-auth .tabs-nav .lock-icon { display: none; }
 /* Conteúdo de aba renderiza um frame depois do clique (INP): altura mínima
    impede o footer de subir e descer enquanto a grade monta */
 .tab-content.active { min-height: 62vh; }
+
+/* ═══════ Calendário de banners — tema claro ═══════ */
+/* O pôster é escuro por design; no tema claro vira pergaminho dourado */
+:root[data-theme="light"] .bnx-poster {
+  color: var(--ink);
+  background:
+    radial-gradient(900px 340px at 50% -60px, rgba(212,160,23,.20), rgba(212,160,23,.06) 45%, transparent 72%),
+    linear-gradient(180deg, #fbf7ec, #f4ecd9 55%, #efe4cb);
+  box-shadow: 0 8px 32px rgba(0,0,0,.10), 0 0 0 1px rgba(166,124,0,.30);
+}
+:root[data-theme="light"] .bnx-rays {
+  background: repeating-conic-gradient(from -14deg at 50% 0,
+    rgba(166,124,0,.08) 0 2.2deg, transparent 2.2deg 8deg);
+}
+/* título: dourado mais escuro pra ter contraste no fundo claro */
+:root[data-theme="light"] .bnx-gold {
+  background: linear-gradient(180deg, #c9971c 6%, #a67c00 45%, #735500 78%, #a67c00 96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.18));
+}
+:root[data-theme="light"] .bnx-x { color: #a67c00; filter: none; }
+:root[data-theme="light"] .bnx-hollow {
+  -webkit-text-stroke: 1.3px #8a6b14;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.15));
+}
+:root[data-theme="light"] .bnx-name { color: var(--ink); text-shadow: none; }
+:root[data-theme="light"] .bnx-name-soon { color: var(--ink-dim); }
+:root[data-theme="light"] .bnx-frame { filter: drop-shadow(0 3px 6px rgba(0,0,0,.22)); }
+:root[data-theme="light"] .bnx-cell:hover .bnx-frame,
+:root[data-theme="light"] .bnx-cell:focus-visible .bnx-frame {
+  filter: drop-shadow(0 8px 14px rgba(0,0,0,.25)) drop-shadow(0 0 10px rgba(166,124,0,.30));
+}
+/* tabela de tickets: papel claro com a mesma moldura dourada */
+:root[data-theme="light"] .bnx-tkt {
+  border-color: #b8912e;
+  background: linear-gradient(180deg, #fffdf5, #faf3e0);
+  box-shadow: 0 0 0 5px rgba(255,255,255,.65), 0 0 0 6px rgba(166,124,0,.45), 0 6px 22px rgba(0,0,0,.08);
+}
+:root[data-theme="light"] .bnx-tkt th { color: #735500; border-bottom-color: rgba(166,124,0,.45); }
+:root[data-theme="light"] .bnx-tkt td { color: var(--ink); border-bottom-color: rgba(166,124,0,.22); }
+:root[data-theme="light"] .bnx-tkt td.bnx-st { color: #8a6b14; text-shadow: none; }
+:root[data-theme="light"] .bnx-tkt-total { color: #735500; border-top-color: rgba(166,124,0,.45); }
+:root[data-theme="light"] .bnx-tkt-grid > div + div { border-left-color: rgba(166,124,0,.35); }
+@media (max-width: 760px) {
+  :root[data-theme="light"] .bnx-tkt-grid > div + div { border-top-color: rgba(166,124,0,.35); }
+}
