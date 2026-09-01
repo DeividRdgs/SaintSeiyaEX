@@ -273,6 +273,7 @@ const TAB_ROUTES = {
   'tier':      { slug: 'tier-list',     title: 'Tier List',  title_en: 'Tier List', desc: 'Tier list interativa dos Cavaleiros do Zodíaco.', desc_en: 'Interactive tier list of the Knights of the Zodiac.', private: false },
   'roleta':    { slug: 'roleta',        title: 'Roleta de Cavaleiros', title_en: 'Knights Roulette', desc: 'Sorteie cavaleiros e construa sua Tier List ao vivo, ideal para vídeos e lives.', desc_en: 'Spin to draw knights and build your Tier List live, perfect for videos and streams.', private: false },
   'banners':   { slug: 'banners',       title: 'Calendário de Banners', title_en: 'Banner Calendar', desc: 'Previsão da ordem de banners no servidor global, com base no Taiwan.', desc_en: 'Forecast of banner order on the global server, based on Taiwan.', private: false },
+  'calculadora': { slug: 'calculadora', title: 'Calculadora de Banner', title_en: 'Banner Calculator', desc: 'Calcule tickets, fragmentos e pacotes necessários para evoluir as estrelas do cavaleiro no banner.', desc_en: 'Calculate the tickets, fragments and packs needed to evolve your knight\'s stars on the banner.', private: false },
   'team':      { slug: 'team-builder',  title: 'Team Builder', title_en: 'Team Builder', desc: 'Monte a equipe perfeita com 9 cavaleiros + 2 suportes + equipamentos.', desc_en: 'Build the perfect team with 9 knights + 2 supports + equipment.', private: false }
 };
 
@@ -355,7 +356,8 @@ function applyTabUI(tabId, doScroll) {
     if (guildHeader) guildHeader.style.display = 'none';
     const content = document.getElementById('tab-' + tabId);
     if (content) content.classList.add('active');
-    runTabInitHook(tabId);
+    // INP: a aba responde neste frame; a renderização pesada vai pro seguinte
+    setTimeout(function () { runTabInitHook(tabId); }, 0);
   }
 
   if (doScroll) {
@@ -382,7 +384,8 @@ function applyGuildSubtab(subtabId) {
   const content = document.getElementById('tab-' + subtabId);
   if (content) content.classList.add('active');
 
-  runTabInitHook(subtabId);
+  // INP: mesma tática da aba principal — feedback visual antes do render pesado
+  setTimeout(function () { runTabInitHook(subtabId); }, 0);
   updatePageMeta('guilda', subtabId);
 }
 
@@ -1509,7 +1512,8 @@ const CODEX_FACTIONS = {
   santuario: { name: 'Santuário', name_en: 'Sanctuary', name_es: 'Santuario', icon: '⚜️', color: '#d4af37' },
   submundo:  { name: 'Submundo',  name_en: 'Underworld', name_es: 'Inframundo', icon: '💀', color: '#9d4edd' },
   asgard:    { name: 'Asgard',    name_en: 'Asgard', name_es: 'Asgard', icon: '❄️', color: '#74c0fc' },
-  atlantida: { name: 'Atlântida', name_en: 'Atlantis', name_es: 'Atlántida', icon: '🌊', color: '#4cc9f0' }
+  atlantida: { name: 'Atlântida', name_en: 'Atlantis', name_es: 'Atlántida', icon: '🌊', color: '#4cc9f0' },
+  outros:    { name: 'Outros',    name_en: 'Others', name_es: 'Otros', icon: '🔷', color: '#8d78c9' }
 };
 
 // 🎯 POSIÇÃO (formação)

@@ -27,8 +27,10 @@
 /* A1 — Scrim: fade mais alto e progressivo (transparente → ~.86), sem
    "tarja" de corte seco. Sobe o padding-top pra dar respiro ao gradiente.
    (No tema claro o style.css impõe o próprio gradiente com !important —
-   segue escuro lá também, o que é correto: o texto dourado precisa dele.) */
-.hero-card.codex-card.codex-card .hero-info {
+   segue escuro lá também, o que é correto: o texto dourado precisa dele.)
+   NOTA: só nas Cartas emolduradas (.codex-card-framed) — os demais cards
+   do codex usam a skin "carta do jogo" (pergaminho claro, sem scrim). */
+.hero-card.codex-card-framed.codex-card-framed .hero-info {
   padding: 30px 9px 8px;
   background: linear-gradient(
     180deg,
@@ -51,20 +53,23 @@
   text-transform: none;
   letter-spacing: .01em;
   line-height: 1.25;
-  color: var(--gold-bright);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: 3px;
 }
+/* cor/sombra douradas só nas Cartas emolduradas (fundo escuro) */
+.hero-card.codex-card-framed.codex-card-framed .hero-name {
+  color: var(--gold-bright);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
+}
 
 /* A3 — Rótulo de classe (LUTADOR/MAGO/...): micro-chip pill discreto.
    A cor do texto vem do style.css (#e8d9b8 com !important) — creme claro
    sobre o pill escuro, contraste ok nos dois temas (o scrim é escuro
    sempre). Fundo rgba preto permitido (scrim). */
-.hero-card.codex-card.codex-card .hero-class {
+.hero-card.codex-card-framed.codex-card-framed .hero-class {
   display: inline-block;
   font-family: 'Sora', system-ui, sans-serif;
   font-size: .56rem;
@@ -81,11 +86,11 @@
   .hero-card.codex-card.codex-card .hero-name {
     font-size: .62rem;
   }
-  .hero-card.codex-card.codex-card .hero-class {
+  .hero-card.codex-card-framed.codex-card-framed .hero-class {
     font-size: .52rem;
     padding: 2px 6px;
   }
-  .hero-card.codex-card.codex-card .hero-info {
+  .hero-card.codex-card-framed.codex-card-framed .hero-info {
     padding: 24px 6px 6px;
   }
 }
@@ -169,14 +174,6 @@ body footer [data-i18n="footer.motto"] {
   background: var(--bg-2);
 }
 
-/* D2 — Badges do redesign no claro.
-   .rd-badge-sr: texto var(--ink) (#1c1a16) sobre mix de 8% de ink em
-   branco ≈ 14:1 — ok; o problema era a BORDA --line (6% preto), invisível.
-   --line-gold (25%) é o token de contorno visível do tema claro. */
-:root[data-theme="light"] .rd-badge-sr {
-  border-color: var(--line-gold);
-  color: var(--ink);
-}
 /* .home-featured-ends: --ink-dim (#5c574d) sobre branco ≈ 6.3:1 e o
    <strong> em --ink ≈ 15:1 — ambos acima de 4.5:1. Declarado explícito
    pra blindar contra heranças de cor de containers do redesign. */
@@ -283,3 +280,18 @@ body footer [data-i18n="footer.motto"] {
 /* Cinto de segurança: stats de placeholder nunca aparecem no detalhe,
    mesmo se o navegador estiver com js/app.js antigo em cache */
 #hero-detail-view .stats-grid { display: none; }
+
+/* ═══════ Estabilidade de layout (CLS) ═══════ */
+/* O script inline do <head> marca <html class="rd-auth"> quando há sessão
+   salva: o topbar já nasce no estado certo, sem trocas visíveis após o JS. */
+html.rd-auth #authLoginBtn { display: none; }
+html.rd-auth .auth-user-info { display: flex; }
+/* Cadeado da aba Guilda agora vem no HTML: some antes do paint p/ logados
+   (o JS remove/recoloca o span depois, esta regra cobre só o boot) */
+html.rd-auth .tabs-nav .lock-icon { display: none; }
+/* Nick vazio até o updateAuthUI preencher: reserva largura mínima pra não
+   empurrar o botão Sair quando o texto chegar */
+.auth-user-nick { display: inline-block; min-width: 64px; }
+/* Conteúdo de aba renderiza um frame depois do clique (INP): altura mínima
+   impede o footer de subir e descer enquanto a grade monta */
+.tab-content.active { min-height: 62vh; }

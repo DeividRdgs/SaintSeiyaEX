@@ -20,6 +20,12 @@ function _rdEsc(s) {
   return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+// medalha de raridade oficial do jogo (img/rarity/*.webp)
+function _rdRarityBadge(rarity) {
+  var r = String(rarity || '').toLowerCase();
+  if (['n', 'r', 'sr', 'ssr', 'ur'].indexOf(r) === -1) return '';
+  return '<img class="rd-medal" src="img/rarity/' + r + '.webp" alt="' + r.toUpperCase() + '" loading="lazy" decoding="async">';
+}
 
 /* ---------- destaque da home (edite aqui para trocar os heróis do banner) ---------- */
 const HOME_FEATURED = {
@@ -31,7 +37,8 @@ const FACTION_LABELS = {
   santuario: { pt: 'Santuário', en: 'Sanctuary', es: 'Santuario' },
   submundo:  { pt: 'Submundo', en: 'Underworld', es: 'Inframundo' },
   asgard:    { pt: 'Asgard', en: 'Asgard', es: 'Asgard' },
-  atlantida: { pt: 'Atlântida', en: 'Atlantis', es: 'Atlántida' }
+  atlantida: { pt: 'Atlântida', en: 'Atlantis', es: 'Atlántida' },
+  outros:    { pt: 'Outros', en: 'Others', es: 'Otros' }
 };
 function _rdFaction(f) {
   var lang = (typeof _lang !== 'undefined' && _lang) ? _lang : 'pt';
@@ -68,7 +75,7 @@ function renderHomeFeatured() {
       '<div class="home-featured-ring"><img src="' + _rdEsc(h.image) + '" alt="' + _rdEsc(_rdName(h)) + '" loading="lazy" decoding="async"></div>' +
       '<div class="home-featured-info">' +
         '<div class="home-featured-badges">' +
-          '<span class="rd-badge rd-badge-' + _rdEsc(h.rarity) + '">' + _rdEsc((h.rarity || '').toUpperCase()) + '</span>' +
+          _rdRarityBadge(h.rarity) +
           '<span class="rd-badge rd-badge-faction rd-f-' + _rdEsc(h.faction) + '">' + _rdEsc(_rdFaction(h.faction)) + '</span>' +
         '</div>' +
         '<div class="home-featured-name">' + _rdEsc(_rdName(h)) + '</div>' +
@@ -100,7 +107,7 @@ function renderHomeTopTier() {
       '<img src="' + _rdEsc(h.image) + '" alt="' + _rdEsc(_rdName(h)) + '" loading="lazy" decoding="async">' +
       '<div class="home-top-name">' + _rdEsc(_rdName(h)) + '</div>' +
       '<div class="home-top-badges">' +
-        '<span class="rd-badge rd-badge-ur">UR</span>' +
+        _rdRarityBadge('ur') +
         '<span class="rd-badge rd-badge-faction rd-f-' + _rdEsc(h.faction) + '">' + _rdEsc(_rdFaction(h.faction)) + '</span>' +
       '</div>' +
     '</div>';
@@ -170,7 +177,7 @@ function _gsRender(q) {
     if (!list.length) return;
     html += '<div class="gsearch-group">' + _rdEsc(_gsGroupLabels[type]()) + '</div>';
     html += list.map(function (e) {
-      var badge = e.obj.rarity ? '<span class="rd-badge rd-badge-' + _rdEsc(e.obj.rarity) + '">' + _rdEsc(String(e.obj.rarity).toUpperCase()) + '</span>' : '';
+      var badge = _rdRarityBadge(e.obj.rarity);
       var idAttr = typeof e.id === 'number' ? e.id : '\'' + _rdEsc(String(e.id)) + '\'';
       return '<button class="gsearch-item" onclick="_gsGo(\'' + e.type + '\',' + idAttr + ')">' +
         (e.img ? '<img src="' + _rdEsc(e.img) + '" alt="" loading="lazy">' : '<span class="gsearch-item-noimg"></span>') +
@@ -225,14 +232,19 @@ function _rdLoadScript(src) {
     document.head.appendChild(s);
   });
 }
+var rdHeroesReady = (typeof CODEX_HEROES !== 'undefined')
+  ? Promise.resolve() : _rdLoadScript('js/data/heroes.js');
 var rdArtifactsReady = (typeof CODEX_ARTIFACTS !== 'undefined')
   ? Promise.resolve() : _rdLoadScript('js/data/artifacts.js');
 var rdCardsReady = (typeof CODEX_CARDS !== 'undefined')
   ? Promise.resolve() : _rdLoadScript('js/data/cards.js');
-var rdAllDataReady = Promise.all([rdArtifactsReady, rdCardsReady]);
+var rdAllDataReady = Promise.all([rdHeroesReady, rdArtifactsReady, rdCardsReady]);
 rdAllDataReady.then(function () {
-  // atualiza contadores da home e invalida o índice da busca global
-  if (typeof renderHomeStats === 'function') renderHomeStats();
+  // re-renderiza o que dependia dos dados no boot e invalida o índice da busca
+  if (typeof renderRedesignHome === 'function') renderRedesignHome();
+  else if (typeof renderHomeStats === 'function') renderHomeStats();
+  if (typeof renderBannersCalendar === 'function') renderBannersCalendar();
+  if (typeof preloadTopHeroImages === 'function') preloadTopHeroImages();
   _gsIndex = null;
   var inp = document.getElementById('gsearchInput');
   var ov = document.getElementById('gsearchOverlay');
@@ -249,12 +261,18 @@ function rdHeroBySlug(slug) {
   return CODEX_HEROES.find(function (h) { return rdSlugify(h.name) === slug; }) || null;
 }
 function openHeroBySlug(slug) {
-  var h = rdHeroBySlug(slug);
-  if (h && typeof showHeroDetail === 'function') {
-    showHeroDetail(h.id);
-  } else if (slug) {
-    history.replaceState({ tab: 'heroes' }, '', '/herois');
-  }
+  // aguarda os dados e um tick extra: o init da aba (adiado por setTimeout)
+  // chama hideHeroDetail — o detalhe precisa abrir DEPOIS dele
+  rdAllDataReady.then(function () {
+    setTimeout(function () {
+      var h = rdHeroBySlug(slug);
+      if (h && typeof showHeroDetail === 'function') {
+        showHeroDetail(h.id);
+      } else if (slug) {
+        history.replaceState({ tab: 'heroes' }, '', '/herois');
+      }
+    }, 0);
+  });
 }
 /* URL profunda + título ao abrir/fechar o detalhe pela interface */
 if (typeof showHeroDetail === 'function') {
@@ -281,19 +299,25 @@ if (typeof hideHeroDetail === 'function') {
 }
 /* ---------- URLs profundas de artefatos e cartas (F5 mantém o detalhe) ---------- */
 function openArtifactBySlug(slug) {
-  rdArtifactsReady.then(function () {
-    var a = (typeof CODEX_ARTIFACTS !== 'undefined') &&
-      CODEX_ARTIFACTS.find(function (x) { return rdSlugify(x.name) === slug; });
-    if (a && typeof showArtifactDetail === 'function') showArtifactDetail(a.id);
-    else if (slug) history.replaceState({ tab: 'artifacts' }, '', '/artefatos');
+  // rdAllDataReady + setTimeout: garante que o detalhe abre depois do init
+  // adiado da aba (mesma ordem do openHeroBySlug)
+  rdAllDataReady.then(function () {
+    setTimeout(function () {
+      var a = (typeof CODEX_ARTIFACTS !== 'undefined') &&
+        CODEX_ARTIFACTS.find(function (x) { return rdSlugify(x.name) === slug; });
+      if (a && typeof showArtifactDetail === 'function') showArtifactDetail(a.id);
+      else if (slug) history.replaceState({ tab: 'artifacts' }, '', '/artefatos');
+    }, 0);
   });
 }
 function openCardBySlug(slug) {
-  rdCardsReady.then(function () {
-    var c = (typeof CODEX_CARDS !== 'undefined') &&
-      CODEX_CARDS.find(function (x) { return rdSlugify(x.name) === slug; });
-    if (c && typeof showCardDetail === 'function') showCardDetail(c.id);
-    else if (slug) history.replaceState({ tab: 'cards' }, '', '/cartas');
+  rdAllDataReady.then(function () {
+    setTimeout(function () {
+      var c = (typeof CODEX_CARDS !== 'undefined') &&
+        CODEX_CARDS.find(function (x) { return rdSlugify(x.name) === slug; });
+      if (c && typeof showCardDetail === 'function') showCardDetail(c.id);
+      else if (slug) history.replaceState({ tab: 'cards' }, '', '/cartas');
+    }, 0);
   });
 }
 if (typeof showArtifactDetail === 'function') {
@@ -367,10 +391,11 @@ if (typeof renderAuthAdminPanel === 'function') {
 if (typeof runTabInitHook === 'function') {
   var _rdOrigTabHook = runTabInitHook;
   runTabInitHook = function (tabId) {
-    // abas que dependem de cards/artifacts aguardam o carregamento assíncrono
-    // (os skeletons estáticos das grades cobrem a espera)
-    var needsData = (tabId === 'cards' || tabId === 'artifacts' || tabId === 'team') &&
-      (typeof CODEX_CARDS === 'undefined' || typeof CODEX_ARTIFACTS === 'undefined');
+    // abas que dependem de heroes/cards/artifacts aguardam o carregamento
+    // assíncrono (os skeletons estáticos das grades cobrem a espera)
+    var dataTabs = { cards: 1, artifacts: 1, team: 1, heroes: 1, tier: 1, stats: 1, vote: 1, update: 1, roleta: 1, elenco: 1 };
+    var needsData = dataTabs[tabId] &&
+      (typeof CODEX_CARDS === 'undefined' || typeof CODEX_ARTIFACTS === 'undefined' || typeof CODEX_HEROES === 'undefined');
     if (needsData) {
       rdAllDataReady.then(function () { _rdOrigTabHook(tabId); });
       return;

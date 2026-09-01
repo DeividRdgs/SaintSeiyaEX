@@ -1967,14 +1967,14 @@
     animation: spin 30s linear infinite;
     opacity:.5;
   }
-  /* ════ RARITY BADGE — Emblema 3D com SVG ════ */
+  /* ════ RARITY BADGE — medalha real do jogo (img/rarity/*.webp) ════ */
   .hero-rarity-badge,
   .artifact-rarity-badge{
     position: absolute;
     top: 0;
     left: 0;
     right: auto;
-    width: 24px;
+    width: 27px;
     height: 28px;
     z-index: 3;
     display: flex;
@@ -1999,69 +1999,50 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+  /* a medalha do jogo já traz as letras gravadas — sem texto por cima */
   .hero-rarity-badge::after,
   .artifact-rarity-badge::after{
-    content: attr(data-label);
-    position: relative;
-    font-family: 'Cinzel', serif;
-    font-weight: 900;
-    font-size: 7px;
-    letter-spacing: 0;
-    color: #fff;
-    text-shadow:
-      0 1px 1px rgba(0,0,0,.95),
-      0 -1px 0 rgba(0,0,0,.7),
-      1px 0 1px rgba(0,0,0,.85),
-      -1px 0 1px rgba(0,0,0,.85),
-      0 0 3px rgba(0,0,0,.9);
-    z-index: 1;
-    line-height: 1;
-    margin-top: -1px;
+    content: none;
   }
 
-  /* Emblemas SVG por raridade (data URI) */
-  /* UR: vermelho/rosa com aura intensa */
+  /* Medalhas oficiais do jogo (base ty_icon_huizhangdi + letras, extraídas
+     dos atlas ui/sprites — ver game-assets/ui-sprites/medals) */
   .hero-rarity-badge.ur::before,
   .artifact-rarity-badge.ur::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='ur' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffb3c8'/><stop offset='35%25' stop-color='%23ff6b9d'/><stop offset='70%25' stop-color='%23c8102e'/><stop offset='100%25' stop-color='%237a0010'/></linearGradient><linearGradient id='urLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.7'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23ur)' stroke='%23ffffff' stroke-opacity='.4' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23urLight)'/></svg>");
+    background-image: url('../img/rarity/ur.webp');
   }
-  /* SSR: dourado com brilho */
   .hero-rarity-badge.ssr::before,
   .artifact-rarity-badge.ssr::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='ssr' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23fff3b0'/><stop offset='35%25' stop-color='%23ffd54f'/><stop offset='70%25' stop-color='%23d4af37'/><stop offset='100%25' stop-color='%237a5a10'/></linearGradient><linearGradient id='ssrLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.85'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23ssr)' stroke='%23ffffff' stroke-opacity='.5' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23ssrLight)'/></svg>");
+    background-image: url('../img/rarity/ssr.webp');
   }
-  /* SR: roxo violeta */
   .hero-rarity-badge.sr::before,
   .artifact-rarity-badge.sr::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='sr' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23e0c3fc'/><stop offset='35%25' stop-color='%23c084fc'/><stop offset='70%25' stop-color='%238b5cf6'/><stop offset='100%25' stop-color='%234c1d95'/></linearGradient><linearGradient id='srLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.75'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23sr)' stroke='%23ffffff' stroke-opacity='.4' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23srLight)'/></svg>");
+    background-image: url('../img/rarity/sr.webp');
   }
-  /* R: azul */
   .hero-rarity-badge.r::before,
   .artifact-rarity-badge.r::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='r' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23bfdbfe'/><stop offset='35%25' stop-color='%2360a5fa'/><stop offset='70%25' stop-color='%233b82f6'/><stop offset='100%25' stop-color='%231e3a8a'/></linearGradient><linearGradient id='rLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.7'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23r)' stroke='%23ffffff' stroke-opacity='.4' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23rLight)'/></svg>");
+    background-image: url('../img/rarity/r.webp');
   }
-  /* N: cinza prata */
   .hero-rarity-badge.n::before,
   .artifact-rarity-badge.n::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='n' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23f1f5f9'/><stop offset='35%25' stop-color='%23cbd5e1'/><stop offset='70%25' stop-color='%2394a3b8'/><stop offset='100%25' stop-color='%231f2937'/></linearGradient><linearGradient id='nLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.65'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23n)' stroke='%23ffffff' stroke-opacity='.35' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23nLight)'/></svg>");
+    background-image: url('../img/rarity/n.webp');
   }
 
   /* Badge menor pra cards de outros lugares */
   .vote-tier-result-badge,
   .small-rarity-badge{
-    width: 28px;
+    width: 30px;
     height: 32px;
   }
-  .small-rarity-badge::after{ font-size: 7px !important; }
 
-  /* ════ FACTION BADGE — Escudo 3D igual ao de raridade, canto direito ════ */
+  /* ════ FACTION BADGE — ícone oficial do jogo, canto direito ════ */
   .hero-faction-badge{
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 3px;
+    right: 3px;
     left: auto;
-    width: 24px;
-    height: 28px;
+    width: 22px;
+    height: 22px;
     z-index: 3;
     display: flex;
     align-items: center;
@@ -2077,23 +2058,17 @@
     background-repeat: no-repeat;
     background-position: center;
   }
+  /* o ícone oficial do jogo já é autoexplicativo — sem emoji por cima */
   .hero-faction-badge::after{
-    content: attr(data-icon);
-    position: relative;
-    font-size: 10px;
-    z-index: 1;
-    line-height: 1;
-    margin-top: -1px;
-    filter: drop-shadow(0 1px 1px rgba(0,0,0,.85));
+    content: none;
   }
 
-  /* Todos os escudos de facção usam o mesmo fundo prata — o ícone interno é que diferencia */
-  .hero-faction-badge.santuario::before,
-  .hero-faction-badge.submundo::before,
-  .hero-faction-badge.asgard::before,
-  .hero-faction-badge.atlantida::before{
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 38 44'><defs><linearGradient id='fSilver' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff'/><stop offset='30%25' stop-color='%23e8e8e8'/><stop offset='65%25' stop-color='%23a0a0a0'/><stop offset='100%25' stop-color='%23484848'/></linearGradient><linearGradient id='fSilverLight' x1='0%25' y1='0%25' x2='0%25' y2='100%25'><stop offset='0%25' stop-color='%23ffffff' stop-opacity='.9'/><stop offset='50%25' stop-color='%23ffffff' stop-opacity='0'/></linearGradient></defs><path d='M19 1 L36 7 L35 26 Q35 36 19 43 Q3 36 3 26 L2 7 Z' fill='url(%23fSilver)' stroke='%23ffffff' stroke-opacity='.6' stroke-width='1'/><path d='M19 3 L33 8 Q33 18 19 22 Q5 18 5 8 Z' fill='url(%23fSilverLight)'/></svg>");
-  }
+  /* Ícones oficiais de facção do jogo (js_icon_zhenying, atlas ui/sprites) */
+  .hero-faction-badge.santuario::before{ background-image: url('../img/icons/faction-santuario.webp'); }
+  .hero-faction-badge.submundo::before{ background-image: url('../img/icons/faction-submundo.webp'); }
+  .hero-faction-badge.asgard::before{ background-image: url('../img/icons/faction-asgard.webp'); }
+  .hero-faction-badge.atlantida::before{ background-image: url('../img/icons/faction-atlantida.webp'); }
+  .hero-faction-badge.outros::before{ background-image: url('../img/icons/faction-outros.webp'); }
 
   .hero-element{
     position:absolute;top:5px;right:5px;
@@ -2117,6 +2092,16 @@
   .hero-class{
     font-family:'JetBrains Mono',monospace;font-size:7px;
     color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase;
+  }
+  /* fileira de símbolos do jogo no rodapé do card: posição (F/M/T),
+     papel (atacante/suporte/defensor) e facção — como nos cards do jogo */
+  .hero-icons-row{
+    display:flex;gap:4px;justify-content:center;align-items:center;
+    margin-top:4px;
+  }
+  .hero-icons-row img{
+    width:16px;height:16px;display:block;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.35));
   }
   /* Glyph fallback menor */
   .hero-portrait .glyph{
@@ -2210,6 +2195,10 @@
     background:rgba(212,175,55,.1);border:1px solid var(--line);
     font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;
     color:var(--gold-bright);text-transform:uppercase;
+  }
+  /* ícone oficial do jogo dentro da tag (facção/classe/posição) */
+  .hero-tag-gicon{
+    width:15px;height:15px;vertical-align:-3px;
   }
   .hero-bio{
     font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.7;
@@ -2784,14 +2773,72 @@
   @media (max-width: 600px){
     .hero-card.codex-card .hero-name{ font-size: 8px; }
   }
-  /* No tema light também usa gradient escuro (texto dourado precisa de fundo escuro) */
-  :root[data-theme="light"] .hero-card.codex-card .hero-info{
+  /* No tema light também usa gradient escuro (texto dourado precisa de fundo
+     escuro) — só nas Cartas emolduradas; os demais cards usam a carta do jogo */
+  :root[data-theme="light"] .hero-card.codex-card-framed .hero-info{
     background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.80) 100%) !important;
     border-top: none !important;
   }
-  :root[data-theme="light"] .hero-card.codex-card .hero-name{
+  :root[data-theme="light"] .hero-card.codex-card-framed .hero-name{
     color: #ffd54f !important;
     text-shadow: 0 1px 3px rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.7);
+  }
+
+  /* === Skin "carta do jogo" — moldura real ty_bak_xiaoka_2 (292x476) ===
+     Vale pra todos os cards do codex EXCETO as Cartas (.codex-card-framed,
+     que têm moldura dynamis própria). Como no jogo, mas sem estrelas,
+     nível e selo Batalha: medalha de raridade, arte, nome e símbolos. */
+  .hero-card.codex-card:not(.codex-card-framed){
+    background: url('../img/card-frame.webp') center / 100% 100% no-repeat;
+    border: none;
+    box-shadow: none;
+    overflow: visible;
+    aspect-ratio: 292 / 476;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,.4));
+  }
+  .hero-card.codex-card:not(.codex-card-framed):hover{
+    transform: translateY(-4px);
+    box-shadow: none;
+    filter: drop-shadow(0 8px 14px rgba(0,0,0,.5)) drop-shadow(0 0 12px rgba(245,200,76,.35));
+  }
+  /* arte encaixada dentro da borda dourada, com fade pro pergaminho embaixo */
+  .hero-card.codex-card:not(.codex-card-framed) .hero-portrait{
+    inset: 4% 4% auto 4%;
+    width: auto;
+    height: 72%;
+    border-radius: 6px 6px 0 0;
+    background: transparent;
+    -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 96%);
+    mask-image: linear-gradient(180deg, #000 62%, transparent 96%);
+  }
+  .hero-card.codex-card:not(.codex-card-framed) .hero-portrait::before,
+  .hero-card.codex-card:not(.codex-card-framed) .hero-portrait .rays{
+    display: none;
+  }
+  /* rodapé sobre o pergaminho claro da carta (claro nos dois temas) */
+  .hero-card.codex-card:not(.codex-card-framed) .hero-info{
+    background: none !important;
+    padding: 0 8%;
+    bottom: 7%;
+    text-align: center;
+  }
+  .hero-card.codex-card:not(.codex-card-framed) .hero-name{
+    color: #7b8095 !important;
+    text-shadow: none !important;
+  }
+  /* como no jogo: sem texto de classe (o símbolo de papel já informa)
+     e sem escudo de facção no topo (a facção vai na fileira de símbolos) */
+  .hero-card.codex-card:not(.codex-card-framed) .hero-class,
+  .hero-card.codex-card:not(.codex-card-framed) .hero-faction-badge{
+    display: none;
+  }
+  /* medalha maior, mordendo o canto como no jogo */
+  .hero-card.codex-card:not(.codex-card-framed) .hero-rarity-badge{
+    top: -5px;
+    left: -4px;
+    width: 32px;
+    height: 34px;
+    z-index: 2;
   }
 
   /* === Artefatos: imagem centralizada com fundo neutro (igual museu) === */
@@ -3948,13 +3995,14 @@
     color: #fff !important;
     text-shadow: 0 1px 2px rgba(0,0,0,.9);
   }
-  .team-pool-row .hero-card .hero-class{
+  .team-pool-row .hero-card .hero-class,
+  .team-pool-row .hero-card .hero-icons-row{
     display: none;
   }
   /* Badges menores e proporcionais ao card compacto */
   .team-pool-row .hero-card .hero-rarity-badge,
   .team-pool-row .hero-card .hero-faction-badge{
-    width: 16px;
+    width: 18px;
     height: 19px;
   }
   /* Herói já no time: visualmente desabilitado */
@@ -5606,6 +5654,14 @@
     background: var(--success);
     color: #fff;
   }
+  .auth-admin-btn.edit{
+    border-color: var(--gold);
+    color: var(--gold-bright);
+  }
+  .auth-admin-btn.edit:hover{
+    background: var(--gold);
+    color: #1a1206;
+  }
   .auth-admin-btn.deny{
     border-color: var(--error);
     color: #ff6b9d;
@@ -6459,7 +6515,7 @@
     .hero-name{font-size:9px;letter-spacing:.04em;}
     .hero-class{font-size:6px;}
     .hero-info{padding:5px 6px;}
-    .hero-rarity-badge{font-size:7px;padding:2px 4px;}
+    .hero-rarity-badge{width:24px;height:25px;}
     .hero-element{width:18px;height:18px;font-size:9px;}
   }
 
@@ -6597,7 +6653,10 @@
     position: relative;
     display: grid;
     gap: 20px 8px;
-    grid-template-columns: repeat(14, 1fr); /* 14 cavaleiros por fileira, como no poster */
+    /* 14 cavaleiros por fileira, como no poster. minmax(0,1fr) trava as
+       colunas no MESMO tamanho: com 1fr puro, nomes longos (EN/ES) alargam
+       a própria coluna e desalinham o grid inteiro. */
+    grid-template-columns: repeat(14, minmax(0, 1fr));
     margin: 30px 0 38px;
   }
   .bnx-cell {
@@ -6605,6 +6664,7 @@
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    min-width: 0; /* deixa a célula encolher junto com a coluna */
   }
   .bnx-cell-empty { cursor: default; }
   /* moldura do jogo (ty_bak_daka): a própria imagem traz borda dourada +
@@ -6626,16 +6686,16 @@
     object-fit: contain;
     display: block;
   }
-  /* selo de raridade sobreposto: as artes HD do jogo não trazem selo,
-     então mostramos por cima. Escondido só quando a arte é o recorte do
-     pôster (.bnx-baked), que já tem o selo gravado. */
+  /* selo de raridade sobreposto: medalha oficial do jogo (img/rarity/*.webp),
+     no canto superior esquerdo como nos cards do próprio jogo. Escondido só
+     quando a arte é o recorte do pôster (.bnx-baked), que já tem selo gravado. */
   .bnx-badge {
     display: block;
     position: absolute;
-    top: -4px;
-    left: -2px;
-    width: 56%;
-    max-width: 72px;
+    top: 2px;
+    left: 0;
+    width: 36%;
+    max-width: 42px;
     height: auto;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,.85));
     pointer-events: none;
@@ -6656,7 +6716,9 @@
     font-size: clamp(.42rem, .85vw, .72rem); /* acompanha os cards nas 14 colunas */
     line-height: 1.3;
     text-shadow: 0 1px 2px rgba(0,0,0,.7);
-    max-width: 15ch;
+    max-width: 100%;
+    /* nomes longos (EN/ES) quebram dentro da coluna em vez de alargá-la */
+    overflow-wrap: anywhere;
   }
   .bnx-name-soon { color: #b6ad93; font-style: italic; letter-spacing: .06em; }
   /* selo PENDENTE — heróis que ainda não chegaram no servidor global */
@@ -6774,6 +6836,122 @@
   @media (prefers-reduced-motion: reduce) {
     .bnx-frame, .bnx-cell:hover .bnx-frame { transition: none; transform: none; }
   }
+
+  /* ═══════════ ABA: CALCULADORA DE BANNER ═══════════ */
+  .calc-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1rem 40px;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+  @media (max-width: 720px) {
+    .calc-grid { grid-template-columns: 1fr; }
+  }
+  .calc-card {
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .calc-field { display: flex; flex-direction: column; gap: 3px; margin-bottom: 9px; }
+  .calc-field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+  .calc-field input,
+  .calc-field select {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    border-radius: 7px;
+    padding: 6px 9px;
+    font-size: .8rem;
+    font-family: 'Sora', system-ui, sans-serif;
+  }
+  .calc-field input:focus,
+  .calc-field select:focus { border-color: var(--gold); outline: none; }
+  .calc-btn {
+    width: 100%;
+    margin-top: 2px;
+    padding: 9px;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(212,175,55,.22), rgba(212,175,55,.08));
+    color: var(--gold-bright);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: .8rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+  }
+  .calc-btn:hover { background: var(--gold); color: #1a1206; transform: translateY(-1px); }
+  .calc-msg { margin-top: 8px; font-size: .74rem; min-height: 1.2em; }
+  .calc-msg.error { color: #ff6b9d; }
+  .calc-empty { color: var(--ink-dim); font-size: .8rem; padding: 6px 0; }
+  .calc-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .calc-star {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--gold-bright);
+  }
+  .calc-arrow { color: var(--ink-dim); font-size: .8rem; }
+  .calc-needed { margin-left: auto; color: var(--ink-dim); font-size: .74rem; }
+  .calc-needed b { color: var(--ink); font-size: .88rem; }
+  .calc-status {
+    border-radius: 8px;
+    padding: 7px 11px;
+    font-weight: 700;
+    font-size: .78rem;
+    margin-bottom: 10px;
+  }
+  .calc-status.ok {
+    background: color-mix(in srgb, var(--success, #2fbf71) 14%, transparent);
+    border: 1px solid var(--success, #2fbf71);
+    color: var(--success, #2fbf71);
+  }
+  .calc-status.fail {
+    background: color-mix(in srgb, #ff6b9d 12%, transparent);
+    border: 1px solid #ff6b9d;
+    color: #ff6b9d;
+  }
+  .calc-sec {
+    font-family: 'Cinzel', serif;
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold-bright);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 3px;
+    margin: 11px 0 5px;
+  }
+  .calc-result .calc-sec:first-of-type { margin-top: 4px; }
+  .calc-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 1px 0;
+    font-size: .74rem;
+  }
+  .calc-row span { color: var(--ink-dim); }
+  .calc-row b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .calc-row b.calc-strong { color: var(--gold-bright); font-weight: 700; }
   @media (max-width: 600px) {
     .banners-zoom-hint {
       opacity: 1;

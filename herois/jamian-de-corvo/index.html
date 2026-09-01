@@ -6,6 +6,9 @@
 <script>document.documentElement.classList.add('rd-js');</script>
 <base href="/">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- CLS: aplica o estado de login antes do primeiro paint (o CSS troca
+     Entrar ↔ usuário e esconde o cadeado da aba Guilda sem shift) -->
+<script>try{var _a=JSON.parse(localStorage.getItem('triade_auth_v1')||'null');if(_a&&_a.token)document.documentElement.classList.add('rd-auth');}catch(e){}</script>
 <meta name="theme-color" content="#0e0e12" id="themeColorMeta">
 
 <!-- Google Search Console — verificação de propriedade -->
@@ -180,13 +183,14 @@
   <!-- ============ ABAS DE NAVEGAÇÃO ============ -->
   <nav class="tabs-nav"><!-- dentro do .topbar -->
     <button class="tab-btn active" data-tab="inicio" data-i18n="menu.inicio">Início</button>
-    <button class="tab-btn" data-tab="guilda" data-i18n="menu.guilda">Guilda</button>
+    <button class="tab-btn" data-tab="guilda"><span data-i18n="menu.guilda">Guilda</span><span class="lock-icon"> 🔒</span></button>
     <button class="tab-btn" data-tab="heroes" data-i18n="menu.heroes">Heróis</button>
     <button class="tab-btn" data-tab="artifacts" data-i18n="menu.artifacts">Artefatos</button>
     <button class="tab-btn" data-tab="cards" data-i18n="menu.cards">Cartas</button>
     <button class="tab-btn" data-tab="tier" data-i18n="menu.tier">Tier List</button>
     <button class="tab-btn" data-tab="roleta" data-i18n="menu.roleta">Roleta</button>
     <button class="tab-btn" data-tab="banners" data-i18n="menu.banners">Banners</button>
+    <button class="tab-btn" data-tab="calculadora" data-i18n="menu.calculadora">Calculadora</button>
     <button class="tab-btn" data-tab="team" data-i18n="menu.team">Team Builder</button>
   </nav>
   </div><!-- /topbar -->
@@ -1178,6 +1182,80 @@ Corvos atacam inimigos aleatórios a cada 2 segundos, cada ataque causa 13% de D
     </section>
   </div>
 
+  <!-- ============ ABA: CALCULADORA DE BANNER ============ -->
+  <div class="tab-content" id="tab-calculadora">
+    <section class="calc-section">
+      <div class="section-title">
+        <h2 data-i18n="calc.title">Calculadora de Banner</h2>
+        <div class="sub" data-i18n="calc.subtitle">Quantos tickets, fragmentos e pacotes você precisa para chegar na estrela desejada</div>
+      </div>
+
+      <div class="calc-grid">
+        <form class="calc-card" id="calcForm" onsubmit="return false;" autocomplete="off">
+          <div class="calc-field">
+            <label for="calcTickets" data-i18n="calc.tickets">Tickets atuais</label>
+            <input type="number" id="calcTickets" value="0" min="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="calcFragmentos" data-i18n="calc.fragments">Fragmentos atuais</label>
+            <input type="number" id="calcFragmentos" value="0" min="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="calcDias" data-i18n="calc.days">Dias de banner</label>
+            <input type="number" id="calcDias" value="14" min="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="calcEstrela" data-i18n="calc.currentStar">Estrela atual</label>
+            <select id="calcEstrela">
+              <option value="0★" selected>0★</option>
+              <option value="2★">2★</option>
+              <option value="3★">3★</option>
+              <option value="4★">4★</option>
+              <option value="5★">5★</option>
+              <option value="6★">6★</option>
+              <option value="7★">7★</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcCopias" data-i18n="calc.spareCopies">Cópias sobrando</label>
+            <input type="number" id="calcCopias" value="0" min="0" inputmode="numeric">
+          </div>
+          <div class="calc-field">
+            <label for="calcEstatueta" data-i18n="calc.statue">Estatueta já comprada?</label>
+            <select id="calcEstatueta">
+              <option value="nao" selected data-i18n="calc.no">Não</option>
+              <option value="sim" data-i18n="calc.yes">Sim</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcDiamantes" data-i18n="calc.diamonds">Completar com diamantes roxos?</label>
+            <select id="calcDiamantes">
+              <option value="sim" selected data-i18n="calc.yes">Sim</option>
+              <option value="nao" data-i18n="calc.no">Não</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcObjetivo" data-i18n="calc.goal">Objetivo</label>
+            <select id="calcObjetivo">
+              <option value="2★" selected>2★</option>
+              <option value="3★">3★</option>
+              <option value="4★">4★</option>
+              <option value="5★">5★</option>
+              <option value="6★">6★</option>
+              <option value="7★">7★</option>
+            </select>
+          </div>
+          <button type="button" class="calc-btn" id="calcBtn" onclick="calcRun()" data-i18n="calc.btn">⚡ Calcular</button>
+          <div class="calc-msg" id="calcMsg"></div>
+        </form>
+
+        <div class="calc-card calc-result" id="calcResultado">
+          <div class="calc-empty" data-i18n="calc.empty">Preencha os dados ao lado e clique em Calcular.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- ============ ABA: TEAM BUILDER ============ -->
   <div class="tab-content" id="tab-team">
     <section>
@@ -1600,16 +1678,18 @@ Corvos atacam inimigos aleatórios a cada 2 segundos, cada ataque causa 13% de D
 
 </div>
 
-<!-- artifacts.js e cards.js (1,5 MB) saem da cadeia bloqueante: preload aqui,
-     injeção assíncrona em js/redesign.js — o app fica interativo bem antes -->
+<!-- heroes.js, artifacts.js e cards.js (3,1 MB) saem da cadeia bloqueante:
+     preload aqui, injeção assíncrona em js/redesign.js — o app fica
+     interativo bem antes (INP do primeiro clique) -->
+<link rel="preload" href="js/data/heroes.js" as="script">
 <link rel="preload" href="js/data/artifacts.js" as="script">
 <link rel="preload" href="js/data/cards.js" as="script">
 <script defer src="js/app-part1.js"></script>
 <script defer src="js/data/i18n.js"></script>
 <script defer src="js/app-part2.js"></script>
-<script defer src="js/data/heroes.js"></script>
 <script defer src="js/app.js"></script>
 <script defer src="js/redesign.js"></script>
 <script defer src="js/banners-calendar.js"></script>
+<script defer src="js/calculadora.js"></script>
 </body>
 </html>

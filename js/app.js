@@ -83,13 +83,27 @@ function getFilteredHeroes() {
   });
 }
 
+// Fileira de símbolos oficiais do jogo (img/icons/): posição (letra F/M/T
+// localizada), papel derivado da classe e facção — como no rodapé dos cards do jogo
+const HERO_ROLE_ICON = { lutador: 'atacante', mago: 'atacante', arqueiro: 'atacante', suporte: 'suporte', tanque: 'defensor' };
+function heroIconsRowHTML(h) {
+  const lang = (typeof _lang !== 'undefined' && _lang) ? _lang : 'pt';
+  const icons = [];
+  if (h.position) icons.push(`<img src="img/icons/pos-${h.position}-${lang}.webp" alt="${h.position}" title="${t(CODEX_POSITIONS[h.position]||{}, 'name') || h.position}" loading="lazy" decoding="async">`);
+  const role = HERO_ROLE_ICON[h.class];
+  if (role) icons.push(`<img src="img/icons/role-${role}.webp" alt="${h.class}" title="${t(CODEX_CLASSES[h.class]||{}, 'name') || h.class}" loading="lazy" decoding="async">`);
+  if (h.faction) icons.push(`<img src="img/icons/faction-${h.faction}.webp" alt="${h.faction}" title="${t(CODEX_FACTIONS[h.faction]||{}, 'name') || h.faction}" loading="lazy" decoding="async">`);
+  return icons.length ? `<div class="hero-icons-row">${icons.join('')}</div>` : '';
+}
+
 function heroCardHTML(h, onClickAttr = `onclick="showHeroDetail(${h.id})"`) {
   const fac = CODEX_FACTIONS[h.faction] || { color: '#888', icon: '?' };
   const portraitClass = h.image ? 'hero-portrait has-image' : 'hero-portrait';
   const nomeIdioma = t(h, 'name');
-  // usa a imagem da cabeça do jogo (img/heroes/head); cai no retrato se faltar
+  // carta no estilo do jogo: retrato vertical do codex (a cabeça quadrada
+  // ficava com zoom demais na moldura alta); cai na cabeça se faltar retrato
   const portraitInner = h.image
-    ? `<img src="img/heroes/head/${h.id}.webp" alt="${nomeIdioma}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${h.image}';" />`
+    ? `<img src="${h.image}" alt="${nomeIdioma}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='img/heroes/head/${h.id}.webp';" />`
     : `<span class="glyph">${h.glyph || '⚔️'}</span>`;
   return `
     <div class="hero-card codex-card r-${h.rarity}" ${onClickAttr} style="cursor:pointer;">
@@ -102,6 +116,7 @@ function heroCardHTML(h, onClickAttr = `onclick="showHeroDetail(${h.id})"`) {
       <div class="hero-info">
         <div class="hero-name">${nomeIdioma}</div>
         <div class="hero-class">${t(CODEX_CLASSES[h.class]||{}, 'name') || h.class}</div>
+        ${heroIconsRowHTML(h)}
       </div>
     </div>
   `;
@@ -118,19 +133,27 @@ function lazyRenderGrid({ grid, items, htmlFor, emptyHTML }) {
   if (!grid) return;
   const id = grid.id || 'anon';
 
-  // Limpar estado anterior
+  // Cache: os cards são função pura de (item, idioma) — se nada disso mudou
+  // desde a última renderização, o DOM que já está na grade serve como está
+  // (revisitar a aba não reconstrói centenas de nós à toa)
+  const sig = (items || []).map(it => it && it.id).join(',') + '|' + (typeof _lang !== 'undefined' ? _lang : '');
   const prev = _lazyStates[id];
+  if (prev && prev.sig === sig && grid.children.length > 0) return;
+
+  // Limpar estado anterior
   if (prev && prev.observer) {
     prev.observer.disconnect();
   }
   grid.innerHTML = '';
 
   if (!items || items.length === 0) {
+    _lazyStates[id] = { sig: sig };
     grid.innerHTML = emptyHTML || '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink-dim);font-style:italic;">Nenhum item encontrado.</div>';
     return;
   }
 
   const state = {
+    sig: sig,
     items: items,
     rendered: 0,
     htmlFor: htmlFor,
@@ -250,6 +273,7 @@ function showHeroDetail(id) {
         </div>
         <div class="hero-info">
           <div class="hero-name">${nomeH}</div>
+          ${heroIconsRowHTML(h)}
         </div>
       </div>
       <div>
@@ -257,9 +281,9 @@ function showHeroDetail(id) {
         <h1 class="hero-detail-name">${nomeH}</h1>
         ${titleH ? `<p class="hero-detail-title">"${titleH}"</p>` : ''}
         <div class="hero-tags">
-          ${fac.name ? `<span class="hero-tag" style="border-color: ${fac.color}; color: ${fac.color}">${fac.icon} ${t(fac,'name')}</span>` : ''}
-          ${cls.name ? `<span class="hero-tag">${cls.icon} ${t(cls,'name')}</span>` : ''}
-          ${pos.name ? `<span class="hero-tag" style="border-color: ${pos.color}; color: ${pos.color}">${pos.icon} ${t(pos,'name')}</span>` : ''}
+          ${fac.name ? `<span class="hero-tag" style="border-color: ${fac.color}; color: ${fac.color}"><img class="hero-tag-gicon" src="img/icons/faction-${h.faction}.webp" alt=""> ${t(fac,'name')}</span>` : ''}
+          ${cls.name ? `<span class="hero-tag">${HERO_ROLE_ICON[h.class] ? `<img class="hero-tag-gicon" src="img/icons/role-${HERO_ROLE_ICON[h.class]}.webp" alt="">` : cls.icon} ${t(cls,'name')}</span>` : ''}
+          ${pos.name ? `<span class="hero-tag" style="border-color: ${pos.color}; color: ${pos.color}"><img class="hero-tag-gicon" src="img/icons/pos-${h.position}-${(typeof _lang !== 'undefined' && _lang) || 'pt'}.webp" alt=""> ${t(pos,'name')}</span>` : ''}
           ${dmg.name ? `<span class="hero-tag" style="border-color: ${dmg.color}; color: ${dmg.color}">${dmg.icon} ${ui('hero.damage')} ${t(dmg,'name')}</span>` : ''}
           ${(h.tags||[]).map(tg => `<span class="hero-tag">${tg}</span>`).join('')}
         </div>
@@ -5427,6 +5451,9 @@ function applyGuildBranding() {
 
 function updateAuthUI() {
   applyGuildBranding();
+  // mantém a classe aplicada pelo script inline do <head> em sincronia
+  // (CSS pré-paint do topbar: Entrar ↔ usuário, cadeado da aba Guilda)
+  document.documentElement.classList.toggle('rd-auth', isLoggedIn());
   const loginBtn = document.getElementById('authLoginBtn');
   const userInfo = document.getElementById('authUserInfo');
   const adminBtn = document.getElementById('authAdminLinkBtn');
@@ -6189,6 +6216,7 @@ async function initElencoTab() {
       const badge = n.vinculado ? `<span class="elenco-row-badge">✓ ${ui('elenco.linked')}</span>` : '';
       return `<div class="elenco-row">` +
         `<span class="elenco-row-nick">${safe}${badge}</span>` +
+        `<button class="auth-admin-btn edit" onclick="elencoRename('${jsSafe}')">✎ ${ui('elenco.renameBtn')}</button>` +
         `<button class="auth-admin-btn deny" onclick="elencoRemove('${jsSafe}', ${n.vinculado})">✕ ${ui('elenco.removeBtn')}</button>` +
         `</div>`;
     }).join('');
@@ -6214,6 +6242,23 @@ async function elencoAdd() {
     else elencoShowMsg(data.error || 'Erro', 'error');
   } catch (err) { elencoShowMsg(ui('auth.connectionError'), 'error'); }
   finally { setButtonLoading(btn, false); }
+}
+
+async function elencoRename(nick) {
+  const novo = prompt(ui('elenco.renamePrompt') + ' "' + nick + '":', nick);
+  if (novo === null) return; // cancelou
+  const novoNick = novo.trim();
+  if (!novoNick || novoNick === nick) return;
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'text/plain'},
+      body: JSON.stringify({ action: 'rosterRename', guild: guildSlug(), authToken: _authState.token, nick, novoNick })
+    });
+    const data = await res.json();
+    if (data.ok) { elencoShowMsg(data.message, 'success'); initElencoTab(); }
+    else elencoShowMsg(data.error || 'Erro', 'error');
+  } catch (err) { elencoShowMsg(ui('auth.connectionError'), 'error'); }
 }
 
 async function elencoRemove(nick, vinculado) {

@@ -71,7 +71,7 @@ function renderBannersCalendar() {
     var h = CODEX_HEROES.find(function (x) { return x.id === id; });
     if (!h) return;
     var nome = _bnxEsc(_bnxName(h));
-    var badge = h.rarity === 'ur' ? 'badge-ur' : 'badge-ssr';
+    var badge = h.rarity === 'ur' ? 'ur' : 'ssr';
     var isPending = pendingList.indexOf(id) !== -1;
     html +=
       '<div class="bnx-cell' + (isPending ? ' bnx-is-pending' : '') + '" role="button" tabindex="0" ' +
@@ -80,6 +80,7 @@ function renderBannersCalendar() {
         '<div class="bnx-frame">' +
           '<img class="bnx-art" src="img/banners/framed/' + h.id + '.webp" alt="" decoding="async" ' +
             'onerror="bnxArtFallback(this,' + h.id + ')">' +
+          '<img class="bnx-badge" src="img/rarity/' + badge + '.webp" alt="' + badge.toUpperCase() + '" loading="lazy" decoding="async">' +
           (isPending ? '<span class="bnx-pending">' + pendLabel + '</span>' : '') +
         '</div>' +
         '<div class="bnx-name">' + nome + '</div>' +

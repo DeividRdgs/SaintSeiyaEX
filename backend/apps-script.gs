@@ -453,6 +453,94 @@ function rosterRemove(params, ctx) {
   return jsonResponse({ok: true, message: 'Nick removido do elenco'});
 }
 
+// Renomeia um nick do elenco. O novo nome é propagado para todas as abas que
+// referenciam por nick (Jogadores, Historico, GVG, conta em Usuarios e o
+// cadastro do líder na master), e a mudança é avisada no Discord da guilda
+// como as atualizações de poder.
+function rosterRename(params, ctx) {
+  var lid = rosterAssertLeader(params, ctx);
+  if (!lid.ok) return lid.resp;
+  var nick = String(params.nick || '').trim();
+  var novo = String(params.novoNick || '').trim();
+  if (!nick || !novo) return jsonResponse({ok: false, error: 'Informe o nick atual e o novo nick'});
+  if (novo.length > AUTH_NAME_MAX) return jsonResponse({ok: false, error: 'Nick muito longo (máx ' + AUTH_NAME_MAX + ' caracteres)'});
+  if (novo === nick) return jsonResponse({ok: false, error: 'O novo nick é igual ao atual'});
+
+  var jog = ctx.ss.getSheetByName('Jogadores');
+  if (!jog) return jsonResponse({ok: false, error: 'Aba de jogadores não encontrada'});
+  var jd = jog.getDataRange().getValues();
+  var alvoRow = 0;
+  for (var i = 1; i < jd.length; i++) {
+    if (String(jd[i][0] || '').trim().toLowerCase() === nick.toLowerCase()) {
+      alvoRow = i + 1;
+      nick = String(jd[i][0] || '').trim(); // grafia exata da planilha
+      break;
+    }
+  }
+  if (!alvoRow) return jsonResponse({ok: false, error: 'Nick não encontrado no elenco'});
+  // duplicidade: outro membro já usa o novo nick (a própria linha pode, p/ ajuste de maiúsculas)
+  for (var d = 1; d < jd.length; d++) {
+    if (d + 1 !== alvoRow && String(jd[d][0] || '').trim().toLowerCase() === novo.toLowerCase()) {
+      return jsonResponse({ok: false, error: 'Já existe um membro com esse nick'});
+    }
+  }
+
+  jog.getRange(alvoRow, 1).setValue(novo);
+
+  // histórico de poder acompanha o novo nick (gráficos/ranking usam o nick como chave)
+  var hist = ctx.ss.getSheetByName('Historico');
+  if (hist) {
+    var hd = hist.getDataRange().getValues();
+    for (var h = 1; h < hd.length; h++) {
+      if (String(hd[h][1] || '').trim().toLowerCase() === nick.toLowerCase()) {
+        hist.getRange(h + 1, 2).setValue(novo);
+      }
+    }
+  }
+
+  // escalação GVG também referencia por nick
+  var gvg = ctx.ss.getSheetByName('GVG');
+  if (gvg) {
+    var gd = gvg.getDataRange().getValues();
+    for (var g = 1; g < gd.length; g++) {
+      if (String(gd[g][1] || '').trim().toLowerCase() === nick.toLowerCase()) {
+        gvg.getRange(g + 1, 2).setValue(novo);
+      }
+    }
+  }
+
+  // conta vinculada: renomeia o nick da conta
+  var usersData = lid.sheets.users.getDataRange().getValues();
+  var conta = rosterFindUserByNick(usersData, nick);
+  if (conta) lid.sheets.users.getRange(conta.row, 4).setValue(novo);
+
+  // se for o nick do líder, atualiza o cadastro da guilda na master
+  var gRow = findGuildRow(ctx.slug);
+  if (gRow && gRow.nickLider && gRow.nickLider.toLowerCase() === nick.toLowerCase()) {
+    ensureMasterSheets().guildas.getRange(gRow.row, 6).setValue(novo);
+  }
+
+  logEvent('roster_rename', {email: maskEmail(lid.email), detalhes: nick + ' → ' + novo}, ctx.ss);
+  avisarDiscordRename(nick, novo, ctx);
+  return jsonResponse({ok: true, message: 'Nick atualizado!'});
+}
+
+function avisarDiscordRename(antigo, novo, ctx) {
+  enviarDiscord({
+    username: 'TRIADE Bot', avatar_url: TRIADE_BOT_AVATAR,
+    embeds: [{
+      title: '✏️ ' + antigo + ' mudou de nick',
+      color: 0xd4af37,
+      fields: [
+        {name: '🏷️ Antes', value: '`' + antigo + '`', inline: true},
+        {name: '✨ Agora', value: '**`' + novo + '`**', inline: true}
+      ],
+      footer: {text: 'Alteração registrada por ⚔️ Líder • ' + (ctx.nome || 'Guilda')},
+      timestamp: new Date().toISOString()
+    }]
+  }, ctx.ss);
+}
+
 // ═══════════ FASE 2 — GESTÃO PELO LÍDER (eventos, GVG, webhook) ═══════════
 
 // Dados de gestão para o líder. O webhook NUNCA sai completo — só máscara.
@@ -738,6 +826,7 @@ function doPost(e) {
     if (action === 'rosterList') return rosterList(params, ctx);
     if (action === 'rosterAdd') return rosterAdd(params, ctx);
     if (action === 'rosterRemove') return rosterRemove(params, ctx);
+    if (action === 'rosterRename') return rosterRename(params, ctx);
     if (action === 'manageList') return manageList(params, ctx);
     if (action === 'eventsReplace') return eventsReplace(params, ctx);
     if (action === 'gvgReplace') return gvgReplace(params, ctx);
@@ -3242,6 +3331,22 @@ function testeMultiGuilda() {
   var listResp = JSON.parse(rosterList({authToken: loginResp.token}, ctx).getContent());
   if (listResp.nicks.length !== 2) throw new Error('FALHA rosterList: esperava 2 nicks, veio ' + listResp.nicks.length);
   Logger.log('5. elenco + cadastro de membro ok');
+
+  // renomear nick: propaga pra conta vinculada e rejeita duplicado
+  var renDup = JSON.parse(rosterRename({authToken: loginResp.token, nick: 'MembroTeste', novoNick: 'LiderTeste'}, ctx).getContent());
+  if (renDup.ok) throw new Error('FALHA: rename aceitou nick duplicado');
+  var renResp = JSON.parse(rosterRename({authToken: loginResp.token, nick: 'MembroTeste', novoNick: 'MembroRenomeado'}, ctx).getContent());
+  if (!renResp.ok) throw new Error('FALHA rosterRename: ' + renResp.error);
+  var jogRen = ctx.ss.getSheetByName('Jogadores').getDataRange().getValues();
+  var achouRen = false;
+  for (var jr = 1; jr < jogRen.length; jr++) {
+    if (String(jogRen[jr][0]) === 'MembroRenomeado') achouRen = true;
+    if (String(jogRen[jr][0]) === 'MembroTeste') throw new Error('FALHA: nick antigo ainda no elenco');
+  }
+  if (!achouRen) throw new Error('FALHA: nick renomeado não está no elenco');
+  var usersRen = ensureAuthSheets(ctx.ss).users.getDataRange().getValues();
+  if (!rosterFindUserByNick(usersRen, 'MembroRenomeado')) throw new Error('FALHA: conta vinculada não acompanhou o rename');
+  Logger.log('5a. rosterRename ok');
 
   // Fase 2: eventos, GVG e webhook na guilda de teste
   var evResp = JSON.parse(eventsReplace({authToken: loginResp.token, events: [

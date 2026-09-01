@@ -806,7 +806,8 @@ body.stream-mode #tab-vote { margin-left: 0; }
   margin-bottom: 8px;
 }
 .elenco-row .auth-admin-btn { flex: none; }
-.elenco-row-nick { font-weight: 600; font-size: .88rem; }
+/* nick ocupa o espaço livre: os botões Renomear/Remover ficam alinhados à direita */
+.elenco-row-nick { font-weight: 600; font-size: .88rem; flex: 1; min-width: 0; }
 .elenco-row-badge { color: var(--ink-dim); font-size: .72rem; margin-left: 8px; font-weight: 400; }
 .guildas-row {
   display: flex;

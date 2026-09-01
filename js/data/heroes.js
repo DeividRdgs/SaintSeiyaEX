@@ -203,7 +203,7 @@ const CODEX_HEROES = [
     ]
   },
   { id: 1007, gameId: '1095', name: 'Andrômeda Negro', name_en: 'Black Andromeda', name_es: 'Andrómeda Negra', title: 'Cavaleiro Sagrado',
-    rarity: 'r', faction: 'santuario', class: 'mago',
+    rarity: 'r', faction: 'outros', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1007.webp',
     bio: 'Andrômeda Negro é um mago R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Corrente Negra, Nebulosa da Presa Negra, Fratura Negra. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e aplicar dano contínuo.', bio_en: 'Black Andromeda is a R mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Dark Clasp, Dark Fang Nebula, Dark Fracture. In battle, they stand out for sustaining the team with healing, empowering allies and applying damage over time.', bio_es: 'Andrómeda Negra es un mago R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Agarre Oscuro, Nebulosa de Colmillo Oscuro, Golpe Fractura Oscura. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y aplicar daño continuo.',
@@ -515,7 +515,7 @@ const CODEX_HEROES = [
     ]
   },
   { id: 1017, gameId: '1094', name: 'Cisne Negro', name_en: 'Black Swan', name_es: 'Cisne Negro', title: 'Cavaleiro Sagrado',
-    rarity: 'r', faction: 'santuario', class: 'arqueiro',
+    rarity: 'r', faction: 'outros', class: 'arqueiro',
     position: 'tras', damage: 'fisico',
     image: 'img/heroes/1017.webp',
     bio: 'Cisne Negro é um arqueiro R do Santuário, atuando na linha de trás com foco em dano físico. Seu arsenal inclui Neve Negra, Nevasca das Trevas, Punho Congelado Negro. Em combate, destaca-se por controlar inimigos e fortalecer aliados.', bio_en: 'Black Swan is a R archer of the Sanctuary, fighting on the back line with a focus on physical damage. Their arsenal includes Black Snow, Black Blizzard, Black Frozen Fist. In battle, they stand out for controlling enemies and empowering allies.', bio_es: 'Cisne Negro es un arquero R del Santuario, actuando en la línea trasera con foco en daño físico. Su arsenal incluye Nieve Negra, Ventisca Negra, Puñetazo Congelado Negro. En combate destaca por controlar a los enemigos y fortalecer a los aliados.',
@@ -609,7 +609,7 @@ const CODEX_HEROES = [
     ]
   },
   { id: 1020, gameId: '1093', name: 'Dragão Negro', name_en: 'Black Dragon', name_es: 'Dragón Negro', title: 'Cavaleiro Sagrado',
-    rarity: 'r', faction: 'santuario', class: 'tanque',
+    rarity: 'r', faction: 'outros', class: 'tanque',
     position: 'frente', damage: 'fisico',
     image: 'img/heroes/1020.webp',
     bio: 'Dragão Negro é um tanque R do Santuário, atuando na linha de frente com foco em dano físico. Seu arsenal inclui Soco do Dragão Negro, Cólera do Dragão Negro, Punho do Dragão Negro. Em combate, destaca-se por sustentar a equipe com cura e fortalecer aliados.', bio_en: 'Black Dragon is a R tank of the Sanctuary, fighting on the front line with a focus on physical damage. Their arsenal includes Black Dragon Punch, Black Dragon Shoryuha, Black Draco Fist. In battle, they stand out for sustaining the team with healing and empowering allies.', bio_es: 'Dragón Negro es un tanque R del Santuario, actuando en la línea frontal con foco en daño físico. Su arsenal incluye Puño de Dragón Negro, Dragón Negro Shoryuha, Puñetazo de Dragón Negro. En combate destaca por sostener al equipo con curación y fortalecer a los aliados.',
@@ -676,7 +676,7 @@ const CODEX_HEROES = [
     ]
   },
   { id: 1022, gameId: '1096', name: 'Fênix Negro', name_en: 'Black Phoenix', name_es: 'Fénix Negro', title: 'Cavaleiro Sagrado',
-    rarity: 'sr', faction: 'santuario', class: 'lutador',
+    rarity: 'sr', faction: 'outros', class: 'lutador',
     position: 'meio', damage: 'fisico',
     image: 'img/heroes/1022.webp',
     bio: 'Fênix Negro é um lutador SR do Santuário, atuando na linha do meio com foco em dano físico. Seu arsenal inclui Punho do Fênix Negro, Golpe Fantasma de Fênix Negro, Pena Voadora Negra. Em combate, destaca-se por fortalecer aliados, enfraquecer os adversários e aplicar dano contínuo.', bio_en: 'Black Phoenix is a SR fighter of the Sanctuary, fighting on the middle line with a focus on physical damage. Their arsenal includes Black Phoenix Fist, Dark Phoenix Illusion Demon Fist, Black Flying Feather. In battle, they stand out for empowering allies, weakening opponents and applying damage over time.', bio_es: 'Fénix Negro es un luchador SR del Santuario, actuando en la línea media con foco en daño físico. Su arsenal incluye Puñetazo de Fénix Negro, Puño de Demonio de Ilusión Fénix Negro, Pluma Voladora Negra. En combate destaca por fortalecer a los aliados, debilitar a los rivales y aplicar daño continuo.',
@@ -2114,7 +2114,7 @@ const CODEX_HEROES = [
     ]
   },
   { id: 1067, gameId: '1092', name: 'Pégaso Negro', name_en: 'Black Pegasus', name_es: 'Pegaso Negro', title: 'Cavaleiro Sagrado',
-    rarity: 'r', faction: 'santuario', class: 'mago',
+    rarity: 'r', faction: 'outros', class: 'mago',
     position: 'tras', damage: 'mental',
     image: 'img/heroes/1067.webp',
     bio: 'Pégaso Negro é um mago R do Santuário, atuando na linha de trás com foco em dano psíquico. Seu arsenal inclui Golpe Sônico do Umbral, Soco do Meteoro Negro, Punho Negro. Em combate, destaca-se por sustentar a equipe com cura, fortalecer aliados e enfraquecer os adversários.', bio_en: 'Black Pegasus is a R mage of the Sanctuary, fighting on the back line with a focus on psychic damage. Their arsenal includes Umbral Sonic Strike, Black Meteor Punch, Black Fist. In battle, they stand out for sustaining the team with healing, empowering allies and weakening opponents.', bio_es: 'Pegaso Negro es un mago R del Santuario, actuando en la línea trasera con foco en daño psíquico. Su arsenal incluye Golpe Sónico Umbral, Puño Meteoro Negro, Puñetazo Negro. En combate destaca por sostener al equipo con curación, fortalecer a los aliados y debilitar a los rivales.',
