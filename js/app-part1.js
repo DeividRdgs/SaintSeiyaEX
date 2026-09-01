@@ -204,7 +204,9 @@ function applyLangToUI() {
     }
   });
   // Re-popular cada conjunto: heroes, tier, team
-  try { if (typeof initHeroesTab === 'function') { var heroSel = document.getElementById('codexFilterRarity'); if (heroSel) delete heroSel.dataset.init; initHeroesTab(); } } catch (e) {}
+  // (heroes.js carrega assíncrono — se os dados ainda não chegaram, os inits
+  // abortam sozinhos e as abas se renderizam via hook quando os dados chegam)
+  try { if (typeof initHeroesTab === 'function') { var heroSel = document.getElementById('codexFilterRarity'); if (heroSel && typeof CODEX_HEROES !== 'undefined') { delete heroSel.dataset.init; initHeroesTab(); } } } catch (e) {}
   try { if (typeof _tierInit !== 'undefined' && _tierInit) { _tierInit = false; if (typeof initTierTab === 'function') initTierTab(); } } catch (e) {}
   try { if (typeof initTeamPoolFilters === 'function') {
     var teamPool = document.getElementById('teamPoolGrid');

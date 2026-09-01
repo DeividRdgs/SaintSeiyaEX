@@ -14,6 +14,9 @@ function initHeroesTab() {
   };
   const search = document.getElementById('heroSearch');
   const clearBtn = document.getElementById('codexFiltersClear');
+  // heroes.js carrega assíncrono: sem os dados este init não pode rodar
+  // (e não pode marcar o flag, senão a próxima visita acha que já rodou)
+  if (typeof CODEX_HEROES === 'undefined') return;
   if (!sels.rarity || sels.rarity.dataset.init) return;
   sels.rarity.dataset.init = '1';
 
@@ -229,6 +232,9 @@ function renderNextBatch(state) {
 }
 
 function renderCodexHeroes() {
+  // heroes.js assíncrono: sem dados não há o que renderizar (o hook da aba
+  // e o rdAllDataReady re-chamam quando os dados chegarem)
+  if (typeof CODEX_HEROES === 'undefined') return;
   const list = getFilteredHeroes();
   const count = document.getElementById('heroCount');
   const grid = document.getElementById('heroesGrid');
@@ -3596,6 +3602,9 @@ function initTeamPoolFilters() {
   };
   const search = document.getElementById('teamSearch');
   const clearBtn = document.getElementById('teamFiltersClear');
+  // heroes.js assíncrono: aborta antes de popular qualquer select pra não
+  // deixar o filtro meio-populado (o hook da aba re-chama com os dados)
+  if (typeof CODEX_HEROES === 'undefined') return;
   if (!sels.rarity) return;
 
   // Popular selects
