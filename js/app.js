@@ -3252,7 +3252,9 @@ async function castVote(tier) {
 
 function toggleVoteAdmin(force) {
   const panel = document.getElementById('voteAdminPanel');
-  const show = (force === undefined) ? panel.style.display === 'none' : force;
+  let show = (force === undefined) ? panel.style.display === 'none' : force;
+  // Painel usa senha de líder — não abre pra quem não é líder (backend valida de novo)
+  if (show && !(isLoggedIn() && _authState.user.isLeader)) show = false;
   panel.style.display = show ? 'block' : 'none';
   _voteAdminPanelVisible = show;
   if (show) {
@@ -5497,6 +5499,13 @@ function updateAuthUI() {
     if (manageEvBtn) manageEvBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
     var manageGvgBtn = document.getElementById('btnManageGvg');
     if (manageGvgBtn) manageGvgBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
+    // Botão "Painel Admin" da votação (usa senha de líder) só aparece pra líder
+    var voteAdminBtn = document.getElementById('voteAdminToggle');
+    if (voteAdminBtn) voteAdminBtn.style.display = (_authState.user && _authState.user.isLeader) ? '' : 'none';
+    if (!(_authState.user && _authState.user.isLeader)) {
+      var voteAdminPanel = document.getElementById('voteAdminPanel');
+      if (voteAdminPanel) voteAdminPanel.style.display = 'none';
+    }
   } else {
     if (loginBtn) loginBtn.style.display = '';
     if (userInfo) userInfo.style.display = 'none';
@@ -5517,6 +5526,10 @@ function updateAuthUI() {
     if (manageGvgBtn2) manageGvgBtn2.style.display = 'none';
     var manageGvgPanel2 = document.getElementById('manageGvgPanel');
     if (manageGvgPanel2) manageGvgPanel2.style.display = 'none';
+    var voteAdminBtn2 = document.getElementById('voteAdminToggle');
+    if (voteAdminBtn2) voteAdminBtn2.style.display = 'none';
+    var voteAdminPanel2 = document.getElementById('voteAdminPanel');
+    if (voteAdminPanel2) voteAdminPanel2.style.display = 'none';
   }
   // Atualiza cadeados nas abas
   updateTabsLockUI();
