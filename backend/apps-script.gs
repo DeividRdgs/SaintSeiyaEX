@@ -1203,7 +1203,9 @@ function resolverContextoUsuarioLogado(ss, authToken) {
     if (!emailLogado) return '';
     var user = authFindUser(sheets.users, emailLogado);
     var nick = user && user.data[3] ? String(user.data[3]) : '(sem nick)';
-    return nick + ' (' + maskEmail(emailLogado) + ')';
+    // Email completo de propósito: esse contexto vai pro alerta de brute-force
+    // no Discord do líder, e mascarado não dá pra saber quem é
+    return nick + ' (' + emailLogado + ')';
   } catch(e) {
     return '';
   }
@@ -1830,7 +1832,7 @@ function checkSenhaRateLimit() {
   return null;
 }
 
-// Registra tentativa falhada. Salva o `contexto` (string "nick (email-mascarado)") junto.
+// Registra tentativa falhada. Salva o `contexto` (string "nick (email)") junto.
 // Quando dispara o bloqueio, mostra a lista de TODOS os contextos que tentaram nessa janela.
 function registrarTentativaFalha(senhaTentada, contexto) {
   var props = PropertiesService.getScriptProperties();
@@ -2713,7 +2715,7 @@ function authLogin(params) {
 
   if (!user) {
     // No login normal NÃO há usuário logado, o contexto é o próprio email tentado
-    registrarTentativaFalha(senha, 'login: ' + maskEmail(email));
+    registrarTentativaFalha(senha, 'login: ' + email);
     return jsonResponse({ok: false, error: 'Email ou senha inválidos'});
   }
   var status = String(user.data[5] || '').trim().toLowerCase();
@@ -2727,7 +2729,7 @@ function authLogin(params) {
   if (hashTentativa !== hashCorreto) {
     // Já sei o nick do dono do email (apesar de não ser "logado", é alguém tentando logar como ele)
     var nickAlvo = user.data[3] ? String(user.data[3]) : '(sem nick)';
-    registrarTentativaFalha(senha, 'login: ' + nickAlvo + ' (' + maskEmail(email) + ')');
+    registrarTentativaFalha(senha, 'login: ' + nickAlvo + ' (' + email + ')');
     logEvent('auth_login_fail', {email: maskEmail(email)}, ss);
     return jsonResponse({ok: false, error: 'Email ou senha inválidos'});
   }
