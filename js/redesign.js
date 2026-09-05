@@ -267,7 +267,7 @@ function openHeroBySlug(slug) {
     setTimeout(function () {
       var h = rdHeroBySlug(slug);
       if (h && typeof showHeroDetail === 'function') {
-        showHeroDetail(h.id);
+        showHeroDetail(h.id, { immediate: true });
       } else if (slug) {
         history.replaceState({ tab: 'heroes' }, '', '/herois');
       }
@@ -277,8 +277,8 @@ function openHeroBySlug(slug) {
 /* URL profunda + título ao abrir/fechar o detalhe pela interface */
 if (typeof showHeroDetail === 'function') {
   var _rdOrigShowHero = showHeroDetail;
-  showHeroDetail = function (id) {
-    _rdOrigShowHero(id);
+  showHeroDetail = function (id, opts) {
+    _rdOrigShowHero(id, opts);
     var h = (typeof CODEX_HEROES !== 'undefined') && CODEX_HEROES.find(function (x) { return x.id === id; });
     if (h) {
       var slug = rdSlugify(h.name);
@@ -305,7 +305,7 @@ function openArtifactBySlug(slug) {
     setTimeout(function () {
       var a = (typeof CODEX_ARTIFACTS !== 'undefined') &&
         CODEX_ARTIFACTS.find(function (x) { return rdSlugify(x.name) === slug; });
-      if (a && typeof showArtifactDetail === 'function') showArtifactDetail(a.id);
+      if (a && typeof showArtifactDetail === 'function') showArtifactDetail(a.id, { immediate: true });
       else if (slug) history.replaceState({ tab: 'artifacts' }, '', '/artefatos');
     }, 0);
   });
@@ -315,15 +315,15 @@ function openCardBySlug(slug) {
     setTimeout(function () {
       var c = (typeof CODEX_CARDS !== 'undefined') &&
         CODEX_CARDS.find(function (x) { return rdSlugify(x.name) === slug; });
-      if (c && typeof showCardDetail === 'function') showCardDetail(c.id);
+      if (c && typeof showCardDetail === 'function') showCardDetail(c.id, { immediate: true });
       else if (slug) history.replaceState({ tab: 'cards' }, '', '/cartas');
     }, 0);
   });
 }
 if (typeof showArtifactDetail === 'function') {
   var _rdOrigShowArtifact = showArtifactDetail;
-  showArtifactDetail = function (id) {
-    _rdOrigShowArtifact(id);
+  showArtifactDetail = function (id, opts) {
+    _rdOrigShowArtifact(id, opts);
     var a = (typeof CODEX_ARTIFACTS !== 'undefined') && CODEX_ARTIFACTS.find(function (x) { return x.id === id; });
     if (a) {
       var url = '/artefatos/' + rdSlugify(a.name);
@@ -343,8 +343,8 @@ if (typeof hideArtifactDetail === 'function') {
 }
 if (typeof showCardDetail === 'function') {
   var _rdOrigShowCard = showCardDetail;
-  showCardDetail = function (id) {
-    _rdOrigShowCard(id);
+  showCardDetail = function (id, opts) {
+    _rdOrigShowCard(id, opts);
     var c = (typeof CODEX_CARDS !== 'undefined') && CODEX_CARDS.find(function (x) { return x.id === id; });
     if (c) {
       var url = '/cartas/' + rdSlugify(c.name);

@@ -251,9 +251,16 @@ function renderCodexHeroes() {
 // Alias usado pelo sistema i18n
 function renderHeroes() { return renderCodexHeroes(); }
 
-function showHeroDetail(id) {
+// INP: o clique só registra a intenção neste frame (o navegador pinta o
+// estado :active do card) e o detalhe é montado no frame seguinte. Medido com
+// CPU 4x: montar o detalhe + esconder a grade custa ~120ms de estilo/layout
+// dentro do handler; adiado, a interação termina em ~1 frame. `immediate` é
+// pra abertura por URL (F5 / link direto), que não é uma interação.
+function showHeroDetail(id, opts) {
   const h = CODEX_HEROES.find(x => x.id === id);
   if (!h) return;
+  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver runTabInitHook
+  const render = function () {
   const fac = CODEX_FACTIONS[h.faction] || {};
   const cls = CODEX_CLASSES[h.class] || {};
   const pos = CODEX_POSITIONS[h.position] || {};
@@ -264,12 +271,11 @@ function showHeroDetail(id) {
   const titleH = t(h, 'title');
   const bioH = t(h, 'bio');
 
-  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver runTabInitHook
   document.getElementById('heroes-view').classList.add('rd-cv-hidden');
   const detail = document.getElementById('hero-detail-view');
   detail.style.display = 'block';
   detail.innerHTML = `
-    <button class="hero-back" onclick="hideHeroDetail()">← ${ui('hero.backList')}</button>
+    <button class="hero-back" onclick="deferAfterPaint(hideHeroDetail)">← ${ui('hero.backList')}</button>
     <div class="hero-detail">
       <div class="hero-card codex-card r-${h.rarity}" style="cursor:default;">
         <div class="hero-portrait${h.image ? ' has-image' : ''}">
@@ -400,10 +406,12 @@ function showHeroDetail(id) {
     </div>
 
     <div class="hero-back-bottom">
-      <button class="hero-back" onclick="hideHeroDetail()">← ${ui('hero.backList2')}</button>
+      <button class="hero-back" onclick="deferAfterPaint(hideHeroDetail)">← ${ui('hero.backList2')}</button>
     </div>
   `;
   window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+  if (opts && opts.immediate) render(); else deferAfterPaint(render);
 }
 
 function hideHeroDetail() {
@@ -424,9 +432,11 @@ function switchSkillTab(btn, aba) {
 }
 
 // ═══════ ARTIFACT DETAIL (página de detalhes) ═══════
-function showArtifactDetail(id) {
+function showArtifactDetail(id, opts) { // opts.immediate: ver showHeroDetail
   const a = CODEX_ARTIFACTS.find(x => x.id === id);
   if (!a) return;
+  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver initArtifactsTab
+  const render = function () {
   const rarity = a.rarity || 'r';
   const displayName = t(a, 'name');
   const displayType = t(a, 'type');
@@ -444,7 +454,6 @@ function showArtifactDetail(id) {
   const view = document.getElementById('artifacts-view');
   const detail = document.getElementById('artifact-detail-view');
   if (!view || !detail) return;
-  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver initArtifactsTab
   view.classList.add('rd-cv-hidden');
   detail.style.display = 'block';
 
@@ -531,7 +540,7 @@ function showArtifactDetail(id) {
   }
 
   detail.innerHTML = `
-    <button class="hero-back" onclick="hideArtifactDetail()">← ${ui('artifacts.backTop')}</button>
+    <button class="hero-back" onclick="deferAfterPaint(hideArtifactDetail)">← ${ui('artifacts.backTop')}</button>
     <div class="hero-detail">
       <div class="hero-card codex-card r-${rarity}" style="cursor:default;">
         <div class="hero-portrait${a.image ? ' has-image' : ''}">
@@ -556,10 +565,12 @@ function showArtifactDetail(id) {
     </div>
     ${levelsHtml}
     <div class="hero-back-bottom">
-      <button class="hero-back" onclick="hideArtifactDetail()">← ${ui('artifacts.backBottom')}</button>
+      <button class="hero-back" onclick="deferAfterPaint(hideArtifactDetail)">← ${ui('artifacts.backBottom')}</button>
     </div>
   `;
   window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+  if (opts && opts.immediate) render(); else deferAfterPaint(render);
 }
 
 function hideArtifactDetail() {
@@ -584,9 +595,11 @@ function escapeArtifactHtml(str) {
 }
 
 // ═══════ CARD DETAIL (página de detalhes de carta com tabela de níveis) ═══════
-function showCardDetail(id) {
+function showCardDetail(id, opts) { // opts.immediate: ver showHeroDetail
   const c = CODEX_CARDS.find(x => x.id === id);
   if (!c) return;
+  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver initCardsTab
+  const render = function () {
   const rarity = c.rarity || 'n';
   const useEn = (_lang === 'en');
   const useEs = (_lang === 'es');
@@ -695,7 +708,7 @@ function showCardDetail(id) {
   const backBotLabel = useEn ? '← Back to List' : useEs ? '← Volver a la Lista' : '← Voltar para a Lista';
 
   detail.innerHTML = `
-    <button class="hero-back" onclick="hideCardDetail()">${backTopLabel}</button>
+    <button class="hero-back" onclick="deferAfterPaint(hideCardDetail)">${backTopLabel}</button>
     <div class="hero-detail">
       <div class="hero-card codex-card r-${rarity}" style="cursor:default;">
         <div class="hero-portrait${c.image ? ' has-image' : ''}">
@@ -716,10 +729,12 @@ function showCardDetail(id) {
     </div>
     ${tableHtml}
     <div class="hero-back-bottom">
-      <button class="hero-back" onclick="hideCardDetail()">${backBotLabel}</button>
+      <button class="hero-back" onclick="deferAfterPaint(hideCardDetail)">${backBotLabel}</button>
     </div>
   `;
   window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+  if (opts && opts.immediate) render(); else deferAfterPaint(render);
 }
 
 function hideCardDetail() {
@@ -2438,7 +2453,7 @@ function setupRoletaModalHeroFilterHandlers() {
 
   ['rarity','faction','class','position','damage'].forEach(k => {
     const el = document.getElementById('modalFilter_hero_' + k);
-    if (el) el.addEventListener('change', e => { f[k] = e.target.value; refresh(); });
+    if (el) el.addEventListener('change', e => { f[k] = e.target.value; deferAfterPaint(refresh); });
   });
 
   const search = document.getElementById('modalFilter_hero_search');
@@ -2459,7 +2474,7 @@ function setupRoletaModalHeroFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalHeroFilter = { search: '', rarity: 'todos', faction: 'todos', class: 'todos', position: 'todos', damage: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -2558,7 +2573,7 @@ function setupRoletaModalArtifactFilterHandlers() {
   const refresh = () => renderRoletaArtifactPicker();
 
   const rar = document.getElementById('modalFilter_artifact_rarity');
-  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; refresh(); });
+  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; deferAfterPaint(refresh); });
 
   const search = document.getElementById('modalFilter_artifact_search');
   if (search) {
@@ -2578,7 +2593,7 @@ function setupRoletaModalArtifactFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalArtifactFilter = { search: '', rarity: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -2686,7 +2701,7 @@ function setupRoletaModalCardFilterHandlers() {
   const refresh = () => renderRoletaCardPicker();
 
   const rar = document.getElementById('modalFilter_card_rarity');
-  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; refresh(); });
+  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; deferAfterPaint(refresh); });
 
   const search = document.getElementById('modalFilter_card_search');
   if (search) {
@@ -2706,7 +2721,7 @@ function setupRoletaModalCardFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalCardFilter = { search: '', rarity: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -2816,7 +2831,7 @@ function setupManualHeroFilterHandlers() {
 
   ['rarity','faction','class','position','damage'].forEach(k => {
     const el = document.getElementById('modalFilter_hero_' + k);
-    if (el) el.addEventListener('change', e => { f[k] = e.target.value; refresh(); });
+    if (el) el.addEventListener('change', e => { f[k] = e.target.value; deferAfterPaint(refresh); });
   });
 
   const search = document.getElementById('modalFilter_hero_search');
@@ -2837,7 +2852,7 @@ function setupManualHeroFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalHeroFilter = { search: '', rarity: 'todos', faction: 'todos', class: 'todos', position: 'todos', damage: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -3622,7 +3637,7 @@ function initTeamPoolFilters() {
     sel.addEventListener('change', () => {
       const key = sel.id.replace('teamFilter', '').toLowerCase();
       teamPoolFilter[key] = sel.value;
-      renderTeamPool();
+      deferAfterPaint(renderTeamPool); // INP: o select mostra o valor novo antes de reconstruir a pool
     });
   };
 
@@ -3631,7 +3646,7 @@ function initTeamPoolFilters() {
     ['ur','ssr','sr','r'].map(r => `<option value="${r}">${r.toUpperCase()}</option>`).join('');
   sels.rarity.addEventListener('change', () => {
     teamPoolFilter.rarity = sels.rarity.value;
-    renderTeamPool();
+    deferAfterPaint(renderTeamPool);
   });
 
   populate(sels.faction, CODEX_FACTIONS, 'filter.allFem');
@@ -3654,7 +3669,7 @@ function initTeamPoolFilters() {
       teamPoolFilter = { search: '', rarity: 'todos', faction: 'todos', class: 'todos', position: 'todos', damage: 'todos' };
       Object.values(sels).forEach(s => s.value = 'todos');
       if (search) search.value = '';
-      renderTeamPool();
+      deferAfterPaint(renderTeamPool);
     });
   }
 }
@@ -4137,8 +4152,7 @@ let _modalArtifactFilter = { search: '', rarity: 'todos' };
 function openArtifactModal(heroId) {
   artifactModalContext = { heroId };
   _modalArtifactFilter = { search: '', rarity: 'todos' };
-  renderArtifactModalContent();
-  document.getElementById('codexModal').classList.add('active');
+  openCodexModalShell(renderArtifactModalContent);
 }
 
 function renderArtifactModalContent() {
@@ -4197,7 +4211,7 @@ function setupModalArtifactFilterHandlers() {
   const refresh = () => renderArtifactModalContent();
 
   const rar = document.getElementById('modalFilter_artifact_rarity');
-  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; refresh(); });
+  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; deferAfterPaint(refresh); });
 
   const search = document.getElementById('modalFilter_artifact_search');
   if (search) {
@@ -4218,7 +4232,7 @@ function setupModalArtifactFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalArtifactFilter = { search: '', rarity: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -4246,8 +4260,7 @@ let _modalCardFilter = { search: '', rarity: 'todos' };
 function openCardModal(heroId, slotIdx) {
   cardModalContext = { heroId, slot: slotIdx };
   _modalCardFilter = { search: '', rarity: 'todos' };
-  renderCardModalContent();
-  document.getElementById('codexModal').classList.add('active');
+  openCodexModalShell(renderCardModalContent);
 }
 
 function renderCardModalContent() {
@@ -4326,7 +4339,7 @@ function setupModalCardFilterHandlers() {
   const refresh = () => renderCardModalContent();
 
   const rar = document.getElementById('modalFilter_card_rarity');
-  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; refresh(); });
+  if (rar) rar.addEventListener('change', e => { f.rarity = e.target.value; deferAfterPaint(refresh); });
 
   const search = document.getElementById('modalFilter_card_search');
   if (search) {
@@ -4347,7 +4360,7 @@ function setupModalCardFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalCardFilter = { search: '', rarity: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
@@ -4521,8 +4534,16 @@ function openCodexModal(group, slot) {
   codexModalSlot = slot;
   // Reseta filtros sempre que abrir
   _modalHeroFilter = { search: '', rarity: 'todos', faction: 'todos', class: 'todos', position: 'todos', damage: 'todos' };
-  renderHeroModalContent();
+  openCodexModalShell(renderHeroModalContent);
+}
+
+// INP: o modal aparece (vazio) neste frame e a lista de cards é montada no
+// seguinte — com CPU 4x, os ~30 cards custavam ~100ms de estilo/layout/pintura
+// dentro da interação; a casca vazia custa 1 frame.
+function openCodexModalShell(renderFn) {
+  document.getElementById('codexModalBody').innerHTML = '';
   document.getElementById('codexModal').classList.add('active');
+  deferAfterPaint(renderFn);
 }
 
 function renderHeroModalContent() {
@@ -4656,7 +4677,7 @@ function setupModalHeroFilterHandlers() {
 
   ['rarity','faction','class','position','damage'].forEach(k => {
     const el = document.getElementById('modalFilter_hero_' + k);
-    if (el) el.addEventListener('change', e => { f[k] = e.target.value; refresh(); });
+    if (el) el.addEventListener('change', e => { f[k] = e.target.value; deferAfterPaint(refresh); });
   });
 
   const search = document.getElementById('modalFilter_hero_search');
@@ -4679,7 +4700,7 @@ function setupModalHeroFilterHandlers() {
   if (clearBtn) {
     clearBtn.addEventListener('click', () => {
       _modalHeroFilter = { search: '', rarity: 'todos', faction: 'todos', class: 'todos', position: 'todos', damage: 'todos' };
-      refresh();
+      deferAfterPaint(refresh);
     });
   }
 }
