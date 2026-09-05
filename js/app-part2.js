@@ -335,30 +335,54 @@ document.addEventListener('DOMContentLoaded', function() {
   if (wrapper) wrapper.addEventListener('click', abrirBannersModal);
 });
 
-function applyTabUI(tabId, doScroll) {
+// Roda `fn` só depois que o navegador pintou o frame atual. Um setTimeout(0)
+// sozinho não garante isso (o Chrome costuma executá-lo antes do próximo
+// frame), então encadeia rAF → setTimeout: o rAF cai logo antes da pintura e o
+// timer disparado dentro dele só roda depois dela.
+function deferAfterPaint(fn) {
+  requestAnimationFrame(function () { setTimeout(fn, 0); });
+}
+
+// Sequência de navegação entre abas. showHeroDetail/showArtifactDetail gravam
+// em _detailOpenedSeq o valor vigente quando abrem: se o detalhe foi aberto
+// junto com a navegação atual (ex.: card da home faz navigateToTab + show), o
+// hook adiado da aba NÃO pode fechá-lo. Trocar de aba de novo muda o número e
+// aí o hook volta a limpar um detalhe antigo.
+let _tabNavSeq = 0;
+let _detailOpenedSeq = -1;
+
+// deferContent=true (cliques): neste frame só o botão ativo muda — o conteúdo
+// antigo continua na tela e a troca pesada acontece no frame seguinte, então a
+// interação medida pelo INP termina em poucos ms. Na resolução de URL
+// (carregamento/popstate) a troca é imediata pra não atrasar o 1º paint.
+function applyTabUI(tabId, doScroll, deferContent) {
   const btn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
   if (!btn) return false;
+  _tabNavSeq++;
 
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
 
-  const subnav = document.getElementById('guildSubnav');
-  const guildHeader = document.getElementById('guildHeader');
+  const swapContent = function () {
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const subnav = document.getElementById('guildSubnav');
+    const guildHeader = document.getElementById('guildHeader');
 
-  // Se for aba "guilda": mostra header + subnav + ativa sub-aba
-  if (tabId === 'guilda') {
-    if (subnav) subnav.style.display = '';
-    if (guildHeader) guildHeader.style.display = '';
-    applyGuildSubtab(_activeGuildSubtab);
-  } else {
-    if (subnav) subnav.style.display = 'none';
-    if (guildHeader) guildHeader.style.display = 'none';
-    const content = document.getElementById('tab-' + tabId);
-    if (content) content.classList.add('active');
-    // INP: a aba responde neste frame; a renderização pesada vai pro seguinte
-    setTimeout(function () { runTabInitHook(tabId); }, 0);
-  }
+    // Se for aba "guilda": mostra header + subnav + ativa sub-aba
+    if (tabId === 'guilda') {
+      if (subnav) subnav.style.display = '';
+      if (guildHeader) guildHeader.style.display = '';
+      applyGuildSubtab(_activeGuildSubtab);
+    } else {
+      if (subnav) subnav.style.display = 'none';
+      if (guildHeader) guildHeader.style.display = 'none';
+      const content = document.getElementById('tab-' + tabId);
+      if (content) content.classList.add('active');
+      // INP: a aba responde neste frame; a renderização pesada vai pro seguinte
+      deferAfterPaint(function () { runTabInitHook(tabId); });
+    }
+  };
+  if (deferContent) deferAfterPaint(swapContent); else swapContent();
 
   if (doScroll) {
     // Topo da página: o topbar fixo fica no lugar e o conteúdo aparece
@@ -385,14 +409,15 @@ function applyGuildSubtab(subtabId) {
   if (content) content.classList.add('active');
 
   // INP: mesma tática da aba principal — feedback visual antes do render pesado
-  setTimeout(function () { runTabInitHook(subtabId); }, 0);
+  deferAfterPaint(function () { runTabInitHook(subtabId); });
   updatePageMeta('guilda', subtabId);
 }
 
 // Hooks de inicialização (preserva comportamento original)
 function runTabInitHook(tabId) {
   if (tabId === 'heroes') {
-    if (typeof hideHeroDetail === 'function') hideHeroDetail();
+    // Não fecha um detalhe aberto junto com esta mesma navegação (card da home)
+    if (typeof hideHeroDetail === 'function' && _detailOpenedSeq !== _tabNavSeq) hideHeroDetail();
     if (typeof initHeroesTab === 'function') initHeroesTab();
     else if (typeof renderHeroes === 'function') renderHeroes();
   }
@@ -487,7 +512,7 @@ function navigateToTab(tabId, options) {
     return;
   }
 
-  const success = applyTabUI(tabId, options.scroll !== false);
+  const success = applyTabUI(tabId, options.scroll !== false, true);
   if (!success) return;
 
   // Atualiza URL sem recarregar

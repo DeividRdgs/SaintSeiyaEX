@@ -264,7 +264,8 @@ function showHeroDetail(id) {
   const titleH = t(h, 'title');
   const bioH = t(h, 'bio');
 
-  document.getElementById('heroes-view').style.display = 'none';
+  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver runTabInitHook
+  document.getElementById('heroes-view').classList.add('rd-cv-hidden');
   const detail = document.getElementById('hero-detail-view');
   detail.style.display = 'block';
   detail.innerHTML = `
@@ -406,9 +407,10 @@ function showHeroDetail(id) {
 }
 
 function hideHeroDetail() {
-  document.getElementById('heroes-view').style.display = 'block';
+  document.getElementById('heroes-view').classList.remove('rd-cv-hidden');
   document.getElementById('hero-detail-view').style.display = 'none';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Volta ao topo sem animação: a grade reaparece já na posição final
+  window.scrollTo({top: 0, behavior: 'auto'});
 }
 
 // Troca de aba na seção de habilidades do cavaleiro
@@ -442,7 +444,8 @@ function showArtifactDetail(id) {
   const view = document.getElementById('artifacts-view');
   const detail = document.getElementById('artifact-detail-view');
   if (!view || !detail) return;
-  view.style.display = 'none';
+  if (typeof _tabNavSeq !== 'undefined') _detailOpenedSeq = _tabNavSeq; // ver initArtifactsTab
+  view.classList.add('rd-cv-hidden');
   detail.style.display = 'block';
 
   // Lore + efeito base — fallback chain ES → EN → PT
@@ -560,9 +563,10 @@ function showArtifactDetail(id) {
 }
 
 function hideArtifactDetail() {
-  document.getElementById('artifacts-view').style.display = 'block';
+  document.getElementById('artifacts-view').classList.remove('rd-cv-hidden');
   document.getElementById('artifact-detail-view').style.display = 'none';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Volta ao topo sem animação: a grade reaparece já na posição final
+  window.scrollTo({top: 0, behavior: 'auto'});
 }
 
 // Troca de aba SR/SSR/UR dentro do detalhe do artefato
@@ -609,7 +613,7 @@ function showCardDetail(id) {
   const view = document.getElementById('cards-view');
   const detail = document.getElementById('card-detail-view');
   if (!view || !detail) return;
-  view.style.display = 'none';
+  view.classList.add('rd-cv-hidden');
   detail.style.display = 'block';
 
   // Lore (se houver) ou efeito básico
@@ -719,9 +723,10 @@ function showCardDetail(id) {
 }
 
 function hideCardDetail() {
-  document.getElementById('cards-view').style.display = 'block';
+  document.getElementById('cards-view').classList.remove('rd-cv-hidden');
   document.getElementById('card-detail-view').style.display = 'none';
-  window.scrollTo({top: 0, behavior: 'smooth'});
+  // Volta ao topo sem animação: a grade reaparece já na posição final
+  window.scrollTo({top: 0, behavior: 'auto'});
 }
 
 // ═══════ ARTIFACTS TAB ═══════
@@ -729,7 +734,8 @@ let artifactFilter = { search: '', rarity: 'todos' };
 
 function initArtifactsTab() {
   // Garante que volta pra view de lista quando reentrar na aba
-  if (typeof hideArtifactDetail === 'function') hideArtifactDetail();
+  // Não fecha um detalhe aberto junto com esta mesma navegação (busca da home)
+  if (typeof hideArtifactDetail === 'function' && !(typeof _tabNavSeq !== 'undefined' && _detailOpenedSeq === _tabNavSeq)) hideArtifactDetail();
 
   const search = document.getElementById('artifactSearch');
   const sel = document.getElementById('artifactFilterRarity');
