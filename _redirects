@@ -5,6 +5,7 @@
 # Arquivos especiais devem ser servidos com seu Content-Type correto
 /sitemap.xml   /sitemap.xml   200!
 /robots.txt    /robots.txt    200!
+/favicon.ico   /favicon.ico   200!
 
 # Fallback SPA pra todo o resto
 /*    /index.html   200
