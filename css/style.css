@@ -6923,6 +6923,11 @@
     color: var(--gold-bright);
   }
   .calc-arrow { color: var(--ink-dim); font-size: .8rem; }
+  .calc-mode {
+    font-size: .7rem; font-weight: 700; letter-spacing: .06em; padding: 2px 7px;
+    border-radius: 6px; border: 1px solid var(--gold); color: var(--gold-bright);
+  }
+  .calc-hint { color: var(--ink-dim); font-size: .68rem; opacity: .8; }
   .calc-needed { margin-left: auto; color: var(--ink-dim); font-size: .74rem; }
   .calc-needed b { color: var(--ink); font-size: .88rem; }
   .calc-status {

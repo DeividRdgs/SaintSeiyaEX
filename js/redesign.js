@@ -29,7 +29,7 @@ function _rdRarityBadge(rarity) {
 
 /* ---------- destaque da home (edite aqui para trocar os heróis do banner) ---------- */
 const HOME_FEATURED = {
-  heroIds: [1084, 1032], // Shion de Áries, Hypnos — os banners atuais
+  heroIds: [1078],       // Seiya de Pégaso Divino (UR) — o banner atual
   endsAt: null           // ex.: '2026-09-15T23:59:00-03:00' para countdown; null mostra "confira o calendário"
 };
 

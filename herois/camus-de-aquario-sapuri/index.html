@@ -1192,6 +1192,13 @@ Inimigos próximos da Esquife de Gelo recebem 20% de dano psíquico por segundo 
       <div class="calc-grid">
         <form class="calc-card" id="calcForm" onsubmit="return false;" autocomplete="off">
           <div class="calc-field">
+            <label for="calcTipo" data-i18n="calc.type">Tipo</label>
+            <select id="calcTipo">
+              <option value="SSR" selected>SSR</option>
+              <option value="UR">UR</option>
+            </select>
+          </div>
+          <div class="calc-field">
             <label for="calcTickets" data-i18n="calc.tickets">Tickets atuais</label>
             <input type="number" id="calcTickets" value="0" min="0" inputmode="numeric">
           </div>
@@ -1227,7 +1234,7 @@ Inimigos próximos da Esquife de Gelo recebem 20% de dano psíquico por segundo 
             </select>
           </div>
           <div class="calc-field">
-            <label for="calcDiamantes" data-i18n="calc.diamonds">Completar com diamantes roxos?</label>
+            <label for="calcDiamantes" data-i18n="calc.diamonds">Completar frags na aba missão?</label>
             <select id="calcDiamantes">
               <option value="sim" selected data-i18n="calc.yes">Sim</option>
               <option value="nao" data-i18n="calc.no">Não</option>
