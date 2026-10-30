@@ -223,6 +223,42 @@
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
   <div class="tab-content active" id="tab-inicio">
 
+    <!-- ════════ BANNER: DOWNLOAD DO JOGO (/baixar → _redirects) ════════ -->
+    <a class="home-dl" href="/baixar" rel="nofollow">
+      <div class="home-dl-text">
+        <div class="home-dl-badge"><span class="home-dl-dot"></span><span data-i18n="home.dl.kicker">Novo Servidor</span></div>
+        <div class="home-dl-title" data-i18n="home.dl.title">Jogue Saint Seiya EX de graça</div>
+        <div class="home-dl-count" id="homeDlCount" data-abre="2026-10-30T20:00:00-03:00">
+          <div class="home-dl-count-label" data-i18n="home.dl.cdLabel">Abertura: 30/10 às 20h (horário de Brasília)</div>
+          <div class="home-dl-count-clock">
+            <div class="home-dl-cd-box"><b data-cd="d">0</b><span data-i18n="home.dl.cdD">dias</span></div>
+            <div class="home-dl-cd-box"><b data-cd="h">00</b><span data-i18n="home.dl.cdH">horas</span></div>
+            <div class="home-dl-cd-box"><b data-cd="m">00</b><span data-i18n="home.dl.cdM">min</span></div>
+            <div class="home-dl-cd-box"><b data-cd="s">00</b><span data-i18n="home.dl.cdS">seg</span></div>
+          </div>
+          <div class="home-dl-count-open" hidden data-i18n="home.dl.cdOpen">Servidor aberto! Baixe e jogue agora</div>
+        </div>
+        <div class="home-dl-sub" data-i18n="home.dl.sub">Baixe o APK e entre no servidor. Tudo em português, com eventos, PvP e guildas.</div>
+        <div class="home-dl-gifts">
+          <div class="home-dl-gifts-title" data-i18n="home.dl.giftsTitle">🎁 Presente de boas-vindas para toda conta nova</div>
+          <ul class="home-dl-gift-list">
+            <li><b>10</b> <span data-i18n="home.dl.g1">Baús de Cavaleiro SSR (vem com 5★)</span></li>
+            <li><b>5</b> <span data-i18n="home.dl.g2">Baús de Relíquia Sagrada Lendária</span></li>
+            <li><b>20</b> <span data-i18n="home.dl.g3">Baús de Poder Supremo (cartas)</span></li>
+            <li><b>50.000</b> <span data-i18n="home.dl.g4">Diamantes Azuis</span></li>
+            <li><b>10.000</b> <span data-i18n="home.dl.g5">Diamantes Roxos</span></li>
+          </ul>
+        </div>
+        <div class="home-dl-cta">
+          <span class="home-hub-btn primary home-dl-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+            <span data-i18n="home.dl.btn">Baixar APK</span>
+          </span>
+          <span class="home-dl-size" data-i18n="home.dl.size">Android · ~2 GB</span>
+        </div>
+      </div>
+    </a>
+
     <!-- ════════ HUB: manchete + destaque ════════ -->
     <section class="home-hub">
       <div class="home-hub-main">
@@ -1663,5 +1699,6 @@
 <script defer src="js/redesign.js"></script>
 <script defer src="js/banners-calendar.js"></script>
 <script defer src="js/calculadora.js"></script>
+<script defer src="js/contagem-servidor.js"></script>
 </body>
 </html>

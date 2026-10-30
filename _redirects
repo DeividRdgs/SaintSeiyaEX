@@ -1,4 +1,4 @@
-# Netlify SPA fallback — qualquer rota não-arquivo serve o index.html (status 200)
+# Netlify SPA fallback â€” qualquer rota nÃ£o-arquivo serve o index.html (status 200)
 # Isso permite que URLs como /team-builder, /herois, /artefatos, /guilda etc.
 # funcionem ao ser acessadas diretamente (SPA com History API)
 
@@ -6,6 +6,10 @@
 /sitemap.xml   /sitemap.xml   200!
 /robots.txt    /robots.txt    200!
 /favicon.ico   /favicon.ico   200!
+
+# Download do APK do servidor privado (Cloudflare R2). Trocar o destino quando o bucket existir.
+# Tem de ficar ANTES do fallback SPA.
+/baixar        https://pub-17c8136838574a8fb7f0856a37f8d207.r2.dev/eusds.apk   302
 
 # Fallback SPA pra todo o resto
 /*    /index.html   200
