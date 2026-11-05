@@ -10,6 +10,8 @@
 # Download do APK: Worker do Cloudflare (entrega do R2 e conta 1 download por pessoa por dia; D:/MeuJogo/cf_download).
 # Tem de ficar ANTES do fallback SPA.
 /baixar        https://saintseiyaex-download.saintseiyaex.workers.dev/eusds.apk   302
+# App de iPhone/iPad (.ipa sem assinatura; instala pelo Sideloadly). Sobe com D:/MeuJogo/publicar_ipa_r2.ps1.
+/baixar-ios    https://pub-17c8136838574a8fb7f0856a37f8d207.r2.dev/SaintEX.ipa   302
 
 # Fallback SPA pra todo o resto
 /*    /index.html   200

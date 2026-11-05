@@ -301,6 +301,13 @@ html, body {
 .home-dl-cta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
 .home-dl-btn { min-height: 52px; padding: 0 30px; font-size: 1rem; }
 .home-dl-size { font-size: .75rem; color: var(--ink-dim); }
+.home-dl-cta + .home-dl-cta { margin-top: -4px; }
+.home-dl-btn-ios { min-height: 46px; font-size: .95rem; }
+.home-dl-ios-guia { font-size: .84rem; color: var(--ink-dim); max-width: 560px; }
+.home-dl-ios-guia summary { cursor: pointer; color: var(--gold-bright); font-weight: 600; width: fit-content; }
+.home-dl-ios-guia summary:hover { text-decoration: underline; }
+.home-dl-ios-guia ol { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; line-height: 1.5; }
+.home-dl-ios-guia[open] { background: color-mix(in srgb, var(--bg-1) 85%, transparent); border-radius: 12px; padding: 10px 14px; margin-left: -14px; }
 @media (max-width: 760px) {
   .home-dl { padding: 22px 18px; min-height: 0; }
   .home-dl { background:
@@ -312,6 +319,7 @@ html, body {
   .home-dl-cd-box { min-width: 0; flex: 1; }
   .home-dl-cd-box b { font-size: 1.5rem; }
   .home-dl-cta .home-dl-btn { flex: 1 1 100%; justify-content: center; }
+  .home-dl-ios-guia[open] { margin-left: 0; }
 }
 
 /* card de destaque */

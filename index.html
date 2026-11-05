@@ -223,8 +223,8 @@
   <!-- ============ ABA: INÍCIO (HOME) ============ -->
   <div class="tab-content active" id="tab-inicio">
 
-    <!-- ════════ BANNER: DOWNLOAD DO JOGO (/baixar → _redirects) ════════ -->
-    <a class="home-dl" href="/baixar" rel="nofollow">
+    <!-- ════════ BANNER: DOWNLOAD DO JOGO (/baixar = APK Android, /baixar-ios = .ipa iPhone/iPad → _redirects) ════════ -->
+    <div class="home-dl">
       <div class="home-dl-text">
         <div class="home-dl-badge"><span class="home-dl-dot"></span><span data-i18n="home.dl.kicker">Novo Servidor</span></div>
         <div class="home-dl-title" data-i18n="home.dl.title">Jogue Saint Seiya EX de graça</div>
@@ -238,7 +238,7 @@
           </div>
           <div class="home-dl-count-open" hidden data-i18n="home.dl.cdOpen">Servidor aberto! Baixe e jogue agora</div>
         </div>
-        <div class="home-dl-sub" data-i18n="home.dl.sub">Baixe o APK e entre no servidor. Tudo em português, com eventos, PvP e guildas.</div>
+        <div class="home-dl-sub" data-i18n="home.dl.sub">Baixe para Android ou iPhone/iPad e entre no servidor. Tudo em português, com eventos, PvP e guildas.</div>
         <div class="home-dl-gifts">
           <div class="home-dl-gifts-title" data-i18n="home.dl.giftsTitle">🎁 Presente de boas-vindas para toda conta nova</div>
           <ul class="home-dl-gift-list">
@@ -250,14 +250,32 @@
           </ul>
         </div>
         <div class="home-dl-cta">
-          <span class="home-hub-btn primary home-dl-btn">
+          <a class="home-hub-btn primary home-dl-btn" href="/baixar" rel="nofollow">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
             <span data-i18n="home.dl.btn">Baixar APK</span>
-          </span>
+          </a>
           <span class="home-dl-size" data-i18n="home.dl.size">Android · ~2 GB</span>
         </div>
+        <div class="home-dl-cta">
+          <a class="home-hub-btn home-dl-btn home-dl-btn-ios" href="/baixar-ios" rel="nofollow">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16"/></svg>
+            <span data-i18n="home.dl.btnIos">Baixar para iPhone / iPad</span>
+          </a>
+          <span class="home-dl-size" data-i18n="home.dl.sizeIos">iOS · ~1,7 GB · instala pelo PC</span>
+        </div>
+        <details class="home-dl-ios-guia">
+          <summary data-i18n="home.dl.iosGuia">Como instalar no iPhone / iPad</summary>
+          <ol>
+            <li data-i18n="home.dl.ios1">No PC (Windows ou Mac), instale o iTunes pelo site da Apple (não o da Microsoft Store) e o Sideloadly (sideloadly.io).</li>
+            <li data-i18n="home.dl.ios2">Baixe o arquivo SaintEX.ipa no botão acima.</li>
+            <li data-i18n="home.dl.ios3">Ligue o iPhone/iPad no cabo, desbloqueie e toque em "Confiar neste computador".</li>
+            <li data-i18n="home.dl.ios4">Abra o Sideloadly, arraste o SaintEX.ipa, digite seu Apple ID e clique em Start.</li>
+            <li data-i18n="home.dl.ios5">No aparelho: Ajustes → Geral → VPN e Gerenciamento de Dispositivo → toque no seu Apple ID → Confiar. No iOS 16 ou mais novo, ative também Ajustes → Privacidade e Segurança → Modo Desenvolvedor.</li>
+            <li data-i18n="home.dl.ios6">Abra o SaintEX. A instalação vale 7 dias: depois é só repetir o passo 4. Sua conta fica no servidor e não se perde.</li>
+          </ol>
+        </details>
       </div>
-    </a>
+    </div>
 
     <!-- ════════ HUB: manchete + destaque ════════ -->
     <section class="home-hub">
